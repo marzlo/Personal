@@ -10,6 +10,7 @@ const sources = {
   podcasts: { id: "8713b45c-2125-4f12-a10f-c052ff90f17f", url: site + "/4c2a14bf42bc4f139d4bf279f36d2c3b?v=8dc4e593879445558c70b1dd1127fe14" },
   quotes: { id: "d4a879f2-d0a8-4c16-aafc-9134bec7b86d", url: site + "/c3db8f32feec4a82bf849c87322223d5?v=3ccf6701328e4e36aa30106ef41257be" }
 };
+const authorOverrides = JSON.parse(await fs.readFile(new URL("./book-author-overrides.json", import.meta.url), "utf8"));
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 let nextRequestAt = 0;
 
@@ -64,13 +65,15 @@ const pageIdOf = page => String(page.id).replaceAll("-", "");
 const allBooks = await querySource(sources.books.id);
 const allPodcasts = await querySource(sources.podcasts.id);
 const allQuotes = await querySource(sources.quotes.id);
+const allBooksById = new Map(allBooks.map(page => [pageIdOf(page), page]));
+const authorOf = page => selectOf(page, "Author") || authorOverrides[pageIdOf(page)]?.author || "";
 const idToUrl = new Map();
 for (const page of [...allBooks, ...allPodcasts, ...allQuotes]) idToUrl.set(pageIdOf(page), publicUrl(page.id));
 const relationUrls = (page, name) => refsOf(page, name).map(id => idToUrl.get(String(id).replaceAll("-", "")) || publicUrl(id));
 
 const books = allBooks.map(page => ({
   title: titleOf(page, "書名"),
-  author: selectOf(page, "Author"),
+  author: authorOf(page),
   status: selectOf(page, "Leyo status"),
   rating: selectOf(page, "推薦程度"),
   tags: multiOf(page, "屬性"),
@@ -84,14 +87,17 @@ const books = allBooks.map(page => ({
 const podcasts = allPodcasts.map(page => ({
   title: titleOf(page, "Name"),
   created: page.created_time || "",
+  updated: page.last_edited_time || "",
   tags: multiOf(page, "Tags"),
   bookRefs: relationUrls(page, "書籍"),
+  authors: [...new Set([...refsOf(page, "書籍"), ...allBooks.filter(book => refsOf(book, "Podcast 1").includes(page.id)).map(book => book.id)].map(id => allBooksById.get(String(id).replaceAll("-", ""))).filter(Boolean).map(authorOf).filter(Boolean))],
   url: publicUrl(page.id)
 })).filter(x => x.title);
 
 const quotes = allQuotes.map(page => ({
   title: titleOf(page, "Name"),
   created: page.created_time || "",
+  updated: page.last_edited_time || "",
   tags: multiOf(page, "tag"),
   bookRefs: relationUrls(page, "Book"),
   page: prop(page, "Page")?.number ?? null,

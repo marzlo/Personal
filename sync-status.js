@@ -11,6 +11,8 @@
   const workerUrl = window.SYNC_WORKER_URL;
   const syncResult = new URLSearchParams(window.location.search).get("sync");
   const syncStage = new URLSearchParams(window.location.search).get("stage");
+  const dispatchStatus = new URLSearchParams(window.location.search).get("dispatch_status");
+  const dispatchMessage = new URLSearchParams(window.location.search).get("dispatch_message");
   if (syncButton && workerUrl) {
     syncButton.href = `${workerUrl.replace(/\/$/, "")}/sync`;
     syncButton.removeAttribute("target");
@@ -33,7 +35,9 @@
         workflow_lookup: "GitHub API 無法讀取 sync-notion.yml；請確認 token 可存取 Personal 儲存庫。",
         dispatch: "GitHub 拒絕啟動工作流程；請檢查 PAT 的 Personal 儲存庫範圍與 Actions 寫入權限。"
       };
-      syncHint.textContent = stageHints[syncStage] || "無法啟動同步，請查看 Cloudflare Worker 記錄。";
+      syncHint.textContent = syncStage === "dispatch" && dispatchStatus
+        ? `GitHub 派送失敗（HTTP ${dispatchStatus}）：${dispatchMessage || "API 未提供原因"}`
+        : stageHints[syncStage] || "無法啟動同步，請查看 Cloudflare Worker 記錄。";
     }
     else syncHint.textContent = "按下更新後，驗證 GitHub 帳號即可直接啟動同步。";
   }

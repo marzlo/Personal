@@ -2,7 +2,6 @@ const DASHBOARD_URL = "https://marzlo.github.io/Personal/";
 const ALLOWED_GITHUB_LOGIN = "marzlo";
 const REPOSITORY = "marzlo/Personal";
 const WORKFLOW_FILE = "sync-notion.yml";
-const WORKFLOW_DISPATCH_URL = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/dispatches";
 const WORKFLOW_URL = `https://api.github.com/repos/${REPOSITORY}/actions/workflows/${WORKFLOW_FILE}`;
 
 function githubHeaders(token) {
@@ -106,16 +105,34 @@ export default {
         if (workflow.state !== "active") throw new Error(`Workflow state is ${workflow.state}`);
 
         stage = "dispatch";
-        const dispatchResponse = await fetch(WORKFLOW_DISPATCH_URL, {
+        const dispatchResponse = await fetch(`https://api.github.com/repos/${REPOSITORY}/actions/workflows/${workflow.id}/dispatches`, {
           method: "POST",
           headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${env.GITHUB_ACTIONS_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json", "User-Agent": "Personal-Notion-Dashboard" },
           body: JSON.stringify({ ref: "main" }),
         });
-        if (dispatchResponse.status !== 204) throw new Error(`Workflow dispatch returned ${dispatchResponse.status}`);
+        if (![200, 204].includes(dispatchResponse.status)) {
+          let githubMessage = "";
+          try {
+            const payload = await dispatchResponse.json();
+            if (typeof payload.message === "string") githubMessage = payload.message.slice(0, 160);
+          } catch { /* GitHub may return an empty or non-JSON error body. */ }
+          const error = new Error(`Workflow dispatch returned ${dispatchResponse.status}${githubMessage ? `: ${githubMessage}` : ""}`);
+          error.status = dispatchResponse.status;
+          throw error;
+        }
         return redirect(`${DASHBOARD_URL}?sync=started`, { "Set-Cookie": clearCookie });
       } catch (error) {
-        console.error(`Notion sync failed at ${stage}: ${error instanceof Error ? error.message : "unknown error"}`);
-        return redirect(`${DASHBOARD_URL}?sync=error&stage=${stage}`, { "Set-Cookie": clearCookie });
+        const message = error instanceof Error ? error.message : "unknown error";
+        console.error(`Notion sync failed at ${stage}: ${message}`);
+        const resultUrl = new URL(DASHBOARD_URL);
+        resultUrl.searchParams.set("sync", "error");
+        resultUrl.searchParams.set("stage", stage);
+        if (stage === "dispatch" && error?.status) {
+          resultUrl.searchParams.set("dispatch_status", String(error.status));
+          const githubMessage = message.split(": ").slice(1).join(": ").slice(0, 160);
+          if (githubMessage) resultUrl.searchParams.set("dispatch_message", githubMessage);
+        }
+        return redirect(resultUrl.toString(), { "Set-Cookie": clearCookie });
       }
     }
 

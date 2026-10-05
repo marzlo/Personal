@@ -1,6 +1,18 @@
 const DASHBOARD_URL = "https://marzlo.github.io/Personal/";
 const ALLOWED_GITHUB_LOGIN = "marzlo";
+const REPOSITORY = "marzlo/Personal";
+const WORKFLOW_FILE = "sync-notion.yml";
 const WORKFLOW_DISPATCH_URL = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/dispatches";
+const WORKFLOW_URL = `https://api.github.com/repos/${REPOSITORY}/actions/workflows/${WORKFLOW_FILE}`;
+
+function githubHeaders(token) {
+  return {
+    Accept: "application/vnd.github+json",
+    Authorization: `Bearer ${token}`,
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "Personal-Notion-Dashboard",
+  };
+}
 
 function response(body, status = 200, headers = {}) {
   return new Response(body, {
@@ -76,12 +88,22 @@ export default {
         if (!tokenData.access_token) throw new Error("OAuth returned no access token");
 
         stage = "verify_user";
-        const userResponse = await fetch("https://api.github.com/user", {
-          headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${tokenData.access_token}`, "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "Personal-Notion-Dashboard" },
-        });
+        const userResponse = await fetch("https://api.github.com/user", { headers: githubHeaders(tokenData.access_token) });
         if (!userResponse.ok) throw new Error("Could not verify GitHub user");
         const user = await userResponse.json();
         if (user.login !== ALLOWED_GITHUB_LOGIN) return redirect(`${DASHBOARD_URL}?sync=unauthorized`, { "Set-Cookie": clearCookie });
+
+        stage = "pat_identity";
+        const patResponse = await fetch("https://api.github.com/user", { headers: githubHeaders(env.GITHUB_ACTIONS_TOKEN) });
+        if (!patResponse.ok) throw new Error(`GitHub Actions token identity check returned ${patResponse.status}`);
+        const patUser = await patResponse.json();
+        if (patUser.login !== ALLOWED_GITHUB_LOGIN) throw new Error("GitHub Actions token belongs to a different account");
+
+        stage = "workflow_lookup";
+        const workflowResponse = await fetch(WORKFLOW_URL, { headers: githubHeaders(env.GITHUB_ACTIONS_TOKEN) });
+        if (!workflowResponse.ok) throw new Error(`Workflow lookup returned ${workflowResponse.status}`);
+        const workflow = await workflowResponse.json();
+        if (workflow.state !== "active") throw new Error(`Workflow state is ${workflow.state}`);
 
         stage = "dispatch";
         const dispatchResponse = await fetch(WORKFLOW_DISPATCH_URL, {

@@ -29,6 +29,8 @@
         code: "GitHub 沒有回傳授權碼；請重新啟動 OAuth 授權。",
         token_exchange: "OAuth token 交換失敗；請檢查 Worker 的 GITHUB_CLIENT_SECRET 是否為目前的 Client secret。",
         verify_user: "無法確認 GitHub 帳號；請檢查 OAuth 設定並確認登入 marzlo。",
+        pat_identity: "GitHub Actions token 驗證失敗；請確認 Production 的 GITHUB_ACTIONS_TOKEN 是有效 token。",
+        workflow_lookup: "GitHub API 無法讀取 sync-notion.yml；請確認 token 可存取 Personal 儲存庫。",
         dispatch: "GitHub 拒絕啟動工作流程；請檢查 PAT 的 Personal 儲存庫範圍與 Actions 寫入權限。"
       };
       syncHint.textContent = stageHints[syncStage] || "無法啟動同步，請查看 Cloudflare Worker 記錄。";

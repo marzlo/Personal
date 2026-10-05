@@ -22,7 +22,7 @@
 <script src="./data.js"></script><script src="./quote-bodies.js"></script><script>
 const DB=window.DASHBOARD_DATA, books=DB.books.filter(x=>x.title), podcasts=DB.podcasts.filter(x=>x.title), quotes=DB.quotes.filter(x=>x.title), bookByUrl=new Map(books.map(x=>[x.url,x]));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const notionUrl=u=>String(u||'').startsWith('https://app.notion.com/')?u:'#';
+const notionUrl=u=>String(u||'').startsWith('https://pickle-trail-279.notion.site/')?u:'#';
 const related=(list,url,key)=>list.filter(x=>(x[key]||[]).includes(url));
 function dateShort(s){const d=new Date(String(s||'').replace(' ','T'));return isNaN(d)?'':new Intl.DateTimeFormat('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit'}).format(d).replaceAll('/','.');}
 function namesFor(refs){return (refs||[]).map(u=>bookByUrl.get(u)?.title).filter(Boolean).join('、')}

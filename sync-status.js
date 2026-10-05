@@ -10,6 +10,7 @@
 
   const workerUrl = window.SYNC_WORKER_URL;
   const syncResult = new URLSearchParams(window.location.search).get("sync");
+  const syncStage = new URLSearchParams(window.location.search).get("stage");
   if (syncButton && workerUrl) {
     syncButton.href = `${workerUrl.replace(/\/$/, "")}/sync`;
     syncButton.removeAttribute("target");
@@ -20,7 +21,18 @@
     if (!workerUrl) syncHint.textContent = "自動更新入口部署完成後，按鈕會直接啟動同步。";
     else if (syncResult === "started") syncHint.textContent = "已送出同步，進度會在上方自動更新。";
     else if (syncResult === "unauthorized") syncHint.textContent = "此功能僅開放給 GitHub 帳號 marzlo。";
-    else if (syncResult === "error") syncHint.textContent = "無法啟動同步，請稍後再試或查看 GitHub Actions。";
+    else if (syncResult === "error") {
+      const stageHints = {
+        configuration: "Worker 缺少必要設定；請確認 Production 環境的三個憑證名稱並部署。",
+        state: "OAuth 驗證狀態失效；請重新按更新資料並完成 GitHub 授權。",
+        oauth: "GitHub OAuth 未完成授權；請重新按更新資料並完成授權。",
+        code: "GitHub 沒有回傳授權碼；請重新啟動 OAuth 授權。",
+        token_exchange: "OAuth token 交換失敗；請檢查 Worker 的 GITHUB_CLIENT_SECRET 是否為目前的 Client secret。",
+        verify_user: "無法確認 GitHub 帳號；請檢查 OAuth 設定並確認登入 marzlo。",
+        dispatch: "GitHub 拒絕啟動工作流程；請檢查 PAT 的 Personal 儲存庫範圍與 Actions 寫入權限。"
+      };
+      syncHint.textContent = stageHints[syncStage] || "無法啟動同步，請查看 Cloudflare Worker 記錄。";
+    }
     else syncHint.textContent = "按下更新後，驗證 GitHub 帳號即可直接啟動同步。";
   }
 

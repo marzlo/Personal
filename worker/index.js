@@ -24,9 +24,10 @@ function getCookie(request, name) {
   return part ? part.slice(name.length + 1) : "";
 }
 
-function dashboardResult(result) {
+function dashboardResult(result, stage = "") {
   const url = new URL(DASHBOARD_URL);
   url.searchParams.set("sync", result);
+  if (stage) url.searchParams.set("stage", stage);
   return redirect(url.toString());
 }
 
@@ -37,7 +38,7 @@ export default {
 
     if (url.pathname === "/sync") {
       if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.GITHUB_ACTIONS_TOKEN) {
-        return response("Worker 尚未完成設定。請確認 OAuth 憑證與 GitHub Actions token 已加入 Worker Secrets/Variables。", 503);
+        return dashboardResult("error", "configuration");
       }
       const state = randomState();
       const callback = `${url.origin}/auth/callback`;
@@ -57,22 +58,24 @@ export default {
       const state = url.searchParams.get("state") || "";
       const expectedState = getCookie(request, "sync_oauth_state");
       if (!state || !expectedState || state !== expectedState) {
-        return dashboardResult("error");
+        return dashboardResult("error", "state");
       }
-      if (url.searchParams.has("error")) return redirect(`${DASHBOARD_URL}?sync=error`, { "Set-Cookie": clearCookie });
+      if (url.searchParams.has("error")) return redirect(`${DASHBOARD_URL}?sync=error&stage=oauth`, { "Set-Cookie": clearCookie });
       const code = url.searchParams.get("code");
-      if (!code) return redirect(`${DASHBOARD_URL}?sync=error`, { "Set-Cookie": clearCookie });
+      if (!code) return redirect(`${DASHBOARD_URL}?sync=error&stage=code`, { "Set-Cookie": clearCookie });
 
+      let stage = "token_exchange";
       try {
         const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
           method: "POST",
           headers: { Accept: "application/json", "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code, redirect_uri: `${url.origin}/auth/callback` }),
         });
-        if (!tokenResponse.ok) throw new Error("OAuth token exchange failed");
+        if (!tokenResponse.ok) throw new Error(`OAuth token exchange returned ${tokenResponse.status}`);
         const tokenData = await tokenResponse.json();
         if (!tokenData.access_token) throw new Error("OAuth returned no access token");
 
+        stage = "verify_user";
         const userResponse = await fetch("https://api.github.com/user", {
           headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${tokenData.access_token}`, "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "Personal-Notion-Dashboard" },
         });
@@ -80,6 +83,7 @@ export default {
         const user = await userResponse.json();
         if (user.login !== ALLOWED_GITHUB_LOGIN) return redirect(`${DASHBOARD_URL}?sync=unauthorized`, { "Set-Cookie": clearCookie });
 
+        stage = "dispatch";
         const dispatchResponse = await fetch(WORKFLOW_DISPATCH_URL, {
           method: "POST",
           headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${env.GITHUB_ACTIONS_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json", "User-Agent": "Personal-Notion-Dashboard" },
@@ -87,8 +91,9 @@ export default {
         });
         if (dispatchResponse.status !== 204) throw new Error(`Workflow dispatch returned ${dispatchResponse.status}`);
         return redirect(`${DASHBOARD_URL}?sync=started`, { "Set-Cookie": clearCookie });
-      } catch {
-        return redirect(`${DASHBOARD_URL}?sync=error`, { "Set-Cookie": clearCookie });
+      } catch (error) {
+        console.error(`Notion sync failed at ${stage}: ${error instanceof Error ? error.message : "unknown error"}`);
+        return redirect(`${DASHBOARD_URL}?sync=error&stage=${stage}`, { "Set-Cookie": clearCookie });
       }
     }
 

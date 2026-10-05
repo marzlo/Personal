@@ -3,8 +3,26 @@
   const percent = document.querySelector("#syncStatusPercent");
   const fill = document.querySelector("#syncProgressFill");
   const track = document.querySelector(".sync-progress-track");
+  const syncButton = document.querySelector(".sync-button");
+  const syncHint = document.querySelector(".sync-progress-hint");
   const endpoint = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/runs?per_page=1";
   if (!label || !percent || !fill || !track) return;
+
+  const workerUrl = window.SYNC_WORKER_URL;
+  const syncResult = new URLSearchParams(window.location.search).get("sync");
+  if (syncButton && workerUrl) {
+    syncButton.href = `${workerUrl.replace(/\/$/, "")}/sync`;
+    syncButton.removeAttribute("target");
+    syncButton.removeAttribute("rel");
+    syncButton.title = "驗證 GitHub 帳號後直接啟動 Notion 同步";
+  }
+  if (syncHint) {
+    if (!workerUrl) syncHint.textContent = "自動更新入口部署完成後，按鈕會直接啟動同步。";
+    else if (syncResult === "started") syncHint.textContent = "已送出同步，進度會在下方自動更新。";
+    else if (syncResult === "unauthorized") syncHint.textContent = "此功能僅開放給 GitHub 帳號 marzlo。";
+    else if (syncResult === "error") syncHint.textContent = "無法啟動同步，請稍後再試或查看 GitHub Actions。";
+    else syncHint.textContent = "按下更新後，驗證 GitHub 帳號即可直接啟動同步。";
+  }
 
   function show(text, value = 0, active = false) {
     label.textContent = text;

@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -38,7 +40,17 @@ jobs:
             echo "No snapshot changes to commit."
           else
             git commit -m "Sync Notion dashboard data"
-            git push origin HEAD:main
+            # Notion fetching can take minutes; main may have changed meanwhile.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                exit 1
+              fi
+            done
           fi
 
       - name: Configure GitHub Pages

@@ -5,7 +5,7 @@
   const track = document.querySelector(".sync-progress-track");
   const syncButton = document.querySelector(".sync-button");
   const syncHint = document.querySelector(".sync-progress-hint");
-  const endpoint = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/runs?per_page=1";
+  const endpoint = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/runs?per_page=10";
   if (!label || !percent || !fill || !track) return;
 
   const workerUrl = window.SYNC_WORKER_URL;
@@ -13,6 +13,28 @@
   const syncStage = new URLSearchParams(window.location.search).get("stage");
   const dispatchStatus = new URLSearchParams(window.location.search).get("dispatch_status");
   const dispatchMessage = new URLSearchParams(window.location.search).get("dispatch_message");
+  const pendingKey = "shiyeSyncRequestedAt";
+  let requestedAt = 0;
+  try {
+    requestedAt = Number(sessionStorage.getItem(pendingKey)) || 0;
+    if (syncResult === "started" && !requestedAt) {
+      requestedAt = Date.now();
+      sessionStorage.setItem(pendingKey, String(requestedAt));
+    }
+  } catch { /* Polling remains available when storage is disabled. */ }
+  if (syncResult === "started" && !requestedAt) requestedAt = Date.now();
+  function clearRequest() {
+    requestedAt = 0;
+    try { sessionStorage.removeItem(pendingKey); } catch {}
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("sync") === "started") {
+      url.searchParams.delete("sync");
+      window.history.replaceState(null, "", url);
+    }
+  }
+  if (syncButton) syncButton.addEventListener("click", () => {
+    try { sessionStorage.setItem(pendingKey, String(Date.now())); } catch {}
+  });
   if (syncButton && workerUrl) {
     syncButton.href = `${workerUrl.replace(/\/$/, "")}/sync`;
     syncButton.removeAttribute("target");
@@ -64,20 +86,42 @@
 
   async function update() {
     try {
-      const response = await fetch(endpoint, { headers: { Accept: "application/vnd.github+json" } });
+      const response = await fetch(endpoint, { cache: "no-store", headers: { Accept: "application/vnd.github+json" } });
       if (!response.ok) throw new Error("GitHub status unavailable");
       const runs = (await response.json()).workflow_runs || [];
-      const run = runs[0];
+      // A newer queued run must not hide the sync already in progress.
+      const run = runs.find(item => item.status === "in_progress") || runs.find(item => item.status !== "completed") || runs[0];
+      if (requestedAt && (!run || (run.status === "completed" && Date.parse(run.created_at) < requestedAt - 10000))) {
+        if (Date.now() - requestedAt < 120000) {
+          show("已送出同步，等待 GitHub 建立工作", 3, true);
+          return true;
+        }
+        clearRequest();
+        show("尚未確認新同步，請到 GitHub 查看");
+        if (syncHint) syncHint.textContent = "等待已超過兩分鐘；請查看工作流程是否已建立。";
+        return false;
+      }
       if (!run) {
         show("尚未執行過同步");
         return false;
       }
       if (run.status === "completed") {
-        show(run.conclusion === "success" ? "最近一次同步成功" : run.conclusion === "cancelled" ? "最近一次同步已取消" : "最近一次同步失敗", 100);
+        clearRequest();
+        show(run.conclusion === "success" ? "最近一次同步成功" : run.conclusion === "cancelled" ? "最近一次同步已取消" : "最近一次同步失敗", run.conclusion === "success" ? 100 : 0);
+        if (syncHint) {
+          syncHint.replaceChildren();
+          syncHint.append(run.conclusion === "success" ? "資料與網站已更新，可重新整理頁面。 " : "同步未完成，請查看失敗步驟。 ");
+          const details = document.createElement("a");
+          details.href = run.html_url;
+          details.textContent = "查看同步紀錄 ↗";
+          details.target = "_blank";
+          details.rel = "noreferrer";
+          syncHint.append(details);
+        }
         return false;
       }
 
-      if (run.status === "queued") {
+      if (["queued", "pending", "waiting", "requested"].includes(run.status)) {
         show("同步排隊中", 3, true);
         return true;
       }
@@ -102,7 +146,7 @@
       return true;
     } catch {
       show("暫時讀不到同步狀態，可到 GitHub 查看");
-      return false;
+      return true;
     }
   }
 

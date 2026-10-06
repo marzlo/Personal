@@ -1,0 +1,8 @@
+.notes-sync-panel{margin:30px 0 22px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink)}
+.notes-sync-panel strong{font-size:15px;font-weight:600}
+.notes-sync-panel p{font-size:12px;color:var(--muted);line-height:1.8;margin:7px 0 12px}
+.notes-sync-actions,.notes-sync-panel [data-notes-conflict]{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.notes-sync-panel [hidden]{display:none!important}
+.notes-sync-panel button,.notes-sync-panel a{font-size:12px;padding:9px 12px;min-height:40px;border-radius:7px;border:1px solid var(--line);background:var(--white);color:var(--green);text-decoration:none;cursor:pointer}
+.notes-sync-panel a.primary{background:var(--green);color:white;border-color:var(--green)}
+.notes-sync-panel [data-notes-conflict]{margin-top:12px}

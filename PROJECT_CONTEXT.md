@@ -60,12 +60,18 @@
 
 ## 本機儲存
 
-以下內容目前僅在同一瀏覽器保存，不會寫回 Notion 或跨裝置同步：
+以下內容在本機保存；啟用「共用我的整理」後，登入 `marzlo` 可透過 Cloudflare 私人儲存跨裝置同步，不會寫回 Notion 或公開 GitHub：
 
 - `shiyeIdeas`：觀念與記事。
 - `shiyeArticleTags`：自訂文章標籤。
 - `shiyeSeriesStudy`：系列名詞整理與文章連結。
 - `shiyeSeriesConfigs`：可管理的系列與名詞設定。
+
+- `notes-sync.js`／`notes-sync.css`：頁面底部的共用整理入口、備份、自動上傳與每 15 秒查詢；未儲存表單暫緩載入，衝突須選擇版本。
+- `worker/index.js`／`worker/wrangler.jsonc`：`/login`、簽名登入 session、`/api/notes` 及 `NotesStore` Durable Object；Cloudflare 已部署。
+- 初次以使用者電腦版為主：在原本有整理的電腦瀏覽器登入並按「以這台建立共用資料」，手機再登入；手機原有整理先備份，已刪除名詞不合併回來。
+- 登入 session 存在 sessionStorage，有效七天；本機保留十份備份，可匯出；服務端保留前二十個版本。
+- 本機保存入口使用 `window.ShiyeNotes.write`；遠端載入以 `shiye:notes-loaded` 事件重新顯示，保留 localStorage 原結構。
 
 變更這些結構時需保留既有資料；資料檔為公開資料，金鑰不要寫入前端或提交到 Git。
 

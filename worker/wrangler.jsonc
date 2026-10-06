@@ -1,0 +1,12 @@
+{
+  "name": "shiye-notion-sync",
+  "main": "index.js",
+  "compatibility_date": "2026-10-05",
+  "keep_vars": true,
+  "preview_urls": false,
+  "observability": { "enabled": true, "logs": { "enabled": true } },
+  "durable_objects": {
+    "bindings": [{ "name": "NOTES_STORE", "class_name": "NotesStore" }]
+  },
+  "migrations": [{ "tag": "notes-v1", "new_sqlite_classes": ["NotesStore"] }]
+}

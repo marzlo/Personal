@@ -32,6 +32,7 @@
 - 本次更新摘句：引用 Notion 原文並附來源。
 - 更新資料按鈕和同步進度在整個頁面最底下。
 - 左側導覽依頁面順序提供：總覽、最新 Podcast、推薦文章、文章、觀念整理、系列深讀、Podcast 與主題；反白及 aria-current 隨捲動位置更新。
+- 文章、最新 Podcast、推薦文章提供分享按鈕；`article-share.js` 與 `article-share.css` 實作已確認的「靜讀卡片」。分享網址使用 Notion page ID（`?article=...`），開啟時顯示深色背景文字彈窗，可前往 Notion 原文或取消回首頁。無效文章顯示提示，不接受任意外部網址。
 
 ## 觀念整理
 

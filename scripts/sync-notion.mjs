@@ -13,6 +13,7 @@ const sources = {
 const authorOverrides = JSON.parse(await fs.readFile(new URL("./book-author-overrides.json", import.meta.url), "utf8"));
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 let nextRequestAt = 0;
+const childrenCache = new Map();
 
 async function request(path, options = {}) {
   for (let attempt = 0; attempt < 7; attempt++) {
@@ -111,6 +112,7 @@ const quotes = allQuotes.map(page => ({
 })).filter(x => x.title);
 
 async function children(blockId) {
+  if (childrenCache.has(blockId)) return childrenCache.get(blockId);
   const results = [];
   let cursor;
   do {
@@ -119,6 +121,7 @@ async function children(blockId) {
     results.push(...page.results);
     cursor = page.has_more ? page.next_cursor : undefined;
   } while (cursor);
+  childrenCache.set(blockId, results);
   return results;
 }
 
@@ -189,6 +192,17 @@ const quoteBodies = {};
 for (const page of allQuotes) {
   quoteBodies[publicUrl(page.id)] = (await blockLines(page.id)).join("\n").trim();
 }
+const articleBodies = {};
+const audioBookUrls = new Set(books.filter(book => book.hasAudio).map(book => book.url));
+const articlePages = [...allPodcasts, ...allBooks.filter(page => audioBookUrls.has(publicUrl(page.id)))];
+for (const page of articlePages) {
+  try {
+    articleBodies[publicUrl(page.id)] = (await blockLines(page.id)).join("\n").trim();
+  } catch (error) {
+    console.warn("Could not read article body for " + publicUrl(page.id) + ": " + error.message);
+    articleBodies[publicUrl(page.id)] = "";
+  }
+}
 const bookByUrl = new Map(titledBooks.map(book => [book.url, book]));
 const reflectiveWords = /自己|生命|意識|選擇|相信|理解|自由|改變|感受|存在|真正|行動|責任|世界|內在|思考|經驗|可能|看見|活著|成為/;
 function quoteCandidates(text) {
@@ -233,4 +247,5 @@ const snapshot = {
 };
 await fs.writeFile("data.js", "window.DASHBOARD_DATA = " + JSON.stringify(snapshot) + ";\n", "utf8");
 await fs.writeFile("quote-bodies.js", "window.QUOTE_BODIES = " + JSON.stringify(quoteBodies) + ";\n", "utf8");
+await fs.writeFile("article-bodies.js", "window.ARTICLE_BODIES = " + JSON.stringify(articleBodies) + ";\n", "utf8");
 console.log("Synced " + books.length + " books, " + podcasts.length + " podcasts, and " + quotes.length + " quotes.");

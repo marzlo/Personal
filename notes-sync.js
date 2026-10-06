@@ -144,7 +144,7 @@
   }
   function boot() {
     panel = document.createElement('section'); panel.className = 'notes-sync-panel'; panel.setAttribute('aria-label', '跨裝置整理同步');
-    panel.innerHTML = `<div><strong>共用我的整理</strong><p data-notes-status aria-live="polite">登入 GitHub 後，手機與電腦共用名詞、筆記與觀念。</p></div><div class="notes-sync-actions"><a data-notes-login class="primary">登入 GitHub</a><button type="button" data-notes-now>同步整理</button><button type="button" data-notes-backup>匯出備份</button><button type="button" data-notes-initialize hidden>以這台建立共用資料</button></div><div data-notes-conflict hidden><button type="button" data-notes-use-remote>載入共用版本</button><button type="button" data-notes-use-local>以這台版本更新共用資料</button></div>`;
+    panel.innerHTML = `<div><strong>共用我的整理</strong><p data-notes-status aria-live="polite">登入 GitHub 後，手機與電腦共用名詞、筆記與觀念。</p></div><div class="notes-sync-actions"><a data-notes-login class="primary">登入 GitHub</a><button type="button" data-notes-initialize hidden>以這台建立共用資料</button><details class="notes-sync-more"><summary>更多</summary><div><button type="button" data-notes-now>同步整理</button><button type="button" data-notes-backup>匯出備份</button></div></details></div><div data-notes-conflict hidden><button type="button" data-notes-use-remote>載入共用版本</button><button type="button" data-notes-use-local>以這台版本更新共用資料</button></div>`;
     document.querySelector('.sync-topbar').before(panel);
     reminder = document.createElement('aside');
     reminder.className = 'notes-login-reminder';

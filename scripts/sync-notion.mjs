@@ -189,9 +189,44 @@ const quoteBodies = {};
 for (const page of allQuotes) {
   quoteBodies[publicUrl(page.id)] = (await blockLines(page.id)).join("\n").trim();
 }
+const bookByUrl = new Map(titledBooks.map(book => [book.url, book]));
+const reflectiveWords = /自己|生命|意識|選擇|相信|理解|自由|改變|感受|存在|真正|行動|責任|世界|內在|思考|經驗|可能|看見|活著|成為/;
+function quoteCandidates(text) {
+  const lines = String(text || "").split(/\n+/)
+    .map(line => line.replace(/^\s*(?:#{1,3}\s|>\s?|[-*]\s|\d+\.\s)/, "").trim())
+    .filter(line => line && !/^(深度探討模式|辯論模式)$/.test(line));
+  return lines.flatMap(line => {
+    const sentences = line.match(/[^。！？.!?]+[。！？.!?]?/g) || [line];
+    return sentences.map(sentence => sentence.trim()).filter(sentence => sentence.length >= 28 && sentence.length <= 220);
+  });
+}
+const featuredCandidates = quotes.flatMap(quote => {
+  const body = quoteBodies[quote.url] || "";
+  let passages = quoteCandidates(body);
+  if (!passages.length) {
+    const firstLine = body.split(/\n+/).map(line => line.trim()).find(line => line.length >= 28);
+    if (firstLine) passages = [firstLine.slice(0, 180).replace(/[，、；：\s]+$/, "") + (firstLine.length > 180 ? "…" : "")];
+  }
+  const reflective = passages.filter(passage => reflectiveWords.test(passage));
+  if (reflective.length) passages = reflective;
+  if (!passages.length) return [];
+  const passage = passages[Math.floor(Math.random() * passages.length)];
+  const book = quote.bookRefs.map(url => bookByUrl.get(url)).find(Boolean);
+  return [{
+    text: passage,
+    sourceTitle: book?.title || quote.title || "Notion 金句",
+    sourceUrl: book?.url || quote.url,
+    notionUrl: quote.url,
+    page: quote.page
+  }];
+});
+const featuredQuote = featuredCandidates.length
+  ? featuredCandidates[Math.floor(Math.random() * featuredCandidates.length)]
+  : null;
 const snapshot = {
   updatedAt: new Date().toISOString().slice(0, 10),
   sources: Object.fromEntries(Object.entries(sources).map(([key, value]) => [key, value.url])),
+  featuredQuote,
   books: titledBooks,
   podcasts,
   quotes

@@ -6,3 +6,9 @@
 .notes-sync-panel button,.notes-sync-panel a{font-size:12px;padding:9px 12px;min-height:40px;border-radius:7px;border:1px solid var(--line);background:var(--white);color:var(--green);text-decoration:none;cursor:pointer}
 .notes-sync-panel a.primary{background:var(--green);color:white;border-color:var(--green)}
 .notes-sync-panel [data-notes-conflict]{margin-top:12px}
+.notes-login-reminder{position:fixed;z-index:100;bottom:20px;left:50%;transform:translateX(-50%);width:min(660px,calc(100% - 32px));display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid #bdcfc0;border-radius:12px;background:var(--white);color:var(--ink);box-shadow:0 8px 35px #25342d26}
+.notes-login-reminder[hidden]{display:none}
+.notes-login-reminder p{flex:1;margin:0;font-size:13px;line-height:1.8}
+.notes-login-reminder a{flex:none;text-decoration:none;white-space:nowrap;min-height:44px;display:flex;align-items:center}
+.notes-login-reminder button{flex:none;border:0;background:transparent;color:var(--muted);font-size:22px;width:36px;height:44px}
+@media(max-width:620px){.notes-login-reminder{bottom:12px;flex-wrap:wrap;gap:8px;padding:14px}.notes-login-reminder p{flex-basis:calc(100% - 44px)}.notes-login-reminder button{position:absolute;right:8px;bottom:10px}.notes-login-reminder a{font-size:12px}}

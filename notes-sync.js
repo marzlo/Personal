@@ -4,6 +4,29 @@
   const backupKey = 'shiyeNotesBackup';
   const tokenKey = 'shiyeNotesSession';
   let applying = false, busy = false, timer, base = null, token = '', conflict = null, panel;
+  let reminder, loginExpired = false, lastEditAt = 0;
+  function sessionValid() {
+    if (!token) return false;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[0].replaceAll('-', '+').replaceAll('_', '/')));
+      return Number.isFinite(payload.exp) && payload.exp > Date.now() / 1000;
+    } catch { return false; }
+  }
+  function invalidateSession() {
+    loginExpired = true;
+    token = '';
+    try { sessionStorage.removeItem(tokenKey); } catch {}
+    if (panel) panel.querySelector('[data-notes-login]').hidden = false;
+  }
+  function requireLogin() {
+    if (token && !sessionValid()) invalidateSession();
+    if (token) return false;
+    if (reminder) {
+      reminder.hidden = false;
+      reminder.querySelector('[data-login-reminder-text]').textContent = (loginExpired || base ? '登入已失效，請重新登入 GitHub 才能同步到另一台裝置。' : '請登入 GitHub，讓這次整理同步到另一台裝置。') + ' 請先儲存目前編輯；已儲存的內容會保留在本機。';
+    }
+    return true;
+  }
   const copy = value => JSON.parse(JSON.stringify(value));
   const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   function snapshot() {
@@ -40,6 +63,7 @@
       const changed = localStorage.getItem(key) !== text;
       localStorage.setItem(key, text);
       if (changed && !applying) {
+        if (panel) requireLogin();
         if (panel) status(token ? '已儲存在本機，正在同步…' : '已儲存在本機；登入後可同步到另一台裝置。');
         clearTimeout(timer); timer = setTimeout(synchronize, 900);
       }
@@ -47,7 +71,7 @@
   };
   function status(text) { panel.querySelector('[data-notes-status]').textContent = text; }
   function editing() {
-    return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleTagDialog[open]')].some(form => !form.hidden && form.getClientRects().length);
+    return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#newConceptForm,#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleTagDialog[open],#concepts textarea,#concepts input:not([type="hidden"])')].some(form => !form.hidden && form.getClientRects().length);
   }
   async function api(method, body) {
     const response = await fetch(window.SYNC_WORKER_URL.replace(/\/$/, '') + '/api/notes', {
@@ -55,8 +79,8 @@
       ...(body ? { body: JSON.stringify(body) } : {})
     });
     if (response.status === 401) {
-      token = ''; sessionStorage.removeItem(tokenKey);
-      panel.querySelector('[data-notes-login]').hidden = false;
+      invalidateSession();
+      if (editing() || Date.now() - lastEditAt < 120000) requireLogin();
       throw new Error('登入已過期，請重新登入 GitHub。');
     }
     if (response.status === 503 || response.status === 404) throw new Error('共用整理服務尚未連線，本機內容仍已保留。');
@@ -79,6 +103,11 @@
     status(equal(outgoing, snapshot()) ? '共用整理已同步 · ' + new Date(result.updatedAt).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '已儲存在本機，正在同步…');
   }
   async function synchronize() {
+    if (token && !sessionValid()) {
+      invalidateSession();
+      if (panel) status('登入已過期，請重新登入 GitHub。');
+      if (editing() || Date.now() - lastEditAt < 120000) requireLogin();
+    }
     if (!panel || !token || !window.SYNC_WORKER_URL || busy || conflict || document.hidden) return;
     busy = true;
     try {
@@ -117,6 +146,32 @@
     panel = document.createElement('section'); panel.className = 'notes-sync-panel'; panel.setAttribute('aria-label', '跨裝置整理同步');
     panel.innerHTML = `<div><strong>共用我的整理</strong><p data-notes-status aria-live="polite">登入 GitHub 後，手機與電腦共用名詞、筆記與觀念。</p></div><div class="notes-sync-actions"><a data-notes-login class="primary">登入 GitHub</a><button type="button" data-notes-now>同步整理</button><button type="button" data-notes-backup>匯出備份</button><button type="button" data-notes-initialize hidden>以這台建立共用資料</button></div><div data-notes-conflict hidden><button type="button" data-notes-use-remote>載入共用版本</button><button type="button" data-notes-use-local>以這台版本更新共用資料</button></div>`;
     document.querySelector('.sync-topbar').before(panel);
+    reminder = document.createElement('aside');
+    reminder.className = 'notes-login-reminder';
+    reminder.hidden = true;
+    reminder.setAttribute('aria-label', '整理同步登入提醒');
+    reminder.innerHTML = '<p data-login-reminder-text role="status"></p><a data-notes-login class="primary">重新登入 GitHub</a><button type="button" data-reminder-dismiss aria-label="暫時關閉登入提醒">×</button>';
+    document.body.append(reminder);
+    reminder.querySelector('[data-reminder-dismiss]').onclick = () => { reminder.hidden = true; };
+    document.querySelectorAll('[data-notes-login]').forEach(link => {
+      link.href = (window.SYNC_WORKER_URL || '').replace(/\/$/, '') + '/login';
+      link.addEventListener('click', event => {
+        if (editing()) {
+          event.preventDefault();
+          requireLogin();
+          reminder.querySelector('[data-login-reminder-text]').textContent = '請先儲存或關閉目前的編輯，再按重新登入；避免離開頁面時遺失尚未儲存的內容。';
+        }
+      });
+    });
+    const editActions = '#focusNewConcept,#addConcept,#openSettings,#openTimeline,#deleteIdea,#manageArticleTags,#studyEdit,#studyAddSeries,#studyDeleteSeries,#studyAddTerm,#studyDeleteTerm,#studyAddArticle,.idea-field-action,.concept-delete,.study-unlink,[data-remove],[data-link]';
+    document.addEventListener('click', event => {
+      if (event.target.closest?.(editActions)) { lastEditAt = Date.now(); requireLogin(); }
+    }, true);
+    document.addEventListener('input', event => {
+      if (event.target.closest?.('#concepts,#seriesStudy,#articleTagDialog') && event.target.matches('input:not([type="search"]),textarea,select')) {
+        lastEditAt = Date.now(); requireLogin();
+      }
+    });
     panel.querySelector('[data-notes-login]').href = (window.SYNC_WORKER_URL || '').replace(/\/$/, '') + '/login';
     panel.querySelector('[data-notes-now]').onclick = synchronize;
     panel.querySelector('[data-notes-backup]').onclick = () => { try { downloadBackup(); } catch { status('無法匯出，請保留此瀏覽器資料。'); } };

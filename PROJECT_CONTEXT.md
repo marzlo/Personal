@@ -34,6 +34,7 @@
 - 左側導覽依頁面順序提供：總覽、最新 Podcast、推薦文章、文章、觀念整理、系列深讀、Podcast 與主題；反白及 aria-current 隨捲動位置更新。
 - 文章、最新 Podcast、推薦文章提供分享按鈕；`article-share.js` 與 `article-share.css` 實作已確認的「靜讀卡片」。分享網址使用 Notion page ID（`?article=...`），開啟時顯示深色背景文字彈窗，可前往 Notion 原文或取消回首頁。無效文章顯示提示，不接受任意外部網址。
 - 分享彈窗提供中文／English 切換，按鈕、提示與文章類型翻譯；標題及作者保留原文。分享網址用 `lang=zh`／`lang=en` 帶上語言；網址設定優先於 `shiyeShareLanguage` 本機偏好，既有分享網址仍可使用。
+- 整頁語言切換由 `page-language.js`／`page-language.css` 提供，頁首中文／English 切換導覽、表單、提示及動態產生的介面，與分享彈窗共用語言。`shiyeLanguage` 保存介面偏好；文章、標籤、作者、名詞、筆記及輸入值保留原文，切換不重建表單。選單 option 的原始 value 保留，避免把翻譯後文字写入整理資料。
 
 ## 觀念整理
 

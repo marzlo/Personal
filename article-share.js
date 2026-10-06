@@ -26,6 +26,7 @@
   let language = 'zh';
   try { if (localStorage.getItem(languageKey) === 'en') language = 'en'; } catch {}
   if (urlLanguage === 'en' || urlLanguage === 'zh') language = urlLanguage;
+  if (window.ShiyeI18n) language = window.ShiyeI18n.language;
   const t = () => translations[language];
   const pageId = url => String(url || '').match(/([a-f0-9]{32}|[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})(?:[/?#]|$)/i)?.[1].replaceAll('-', '').toLowerCase();
   const byId = new Map(articlePool.map(article => [pageId(article.url), article]).filter(([id]) => id));
@@ -87,6 +88,7 @@
   dialog.querySelectorAll('[data-share-language]').forEach(button => {
     button.onclick = () => {
       language = button.dataset.shareLanguage;
+      if (window.ShiyeI18n && window.ShiyeI18n.language !== language) window.ShiyeI18n.setLanguage(language);
       try { localStorage.setItem(languageKey, language); } catch {}
       if (directEntry) {
         const url = new URL(window.location.href);
@@ -175,6 +177,11 @@
     new MutationObserver(() => decorate(host)).observe(host, { childList: true });
   }
   const requested = new URL(window.location.href).searchParams.get('article');
+  window.addEventListener('shiye:language-changed', event => {
+    language = event.detail.language;
+    refreshShareButtons();
+    if (dialog.open) display(article, recipient ? 'recipient' : 'sender');
+  });
   if (requested !== null) {
     directEntry = true;
     open(byId.get(requested.replaceAll('-', '').toLowerCase()) || null, 'recipient');

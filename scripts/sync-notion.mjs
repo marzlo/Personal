@@ -91,15 +91,21 @@ for (const page of allBooks) {
 }
 const titledBooks = books.filter(x => x.title);
 
-const podcasts = allPodcasts.map(page => ({
+const podcasts = [];
+for (const page of allPodcasts) {
+  const title = titleOf(page, "Name");
+  if (!title) continue;
+  podcasts.push({
   title: titleOf(page, "Name"),
   created: page.created_time || "",
   updated: page.last_edited_time || "",
+  hasAudio: await pageHasAudio(page),
   tags: multiOf(page, "Tags"),
   bookRefs: relationUrls(page, "書籍"),
   authors: [...new Set([...refsOf(page, "書籍"), ...allBooks.filter(book => refsOf(book, "Podcast 1").includes(page.id)).map(book => book.id)].map(id => allBooksById.get(String(id).replaceAll("-", ""))).filter(Boolean).map(authorOf).filter(Boolean))],
   url: publicUrl(page.id)
-})).filter(x => x.title);
+  });
+}
 
 const quotes = allQuotes.map(page => ({
   title: titleOf(page, "Name"),

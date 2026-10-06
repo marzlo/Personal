@@ -21,7 +21,7 @@
   }
   if (syncHint) {
     if (!workerUrl) syncHint.textContent = "自動更新入口部署完成後，按鈕會直接啟動同步。";
-    else if (syncResult === "started") syncHint.textContent = "已送出同步，進度會在上方自動更新。";
+    else if (syncResult === "started") syncHint.textContent = "已送出同步，進度會在此自動更新。";
     else if (syncResult === "unauthorized") syncHint.textContent = "此功能僅開放給 GitHub 帳號 marzlo。";
     else if (syncResult === "error") {
       const stageHints = {

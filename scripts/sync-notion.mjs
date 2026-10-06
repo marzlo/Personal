@@ -67,22 +67,28 @@ const allPodcasts = await querySource(sources.podcasts.id);
 const allQuotes = await querySource(sources.quotes.id);
 const allBooksById = new Map(allBooks.map(page => [pageIdOf(page), page]));
 const authorOf = page => selectOf(page, "Author") || authorOverrides[pageIdOf(page)]?.author || "";
+const audioExtension = /\.(?:mp3|m4a|aac|wav|ogg|opus|flac|wma|aiff?)(?:$|[?#])/i;
 const idToUrl = new Map();
 for (const page of [...allBooks, ...allPodcasts, ...allQuotes]) idToUrl.set(pageIdOf(page), publicUrl(page.id));
 const relationUrls = (page, name) => refsOf(page, name).map(id => idToUrl.get(String(id).replaceAll("-", "")) || publicUrl(id));
 
-const books = allBooks.map(page => ({
-  title: titleOf(page, "書名"),
-  author: authorOf(page),
-  status: selectOf(page, "Leyo status"),
-  rating: selectOf(page, "推薦程度"),
-  tags: multiOf(page, "屬性"),
-  podcast: Boolean(prop(page, "Podcast")?.checkbox),
-  podcastRefs: relationUrls(page, "Podcast 1"),
-  quoteRefs: relationUrls(page, "金句"),
-  updated: page.last_edited_time || "",
-  url: publicUrl(page.id)
-})).filter(x => x.title);
+const books = [];
+for (const page of allBooks) {
+  books.push({
+    title: titleOf(page, "書名"),
+    author: authorOf(page),
+    status: selectOf(page, "Leyo status"),
+    rating: selectOf(page, "推薦程度"),
+    tags: multiOf(page, "屬性"),
+    podcast: Boolean(prop(page, "Podcast")?.checkbox),
+    hasAudio: await pageHasAudio(page),
+    podcastRefs: relationUrls(page, "Podcast 1"),
+    quoteRefs: relationUrls(page, "金句"),
+    updated: page.last_edited_time || "",
+    url: publicUrl(page.id)
+  });
+}
+const titledBooks = books.filter(x => x.title);
 
 const podcasts = allPodcasts.map(page => ({
   title: titleOf(page, "Name"),
@@ -114,6 +120,33 @@ async function children(blockId) {
     cursor = page.has_more ? page.next_cursor : undefined;
   } while (cursor);
   return results;
+}
+
+function isAudioFile(value = {}) {
+  if (value.type === "audio") return true;
+  const mimeType = value.mime_type || value.media_type || "";
+  if (typeof mimeType === "string" && mimeType.toLowerCase().startsWith("audio/")) return true;
+  return [value.name, value.url, value.file?.url, value.external?.url]
+    .some(candidate => typeof candidate === "string" && audioExtension.test(candidate));
+}
+
+function pagePropertyHasAudio(page) {
+  return Object.values(page.properties || {}).some(property =>
+    property?.type === "files" && (property.files || []).some(isAudioFile)
+  );
+}
+
+async function blockTreeHasAudio(blockId) {
+  for (const block of await children(blockId)) {
+    const value = block[block.type] || {};
+    if (block.type === "audio" || (["file", "embed"].includes(block.type) && isAudioFile(value))) return true;
+    if (block.has_children && block.type !== "child_database" && await blockTreeHasAudio(block.id)) return true;
+  }
+  return false;
+}
+
+async function pageHasAudio(page) {
+  return pagePropertyHasAudio(page) || await blockTreeHasAudio(page.id);
 }
 
 function richText(items) {
@@ -159,7 +192,7 @@ for (const page of allQuotes) {
 const snapshot = {
   updatedAt: new Date().toISOString().slice(0, 10),
   sources: Object.fromEntries(Object.entries(sources).map(([key, value]) => [key, value.url])),
-  books,
+  books: titledBooks,
   podcasts,
   quotes
 };

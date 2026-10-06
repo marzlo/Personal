@@ -35,7 +35,7 @@
 .study-article-title{display:flex;align-items:flex-start;gap:5px}.study-article-title>a{min-width:0;flex:1}#seriesStudy .study-article button.study-unlink[data-remove]{display:inline-flex;align-items:center;justify-content:center;flex:none;width:24px;height:28px;min-height:0;padding:0;margin:4px 0 0;border:0;background:transparent;color:#8b968e;text-decoration:none;border-radius:4px}#seriesStudy .study-article button.study-unlink[data-remove]:hover,#seriesStudy .study-article button.study-unlink[data-remove]:focus-visible{color:#a35f51;background:#f4eeea}#seriesStudy .study-unlink svg{display:block}@media(pointer:coarse){#seriesStudy .study-article button.study-unlink[data-remove]{width:36px;height:40px;margin-top:0}}
 </style></head>
 <body><div class="shell">
-<aside class="sidebar"><div class="brand"><span class="brandmark">✳</span>拾頁</div><div class="subbrand">READING & REFLECTION</div><div class="nav-label">工作桌</div><nav class="nav"><a class="active" href="#home">⌂　總覽</a><a href="#recent">◷　最新文章</a><a href="#archive">▦　典藏分類</a><a href="#concepts">✎　觀念整理</a></nav><div class="side-bottom">把讀過的東西，慢慢活成自己的。<br>Reading List · Notion</div></aside>
+<aside class="sidebar"><div class="brand"><span class="brandmark">✳</span>拾頁</div><div class="subbrand">READING & REFLECTION</div><div class="nav-label">工作桌</div><nav class="nav" aria-label="閱讀與整理導覽"><a class="active" href="#home" aria-current="location">⌂　總覽</a><a href="#latestPodcast">♫　最新 Podcast</a><a href="#recommendedArticles">☆　推薦文章</a><a href="#recent">≡　文章</a><a href="#concepts">✎　觀念整理</a><a href="#seriesStudy">◇　系列深讀</a><a href="#archive">▦　Podcast 與主題</a></nav><div class="side-bottom">把讀過的東西，慢慢活成自己的。<br>Reading List · Notion</div></aside>
 <main class="main" id="home"><div class="topline"><span class="eyebrow">PERSONAL KNOWLEDGE DASHBOARD</span><span class="date" id="todayDate"></span></div>
 <h1>閱讀，然後讓想法<br>繼續生長。</h1><p class="intro">你的閱讀、聆聽與觀念收藏，在這裡慢慢連成一張地圖。</p>
 <div class="hero"><div class="hero-copy"><div class="hero-kicker">你的閱讀空間</div><div class="hero-title">今天，從一個好奇的問題開始。</div><div class="hero-note">在最新文章裡找靈感，或回到觀念筆記繼續整理。</div></div><div class="stats"><div class="stat"><strong id="bookCount">151</strong><span>書籍</span></div><div class="stat"><strong id="podcastCount">108</strong><span>Podcast</span></div><div class="stat"><strong id="quoteCount">148</strong><span>金句索引</span></div><div class="stat"><strong id="ideaCount">3</strong><span>整理中的觀念</span></div></div></div>
@@ -127,5 +127,20 @@ el('ideaSettings').onsubmit=e=>{e.preventDefault();const idea=ideas[selected],ti
 el('deleteIdea').onclick=()=>{if(!confirm('刪除「'+ideas[selected].title+'」與全部記事？'))return;ideas.splice(selected,1);selected=-1;el('conceptList').after(el('ideaEditor'));showIdea();savedToast()};el('toggleRelated').onclick=()=>el('relatedArticles').hidden=!el('relatedArticles').hidden;
 el('focusNewConcept').onclick=()=>{el('newConceptForm').hidden=false;el('newTitle').focus()};el('cancelNewConcept').onclick=()=>el('newConceptForm').hidden=true;el('addConcept').onclick=()=>{const title=el('newTitle').value.trim();if(!title)return;ideas.push(migrateIdea({title,timeline:[{date:taipeiToday(),tag:'開始追蹤',content:'開始整理這個觀念。',articleUrl:''}]}));selected=ideas.length-1;el('newTitle').value='';el('newConceptForm').hidden=true;el('conceptList').after(el('ideaEditor'));showIdea();el('openSettings').click()};el('newTitle').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();el('addConcept').click()}};
 renderCards();renderPodcastHighlights();renderRecommendedArticles();renderCats();showIdea();
+const navigationLinks=[...document.querySelectorAll('.nav a')];
+const navigationSections=navigationLinks.map(link=>document.querySelector(link.getAttribute('href')));
+function updateNavigation(){
+  let current=0;
+  navigationSections.forEach((section,index)=>{if(section.getBoundingClientRect().top<=80)current=index});
+  if(window.scrollY>0&&window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2)current=navigationLinks.length-1;
+  navigationLinks.forEach((link,index)=>{link.classList.toggle('active',index===current);if(index===current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
+}
+let navigationFrame=0;
+function scheduleNavigation(){if(!navigationFrame)navigationFrame=requestAnimationFrame(()=>{navigationFrame=0;updateNavigation()})}
+window.addEventListener('scroll',scheduleNavigation,{passive:true});
+window.addEventListener('resize',scheduleNavigation);
+window.addEventListener('load',scheduleNavigation);
+window.addEventListener('hashchange',scheduleNavigation);
+updateNavigation();
 </script><script src="./sync-worker-config.js"></script><script defer src="./sync-status.js"></script><script defer src="./series-study.js"></script></body></html>
 

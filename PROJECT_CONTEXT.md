@@ -7,6 +7,7 @@
 - GitHub： https://github.com/marzlo/Personal
 - 網站： https://marzlo.github.io/Personal/
 - 主分支：main；推送後由 `.github/workflows/pages.yml` 部署 GitHub Pages。
+- `.github/workflows/sync-notion.yml` 每天台灣時間早上 08:00（UTC 00:00）自動同步 Notion 並發布網站，仍保留手動更新；GitHub Actions 排程可能延遲。
 - 純 HTML/CSS/JavaScript，沒有建置步驟。
 - 建立本檔前，工作目錄乾淨；最近提交為 `ae5ec9e Clarify newest-first timeline ordering`。
 - README 的更新按鈕說明已過時：實際有 Cloudflare Worker 驗證與 dispatch 流程，請查看下列檔案，不要退回要求使用者手動 Run workflow 的流程。

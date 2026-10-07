@@ -1,0 +1,4 @@
+#seriesStudy .study-tabs{flex-wrap:nowrap;overflow-x:auto;max-width:100%;align-items:center}
+#seriesStudy .study-tabs button{flex:none;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+#seriesStudy .study-tabs .study-dragging{opacity:.65;background:#dce9df;cursor:grabbing;box-shadow:0 2px 8px #25342d20}
+.notes-visitor #seriesStudy .study-tabs button{cursor:pointer;touch-action:auto}

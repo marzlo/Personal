@@ -14,7 +14,7 @@ function setup(exp, responseStatus = 200) {
   const token = exp === null ? '' : Buffer.from(JSON.stringify({ exp })).toString('base64url') + '.signature';
   storage.setItem('shiyeNotesSession', token);
   const context = { CustomEvent: class { constructor(type,options){this.type=type;this.detail=options?.detail;} }, window: { dispatchEvent(event){context.lastEvent=event;}, addEventListener() {}, SYNC_WORKER_URL: 'https://worker.test' }, document: { hidden: false, activeElement: null, querySelectorAll: () => [] }, localStorage: storage, sessionStorage: storage, Date, JSON, URL, atob, setTimeout: () => 0, clearTimeout() {}, fetch: async () => { requests++; return { status: responseStatus, ok: responseStatus === 200, json: async () => ({ revision: 0, data: null }) }; } };
-  const source = fs.readFileSync(new URL('../notes-sync.js', import.meta.url), 'utf8').replace("window.addEventListener('DOMContentLoaded', boot, { once: true });", `window.test = { requireLogin, synchronize, api, edit: () => { lastEditAt = Date.now(); }, init: (value, element) => { token = value; panel = element; reminder = element; }, };`);
+  const source = fs.readFileSync(new URL('../notes-sync.js', import.meta.url), 'utf8').replace("window.addEventListener('DOMContentLoaded', boot, { once: true });", `window.test = { restoreSession, storeSession, requireLogin, synchronize, api, edit: () => { lastEditAt = Date.now(); }, init: (value, element) => { token = value; panel = element; reminder = element; }, };`);
   vm.runInNewContext(source, context);
   const reminder = { hidden: true, querySelector: node };
   context.window.test.init(token, reminder);
@@ -63,4 +63,18 @@ test('public loading does not replace local notes or sync baseline', async () =>
  assert.deepEqual([...fixture.saved],before);
  await fixture.api.synchronize();
  assert.equal(fixture.requests(),2);
+});
+
+test('remembered login survives browser sessions and migrates old session storage', () => {
+ const fixture=setup(Date.now()/1000+3600);
+ const old=fixture.saved.get('shiyeNotesSession');
+ const legacy=new Map([['shiyeNotesSession',old]]);
+ fixture.saved.delete('shiyeNotesSession');
+ fixture.context.sessionStorage={getItem:k=>legacy.get(k)||null,removeItem:k=>legacy.delete(k)};
+ assert.equal(fixture.api.restoreSession(),old);
+ assert.equal(fixture.saved.get('shiyeNotesSession'),old);
+ assert.equal(legacy.size,0);
+ assert.equal(fixture.api.restoreSession(),old);
+ fixture.api.storeSession('');
+ assert.equal(fixture.saved.has('shiyeNotesSession'),false);
 });

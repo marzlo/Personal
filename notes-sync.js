@@ -32,10 +32,20 @@
       return Number.isFinite(payload.exp) && payload.exp > Date.now() / 1000;
     } catch { return false; }
   }
+  function storeSession(value) {
+    token = value;
+    if (value) localStorage.setItem(tokenKey, value);
+    else localStorage.removeItem(tokenKey);
+    try { sessionStorage.removeItem(tokenKey); } catch {}
+  }
+  function restoreSession(session) {
+    const saved = session || localStorage.getItem(tokenKey) || sessionStorage.getItem(tokenKey) || '';
+    storeSession(saved);
+    return saved;
+  }
   function invalidateSession() {
     loginExpired = true;
-    token = '';
-    try { sessionStorage.removeItem(tokenKey); } catch {}
+    storeSession('');
     if (panel) panel.querySelector('[data-notes-login]').hidden = false;
   }
   function requireLogin() {
@@ -90,7 +100,10 @@
       }
     }
   };
-  function status(text) { panel.querySelector('[data-notes-status]').textContent = text; }
+  function status(text) {
+    text = text.replace('共用整理已同步', '已發布').replace('已儲存在本機，正在同步…', '更新中…').replace('已儲存在本機；登入後可同步到另一台裝置。', '已存本機；登入後自動發布。');
+    panel.querySelector('[data-notes-status]').textContent = text;
+  }
   function editing() {
     return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#newConceptForm,#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleTagDialog[open],#concepts textarea,#concepts input:not([type="hidden"])')].some(form => !form.hidden && form.getClientRects().length);
   }
@@ -106,6 +119,8 @@
     }
     if (response.status === 503 || response.status === 404) throw new Error('共用整理服務尚未連線，本機內容仍已保留。');
     const result = await response.json();
+    const renewed = response.headers?.get('X-Notes-Session');
+    if (renewed) storeSession(renewed);
     if (response.status === 409) return { conflict: result };
     if (!response.ok) throw new Error(response.status === 413 ? '整理資料超過同步容量（約 120 KB），請先匯出備份。' : '同步未完成，本機內容仍已保留。');
     return result;
@@ -166,7 +181,7 @@
   }
   function boot() {
     panel = document.createElement('section'); panel.className = 'notes-sync-panel'; panel.setAttribute('aria-label', '跨裝置整理同步');
-    panel.innerHTML = `<div><strong>共用我的整理</strong><p data-notes-status aria-live="polite">登入 GitHub 後，手機與電腦共用名詞、筆記與觀念。</p></div><div class="notes-sync-actions"><a data-notes-login class="primary">登入 GitHub</a><button type="button" data-notes-initialize hidden>以這台建立共用資料</button><details class="notes-sync-more"><summary>更多</summary><div><button type="button" data-notes-now>同步整理</button><button type="button" data-notes-backup>匯出備份</button></div></details></div><div data-notes-conflict hidden><button type="button" data-notes-use-remote>載入共用版本</button><button type="button" data-notes-use-local>以這台版本更新共用資料</button></div>`;
+    panel.innerHTML = `<p data-notes-status aria-live="polite">儲存後自動發布</p><div class="notes-sync-actions"><a data-notes-login>登入以編輯</a><button type="button" data-notes-initialize hidden>以這台建立共用資料</button><details class="notes-sync-more"><summary>更多</summary><div><button type="button" data-notes-backup>匯出備份</button><button type="button" data-notes-logout>登出</button></div></details></div><div data-notes-conflict hidden><button type="button" data-notes-use-remote>載入共用版本</button><button type="button" data-notes-use-local>以這台版本更新共用資料</button></div>`;
     document.querySelector('.sync-topbar').before(panel);
     reminder = document.createElement('aside');
     reminder.className = 'notes-login-reminder';
@@ -195,7 +210,13 @@
       }
     });
     panel.querySelector('[data-notes-login]').href = (window.SYNC_WORKER_URL || '').replace(/\/$/, '') + '/login';
-    panel.querySelector('[data-notes-now]').onclick = synchronize;
+    panel.querySelector('[data-notes-logout]').onclick = () => {
+      if (editing()) { status('請先儲存或關閉目前的編輯。'); return; }
+      storeSession('');
+      loginExpired = true;
+      panel.querySelector('[data-notes-login]').hidden = false;
+      status('已登出；登入後自動發布。');
+    };
     panel.querySelector('[data-notes-backup]').onclick = () => { try { downloadBackup(); } catch { status('無法匯出，請保留此瀏覽器資料。'); } };
     panel.querySelector('[data-notes-initialize]').onclick = async () => {
       if (busy || !token) return;
@@ -222,8 +243,8 @@
       const fragment = new URLSearchParams(location.hash.slice(1));
       const session = fragment.get('notes_session');
       // Remove the session from the URL before any further interaction.
-      if (session) { history.replaceState(null, '', location.pathname + location.search); sessionStorage.setItem(tokenKey, session); }
-      token = sessionStorage.getItem(tokenKey) || '';
+      if (session) history.replaceState(null, '', location.pathname + location.search);
+      restoreSession(session);
       document.body.classList.toggle('notes-visitor', visitor());
       if (visitor()) {
         window.dispatchEvent(new CustomEvent('shiye:notes-loaded', { detail: { public: true, data: Object.fromEntries(keys.map(key => [key, null])) } }));

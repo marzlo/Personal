@@ -19,7 +19,7 @@ async function notesSessionKey(secret) {
   return crypto.subtle.importKey('raw', new TextEncoder().encode('shiye-notes-session:' + secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign', 'verify']);
 }
 async function createNotesSession(secret) {
-  const payload = encodeUrl64(new TextEncoder().encode(JSON.stringify({ sub: ALLOWED_GITHUB_LOGIN, scope: 'private-notes', exp: Math.floor(Date.now() / 1000) + 7 * 86400 })));
+  const payload = encodeUrl64(new TextEncoder().encode(JSON.stringify({ sub: ALLOWED_GITHUB_LOGIN, scope: 'private-notes', exp: Math.floor(Date.now() / 1000) + 180 * 86400 })));
   const signature = await crypto.subtle.sign('HMAC', await notesSessionKey(secret), new TextEncoder().encode(payload));
   return payload + '.' + encodeUrl64(new Uint8Array(signature));
 }
@@ -66,7 +66,10 @@ async function notesApi(request, env) {
     }
     const store = env.NOTES_STORE.get(env.NOTES_STORE.idFromName(ALLOWED_GITHUB_LOGIN));
     const result = await store.fetch(new Request('https://notes.internal/', { method: request.method, ...(body ? { body: JSON.stringify(body) } : {}) }));
-    return new Response(result.body, { status: result.status, headers: { ...Object.fromEntries(result.headers), ...cors } });
+    const session = (request.headers.get('Authorization') || '').replace(/^Bearer /, '');
+    const payload = JSON.parse(new TextDecoder().decode(decodeUrl64(session.split('.')[0])));
+    const renewal = payload.exp < Date.now() / 1000 + 90 * 86400 ? { 'X-Notes-Session': await createNotesSession(env.GITHUB_CLIENT_SECRET) } : {};
+    return new Response(result.body, { status: result.status, headers: { ...Object.fromEntries(result.headers), ...cors, ...renewal, 'Access-Control-Expose-Headers': 'X-Notes-Session' } });
   } catch { return jsonResponse({ error: 'unavailable' }, 503, cors); }
 }
 

@@ -16,3 +16,10 @@
 @media(max-width:620px){.notes-login-reminder{bottom:12px;flex-wrap:wrap;gap:8px;padding:14px}.notes-login-reminder p{flex-basis:calc(100% - 44px)}.notes-login-reminder button{position:absolute;right:8px;bottom:10px}.notes-login-reminder a{font-size:12px}}
 .notes-visitor #focusNewConcept,.notes-visitor #newConceptForm,.notes-visitor #manageArticleTags,.notes-visitor .issue-actions #openSettings,.notes-visitor .issue-actions #openTimeline,.notes-visitor #deleteIdea,.notes-visitor .timeline-entry-tools,.notes-visitor #ideaSettings,.notes-visitor #timelineForm,.notes-visitor .study-manage,.notes-visitor .study-term-manage,.notes-visitor #studyAddArticle,.notes-visitor #studyEdit,.notes-visitor .study-unlink,.notes-visitor .study-suggestions button,.notes-visitor #studyEditor,.notes-visitor #studySearchForm,.notes-visitor .notes-sync-more,.notes-visitor .sync-topbar{display:none!important}
 .notes-visitor #concepts>.footnote,.notes-visitor #seriesStudy .footnote{display:none}
+.notes-sync-panel{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:20px 0;padding:12px 0;border-bottom:0}
+.notes-sync-panel p{margin:0;font-size:11px;flex:1;min-width:160px}
+.notes-sync-panel [data-notes-login]{padding:4px 0;border:0;background:transparent;min-height:32px;font-size:11px}
+.notes-sync-more summary{font-size:11px;padding:5px 0}
+.notes-sync-more{position:relative}
+.notes-sync-more>div{position:absolute;right:0;bottom:100%;z-index:4;min-width:140px;background:var(--white);padding:8px;border:1px solid var(--line);border-radius:8px}
+.notes-sync-panel [data-notes-conflict]{flex-basis:100%}

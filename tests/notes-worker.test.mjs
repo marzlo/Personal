@@ -88,3 +88,19 @@ test('public visitors read latest snapshot but cannot write or read backups', as
   assert.equal((await worker.default.fetch(request('PUT', {revision:2,data}, ''), env)).status,401);
   assert.deepEqual((await storage.get('backup-1')).data, data);
 });
+
+test('remembered owner session lasts 180 days and valid older sessions renew automatically', async () => {
+  const payload = JSON.parse(Buffer.from(token.split('.')[0], 'base64url').toString());
+  assert.ok(payload.exp > Date.now()/1000 + 179*86400);
+  const shortPayload = Buffer.from(JSON.stringify({...payload,exp:Math.floor(Date.now()/1000)+3600})).toString('base64url');
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode('shiye-notes-session:'+secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);
+  const signature = Buffer.from(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(shortPayload))).toString('base64url');
+  const {env}=fixture();
+  const response=await worker.default.fetch(request('GET',null,shortPayload+'.'+signature),env);
+  const renewed=response.headers.get('X-Notes-Session');
+  assert.equal(await worker.validNotesSession(renewed,secret),true);
+  assert.ok(JSON.parse(Buffer.from(renewed.split('.')[0],'base64url')).exp > Date.now()/1000+179*86400);
+  assert.equal(response.headers.get('Access-Control-Expose-Headers'),'X-Notes-Session');
+  assert.equal((await worker.default.fetch(request('GET'),env)).headers.get('X-Notes-Session'),null);
+  assert.equal((await worker.default.fetch(request('GET',null,'invalid'),env)).headers.get('X-Notes-Session'),null);
+});

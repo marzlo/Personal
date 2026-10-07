@@ -59,3 +59,6 @@ Validation: `node --test tests/notes-worker.test.mjs` from the repository root. 
 ### 公開閱讀
 
 使用者已授權全部共用整理公開。GET `/api/public-notes` 回傳目前快照，無須 GitHub 登入；不提供備份或寫入。每次 owner 成功同步後，公開 API 即讀取最新版本。前端訪客以記憶體載入，不改寫 localStorage 個人資料。`/api/notes` 的帳號驗證與版本衝突檢查維持原樣。
+
+### 記住登入與自動發布
+登入憑證有效180天；驗證成功、剩餘不足90天的 `/api/notes` 請求以 `X-Notes-Session` 回傳續期憑證，CORS 只對網站來源公開該標頭。前端 localStorage 記住登入並遷移舊 sessionStorage；401與登出清除兩處憑證。狀態列取消手動同步入口，儲存後自動發布。

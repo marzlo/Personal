@@ -1,0 +1,9 @@
+.mobile-navigation{display:none}
+@media(max-width:620px){
+ body{padding-top:58px}
+ .sidebar .nav{display:none}
+ .mobile-navigation{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;gap:12px;height:58px;padding:7px 17px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 12px #25342d09}
+ .mobile-navigation label{flex:none;color:var(--muted);font-size:12px}
+ .mobile-navigation select{min-width:0;flex:1;height:42px;padding:8px 12px;border:1px solid #cbd8ce;border-radius:9px;background:var(--white);color:var(--green);font:inherit;font-size:14px}
+ #home,#latestPodcast,#recommendedArticles,#recent,#concepts,#seriesStudy,#archive{scroll-margin-top:76px}
+}

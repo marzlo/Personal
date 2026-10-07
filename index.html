@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="./article-share.css">
 <link rel="stylesheet" href="./notes-sync.css">
 <link rel="stylesheet" href="./page-language.css">
+<link rel="stylesheet" href="./mobile-navigation.css">
 <script src="./page-language.js"></script>
 <script src="./sync-worker-config.js"></script><script src="./notes-sync.js"></script>
 <style>
@@ -136,10 +137,17 @@ window.addEventListener('shiye:notes-loaded',event=>{const data=event.detail?.da
 renderCards();renderPodcastHighlights();renderRecommendedArticles();renderCats();showIdea();
 const navigationLinks=[...document.querySelectorAll('.nav a')];
 const navigationSections=navigationLinks.map(link=>document.querySelector(link.getAttribute('href')));
+const mobileNavigation=document.createElement('nav');mobileNavigation.className='mobile-navigation';mobileNavigation.setAttribute('aria-label','快速區域導覽');
+const mobileLabel=document.createElement('label');mobileLabel.htmlFor='mobileSectionSelect';mobileLabel.textContent='跳至區域';
+const mobileSelect=document.createElement('select');mobileSelect.id='mobileSectionSelect';
+for(const link of navigationLinks){const option=document.createElement('option');option.value=link.getAttribute('href');option.textContent=link.textContent.trim().replace(/^[⌂♫☆≡✎◇▦▤▥▧▨▩□▣]+[\s　]*/, '');mobileSelect.append(option)}
+mobileSelect.addEventListener('change',()=>{location.hash=mobileSelect.value;mobileSelect.blur()});
+mobileNavigation.append(mobileLabel,mobileSelect);document.body.append(mobileNavigation);
 function updateNavigation(){
   let current=0;
   navigationSections.forEach((section,index)=>{if(section.getBoundingClientRect().top<=80)current=index});
   if(window.scrollY>0&&window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2)current=navigationLinks.length-1;
+  if(document.activeElement!==mobileSelect)mobileSelect.value=navigationLinks[current].getAttribute('href');
   navigationLinks.forEach((link,index)=>{link.classList.toggle('active',index===current);if(index===current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
 }
 let navigationFrame=0;

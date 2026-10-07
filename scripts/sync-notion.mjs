@@ -1,4 +1,9 @@
 import fs from "node:fs/promises";
+import { pathToFileURL } from "node:url";
+import { loadCache } from "./notion-cache.mjs";
+const startedAt = Date.now();
+const cache = await loadCache(process.env.NOTION_CACHE_PATH ? pathToFileURL(process.env.NOTION_CACHE_PATH) : new URL("../.cache/notion-sync.json", import.meta.url));
+let requestCount = 0;
 
 const token = process.env.NOTION_TOKEN;
 if (!token) throw new Error("Missing required GitHub secret: NOTION_TOKEN");
@@ -20,6 +25,7 @@ async function request(path, options = {}) {
     const now = Date.now();
     if (now < nextRequestAt) await wait(nextRequestAt - now);
     nextRequestAt = Date.now() + 350;
+    requestCount++;
     const response = await fetch("https://api.notion.com/v1/" + path, {
       ...options,
       headers: {
@@ -155,7 +161,11 @@ async function blockTreeHasAudio(blockId) {
 }
 
 async function pageHasAudio(page) {
-  return pagePropertyHasAudio(page) || await blockTreeHasAudio(page.id);
+  const saved = cache.get(page, "audio");
+  if (saved !== undefined) return saved;
+  const audio = pagePropertyHasAudio(page) || await blockTreeHasAudio(page.id);
+  cache.set(page, "audio", audio);
+  return audio;
 }
 
 function richText(items) {
@@ -194,16 +204,23 @@ async function blockLines(blockId, depth = 0) {
   return result;
 }
 
+async function pageBody(page) {
+  const saved = cache.get(page, "body");
+  if (saved !== undefined) return saved;
+  const body = (await blockLines(page.id)).join("\n").trim();
+  cache.set(page, "body", body);
+  return body;
+}
 const quoteBodies = {};
 for (const page of allQuotes) {
-  quoteBodies[publicUrl(page.id)] = (await blockLines(page.id)).join("\n").trim();
+  quoteBodies[publicUrl(page.id)] = await pageBody(page);
 }
 const articleBodies = {};
 const audioBookUrls = new Set(books.filter(book => book.hasAudio).map(book => book.url));
 const articlePages = [...allPodcasts, ...allBooks.filter(page => audioBookUrls.has(publicUrl(page.id)))];
 for (const page of articlePages) {
   try {
-    articleBodies[publicUrl(page.id)] = (await blockLines(page.id)).join("\n").trim();
+    articleBodies[publicUrl(page.id)] = await pageBody(page);
   } catch (error) {
     console.warn("Could not read article body for " + publicUrl(page.id) + ": " + error.message);
     articleBodies[publicUrl(page.id)] = "";
@@ -245,6 +262,7 @@ const featuredQuote = featuredCandidates.length
   : null;
 const snapshot = {
   updatedAt: new Date().toISOString().slice(0, 10),
+  syncedAt: new Date().toISOString(),
   sources: Object.fromEntries(Object.entries(sources).map(([key, value]) => [key, value.url])),
   featuredQuote,
   books: titledBooks,
@@ -255,3 +273,6 @@ await fs.writeFile("data.js", "window.DASHBOARD_DATA = " + JSON.stringify(snapsh
 await fs.writeFile("quote-bodies.js", "window.QUOTE_BODIES = " + JSON.stringify(quoteBodies) + ";\n", "utf8");
 await fs.writeFile("article-bodies.js", "window.ARTICLE_BODIES = " + JSON.stringify(articleBodies) + ";\n", "utf8");
 console.log("Synced " + books.length + " books, " + podcasts.length + " podcasts, and " + quotes.length + " quotes.");
+
+await cache.save([...allBooks, ...allPodcasts, ...allQuotes]);
+console.log(`Notion requests: ${requestCount}; elapsed: ${Math.round((Date.now()-startedAt)/1000)}s`);

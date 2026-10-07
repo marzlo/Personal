@@ -8,6 +8,21 @@
   const endpoint = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/runs?per_page=10";
   if (!label || !percent || !fill || !track) return;
 
+  const timeLabel = document.createElement('p');
+  timeLabel.className = 'sync-progress-hint sync-time';
+  syncHint?.after(timeLabel);
+  const formatTime = value => new Date(value).toLocaleString(window.ShiyeI18n?.language === 'en' ? 'en-US' : 'zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  let latestRun = null;
+  function showTime() {
+    if (latestRun) {
+      const finished = latestRun.status === 'completed';
+      const since = Date.parse(latestRun.run_started_at || latestRun.created_at);
+      timeLabel.textContent = finished ? '最近同步完成：' + formatTime(latestRun.updated_at) : '同步開始：' + formatTime(since) + ' · 已等待 ' + Math.max(0, Math.floor((Date.now()-since)/1000)) + ' 秒';
+    } else if (window.DASHBOARD_DATA?.syncedAt) timeLabel.textContent = '目前資料同步時間：' + formatTime(window.DASHBOARD_DATA.syncedAt);
+    else if (window.DASHBOARD_DATA?.updatedAt) timeLabel.textContent = '目前資料更新日期：' + window.DASHBOARD_DATA.updatedAt;
+  }
+  showTime();
+  window.addEventListener('shiye:language-changed', showTime);
   const workerUrl = window.SYNC_WORKER_URL;
   const syncResult = new URLSearchParams(window.location.search).get("sync");
   const syncStage = new URLSearchParams(window.location.search).get("stage");
@@ -91,6 +106,7 @@
       const runs = (await response.json()).workflow_runs || [];
       // A newer queued run must not hide the sync already in progress.
       const run = runs.find(item => item.status === "in_progress") || runs.find(item => item.status !== "completed") || runs[0];
+      latestRun = run; showTime();
       if (requestedAt && (!run || (run.status === "completed" && Date.parse(run.created_at) < requestedAt - 10000))) {
         if (Date.now() - requestedAt < 120000) {
           show("已送出同步，等待 GitHub 建立工作", 3, true);
@@ -150,9 +166,17 @@
     }
   }
 
+  let pollTimer, checking = false;
   async function poll() {
-    if (await update()) window.setTimeout(poll, 8000);
+    if (checking || document.hidden) return;
+    window.clearTimeout(pollTimer);
+    checking = true;
+    try { if (await update()) pollTimer = window.setTimeout(poll, 8000); }
+    finally { checking = false; }
   }
+  window.addEventListener('pageshow', poll);
+  window.addEventListener('focus', poll);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
 
   poll();
 })();

@@ -255,6 +255,8 @@
     } catch { status('無法讀取整理儲存空間，請保留現有瀏覽器資料。'); }
     setInterval(synchronize, 15000);
     window.addEventListener('online', synchronize);
+    window.addEventListener('pageshow', synchronize);
+    window.addEventListener('focus', synchronize);
     document.addEventListener('visibilitychange', () => { if (!document.hidden) synchronize(); });
     window.addEventListener('beforeunload', event => {
       if (token && base && !equal(snapshot(), base.data)) { event.preventDefault(); event.returnValue = ''; }

@@ -29,9 +29,17 @@ jobs:
         with:
           node-version: 22
 
+      - name: Restore unchanged Notion page cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/notion-sync-cache/data.json
+          key: notion-pages-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: notion-pages-v1-
+
       - name: Fetch the latest Notion snapshot
         run: node scripts/sync-notion.mjs
         env:
+          NOTION_CACHE_PATH: ${{ runner.temp }}/notion-sync-cache/data.json
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 
       - name: Save refreshed snapshot to main

@@ -114,8 +114,6 @@
       }
       attributeCache.set(element, entries);
     });
-    const date = document.getElementById('todayDate');
-    if (date) date.textContent = new Intl.DateTimeFormat(language === 'en' ? 'en-US' : 'zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }).format(new Date());
     observer?.observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['placeholder', 'aria-label', 'title', 'alt'] });
   }
   function setLanguage(value) {

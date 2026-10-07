@@ -34,6 +34,7 @@
     'GitHub 拒絕啟動工作流程；請檢查 PAT 的 Personal 儲存庫範圍與 Actions 寫入權限。':'GitHub refused the workflow request. Check the PAT’s Personal repository scope and Actions write permission.'
   });
   const patterns = [
+    [/^更新時間：(.+)$/, m => `Updated: ${m[1]}`], [/^更新日期：(.+)$/, m => `Updated: ${m[1]}`],
     [/^最近同步完成：(.+)$/, m => `Last sync finished: ${m[1]}`], [/^同步開始：(.+) · 已等待 (\d+) 秒$/, m => `Sync started: ${m[1]} · Waiting ${m[2]} seconds`], [/^目前資料同步時間：(.+)$/, m => `Data synced: ${m[1]}`], [/^目前資料更新日期：(.+)$/, m => `Data updated: ${m[1]}`],
     [/^已發布 · (.+)$/, m => `Published · ${m[1]}`],
     [/^當時（(.+)）$/, m => `Then (${m[1]})`], [/^(\d+) 篇$/, m => `${m[1]} articles`], [/^已選文章（(\d+)）$/, m => `Selected articles (${m[1]})`], [/^推薦文章（(\d+)）$/, m => `Recommended articles (${m[1]})`], [/^可能相關文章（(\d+)）$/, m => `Related articles (${m[1]})`],

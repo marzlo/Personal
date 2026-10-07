@@ -1,0 +1,13 @@
+.featured-quote.quote-carousel{padding:0;overflow:hidden}
+.featured-quote.quote-carousel:before{content:none}
+.quote-carousel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 20px;color:var(--muted);font-size:11px}
+.quote-carousel-head>div{display:flex;align-items:center;gap:12px}
+.quote-carousel-head button{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--green);font-size:18px}
+.quote-carousel-head button:disabled{opacity:.3;cursor:default}
+.quote-carousel-track{display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.quote-carousel-track::-webkit-scrollbar{display:none}
+.quote-slide{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:start;padding:12px 28px 24px 56px;overflow-wrap:anywhere}
+.quote-slide:before{content:'“';position:absolute;left:20px;top:4px;color:#a9bea9;font-family:Georgia,serif;font-size:48px;line-height:1}
+.quote-slide .featured-quote-meta{flex-wrap:wrap}
+.quote-slide .featured-quote-meta a{white-space:normal}
+@media(max-width:620px){.quote-slide{padding:8px 17px 20px 42px}.quote-slide:before{left:12px;font-size:38px}.quote-carousel-head{padding:8px 14px}.quote-carousel-head>div{gap:8px}}

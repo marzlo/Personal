@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { selectQuoteCards } from "./quote-cards.mjs";
 import { pathToFileURL } from "node:url";
 import { loadCache } from "./notion-cache.mjs";
 const startedAt = Date.now();
@@ -257,14 +258,14 @@ const featuredCandidates = quotes.flatMap(quote => {
     page: quote.page
   }];
 });
-const featuredQuote = featuredCandidates.length
-  ? featuredCandidates[Math.floor(Math.random() * featuredCandidates.length)]
-  : null;
+const featuredQuotes = selectQuoteCards(featuredCandidates);
+const featuredQuote = featuredQuotes[0] || null;
 const snapshot = {
   updatedAt: new Date().toISOString().slice(0, 10),
   syncedAt: new Date().toISOString(),
   sources: Object.fromEntries(Object.entries(sources).map(([key, value]) => [key, value.url])),
   featuredQuote,
+  featuredQuotes,
   books: titledBooks,
   podcasts,
   quotes

@@ -116,6 +116,28 @@ function githubHeaders(token) {
   };
 }
 
+async function syncStatus(request, env) {
+  if (request.method !== 'GET') return jsonResponse({ error: 'method' }, 405);
+  const cacheKey = new Request(new URL('/api/sync-status', request.url));
+  const cached = await caches.default.match(cacheKey);
+  if (cached) return cached;
+  const headers = { 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=15' };
+  try {
+    const response = await fetch(WORKFLOW_URL + '/runs?per_page=10', { headers: githubHeaders(env.GITHUB_ACTIONS_TOKEN) });
+    if (!response.ok) return jsonResponse({ error: 'status_unavailable' }, 503, headers);
+    const payload = await response.json();
+    const runs = (payload.workflow_runs || []).map(run => Object.fromEntries(['id','status','conclusion','created_at','updated_at','run_started_at','html_url'].map(key => [key, run[key]])));
+    const active = runs.find(run => run.status === 'in_progress');
+    if (active) {
+      const jobs = await fetch(`https://api.github.com/repos/${REPOSITORY}/actions/runs/${active.id}/jobs`, { headers: githubHeaders(env.GITHUB_ACTIONS_TOKEN) });
+      if (jobs.ok) active.jobs = ((await jobs.json()).jobs || []).map(job => ({ status: job.status, steps: (job.steps || []).map(step => ({ name: step.name, status: step.status })) }));
+    }
+    const result = jsonResponse({ workflow_runs: runs }, 200, headers);
+    await caches.default.put(cacheKey, result.clone());
+    return result;
+  } catch { return jsonResponse({ error: 'status_unavailable' }, 503, headers); }
+}
+
 function response(body, status = 200, headers = {}) {
   return new Response(body, {
     status,
@@ -148,6 +170,7 @@ function dashboardResult(result, stage = "") {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/sync-status") return syncStatus(request, env);
     if (url.pathname === "/api/public-notes") return publicNotesApi(request, env);
     if (url.pathname === "/api/notes") return notesApi(request, env);
     if (request.method !== "GET") return response("Method not allowed", 405, { Allow: "GET" });

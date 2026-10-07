@@ -5,7 +5,7 @@
   const track = document.querySelector(".sync-progress-track");
   const syncButton = document.querySelector(".sync-button");
   const syncHint = document.querySelector(".sync-progress-hint");
-  const endpoint = "https://api.github.com/repos/marzlo/Personal/actions/workflows/sync-notion.yml/runs?per_page=10";
+  const endpoint = window.SYNC_WORKER_URL.replace(/\/$/, "") + "/api/sync-status";
   if (!label || !percent || !fill || !track) return;
 
   const timeLabel = document.createElement('p');
@@ -145,9 +145,8 @@
       let value = 8;
       let text = "同步進行中";
       try {
-        const jobsResponse = await fetch(run.jobs_url, { headers: { Accept: "application/vnd.github+json" } });
-        if (jobsResponse.ok) {
-          const jobs = (await jobsResponse.json()).jobs || [];
+        if (run.jobs) {
+          const jobs = run.jobs;
           const job = jobs.find(item => item.status === "in_progress");
           if (job) {
             const steps = job.steps || [];
@@ -171,7 +170,7 @@
     if (checking || document.hidden) return;
     window.clearTimeout(pollTimer);
     checking = true;
-    try { if (await update()) pollTimer = window.setTimeout(poll, 8000); }
+    try { if (await update()) pollTimer = window.setTimeout(poll, 15000); }
     finally { checking = false; }
   }
   window.addEventListener('pageshow', poll);

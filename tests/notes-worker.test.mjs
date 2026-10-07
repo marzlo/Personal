@@ -104,3 +104,11 @@ test('remembered owner session lasts 180 days and valid older sessions renew aut
   assert.equal((await worker.default.fetch(request('GET'),env)).headers.get('X-Notes-Session'),null);
   assert.equal((await worker.default.fetch(request('GET',null,'invalid'),env)).headers.get('X-Notes-Session'),null);
 });
+
+test('sync status uses authenticated server requests and shares cached sanitized output', async()=>{
+ const previousFetch=globalThis.fetch,previousCache=globalThis.caches;const values=new Map();let calls=0;
+ globalThis.caches={default:{match:async key=>values.get(key.url)?.clone(),put:async(key,value)=>values.set(key.url,value)}};
+ globalThis.fetch=async(url,options)=>{calls++;assert.equal(options.headers.Authorization,'Bearer server-secret');return new Response(JSON.stringify({workflow_runs:[{id:123,status:'completed',conclusion:'success',html_url:'https://github.com/marzlo/Personal/actions/runs/123',private_field:'omit'}]}));};
+ try{const req=new Request('https://worker.test/api/sync-status');const r=await worker.default.fetch(req,{GITHUB_ACTIONS_TOKEN:'server-secret'});assert.equal(r.status,200);const body=await r.json();assert.equal(body.workflow_runs[0].private_field,undefined);assert.equal(JSON.stringify(body).includes('server-secret'),false);await worker.default.fetch(req,{});assert.equal(calls,1);assert.equal(r.headers.get('Access-Control-Allow-Origin'),'*');}
+ finally{globalThis.fetch=previousFetch;globalThis.caches=previousCache;}
+});

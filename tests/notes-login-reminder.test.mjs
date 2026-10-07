@@ -13,7 +13,7 @@ function setup(exp, responseStatus = 200) {
   const storage = { getItem: k => saved.get(k) ?? null, setItem: (k, v) => saved.set(k, v), removeItem: k => saved.delete(k) };
   const token = exp === null ? '' : Buffer.from(JSON.stringify({ exp })).toString('base64url') + '.signature';
   storage.setItem('shiyeNotesSession', token);
-  const context = { window: { addEventListener() {}, SYNC_WORKER_URL: 'https://worker.test' }, document: { hidden: false, activeElement: null, querySelectorAll: () => [] }, localStorage: storage, sessionStorage: storage, Date, JSON, URL, atob, setTimeout: () => 0, clearTimeout() {}, fetch: async () => { requests++; return { status: responseStatus, ok: responseStatus === 200, json: async () => ({ revision: 0, data: null }) }; } };
+  const context = { CustomEvent: class { constructor(type,options){this.type=type;this.detail=options?.detail;} }, window: { dispatchEvent(event){context.lastEvent=event;}, addEventListener() {}, SYNC_WORKER_URL: 'https://worker.test' }, document: { hidden: false, activeElement: null, querySelectorAll: () => [] }, localStorage: storage, sessionStorage: storage, Date, JSON, URL, atob, setTimeout: () => 0, clearTimeout() {}, fetch: async () => { requests++; return { status: responseStatus, ok: responseStatus === 200, json: async () => ({ revision: 0, data: null }) }; } };
   const source = fs.readFileSync(new URL('../notes-sync.js', import.meta.url), 'utf8').replace("window.addEventListener('DOMContentLoaded', boot, { once: true });", `window.test = { requireLogin, synchronize, api, edit: () => { lastEditAt = Date.now(); }, init: (value, element) => { token = value; panel = element; reminder = element; }, };`);
   vm.runInNewContext(source, context);
   const reminder = { hidden: true, querySelector: node };
@@ -49,4 +49,18 @@ test('server-rejected session prompts a recent editor, even before local expiry'
   await assert.rejects(fixture.api.api('GET'), /登入已過期/);
   assert.equal(fixture.reminder.hidden, false);
   assert.equal(fixture.saved.has('shiyeNotesSession'), false);
+});
+
+test('public loading does not replace local notes or sync baseline', async () => {
+ const fixture=setup(null);
+ fixture.saved.set('shiyeIdeas',JSON.stringify([{title:'保留本機'}]));
+ const before=[...fixture.saved];
+ await fixture.api.synchronize();
+ assert.deepEqual([...fixture.saved],before);
+ assert.equal(fixture.context.lastEvent.detail.public,true);
+ assert.equal(fixture.context.lastEvent.detail.data.shiyeIdeas,null);
+ fixture.context.window.ShiyeNotes.write('shiyeIdeas',[]);
+ assert.deepEqual([...fixture.saved],before);
+ await fixture.api.synchronize();
+ assert.equal(fixture.requests(),2);
 });

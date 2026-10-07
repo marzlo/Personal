@@ -70,6 +70,20 @@ async function notesApi(request, env) {
   } catch { return jsonResponse({ error: 'unavailable' }, 503, cors); }
 }
 
+// All saved current notes are public; history and write access remain owner-only.
+async function publicNotesApi(request, env) {
+  const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS' };
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
+  if (request.method !== 'GET') return jsonResponse({ error: 'method' }, 405, cors);
+  if (!env.NOTES_STORE) return jsonResponse({ error: 'not_configured' }, 503, cors);
+  try {
+    const store = env.NOTES_STORE.get(env.NOTES_STORE.idFromName(ALLOWED_GITHUB_LOGIN));
+    const result = await store.fetch(new Request('https://notes.internal/'));
+    const current = await result.json();
+    return jsonResponse({ revision: current.revision, updatedAt: current.updatedAt, data: current.data }, result.status, cors);
+  } catch { return jsonResponse({ error: 'unavailable' }, 503, cors); }
+}
+
 // Atomic revision checks prevent two devices from silently overwriting each other.
 export class NotesStore {
   constructor(ctx) { this.storage = ctx.storage; }
@@ -131,6 +145,7 @@ function dashboardResult(result, stage = "") {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/public-notes") return publicNotesApi(request, env);
     if (url.pathname === "/api/notes") return notesApi(request, env);
     if (request.method !== "GET") return response("Method not allowed", 405, { Allow: "GET" });
 

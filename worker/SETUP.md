@@ -55,3 +55,7 @@ The session is stored in `sessionStorage`; if the tab session ends or seven days
 
 Validation: `node --test tests/notes-worker.test.mjs` from the repository root. Tests use synthetic data and verify private access, initial migration, concurrent writes, backups, payload limits, and the unchanged manual-sync OAuth entry.
 
+
+### 公開閱讀
+
+使用者已授權全部共用整理公開。GET `/api/public-notes` 回傳目前快照，無須 GitHub 登入；不提供備份或寫入。每次 owner 成功同步後，公開 API 即讀取最新版本。前端訪客以記憶體載入，不改寫 localStorage 個人資料。`/api/notes` 的帳號驗證與版本衝突檢查維持原樣。

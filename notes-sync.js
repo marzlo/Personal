@@ -5,6 +5,26 @@
   const tokenKey = 'shiyeNotesSession';
   let applying = false, busy = false, timer, base = null, token = '', conflict = null, panel;
   let reminder, loginExpired = false, lastEditAt = 0;
+  let publicRevision = -1;
+  function visitor() { return !token && !base && !loginExpired; }
+  async function loadPublic() {
+    if (busy || !window.SYNC_WORKER_URL || document.hidden) return;
+    busy = true;
+    try {
+      const response = await fetch(window.SYNC_WORKER_URL.replace(/\/$/, '') + '/api/public-notes', { cache: 'no-store' });
+      if (!response.ok) throw new Error('公開整理暫時無法載入，請稍後重新整理。');
+      const remote = await response.json();
+      if (!visitor()) return;
+      if (remote.revision !== publicRevision) {
+        // Display in memory only; never replace a visitor's existing local notes.
+        const data = remote.data || Object.fromEntries(keys.map(key => [key, null]));
+        window.dispatchEvent(new CustomEvent('shiye:notes-loaded', { detail: { data, public: true } }));
+        publicRevision = remote.revision;
+      }
+      status(remote.data ? '公開整理已更新；訪客可直接閱讀。' : '尚未發布整理。');
+    } catch (error) { status(error.message); }
+    finally { busy = false; }
+  }
   function sessionValid() {
     if (!token) return false;
     try {
@@ -59,6 +79,7 @@
   }
   window.ShiyeNotes = {
     write(key, value) {
+      if (panel && visitor()) return;
       const text = JSON.stringify(value);
       const changed = localStorage.getItem(key) !== text;
       localStorage.setItem(key, text);
@@ -108,6 +129,7 @@
       if (panel) status('登入已過期，請重新登入 GitHub。');
       if (editing() || Date.now() - lastEditAt < 120000) requireLogin();
     }
+    if (panel && visitor()) return loadPublic();
     if (!panel || !token || !window.SYNC_WORKER_URL || busy || conflict || document.hidden) return;
     busy = true;
     try {
@@ -202,6 +224,11 @@
       // Remove the session from the URL before any further interaction.
       if (session) { history.replaceState(null, '', location.pathname + location.search); sessionStorage.setItem(tokenKey, session); }
       token = sessionStorage.getItem(tokenKey) || '';
+      document.body.classList.toggle('notes-visitor', visitor());
+      if (visitor()) {
+        window.dispatchEvent(new CustomEvent('shiye:notes-loaded', { detail: { public: true, data: Object.fromEntries(keys.map(key => [key, null])) } }));
+        status('正在載入公開整理…');
+      }
       panel.querySelector('[data-notes-login]').hidden = !!token;
       synchronize();
     } catch { status('無法讀取整理儲存空間，請保留現有瀏覽器資料。'); }

@@ -70,3 +70,21 @@ test('notes login preserves normal sync entry and protects callback state', asyn
   const callback = await worker.default.fetch(new Request('https://worker.test/auth/callback?state=wrong&code=test'), env);
   assert.match(callback.headers.get('Location'), /stage=state/);
 });
+
+test('public visitors read latest snapshot but cannot write or read backups', async () => {
+  const { env, storage } = fixture();
+  const publicRequest = method => new Request('https://worker.test/api/public-notes', { method });
+  assert.deepEqual(await (await worker.default.fetch(publicRequest('GET'), env)).json(), { revision: 0, data: null });
+  await worker.default.fetch(request('PUT', { revision: 0, data }), env);
+  const changed = structuredClone(data); changed.shiyeIdeas = [{title:'公開想法',timeline:[]}];
+  await worker.default.fetch(request('PUT', { revision: 1, data: changed }), env);
+  const response = await worker.default.fetch(publicRequest('GET'), env);
+  assert.equal(response.headers.get('Access-Control-Allow-Origin'), '*');
+  const published = await response.json();
+  assert.equal(published.revision, 2);
+  assert.deepEqual(published.data, changed);
+  assert.deepEqual(Object.keys(published).sort(), ['data','revision','updatedAt']);
+  assert.equal((await worker.default.fetch(publicRequest('PUT'), env)).status, 405);
+  assert.equal((await worker.default.fetch(request('PUT', {revision:2,data}, ''), env)).status,401);
+  assert.deepEqual((await storage.get('backup-1')).data, data);
+});

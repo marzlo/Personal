@@ -48,10 +48,7 @@
   let directEntry = false;
   let copyVersion = 0;
   const makeUrl = item => {
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    url.searchParams.set('article', pageId(item.url));
+    const url = new URL('/Personal/share/' + pageId(item.url) + '/', window.location.origin);
     url.searchParams.set('lang', language);
     return url.href;
   };

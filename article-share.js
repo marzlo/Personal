@@ -37,7 +37,7 @@
   dialog.innerHTML = `<button type="button" class="share-close" aria-label="關閉並回到拾頁">×</button>
     <div class="share-language" role="group" aria-label="分享視窗語言"><button type="button" data-share-language="zh" lang="zh-Hant">中文</button><span aria-hidden="true">/</span><button type="button" data-share-language="en" lang="en">English</button></div>
     <div class="share-kicker"></div><h2 id="shareArticleTitle"></h2><p class="share-meta"></p>
-    <div class="share-divider"></div><p class="share-intro"></p>
+    <div class="share-divider"></div><blockquote class="share-excerpt" data-no-translate hidden></blockquote><p class="share-intro"></p>
     <div class="share-url-area" hidden><label for="shareArticleUrl">文章分享網址</label><input id="shareArticleUrl" readonly></div>
     <div class="share-actions"><button type="button" class="primary share-copy">複製網址</button><button type="button" class="share-preview">預覽分享畫面</button><a class="primary share-notion" target="_blank" rel="noreferrer">前往 Notion 閱讀 ↗</a><button type="button" class="share-home">取消，回到拾頁</button></div>
     <p class="share-message" aria-live="polite"></p>`;
@@ -66,6 +66,9 @@
     find('.share-kicker').textContent = recipient ? t().recipientKicker : t().senderKicker;
     find('#shareArticleTitle').textContent = item?.title || t().missingTitle;
     find('.share-meta').textContent = item ? [item.kind === '含音訊書籍' ? t().audioBook : item.kind, (item.authors || []).join('・') || item.author].filter(Boolean).join(' · ') : '';
+    const excerpt = item ? window.ShiyeShareExcerpt(window.ARTICLE_BODIES?.[item.url], item.title) : '';
+    find('.share-excerpt').textContent = excerpt;
+    find('.share-excerpt').hidden = !excerpt;
     find('.share-intro').textContent = !item ? t().missingIntro : recipient ? t().recipientIntro : t().senderIntro;
     find('.share-url-area label').textContent = t().urlLabel;
     find('.share-copy').textContent = t().copy;

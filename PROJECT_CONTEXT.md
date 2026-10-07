@@ -123,3 +123,8 @@
 - 系列深讀主題與名詞支援 Pointer Events 左右拖曳排序及 Alt＋左右鍵；只存 configs 順序，不重建表單，保留選中項目和草稿；取消拖曳還原，訪客不可排序。
 
 - 分享彈窗附上該篇 ARTICLE_BODIES 原文摘句，share-excerpt.js 以完整句子及反思詞彙評分挑選；排除標題、網址、操作文案，無合適正文則不顯示；分享者與訪客使用同一摘句，切換英文保留原文。
+
+## 文章分享縮圖（2026-10-08）
+- 新分享網址 `/Personal/share/<Notion page ID>/?lang=zh|en` 為文章專屬靜態預覽頁，提供 Open Graph／Twitter 名稱、原文摘句、1200×630 PNG 圖片；瀏覽器自動回到原有 `?article=` 分享彈窗，舊網址仍有效。
+- `scripts/build-share-pages.mjs` 使用現有資料及 share-excerpt.js 挑句；`scripts/build-share-images.py` 產生中文書名字卡。兩個部署工作流程在上傳前產生，不把生成目錄提交；安裝 Pillow10.4及 Noto CJK 字型。
+- 社群平台可能快取預覽，需使用新分享按鈕複製網址；舊的首頁 query 網址無法在 GitHub Pages 上對爬蟲提供文章專屬 meta。

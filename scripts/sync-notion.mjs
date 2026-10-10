@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { refreshPodcastCovers } from "./podcast-covers.mjs";
 import { selectQuoteCards } from "./quote-cards.mjs";
 import { pathToFileURL } from "node:url";
 import { loadCache } from "./notion-cache.mjs";
@@ -260,10 +261,12 @@ const featuredCandidates = quotes.flatMap(quote => {
 });
 const featuredQuotes = selectQuoteCards(featuredCandidates);
 const featuredQuote = featuredQuotes[0] || null;
-let previousCoverRotation = 0;
-try { const previous = JSON.parse((await fs.readFile('data.js','utf8')).replace(/^window\.DASHBOARD_DATA\s*=\s*/, '').replace(/;\s*$/, '')); previousCoverRotation = Number.isSafeInteger(previous.coverRotation) ? previous.coverRotation : 0; } catch {}
+let previousSnapshot = {};
+try { previousSnapshot = JSON.parse((await fs.readFile('data.js','utf8')).replace(/^window\.DASHBOARD_DATA\s*=\s*/, '').replace(/;\s*$/, '')); } catch {}
+let latestPodcastCovers = previousSnapshot.latestPodcastCovers || [];
+try { latestPodcastCovers = await refreshPodcastCovers(latestPodcastCovers); } catch(error) { console.warn('Keeping previous cover photos: '+error.message); }
 const snapshot = {
-  coverRotation: (previousCoverRotation + 1) % 4,
+  latestPodcastCovers,
   updatedAt: new Date().toISOString().slice(0, 10),
   syncedAt: new Date().toISOString(),
   sources: Object.fromEntries(Object.entries(sources).map(([key, value]) => [key, value.url])),

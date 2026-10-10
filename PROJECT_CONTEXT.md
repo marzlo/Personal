@@ -128,3 +128,7 @@
 - 新分享網址 `/Personal/share/<Notion page ID>/?lang=zh|en` 為文章專屬靜態預覽頁，提供 Open Graph／Twitter 名稱、原文摘句、1200×630 PNG 圖片；瀏覽器自動回到原有 `?article=` 分享彈窗，舊網址仍有效。
 - `scripts/build-share-pages.mjs` 使用現有資料及 share-excerpt.js 挑句；`scripts/build-share-images.py` 產生中文書名字卡。兩個部署工作流程在上傳前產生，不把生成目錄提交；安裝 Pillow10.4及 Noto CJK 字型。
 - 社群平台可能快取預覽，需使用新分享按鈕複製網址；舊的首頁 query 網址無法在 GitHub Pages 上對爬蟲提供文章專屬 meta。
+
+## 金句連結搜尋（2026-10-10）
+- linkableArticles 包含所有書籍、Podcast與金句，不限音訊。記事新增／編輯和系列深讀共用 searchLinkableArticles，支援標題、關聯書名、作者、標籤、金句正文及 Notion URL／page ID。
+- 不改寫既有記事結構與內容；現有記錄再次編輯即套用同一搜尋。回歸測試含 c4e0393e4df640669cf82e5714a438ed 與無音訊人生操作手冊。

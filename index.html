@@ -103,16 +103,8 @@ function renderCats(){const q=document.querySelector('#search').value.trim().toL
    const groups=groupPodcastsByAuthor([...podcasts,...audioBooks.map(book=>({...book,type:'含音訊書籍'}))]);
    html=groups.map((g,i)=>{const found=g[2].filter(hasText);return found.length||g[0].toLocaleLowerCase().includes(q)?tile(g[0],g[1],'c'+(i%6+1),found.length+' 篇',linkedRows(found,'Podcast')):''}).join('');
  }else{
-  const themes=[
-   ['心靈與賽斯','🪷',/心靈|賽斯|靈性|克里昂|靈界|通靈|靈魂|心智/],
-   ['意識與修行','🌌',/意識|開悟|修行|實修|內在|覺察|夢|身體|心理|信念|地球/],
-   ['思想與哲學','✳',/思想|哲學|物理|時間|自由|真理|價值|存在/],
-   ['商業與投資','↗',/商業|投資|經濟|財富|市場|貨幣|金融|企業/],
-   ['生活與實踐','🌿',/生活|習慣|實踐|健康|關係|工作|創作|動物|提問|困難/],
-   ['其他收藏','📖',/.*/]
-  ];
-  const items=books.map(x=>Object.assign({},x,{type:'書籍'})).concat(quotes.map(x=>Object.assign({},x,{type:'金句'})));
-  const classified=items.map(x=>{const hay=x.title+' '+(x.tags||[]).join(' '),match=themes.slice(0,-1).find(t=>t[2].test(hay));return [match?match[0]:'其他收藏',x]});const groups=themes.map(t=>[t[0],t[1],classified.filter(row=>row[0]===t[0]).map(row=>row[1])]);html=groups.map((g,i)=>{const found=g[2].filter(hasText);const rows=linkedRows(found.map(x=>Object.assign({},x,{created:x.created||x.updated})), '');return found.length||g[0].toLocaleLowerCase().includes(q)?tile(g[0],g[1],'c'+(i+1),found.length+' 筆',rows):''}).join('');
+  const items=books.map(book=>({...book,type:'書籍'})).concat(quotes.map(quote=>({...quote,type:'金句',authors:[...new Set((quote.bookRefs||[]).map(url=>bookByUrl.get(url)?.author).filter(Boolean))]})));
+  const groups=groupPodcastsByAuthor(items);html=groups.map((g,i)=>{const found=g[2].filter(hasText);const rows=linkedRows(found.map(item=>({...item,created:item.created||item.updated})), '');return found.length||g[0].toLocaleLowerCase().includes(q)?tile(g[0],g[1],'c'+(i%6+1),found.length+' 筆',rows):''}).join('');
  }
  document.querySelector('#categories').innerHTML=html||'<div class="empty">找不到相符資料。</div>';document.querySelectorAll('.cat-toggle').forEach(b=>b.onclick=()=>b.closest('.category').classList.toggle('open'))}
 document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');view=b.dataset.view;renderCats()});document.querySelector('#search').addEventListener('input',renderCats);

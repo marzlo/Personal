@@ -105,7 +105,7 @@
     panel.querySelector('[data-notes-status]').textContent = text;
   }
   function editing() {
-    return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#newConceptForm,#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleTagDialog[open],#concepts textarea,#concepts input:not([type="hidden"])')].some(form => !form.hidden && form.getClientRects().length);
+    return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#newConceptForm,#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleSearchTagForm,#concepts textarea,#concepts input:not([type="hidden"])')].some(form => !form.hidden && form.getClientRects().length);
   }
   async function api(method, body) {
     const response = await fetch(window.SYNC_WORKER_URL.replace(/\/$/, '') + '/api/notes', {
@@ -200,12 +200,12 @@
         }
       });
     });
-    const editActions = '#focusNewConcept,#addConcept,#openSettings,#openTimeline,#deleteIdea,#manageArticleTags,#studyEdit,#studyAddSeries,#studyDeleteSeries,#studyAddTerm,#studyDeleteTerm,#studyAddArticle,.idea-field-action,.concept-delete,.study-unlink,[data-remove],[data-link]';
+    const editActions = '#focusNewConcept,#addConcept,#openSettings,#openTimeline,#deleteIdea,#addArticleSearchTag,#studyEdit,#studyAddSeries,#studyDeleteSeries,#studyAddTerm,#studyDeleteTerm,#studyAddArticle,.idea-field-action,.concept-delete,.study-unlink,[data-remove],[data-link]';
     document.addEventListener('click', event => {
       if (event.target.closest?.(editActions)) { lastEditAt = Date.now(); requireLogin(); }
     }, true);
     document.addEventListener('input', event => {
-      if (event.target.closest?.('#concepts,#seriesStudy,#articleTagDialog') && event.target.matches('input:not([type="search"]),textarea,select')) {
+      if (event.target.closest?.('#concepts,#seriesStudy,#articleSearchTagForm') && event.target.matches('input:not([type="search"]),textarea,select')) {
         lastEditAt = Date.now(); requireLogin();
       }
     });

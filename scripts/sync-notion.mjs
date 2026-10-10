@@ -260,7 +260,10 @@ const featuredCandidates = quotes.flatMap(quote => {
 });
 const featuredQuotes = selectQuoteCards(featuredCandidates);
 const featuredQuote = featuredQuotes[0] || null;
+let previousCoverRotation = 0;
+try { const previous = JSON.parse((await fs.readFile('data.js','utf8')).replace(/^window\.DASHBOARD_DATA\s*=\s*/, '').replace(/;\s*$/, '')); previousCoverRotation = Number.isSafeInteger(previous.coverRotation) ? previous.coverRotation : 0; } catch {}
 const snapshot = {
+  coverRotation: (previousCoverRotation + 1) % 4,
   updatedAt: new Date().toISOString().slice(0, 10),
   syncedAt: new Date().toISOString(),
   sources: Object.fromEntries(Object.entries(sources).map(([key, value]) => [key, value.url])),

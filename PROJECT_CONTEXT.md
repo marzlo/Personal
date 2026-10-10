@@ -132,3 +132,5 @@
 ## 金句連結搜尋（2026-10-10）
 - linkableArticles 包含所有書籍、Podcast與金句，不限音訊。記事新增／編輯和系列深讀共用 searchLinkableArticles，支援標題、關聯書名、作者、標籤、金句正文及 Notion URL／page ID。
 - 不改寫既有記事結構與內容；現有記錄再次編輯即套用同一搜尋。回歸測試含 c4e0393e4df640669cf82e5714a438ed 與無音訊人生操作手冊。
+
+- iPhone 加入主畫面沿用淡綠底與深色八芒✳品牌圖示，icons/apple-touch-icon.png 為180px不透明方形；另有32px favicon。主畫面名稱拾頁，未改成獨立App啟動模式。

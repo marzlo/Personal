@@ -2,10 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-test('Indicator extracts only sourced glossary terms and examples, draws ten unique mixed cards',()=>{
+test('Indicator extracts only sourced glossary terms and examples, keeps examples inside vocabulary cards',()=>{
  const c={window:{}};for(const f of ['data.js','article-bodies.js','indicator-study.js'])vm.runInNewContext(fs.readFileSync(new URL('../'+f,import.meta.url),'utf8'),c);
- const helper=c.window.IndicatorStudy;const list=helper.candidates(c.window.DASHBOARD_DATA.podcasts,c.window.ARTICLE_BODIES);assert.ok(list.length>=10);
- for(let n=0;n<20;n++){const cards=helper.draw(list);assert.equal(cards.length,10);assert.equal(new Set(cards.map(c=>c.id)).size,10);for(const type of ['單字','用詞','句子'])assert.ok(cards.some(c=>c.type===type));for(const card of cards)assert.ok(c.window.ARTICLE_BODIES[card.source].includes(card.text));}
+ const helper=c.window.IndicatorStudy;const list=helper.candidates(c.window.DASHBOARD_DATA.podcasts,c.window.ARTICLE_BODIES);assert.ok(list.length>0);
+ for(let n=0;n<20;n++){const cards=helper.draw(list);assert.equal(cards.length,Math.min(10,list.length));assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);for(const type of ['單字','用詞'])assert.ok(cards.some(c=>c.type===type));for(const card of cards){assert.notEqual(card.type,'句子');assert.ok(c.window.ARTICLE_BODIES[card.source].includes(card.text));assert.ok(card.examples.length>0);for(const example of card.examples)assert.ok(c.window.ARTICLE_BODIES[card.source].includes(example.text));}}
  assert.equal(helper.isIndicator({tags:[' Indicator ']}),true);assert.equal(helper.isIndicator({tags:['Important']}),false);
  assert.equal(helper.draw([]).length,0);
 });

@@ -147,3 +147,9 @@
 - 修正封面需求：每次Notion同步從Picsum攝影目錄取得四張新照片，排除上一批所有photo ID，快照latestPodcastCovers保存照片與作者来源，不再輪動原四張。來源服務失敗保留上一批並記錄警告，不中斷Notion同步。
 
 - 使用者確認主題探索改為作者分類：書籍用作者、金句用關聯書籍作者，沿用Podcast分組規則與篇數遞減；保留書籍／金句類型與全部資料。
+
+## Indicator 英語專頁（2026-10-13）
+- `indicator.html` 由頁首側欄與文章區入口進入；僅Podcast tags不分大小寫等於Indicator，按最新編輯時間呈現正文。
+- `indicator-study.js` 從原文已整理的編號詞彙標題與例句段落抽取單字、用詞、句子及中文說明；不生成虛構內容。每次開頁／重新抽選隨機十張，盡可能包含三種類型，來源不足時不補造。
+- 重要詞句保存於既有 shiyeArticleTags.__indicatorSaved，不更動其餘文章標籤，沿用notes-sync發布與跨裝置同步。訪客可看公開詞句，擁有者可標記／移除；未登入可回首頁登入後返回此頁。
+- 首頁文章pool排除Indicator，連結文章搜尋仍保留，article-share以linkableArticles建立查找以維持舊分享網址。

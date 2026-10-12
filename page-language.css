@@ -5,3 +5,4 @@
 #articleSearchTagForm[hidden]{display:none}
 #articleSearchTagForm input{padding:10px;border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink)}
 .notes-visitor #addArticleSearchTag,.notes-visitor #articleSearchTagForm{display:none!important}
+.indicator-entry{display:inline-block;color:var(--green);text-decoration:none;font-size:12px;padding:12px 0;margin-bottom:10px}

@@ -29,8 +29,8 @@
   if (window.ShiyeI18n) language = window.ShiyeI18n.language;
   const t = () => translations[language];
   const pageId = url => String(url || '').match(/([a-f0-9]{32}|[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})(?:[/?#]|$)/i)?.[1].replaceAll('-', '').toLowerCase();
-  const byId = new Map(articlePool.map(article => [pageId(article.url), article]).filter(([id]) => id));
-  const byUrl = new Map(articlePool.map(article => [notionUrl(article.url), article]));
+  const byId = new Map(linkableArticles.map(article => [pageId(article.url), article]).filter(([id]) => id));
+  const byUrl = new Map(linkableArticles.map(article => [notionUrl(article.url), article]));
   const dialog = document.createElement('dialog');
   dialog.className = 'article-share-dialog';
   dialog.setAttribute('aria-labelledby', 'shareArticleTitle');

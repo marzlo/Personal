@@ -88,6 +88,11 @@
     $('answer').hidden = !$('answer').hidden; $('reveal').textContent = $('answer').hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −';
   };
   $('prev').onclick = () => {if(index > 0) index--; render()}; $('next').onclick = () => {if(index < pool.length - 1) index++; render()};
+  window.PodcastSwipe?.attach(document.querySelector('.flashcard'), delta => {
+    const next = Math.max(0,Math.min(pool.length - 1,index + delta));
+    if (!pool.length || next === index) return;
+    index = next; render();
+  });
   $('save').onclick = () => {
     if (!pool[index]) return; const term = pool[index].word[0];
     saved = saved.includes(term) ? saved.filter(s => s !== term) : [...saved,term];

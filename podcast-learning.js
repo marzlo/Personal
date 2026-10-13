@@ -1,13 +1,123 @@
 (() => {
-const words=[
-['ballpark','粗略估算','Can you give me a ballpark figure?','你能給我一個大概的數字嗎？','常搭配 figure 或 estimate，適合詢問費用、時間的大致範圍。'],
-["strike out on one’s own",'自立門戶、獨立發展','After years at the company, she decided to strike out on her own.','在公司工作多年後，她決定自立門戶。','用於離開原有組織、開始自己的事業。'],
-['stash away','預先存下','He stashed away enough money to take a few months off.','他存下足夠的錢，可以休息幾個月。','常用於把錢存起來，以備未來使用。'],
-['to top it off','此外還有；更棒／更糟的是','The job pays well, and to top it off, the benefits are great.','這份工作薪水不錯，而且福利也很好。','補充最後一個加分或讓事情更糟的因素，依上下文判斷。'],
-['make it worthwhile','讓某事值得去做','The experience alone makes it worthwhile.','光是這段經驗，就讓它值得了。','可以用來說明一件事的回報或價值。'],
-['cool off','降溫','The job market is starting to cool off.','就業市場開始降溫。','可形容市場、經濟活動或情緒逐漸緩和。']
-];
-let tags={};try{tags=JSON.parse(localStorage.getItem('shiyeArticleTags')||'{}')||{}}catch{}let saved=Array.isArray(tags.__podcastSaved)?tags.__podcastSaved:[];const legacy=Array.isArray(tags.__indicatorSaved)?tags.__indicatorSaved:[];legacy.forEach(card=>{if(card.text&&!words.some(w=>w[0]===card.text))words.push([card.text,card.meaning||'',card.examples?.[0]?.text||'',card.examples?.[0]?.meaning||'',card.context||'原有 Indicator 收藏'])});let pool=[...words],index=0;const $=id=>document.getElementById(id);function persist(){tags={...tags,__podcastSaved:saved,__podcastLegacyImported:true};window.ShiyeNotes.write('shiyeArticleTags',tags)}function collection(){ $('savedCount').textContent=saved.length+' 個收藏';$('savedList').replaceChildren();if(!saved.length){const p=document.createElement('p');p.textContent='把想記住的表達留下，下次再回來練習。';$('savedList').append(p)}saved.forEach(term=>{const b=document.createElement('button');b.textContent=term;b.onclick=()=>{ $('scope').value='episode';pool=[...words];index=pool.findIndex(w=>w[0]===term);render();window.scrollTo({top:0,behavior:'smooth'})};$('savedList').append(b)})}function render(){const w=pool[index];$('position').textContent=pool.length?(index+1)+' / '+pool.length:'0 / 0';$('term').textContent=w?.[0]||'還沒有收藏詞句';const source=document.querySelector('.flashcard footer a');const old=(tags.__indicatorSaved||[]).find(c=>c.text===w?.[0]);const legacyCard=w&&words.indexOf(w)>=6;source.textContent=legacyCard?'來源：'+(old?.title||'原有 Indicator 收藏')+' ↗':"出自 I'm Just Here for the Health Benefits ↗";source.href=legacyCard&&/^https:\/\//.test(old?.source||'')?old.source:'#episode';$('kind').textContent=legacyCard?'原有 Indicator 收藏':'日常口語與職涯';$('example').textContent=w?.[2]||'先從本集精選中，收藏你想記住的表達。';$('meaning').textContent=w?.[1]||'';$('translation').textContent=w?.[3]||'';$('usage').textContent=w?.[4]||'';$('answer').hidden=true;$('reveal').textContent='顯示中文與用法 ＋';$('reveal').disabled=!w;$('save').disabled=!w;$('save').textContent=saved.includes(w?.[0])?'★ 已收藏':'☆ 收藏詞句';$('save').setAttribute('aria-pressed',String(saved.includes(w?.[0])));$('prev').disabled=index<=0;$('next').disabled=index>=pool.length-1;collection()}
-$('reveal').onclick=()=>{$('answer').hidden=!$('answer').hidden;$('reveal').textContent=$('answer').hidden?'顯示中文與用法 ＋':'收起中文與用法 −'};$('prev').onclick=()=>{index--;render()};$('next').onclick=()=>{index++;render()};$('save').onclick=()=>{const term=pool[index][0];saved=saved.includes(term)?saved.filter(s=>s!==term):[...saved,term];persist();if($('scope').value==='saved'){pool=words.filter(w=>saved.includes(w[0]));index=Math.max(0,Math.min(index,pool.length-1))}render()};$('scope').onchange=()=>{pool=$('scope').value==='saved'?words.filter(w=>saved.includes(w[0])):$('scope').value==='all'?[...words]:words.slice(0,6);index=0;render()};$('shuffle').onclick=()=>{for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}index=0;render()};const glossary=[...words,
-['accrue','逐漸累積','','','技能、經驗或利息的累積。'],['go up and down','上下波動','','','用於價格、費用或情緒。'],['month to month','逐月；每個月之間','','','強調月份之間的變化。'],['chase an idea','追求、實現想法','','','常用於創業或夢想。'],['tick down','小幅下降','','','常見於經濟數據。'],['come out as','結果顯示為','','','用於調查或評估的結果。'],['job lock','工作鎖定效應','','','因保險等因素難以自由離職。'],['health benefits','醫療福利','','','雇主提供的福利。'],['health coverage','醫療保險保障','','','描述保障範圍或是否有保險。'],['premium','保險費','','','定期繳交的保費。'],['out-of-pocket costs','自付費用','','','自己需要支付的金額。'],['subsidy','補助、津貼','','','政府提供的補貼。'],['labor market friction','勞動市場摩擦','','','阻礙人才與企業配對的因素。'],['competitive labor market','競爭性的勞動市場','','','勞工與企業能自由選擇、配對。'],['economic worry','經濟上的擔憂','','','財務壓力與經濟焦慮。'],['productivity','生產力','','','投入資源所創造的產出。'],['job numbers','就業數據','','','新增或減少的工作。'],['labor force','勞動力人口','','','就業者與積極求職者。']];glossary.forEach(w=>{const row=document.createElement('div');row.className='vocab-row';['strong','span','span'].forEach((tag,i)=>{const e=document.createElement(tag);e.textContent=[w[0],w[1],w[4]][i];row.append(e)});$('vocab').append(row)});$('toggleSummary').onclick=()=>{const hidden=$('toggleSummary').textContent==='隱藏中文';document.querySelectorAll('.zh').forEach(p=>p.hidden=hidden);$('toggleSummary').textContent=hidden?'顯示中文':'隱藏中文'};function loadNotes(data){if(!$('studyEditor').hidden)return;try{tags=data?(data.shiyeArticleTags||{}):JSON.parse(localStorage.getItem('shiyeArticleTags')||'{}')||{}}catch{return}saved=Array.isArray(tags.__podcastSaved)?[...tags.__podcastSaved]:[];for(const card of tags.__indicatorSaved||[]){if(!card.text)continue;if(!words.some(w=>w[0]===card.text))words.push([card.text,card.meaning||'',card.examples?.[0]?.text||'',card.examples?.[0]?.meaning||'',card.context||'原有 Indicator 收藏']);if(!tags.__podcastLegacyImported&&!saved.includes(card.text))saved.push(card.text)}$('note').value=tags.__podcastNotes?.healthBenefits||'';$('publishedNote').textContent=$('note').value||'還沒有留下筆記。';pool=$('scope').value==='saved'?words.filter(w=>saved.includes(w[0])):$('scope').value==='all'?[...words]:words.slice(0,6);index=Math.max(0,Math.min(index,pool.length-1));render()}$('editNote').onclick=()=>{$('studyEditor').hidden=false;$('publishedNote').hidden=true;$('editNote').hidden=true;$('saveNote').hidden=false;$('note').focus()};$('saveNote').hidden=true;$('saveNote').onclick=()=>{tags={...tags,__podcastNotes:{...(tags.__podcastNotes||{}),healthBenefits:$('note').value}};window.ShiyeNotes.write('shiyeArticleTags',tags);$('publishedNote').textContent=$('note').value||'還沒有留下筆記。';$('studyEditor').hidden=true;$('publishedNote').hidden=false;$('editNote').hidden=false;$('saveNote').hidden=true;$('noteStatus').textContent='已儲存；同步狀態請見頁面下方'};window.addEventListener('shiye:notes-loaded',event=>loadNotes(event.detail?.data));loadNotes();
+  const episodes = window.PODCAST_EPISODES || [];
+  const $ = id => document.getElementById(id);
+  let tags = {}, saved = [], cards = [], pool = [], index = 0;
+  let episode = episodes[0];
+  if (!episode) return;
+  const requested = new URLSearchParams(window.location?.search || '').get('episode');
+  episode = episodes.find(e => e.id === requested) || episode;
+  function rebuildCards() {
+    cards = episodes.flatMap(e => e.cards.map(word => ({word, episode:e})));
+    for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) {
+      if (!old.text || cards.some(c => c.word[0] === old.text)) continue;
+      cards.push({word:[old.text,old.meaning || '',old.examples?.[0]?.text || '',old.examples?.[0]?.meaning || '',old.context || '原有 Indicator 收藏'],old});
+    }
+  }
+  function setPool() {
+    pool = $('scope').value === 'saved' ? cards.filter(c => saved.includes(c.word[0]))
+      : $('scope').value === 'all' ? [...cards] : cards.filter(c => c.episode?.id === episode.id);
+    index = Math.max(0, Math.min(index, pool.length - 1));
+  }
+  function collection() {
+    $('savedCount').textContent = saved.length + ' 個收藏'; $('savedList').replaceChildren();
+    if (!saved.length) {
+      const p = document.createElement('p'); p.textContent = '把想記住的表達留下，下次再回來練習。'; $('savedList').append(p);
+    }
+    for (const term of saved) {
+      const button = document.createElement('button'); button.textContent = term;
+      button.onclick = () => {
+        $('scope').value = 'saved'; setPool(); index = Math.max(0,pool.findIndex(c => c.word[0] === term));
+        render(); window.scrollTo({top:0,behavior:'smooth'});
+      }; $('savedList').append(button);
+    }
+  }
+  function render() {
+    const card = pool[index], word = card?.word;
+    $('position').textContent = pool.length ? (index + 1) + ' / ' + pool.length : '0 / 0';
+    $('term').textContent = word?.[0] || '還沒有收藏詞句';
+    $('example').textContent = word?.[2] || '先從本集精選中，收藏你想記住的表達。';
+    $('meaning').textContent = word?.[1] || ''; $('translation').textContent = word?.[3] || ''; $('usage').textContent = word?.[4] || '';
+    $('kind').textContent = card?.old ? '原有 Indicator 收藏' : card?.episode?.show || '精選詞句';
+    const source = document.querySelector('.flashcard footer a');
+    source.textContent = '來源：' + (card?.episode?.title || card?.old?.title || 'Podcast') + ' ↗';
+    source.href = card?.old && /^https:\/\//.test(card.old.source || '') ? card.old.source : '#episode';
+    source.onclick = card?.episode ? event => {
+      event.preventDefault(); if (switchEpisode(card.episode.id)) $('episode').scrollIntoView({behavior:'smooth'});
+    } : null;
+    $('answer').hidden = true; $('reveal').textContent = '顯示中文與用法 ＋'; $('reveal').disabled = !word; $('save').disabled = !word;
+    const marked = saved.includes(word?.[0]); $('save').textContent = marked ? '★ 已收藏' : '☆ 收藏詞句'; $('save').setAttribute('aria-pressed',String(marked));
+    $('prev').disabled = index <= 0; $('next').disabled = index >= pool.length - 1; collection();
+  }
+  function showNote() {
+    $('note').value = tags.__podcastNotes?.[episode.id] || '';
+    $('publishedNote').textContent = $('note').value || '還沒有留下筆記。';
+  }
+  function renderEpisode() {
+    // Episode HTML is authored in the repository; saved user text uses textContent.
+    $('episodeContent').innerHTML = episode.html;
+    for (const word of episode.glossary) {
+      const row = document.createElement('div'); row.className = 'vocab-row';
+      ['strong','span','span'].forEach((tag,i) => {
+        const cell = document.createElement(tag); cell.textContent = [word[0],word[1],word[4]][i]; row.append(cell);
+      }); $('vocab').append(row);
+    }
+    $('toggleSummary').onclick = () => {
+      const hidden = $('toggleSummary').textContent === '隱藏中文'; document.querySelectorAll('.zh').forEach(p => p.hidden = hidden);
+      $('toggleSummary').textContent = hidden ? '顯示中文' : '隱藏中文';
+    };
+    $('reflectionPrompt').textContent = episode.prompt; $('episodeSelect').value = episode.id; showNote();
+  }
+  function switchEpisode(id) {
+    if (!$('studyEditor').hidden) {
+      $('noteStatus').textContent = '請先儲存或取消目前筆記，再切換集數。'; $('episodeSelect').value = episode.id; return false;
+    }
+    const next = episodes.find(e => e.id === id); if (!next) return false;
+    if (episode.id !== next.id) {episode = next; index = 0; renderEpisode(); setPool(); render()}
+    return true;
+  }
+  function loadNotes(data) {
+    if (!$('studyEditor').hidden) return;
+    try {tags = data ? data.shiyeArticleTags || {} : JSON.parse(localStorage.getItem('shiyeArticleTags') || '{}') || {}} catch {return}
+    saved = Array.isArray(tags.__podcastSaved) ? [...tags.__podcastSaved] : [];
+    if (!tags.__podcastLegacyImported) {
+      for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) if (old.text && !saved.includes(old.text)) saved.push(old.text);
+    }
+    rebuildCards(); showNote(); setPool(); render();
+  }
+  $('reveal').onclick = () => {
+    $('answer').hidden = !$('answer').hidden; $('reveal').textContent = $('answer').hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −';
+  };
+  $('prev').onclick = () => {if(index > 0) index--; render()}; $('next').onclick = () => {if(index < pool.length - 1) index++; render()};
+  $('save').onclick = () => {
+    if (!pool[index]) return; const term = pool[index].word[0];
+    saved = saved.includes(term) ? saved.filter(s => s !== term) : [...saved,term];
+    tags = {...tags,__podcastSaved:saved,__podcastLegacyImported:true}; window.ShiyeNotes.write('shiyeArticleTags',tags); setPool(); render();
+  };
+  $('scope').onchange = () => {index = 0; setPool(); render()}; $('episodeSelect').onchange = () => switchEpisode($('episodeSelect').value);
+  $('shuffle').onclick = () => {
+    for (let i = pool.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1)); [pool[i],pool[j]] = [pool[j],pool[i]]}
+    index = 0; render();
+  };
+  $('editNote').onclick = () => {
+    $('studyEditor').hidden = false; $('publishedNote').hidden = true; $('editNote').hidden = true;
+    $('saveNote').hidden = false; $('cancelNote').hidden = false; $('note').focus();
+  };
+  function closeEditor() {
+    $('studyEditor').hidden = true; $('publishedNote').hidden = false; $('editNote').hidden = false;
+    $('saveNote').hidden = true; $('cancelNote').hidden = true;
+  }
+  $('cancelNote').onclick = () => {closeEditor();showNote()}; $('saveNote').hidden = true;
+  $('saveNote').onclick = () => {
+    tags = {...tags,__podcastNotes:{...(tags.__podcastNotes || {}),[episode.id]:$('note').value}};
+    window.ShiyeNotes.write('shiyeArticleTags',tags); closeEditor(); showNote(); $('noteStatus').textContent = '已儲存；同步狀態請見頁面下方';
+  };
+  for (const e of episodes) {
+    const option = document.createElement('option'); option.value = e.id; option.textContent = e.date + ' · ' + e.shortTitle; $('episodeSelect').append(option);
+    const link = document.createElement('a'); link.href = '#episode';
+    const meta = document.createElement('small'); meta.textContent = e.show + ' · ' + e.date;
+    const title = document.createElement('h3'); title.textContent = e.title;
+    const teaser = document.createElement('p'); teaser.textContent = e.teaser + ' ↗'; link.append(meta,title,teaser);
+    link.onclick = event => {event.preventDefault();if(switchEpisode(e.id)) $('episode').scrollIntoView({behavior:'smooth'})}; $('episodeList').append(link);
+  }
+  window.addEventListener('shiye:notes-loaded',event => loadNotes(event.detail?.data)); renderEpisode(); loadNotes();
 })();

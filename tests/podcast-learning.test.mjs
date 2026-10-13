@@ -3,13 +3,14 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
-function setup(tags) {
+function setup(tags, episode = 'healthBenefits') {
   const elements = new Map();
   function element() {return {hidden:false,value:'',textContent:'',children:[],append(...items){this.children.push(...items)},replaceChildren(){this.children=[]},setAttribute(){},focus(){}};}
   const get = id => {if(!elements.has(id))elements.set(id,element());return elements.get(id)};
   get('studyEditor').hidden=true; get('scope').value='episode';
   let stored=JSON.stringify(tags); const events={};
-  const context={document:{getElementById:get,createElement:element,querySelector:()=>get('source'),querySelectorAll:()=>[]},localStorage:{getItem:()=>stored},window:{scrollTo(){},addEventListener:(name,fn)=>events[name]=fn,ShiyeNotes:{write(key,value){assert.equal(key,'shiyeArticleTags');stored=JSON.stringify(value)}}}};
+  const context={URLSearchParams,document:{getElementById:get,createElement:element,querySelector:()=>get('source'),querySelectorAll:()=>[]},localStorage:{getItem:()=>stored},window:{location:{search:'?episode='+episode},scrollTo(){},addEventListener:(name,fn)=>events[name]=fn,ShiyeNotes:{write(key,value){assert.equal(key,'shiyeArticleTags');stored=JSON.stringify(value)}}}};
+  vm.runInNewContext(fs.readFileSync(new URL('../podcast-episodes.js',import.meta.url),'utf8'),context);
   vm.runInNewContext(fs.readFileSync(new URL('../podcast-learning.js',import.meta.url),'utf8'),context);
   return {get,events,stored:()=>JSON.parse(stored)};
 }
@@ -30,6 +31,24 @@ test('Podcast saves preserve legacy tags, import old cards and keep removed lega
   assert.deepEqual(s.stored().__podcastSaved,[]);
   s.events['shiye:notes-loaded']({detail:{data:{shiyeArticleTags:s.stored()}}});
   assert.equal(s.get('savedCount').textContent,'0 個收藏');
+});
+
+test('Each episode has its own cards and notes; mixed review includes both episodes',()=>{
+  const s=setup({__podcastNotes:{healthBenefits:'舊筆記',tariffRefunds:'關稅筆記'}},'tariffRefunds');
+  assert.equal(s.get('term').textContent,'pass along');
+  assert.equal(s.get('note').value,'關稅筆記');
+  s.get('scope').value='all';s.get('scope').onchange();
+  assert.equal(s.get('position').textContent,'1 / 12');
+  s.get('episodeSelect').value='healthBenefits';s.get('episodeSelect').onchange();
+  s.get('scope').value='episode';s.get('scope').onchange();
+  assert.equal(s.get('term').textContent,'ballpark');
+  assert.equal(s.get('note').value,'舊筆記');
+  s.get('editNote').onclick();s.get('note').value='未存草稿';
+  s.get('episodeSelect').value='tariffRefunds';s.get('episodeSelect').onchange();
+  assert.equal(s.get('episodeSelect').value,'healthBenefits');
+  assert.equal(s.get('note').value,'未存草稿');
+  s.get('saveNote').onclick();
+  assert.deepEqual(s.stored().__podcastNotes,{healthBenefits:'未存草稿',tariffRefunds:'關稅筆記'});
 });
 
 test('Podcast note editor protects a draft and saves alongside other episode notes',()=>{

@@ -1,6 +1,10 @@
 # 拾頁專案接續紀錄
 
 ## Podcast 聽讀筆記（2026-10-13 新版）
+- 已加入 2026-10-09 Planet Money「Should we all be getting tariff refunds right now?」，根據 NCPR 提供的 NPR 逐字稿整理，包含六張片語卡與十八個詞彙。最新一集預設顯示，集數列表由新到舊。
+- 多集資料在 `podcast-episodes.js` 的 `window.PODCAST_EPISODES`，每集包含穩定 id、日期、標題、片語卡、詞彙、正文 HTML 及反思題；未來新增集數填入此資料，勿覆蓋既有集數。補充例句非逐字引用。
+- 字卡支援目前集數／全部集數／收藏，可在集數選單切換。來源連結切換對應正文；`?episode=tariffRefunds`／`?episode=healthBenefits` 可直達指定集數。
+- `__podcastNotes` 按集數 id 分開存筆記；原 healthBenefits 筆記保持原鍵，未儲存時阻止切換集數，有取消編輯按鈕。
 - 使用者確認以 `podcast.html` 取代原 Indicator 頁；首頁兩個入口已更新，`indicator.html` 保留舊網址轉向新版。
 - `podcast-learning.js`／`podcast-learning.css`：頁首英文字卡優先，六個精選片語、展開中文、翻頁、重新排列、本集／全部／收藏範圍；下方收藏、集數列表、內容理解、24 個詞彙、英中摘要及個人筆記。
 - 首集為 2026-08-07 I'm Just Here for the Health Benefits；依使用者提供的內容整理並核對 NPR 在 NCPR 的逐字稿，補充學習例句清楚標示非逐字引用。

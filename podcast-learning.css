@@ -6,4 +6,5 @@
 
 .study-tools{flex-wrap:wrap}.study-tools select{max-width:270px}#episodeList{display:grid;gap:12px}#episodeList>a{display:block;text-decoration:none;padding:25px 30px;border-radius:12px;background:linear-gradient(120deg,#dfe7d5,#eef0e5)}.notes-visitor #cancelNote{display:none}@media(max-width:620px){.study-tools{gap:12px}.study-tools label{flex:1 1 45%;min-width:0}.study-tools select{width:100%;max-width:100%}#episodeList>a{padding:22px}}
 
-.learning{overflow-x:clip}.flashcard{touch-action:pan-y pinch-zoom;transition:transform .18s ease;cursor:grab}.flashcard.is-swiping{transition:none;cursor:grabbing;user-select:none}@media(prefers-reduced-motion:reduce){.flashcard{transition:none}}
+
+.word-track{display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab}.word-track::-webkit-scrollbar{display:none}.word-track .flashcard{flex:0 0 100%;min-width:0;scroll-snap-align:start;box-shadow:none}.word-track.is-dragging{scroll-snap-type:none;cursor:grabbing;user-select:none}.notes-visitor [data-word-save]{display:none}

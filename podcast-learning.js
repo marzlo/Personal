@@ -1,6 +1,9 @@
 (() => {
   const episodes = window.PODCAST_EPISODES || [];
   const $ = id => document.getElementById(id);
+  const cardElement = document.querySelector('.flashcard');
+  const track = document.getElementById('wordTrack');
+  let buildingTrack = false;
   let tags = {}, saved = [], cards = [], pool = [], index = 0;
   let episode = episodes[0];
   if (!episode) return;
@@ -38,7 +41,7 @@
     $('example').textContent = word?.[2] || '先從本集精選中，收藏你想記住的表達。';
     $('meaning').textContent = word?.[1] || ''; $('translation').textContent = word?.[3] || ''; $('usage').textContent = word?.[4] || '';
     $('kind').textContent = card?.old ? '原有 Indicator 收藏' : card?.episode?.show || '精選詞句';
-    const source = document.querySelector('.flashcard footer a');
+    const source = cardElement?.querySelector ? cardElement.querySelector('footer a') : document.querySelector('.flashcard footer a');
     source.textContent = '來源：' + (card?.episode?.title || card?.old?.title || 'Podcast') + ' ↗';
     source.href = card?.old && /^https:\/\//.test(card.old.source || '') ? card.old.source : '#episode';
     source.onclick = card?.episode ? event => {
@@ -47,6 +50,54 @@
     $('answer').hidden = true; $('reveal').textContent = '顯示中文與用法 ＋'; $('reveal').disabled = !word; $('save').disabled = !word;
     const marked = saved.includes(word?.[0]); $('save').textContent = marked ? '★ 已收藏' : '☆ 收藏詞句'; $('save').setAttribute('aria-pressed',String(marked));
     $('prev').disabled = index <= 0; $('next').disabled = index >= pool.length - 1; collection();
+    if (track && cardElement?.cloneNode) buildTrack();
+  }
+  function buildTrack() {
+    buildingTrack = true;
+    const slides = pool.map((card,i) => {
+      if (i === index) return cardElement;
+      const slide = cardElement.cloneNode(true), word = card.word;
+      const field = id => slide.querySelector('#' + id);
+      field('term').textContent = word[0]; field('example').textContent = word[2];
+      field('meaning').textContent = word[1]; field('translation').textContent = word[3]; field('usage').textContent = word[4];
+      field('kind').textContent = card.old ? '原有 Indicator 收藏' : card.episode.show;
+      field('position').textContent = (i + 1) + ' / ' + pool.length;
+      const answer = field('answer'), reveal = field('reveal'), save = field('save');
+      reveal.onclick = () => {answer.hidden = !answer.hidden;reveal.textContent = answer.hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −'};
+      const marked = saved.includes(word[0]);save.textContent = marked ? '★ 已收藏' : '☆ 收藏詞句';save.setAttribute('aria-pressed',String(marked));
+      save.dataset.wordSave = '';save.onclick = () => saveWord(word[0],i);
+      const source = slide.querySelector('footer a');
+      source.textContent = '來源：' + (card.episode?.title || card.old?.title || 'Podcast') + ' ↗';
+      source.href = card.old && /^https:\/\//.test(card.old.source || '') ? card.old.source : '#episode';
+      source.onclick = card.episode ? event => {event.preventDefault();if(switchEpisode(card.episode.id)) $('episode').scrollIntoView({behavior:'smooth'})} : null;
+      slide.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
+      return slide;
+    });
+    track.replaceChildren(...(slides.length ? slides : [cardElement]));
+    track.scrollLeft = index * track.clientWidth;
+    buildingTrack = false;
+  }
+  function moveCard(delta) {
+    const next = Math.max(0,Math.min(pool.length - 1,index + delta));
+    if (track && cardElement?.cloneNode) track.scrollTo({left:next * track.clientWidth,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+    else {index = next;render()}
+  }
+  if (track?.addEventListener) {
+    track.addEventListener('scroll', () => {
+      if (buildingTrack) return;
+      index = Math.max(0,Math.min(pool.length - 1,Math.round(track.scrollLeft / Math.max(track.clientWidth,1))));
+      $('prev').disabled = index <= 0; $('next').disabled = index >= pool.length - 1;
+    }, {passive:true});
+    track.addEventListener('keydown', event => {
+      if (event.target !== track || !['ArrowLeft','ArrowRight'].includes(event.key)) return;
+      event.preventDefault();moveCard(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+    window.PodcastSwipe?.attach(track);
+  }
+  function saveWord(term,position) {
+    index = position;
+    saved = saved.includes(term) ? saved.filter(s => s !== term) : [...saved,term];
+    tags = {...tags,__podcastSaved:saved,__podcastLegacyImported:true};window.ShiyeNotes.write('shiyeArticleTags',tags);setPool();render();
   }
   function showNote() {
     $('note').value = tags.__podcastNotes?.[episode.id] || '';
@@ -87,16 +138,9 @@
   $('reveal').onclick = () => {
     $('answer').hidden = !$('answer').hidden; $('reveal').textContent = $('answer').hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −';
   };
-  $('prev').onclick = () => {if(index > 0) index--; render()}; $('next').onclick = () => {if(index < pool.length - 1) index++; render()};
-  window.PodcastSwipe?.attach(document.querySelector('.flashcard'), delta => {
-    const next = Math.max(0,Math.min(pool.length - 1,index + delta));
-    if (!pool.length || next === index) return;
-    index = next; render();
-  });
+  $('prev').onclick = () => moveCard(-1); $('next').onclick = () => moveCard(1);
   $('save').onclick = () => {
-    if (!pool[index]) return; const term = pool[index].word[0];
-    saved = saved.includes(term) ? saved.filter(s => s !== term) : [...saved,term];
-    tags = {...tags,__podcastSaved:saved,__podcastLegacyImported:true}; window.ShiyeNotes.write('shiyeArticleTags',tags); setPool(); render();
+    if (!pool[index]) return;saveWord(pool[index].word[0],index);
   };
   $('scope').onchange = () => {index = 0; setPool(); render()}; $('episodeSelect').onchange = () => switchEpisode($('episodeSelect').value);
   $('shuffle').onclick = () => {

@@ -1,7 +1,7 @@
 # 拾頁專案接續紀錄
 
 ## Podcast 聽讀筆記（2026-10-13 新版）
-- 2026-10-14：`podcast-swipe.js` 提供英文字卡觸控左右滑動與滑鼠拖曳；左滑下一張、右滑上一張，首尾不循環，保留按鈕。垂直滑動保留頁面捲動，按鈕／來源連結不觸發拖曳；不更動收藏與筆記。
+- 2026-10-14：字卡改用與首頁摘句相同的整排 `overflow-x:auto`＋`scroll-snap` 原生捲動；`wordTrack` 內呈現全部詞卡，触控及觸控板直接捲動，`podcast-swipe.js` 只補滑鼠拖曳。保留按鈕及方向鍵；各卡獨立展開中文、收藏與來源連結，不更動收藏／筆記結構。已取代上一版手勢換文字的做法。
 - 已加入 2026-10-09 Planet Money「Should we all be getting tariff refunds right now?」，根據 NCPR 提供的 NPR 逐字稿整理，包含六張片語卡與十八個詞彙。最新一集預設顯示，集數列表由新到舊。
 - 多集資料在 `podcast-episodes.js` 的 `window.PODCAST_EPISODES`，每集包含穩定 id、日期、標題、片語卡、詞彙、正文 HTML 及反思題；未來新增集數填入此資料，勿覆蓋既有集數。補充例句非逐字引用。
 - 字卡支援目前集數／全部集數／收藏，可在集數選單切換。來源連結切換對應正文；`?episode=tariffRefunds`／`?episode=healthBenefits` 可直達指定集數。

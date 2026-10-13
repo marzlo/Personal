@@ -205,7 +205,7 @@
       if (event.target.closest?.(editActions)) { lastEditAt = Date.now(); requireLogin(); }
     }, true);
     document.addEventListener('input', event => {
-      if (event.target.closest?.('#concepts,#seriesStudy,#articleSearchTagForm') && event.target.matches('input:not([type="search"]),textarea,select')) {
+      if (event.target.closest?.('#concepts,#seriesStudy,#articleSearchTagForm,#reflection') && event.target.matches('input:not([type="search"]),textarea,select')) {
         lastEditAt = Date.now(); requireLogin();
       }
     });

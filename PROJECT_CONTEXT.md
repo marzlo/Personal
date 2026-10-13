@@ -1,5 +1,15 @@
 # 拾頁專案接續紀錄
 
+## Podcast 聽讀筆記（2026-10-13 新版）
+- 使用者確認以 `podcast.html` 取代原 Indicator 頁；首頁兩個入口已更新，`indicator.html` 保留舊網址轉向新版。
+- `podcast-learning.js`／`podcast-learning.css`：頁首英文字卡優先，六個精選片語、展開中文、翻頁、重新排列、本集／全部／收藏範圍；下方收藏、集數列表、內容理解、24 個詞彙、英中摘要及個人筆記。
+- 首集為 2026-08-07 I'm Just Here for the Health Benefits；依使用者提供的內容整理並核對 NPR 在 NCPR 的逐字稿，補充學習例句清楚標示非逐字引用。
+- 收藏存在 `shiyeArticleTags.__podcastSaved`，筆記存在 `shiyeArticleTags.__podcastNotes.healthBenefits`，沿用 `window.ShiyeNotes.write` 及既有同步，不新增 Worker 儲存鍵。訪客僅閱讀公開整理，擁有者可編輯。
+- 原 `__indicatorSaved` 完整保留並呈現於新版收藏／全部範圍；第一次儲存收藏時以 `__podcastLegacyImported` 標記已匯入，避免移除後再次出現。其餘標籤與搜尋標籤不變。
+- 筆記編輯使用既有 `studyEditor` 草稿防護，未儲存時阻止遠端覆蓋及登入跳頁。
+- 未來使用者在對話貼 Podcast 逐字稿、筆記或摘要並要求加入拾頁，即依此格式收錄，最新集數在前；更新學習範圍、集數列表及對應內容，保留全部收藏／筆記。
+- `podcast-preview.*` 為本機試作，正式站不使用；不提交試作檔。
+
 本檔記錄原對話已確認的設計及實作，供後續專案對話接續。狀態記錄於 2026-10-06；後續仍以程式與 Git 狀態為準。
 
 ## 專案位置與部署

@@ -2,3 +2,8 @@
 #seriesStudy .study-tabs button{flex:none;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
 #seriesStudy .study-tabs .study-dragging{opacity:.65;background:#dce9df;cursor:grabbing;box-shadow:0 2px 8px #25342d20}
 .notes-visitor #seriesStudy .study-tabs button{cursor:pointer;touch-action:auto}
+#seriesStudy .study-tabs.study-term-tabs{flex-wrap:wrap;overflow:visible;gap:10px;align-items:flex-start;margin:8px 0 24px}
+#seriesStudy .study-tabs.study-term-tabs button{border:1px solid #cbd7cc;border-radius:9px;background:#fffefa;padding:10px 15px;min-height:44px;max-width:100%;white-space:normal;overflow-wrap:anywhere;color:#426a54;font-size:14px;line-height:1.5}
+#seriesStudy .study-tabs.study-term-tabs button[aria-pressed=true]{background:#dfece0;border-color:#426a54;color:#25342d;font-weight:600}
+#seriesStudy .study-tabs.study-term-tabs button.study-dragging{opacity:.65;background:#dce9df}
+@media(max-width:620px){#seriesStudy .study-tabs.study-term-tabs{gap:8px}#seriesStudy .study-tabs.study-term-tabs button{padding:9px 12px}}

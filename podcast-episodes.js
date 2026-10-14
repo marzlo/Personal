@@ -1,5 +1,146 @@
 window.PODCAST_EPISODES = [
   {
+    "id": "economicsNobel",
+    "title": "How did we get a Nobel Prize in economics?",
+    "shortTitle": "Economics Nobel",
+    "show": "The Indicator from Planet Money",
+    "date": "2026-10-13",
+    "source": "https://www.northcountrypublicradio.org/news/npr/nx-s1-5999497/how-did-we-get-a-nobel-prize-in-economics",
+    "teaser": "經濟學獎為什麼比其他諾貝爾獎晚出現？",
+    "prompt": "一個獎項的聲望，會如何影響我對研究或政策的判斷？",
+    "cards": [
+      [
+        "long-winded",
+        "冗長的",
+        "The explanation was a little long-winded.",
+        "這個說明有點冗長。",
+        "形容說明或名稱太長。"
+      ],
+      [
+        "set apart",
+        "使有所區別",
+        "Its design sets it apart from other products.",
+        "它的設計讓它與其他產品有所區別。",
+        "常搭配 from。"
+      ],
+      [
+        "win over",
+        "說服；爭取支持",
+        "She won over the team with a clear proposal.",
+        "她用清楚的提案贏得團隊支持。",
+        "強調改變對方態度；本集主題相關補充片語。"
+      ],
+      [
+        "in memory of",
+        "為紀念",
+        "The scholarship was created in memory of a teacher.",
+        "這項獎學金是為紀念一位老師而設立。",
+        "用於紀念已故人士。"
+      ],
+      [
+        "reluctantly",
+        "不情願地",
+        "He reluctantly accepted the invitation.",
+        "他不情願地接受邀請。",
+        "表示同意或行动時仍有所保留。"
+      ],
+      [
+        "empirical",
+        "以實際觀察為依據的",
+        "We need empirical evidence to test the theory.",
+        "我們需要實證資料來檢驗理論。",
+        "常搭配 evidence 或 research。"
+      ]
+    ],
+    "glossary": [
+      [
+        "long-winded",
+        "冗長的",
+        "The explanation was a little long-winded.",
+        "這個說明有點冗長。",
+        "形容說明或名稱太長。"
+      ],
+      [
+        "set apart",
+        "使有所區別",
+        "Its design sets it apart from other products.",
+        "它的設計讓它與其他產品有所區別。",
+        "常搭配 from。"
+      ],
+      [
+        "win over",
+        "說服；爭取支持",
+        "She won over the team with a clear proposal.",
+        "她用清楚的提案贏得團隊支持。",
+        "強調改變對方態度；本集主題相關補充片語。"
+      ],
+      [
+        "in memory of",
+        "為紀念",
+        "The scholarship was created in memory of a teacher.",
+        "這項獎學金是為紀念一位老師而設立。",
+        "用於紀念已故人士。"
+      ],
+      [
+        "reluctantly",
+        "不情願地",
+        "He reluctantly accepted the invitation.",
+        "他不情願地接受邀請。",
+        "表示同意或行动時仍有所保留。"
+      ],
+      [
+        "empirical",
+        "以實際觀察為依據的",
+        "We need empirical evidence to test the theory.",
+        "我們需要實證資料來檢驗理論。",
+        "常搭配 evidence 或 research。"
+      ],
+      [
+        "central bank",
+        "中央銀行",
+        "",
+        "",
+        "經濟與制度相關補充用詞。"
+      ],
+      [
+        "macroeconomics",
+        "總體經濟學",
+        "",
+        "",
+        "經濟與制度相關補充用詞。"
+      ],
+      [
+        "economic shock",
+        "經濟衝擊",
+        "",
+        "",
+        "經濟與制度相關補充用詞。"
+      ],
+      [
+        "stabilization",
+        "穩定化",
+        "",
+        "",
+        "經濟與制度相關補充用詞。"
+      ],
+      [
+        "prestige",
+        "聲望",
+        "",
+        "",
+        "經濟與制度相關補充用詞。"
+      ],
+      [
+        "anniversary",
+        "週年紀念",
+        "",
+        "",
+        "經濟與制度相關補充用詞。"
+      ]
+    ],
+    "html": "<section id=\"episode\" class=\"episode\"><small>THE INDICATOR · EPISODE 03</small><h2>How did we get a Nobel Prize in economics?</h2><p>2026 年 10 月 13 日 · NPR</p><blockquote>一個獎項的名字，如何帶來權威？</blockquote><p class=\"sample-note\">依節目介紹及來源摘要整理，尚未取得完整逐字稿。字卡例句均為補充學習內容。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-5999497/how-did-we-get-a-nobel-prize-in-economics\">NPR 節目介紹</a> · <a href=\"https://podcastrex.com/shows/the-indicator-from-planet-money/how-did-we-get-a-nobel-prize-in-economics\">來源摘要</a></p></section><nav class=\"contents\"><a href=\"#understanding\">內容理解</a><a href=\"#vocabulary\">英文學習</a><a href=\"#summary\">英文摘要</a><a href=\"#reflection\">我的筆記</a></nav><section id=\"understanding\" class=\"reading\"><h2>經濟學獎的身世</h2><p>節目介紹從 Robert E. Hall 與 Michael Woodford 的總體經濟研究切入，再追問經濟學獎的由來。</p><details open><summary>它不是原始遺囑中的獎項</summary><p>來源摘要指出，瑞典中央銀行在 1968 年建行三百週年時創設此獎，1969 年首次頒發，名稱特別強調紀念 Alfred Nobel。</p></details><details><summary>聲望與政治的交會</summary><p>節目訪談經濟史學者 Gabriel Söderberg，討論創設獎項如何取得政府與諾貝爾家族支持，以及經濟學的科學地位與政策立場之間的爭論。這是受訪者的分析角度。</p></details></section><section id=\"vocabulary\" class=\"reading\"><h2>值得帶走的英文</h2><div id=\"vocab\"></div></section><section id=\"summary\" class=\"reading\"><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><div class=\"bilingual\"><p>The economics prize was created by Sweden’s central bank in 1968. It was not part of Alfred Nobel’s original will. The episode explores how a prize can shape scientific prestige and public debate.</p><p class=\"zh\">經濟學獎由瑞典中央銀行於 1968 年創設，不在 Alfred Nobel 原始遺囑中。本集探討獎項如何影響學術聲望與公共討論。</p></div></section>"
+  },
+  {
     "id": "tariffRefunds",
     "title": "Should we all be getting tariff refunds right now?",
     "shortTitle": "Tariff Refunds",

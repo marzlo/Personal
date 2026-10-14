@@ -38,7 +38,7 @@ test('Each episode has its own cards and notes; mixed review includes both episo
   assert.equal(s.get('term').textContent,'pass along');
   assert.equal(s.get('note').value,'關稅筆記');
   s.get('scope').value='all';s.get('scope').onchange();
-  assert.equal(s.get('position').textContent,'1 / 12');
+  assert.equal(s.get('position').textContent,'1 / 18');
   s.get('episodeSelect').value='healthBenefits';s.get('episodeSelect').onchange();
   s.get('scope').value='episode';s.get('scope').onchange();
   assert.equal(s.get('term').textContent,'ballpark');

@@ -61,3 +61,33 @@ test('Podcast note editor protects a draft and saves alongside other episode not
   assert.deepEqual(s.stored().__searchTags,['信念']);
   assert.equal(s.get('studyEditor').hidden,true);
 });
+
+test('Deleted cards stay out of episode, mixed review and saved words after reload, and can be restored',()=>{
+  const original={__podcastSaved:['ballpark'],__searchTags:['信念'],__podcastNotes:{healthBenefits:'保留筆記'}};
+  const s=setup(original);s.get('deleteCard').onclick();
+  assert.equal(s.get('term').textContent,'strike out on one’s own');
+  assert.equal(s.get('position').textContent,'1 / 23');
+  assert.equal(s.get('savedCount').textContent,'0 個收藏');
+  assert.deepEqual(s.stored().__podcastNotes,original.__podcastNotes);
+  assert.deepEqual(s.stored().__searchTags,original.__searchTags);
+  const again=setup(s.stored());
+  assert.equal(again.get('position').textContent,'1 / 23');
+  again.get('scope').value='all';again.get('scope').onchange();
+  assert.equal(again.get('position').textContent,'1 / 53');
+  again.get('scope').value='saved';again.get('scope').onchange();
+  assert.equal(again.get('position').textContent,'0 / 0');
+  again.get('deletedList').children[0].children[2].onclick();
+  assert.equal(again.get('term').textContent,'ballpark');
+  assert.equal(again.get('savedCount').textContent,'1 個收藏');
+  assert.deepEqual(again.stored().__podcastDeleted,[]);
+});
+
+test('Deleting every card keeps an empty carousel usable and remote restoration updates it',()=>{
+  const s=setup({},'economicsNobel');
+  for(let i=0;i<12;i++)s.get('deleteCard').onclick();
+  assert.equal(s.get('position').textContent,'0 / 0');
+  assert.equal(s.get('deleteCard').disabled,true);
+  assert.equal(s.stored().__podcastDeleted.length,12);
+  s.events['shiye:notes-loaded']({detail:{data:{shiyeArticleTags:{...s.stored(),__podcastDeleted:[]}}}});
+  assert.equal(s.get('position').textContent,'1 / 12');
+});

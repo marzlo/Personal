@@ -4,29 +4,31 @@
   const cardElement = document.querySelector('.flashcard');
   const track = document.getElementById('wordTrack');
   let buildingTrack = false;
-  let tags = {}, saved = [], cards = [], pool = [], index = 0;
+  let tags = {}, saved = [], cards = [], pool = [], index = 0, deleted = [];
   let episode = episodes[0];
   if (!episode) return;
   const requested = new URLSearchParams(window.location?.search || '').get('episode');
   episode = episodes.find(e => e.id === requested) || episode;
   function rebuildCards() {
-    cards = episodes.flatMap(e => e.cards.map(word => ({word, episode:e})));
+    cards = episodes.flatMap(e => e.cards.map(word => ({word, episode:e, id:e.id + ':' + word[0].trim().toLowerCase()})));
     for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) {
       if (!old.text || cards.some(c => c.word[0] === old.text)) continue;
-      cards.push({word:[old.text,old.meaning || '',old.examples?.[0]?.text || '',old.examples?.[0]?.meaning || '',old.context || '原有 Indicator 收藏'],old});
+      cards.push({word:[old.text,old.meaning || '',old.examples?.[0]?.text || '',old.examples?.[0]?.meaning || '',old.context || '原有 Indicator 收藏'],old,id:'legacy:' + (old.id || (old.source || '') + '|' + old.text.toLowerCase())});
     }
   }
   function setPool() {
-    pool = $('scope').value === 'saved' ? cards.filter(c => saved.includes(c.word[0]))
-      : $('scope').value === 'all' ? [...cards] : cards.filter(c => c.episode?.id === episode.id);
+    const active = cards.filter(c => !deleted.some(d => d.id === c.id));
+    pool = $('scope').value === 'saved' ? active.filter(c => saved.includes(c.word[0]))
+      : $('scope').value === 'all' ? active : active.filter(c => c.episode?.id === episode.id);
     index = Math.max(0, Math.min(index, pool.length - 1));
   }
   function collection() {
-    $('savedCount').textContent = saved.length + ' 個收藏'; $('savedList').replaceChildren();
-    if (!saved.length) {
+    const visibleSaved = saved.filter(term => !deleted.some(d => d.text === term) || cards.some(c => c.word[0] === term && !deleted.some(d => d.id === c.id)));
+    $('savedCount').textContent = visibleSaved.length + ' 個收藏'; $('savedList').replaceChildren();
+    if (!visibleSaved.length) {
       const p = document.createElement('p'); p.textContent = '把想記住的表達留下，下次再回來練習。'; $('savedList').append(p);
     }
-    for (const term of saved) {
+    for (const term of visibleSaved) {
       const button = document.createElement('button'); button.textContent = term;
       button.onclick = () => {
         $('scope').value = 'saved'; setPool(); index = Math.max(0,pool.findIndex(c => c.word[0] === term));
@@ -37,8 +39,8 @@
   function render() {
     const card = pool[index], word = card?.word;
     $('position').textContent = pool.length ? (index + 1) + ' / ' + pool.length : '0 / 0';
-    $('term').textContent = word?.[0] || '還沒有收藏詞句';
-    $('example').textContent = word?.[2] || '先從本集精選中，收藏你想記住的表達。';
+    $('term').textContent = word?.[0] || '目前沒有可學習的字卡';
+    $('example').textContent = word?.[2] || '可以切換學習範圍，或從「已刪除字卡」恢復。';
     $('meaning').textContent = word?.[1] || ''; $('translation').textContent = word?.[3] || ''; $('usage').textContent = word?.[4] || '';
     $('kind').textContent = card?.old ? '原有 Indicator 收藏' : card?.episode?.show || '精選詞句';
     const source = cardElement?.querySelector ? cardElement.querySelector('footer a') : document.querySelector('.flashcard footer a');
@@ -48,8 +50,10 @@
       event.preventDefault(); if (switchEpisode(card.episode.id)) $('episode').scrollIntoView({behavior:'smooth'});
     } : null;
     $('answer').hidden = true; $('reveal').textContent = '顯示中文與用法 ＋'; $('reveal').disabled = !word; $('save').disabled = !word;
+    $('deleteCard').disabled = !card;
+    $('deleteCard').onclick = () => {if(card) deleteWord(card)};
     const marked = saved.includes(word?.[0]); $('save').textContent = marked ? '★ 已收藏' : '☆ 收藏詞句'; $('save').setAttribute('aria-pressed',String(marked));
-    $('prev').disabled = index <= 0; $('next').disabled = index >= pool.length - 1; collection();
+    $('prev').disabled = index <= 0; $('next').disabled = index >= pool.length - 1; collection(); renderDeleted();
     if (track && cardElement?.cloneNode) buildTrack();
   }
   function buildTrack() {
@@ -66,6 +70,7 @@
       reveal.onclick = () => {answer.hidden = !answer.hidden;reveal.textContent = answer.hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −'};
       const marked = saved.includes(word[0]);save.textContent = marked ? '★ 已收藏' : '☆ 收藏詞句';save.setAttribute('aria-pressed',String(marked));
       save.dataset.wordSave = '';save.onclick = () => saveWord(word[0],i);
+      const remove = field('deleteCard');remove.dataset.wordDelete = '';remove.onclick = () => deleteWord(card);
       const source = slide.querySelector('footer a');
       source.textContent = '來源：' + (card.episode?.title || card.old?.title || 'Podcast') + ' ↗';
       source.href = card.old && /^https:\/\//.test(card.old.source || '') ? card.old.source : '#episode';
@@ -99,6 +104,32 @@
     saved = saved.includes(term) ? saved.filter(s => s !== term) : [...saved,term];
     tags = {...tags,__podcastSaved:saved,__podcastLegacyImported:true};window.ShiyeNotes.write('shiyeArticleTags',tags);setPool();render();
   }
+  function writeDeleted() {
+    tags = {...tags,__podcastDeleted:deleted};
+    window.ShiyeNotes.write('shiyeArticleTags',tags);setPool();render();
+  }
+  function deleteWord(card) {
+    if (document.body?.classList.contains('notes-visitor') || deleted.some(d => d.id === card.id)) return;
+    deleted = [...deleted,{id:card.id,text:card.word[0],meaning:card.word[1],title:card.episode?.title || card.old?.title || '原有 Indicator 收藏'}];
+    writeDeleted();
+    $('cardStatus').textContent = '已刪除「' + card.word[0] + '」，可在已刪除字卡中恢復。';
+  }
+  function renderDeleted() {
+    $('deletedCount').textContent = '已刪除字卡（' + deleted.length + '）';
+    $('deletedList').replaceChildren();
+    if (!deleted.length) {const p=document.createElement('p');p.textContent='目前沒有已刪除字卡。';$('deletedList').append(p)}
+    for (const entry of deleted) {
+      const row=document.createElement('div');row.className='deleted-word';
+      const label=document.createElement('span');label.textContent=entry.text + ' · ' + entry.meaning;
+      const source=document.createElement('small');source.textContent=entry.title;
+      const restore=document.createElement('button');restore.textContent='恢復';restore.setAttribute('data-word-restore','');
+      restore.onclick=()=>{
+        if(document.body?.classList.contains('notes-visitor'))return;
+        deleted=deleted.filter(d=>d.id!==entry.id);writeDeleted();$('cardStatus').textContent='已恢復「'+entry.text+'」。';
+      };
+      row.append(label,source,restore);$('deletedList').append(row);
+    }
+  }
   function showNote() {
     $('note').value = tags.__podcastNotes?.[episode.id] || '';
     $('publishedNote').textContent = $('note').value || '還沒有留下筆記。';
@@ -130,6 +161,7 @@
     if (!$('studyEditor').hidden) return;
     try {tags = data ? data.shiyeArticleTags || {} : JSON.parse(localStorage.getItem('shiyeArticleTags') || '{}') || {}} catch {return}
     saved = Array.isArray(tags.__podcastSaved) ? [...tags.__podcastSaved] : [];
+    deleted = Array.isArray(tags.__podcastDeleted) ? tags.__podcastDeleted.filter(d => d && typeof d.id === 'string') : [];
     if (!tags.__podcastLegacyImported) {
       for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) if (old.text && !saved.includes(old.text)) saved.push(old.text);
     }

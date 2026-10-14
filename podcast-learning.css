@@ -8,3 +8,7 @@
 
 
 .word-track{display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab}.word-track::-webkit-scrollbar{display:none}.word-track .flashcard{flex:0 0 100%;min-width:0;scroll-snap-align:start;box-shadow:none}.word-track.is-dragging{scroll-snap-type:none;cursor:grabbing;user-select:none}.notes-visitor [data-word-save]{display:none}
+
+.flashcard footer{flex-wrap:wrap}.delete-card{font-size:11px;color:#8b6e63}.deleted-cards{margin:20px 0}.deleted-cards summary{cursor:pointer;font-size:13px;color:var(--muted)}.deleted-word{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.deleted-word small{flex:1;letter-spacing:0}.deleted-word span{font-size:14px}.notes-visitor #deleteCard,.notes-visitor [data-word-delete],.notes-visitor [data-word-restore]{display:none}
+
+.episode-conclusion{margin-top:28px;padding:22px 25px;background:#e8eee1;border-radius:10px}.episode-conclusion h3{margin-top:0;font-size:18px;font-weight:500}.episode-conclusion strong{color:var(--ink)}

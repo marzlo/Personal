@@ -20,7 +20,7 @@ test('Podcast saves preserve legacy tags, import old cards and keep removed lega
   const original={__searchTags:['信念'],'article-url':['Important'],__indicatorSaved:[old]};
   const s=setup(original);
   assert.equal(s.get('savedCount').textContent,'1 個收藏');
-  assert.equal(s.get('position').textContent,'1 / 6');
+  assert.equal(s.get('position').textContent,'1 / 24');
   s.get('scope').value='saved';s.get('scope').onchange();
   assert.equal(s.get('term').textContent,'legacy phrase');
   assert.equal(s.get('source').href,old.source);
@@ -38,7 +38,7 @@ test('Each episode has its own cards and notes; mixed review includes both episo
   assert.equal(s.get('term').textContent,'pass along');
   assert.equal(s.get('note').value,'關稅筆記');
   s.get('scope').value='all';s.get('scope').onchange();
-  assert.equal(s.get('position').textContent,'1 / 18');
+  assert.equal(s.get('position').textContent,'1 / 54');
   s.get('episodeSelect').value='healthBenefits';s.get('episodeSelect').onchange();
   s.get('scope').value='episode';s.get('scope').onchange();
   assert.equal(s.get('term').textContent,'ballpark');

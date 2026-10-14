@@ -50,6 +50,48 @@ window.PODCAST_EPISODES = [
         "We need empirical evidence to test the theory.",
         "我們需要實證資料來檢驗理論。",
         "常搭配 evidence 或 research。"
+      ],
+      [
+        "central bank",
+        "中央銀行",
+        "The central bank announced a new policy.",
+        "中央銀行宣布了一項新政策。",
+        "可搭配 interest rates、policy；一般機構名稱不必大寫。"
+      ],
+      [
+        "macroeconomics",
+        "總體經濟學",
+        "She studies macroeconomics at university.",
+        "她在大學研究總體經濟學。",
+        "討論整體經濟的成長、通膨與就業；對照 microeconomics（個體經濟學）。"
+      ],
+      [
+        "economic shock",
+        "經濟衝擊",
+        "An economic shock can change consumer spending.",
+        "經濟衝擊可能改變消費者支出。",
+        "shock 在此是突然的經濟變化，並非單指心理驚嚇。"
+      ],
+      [
+        "stabilization",
+        "穩定化",
+        "The report focuses on economic stabilization.",
+        "這份報告聚焦經濟穩定化。",
+        "名詞；動詞是 stabilize，常用於經濟或價格。"
+      ],
+      [
+        "prestige",
+        "聲望",
+        "The award brought prestige to the institution.",
+        "這個獎項為該機構帶來聲望。",
+        "不可數名詞；形容詞是 prestigious。"
+      ],
+      [
+        "anniversary",
+        "週年紀念",
+        "We celebrated the company’s tenth anniversary.",
+        "我們慶祝公司的十週年。",
+        "常用序數表示週年，如 tenth anniversary。"
       ]
     ],
     "glossary": [
@@ -98,44 +140,44 @@ window.PODCAST_EPISODES = [
       [
         "central bank",
         "中央銀行",
-        "",
-        "",
-        "經濟與制度相關補充用詞。"
+        "The central bank announced a new policy.",
+        "中央銀行宣布了一項新政策。",
+        "可搭配 interest rates、policy；一般機構名稱不必大寫。"
       ],
       [
         "macroeconomics",
         "總體經濟學",
-        "",
-        "",
-        "經濟與制度相關補充用詞。"
+        "She studies macroeconomics at university.",
+        "她在大學研究總體經濟學。",
+        "討論整體經濟的成長、通膨與就業；對照 microeconomics（個體經濟學）。"
       ],
       [
         "economic shock",
         "經濟衝擊",
-        "",
-        "",
-        "經濟與制度相關補充用詞。"
+        "An economic shock can change consumer spending.",
+        "經濟衝擊可能改變消費者支出。",
+        "shock 在此是突然的經濟變化，並非單指心理驚嚇。"
       ],
       [
         "stabilization",
         "穩定化",
-        "",
-        "",
-        "經濟與制度相關補充用詞。"
+        "The report focuses on economic stabilization.",
+        "這份報告聚焦經濟穩定化。",
+        "名詞；動詞是 stabilize，常用於經濟或價格。"
       ],
       [
         "prestige",
         "聲望",
-        "",
-        "",
-        "經濟與制度相關補充用詞。"
+        "The award brought prestige to the institution.",
+        "這個獎項為該機構帶來聲望。",
+        "不可數名詞；形容詞是 prestigious。"
       ],
       [
         "anniversary",
         "週年紀念",
-        "",
-        "",
-        "經濟與制度相關補充用詞。"
+        "We celebrated the company’s tenth anniversary.",
+        "我們慶祝公司的十週年。",
+        "常用序數表示週年，如 tenth anniversary。"
       ]
     ],
     "html": "<section id=\"episode\" class=\"episode\"><small>THE INDICATOR · EPISODE 03</small><h2>How did we get a Nobel Prize in economics?</h2><p>2026 年 10 月 13 日 · NPR</p><blockquote>一個獎項的名字，如何帶來權威？</blockquote><p class=\"sample-note\">依節目介紹及來源摘要整理，尚未取得完整逐字稿。字卡例句均為補充學習內容。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-5999497/how-did-we-get-a-nobel-prize-in-economics\">NPR 節目介紹</a> · <a href=\"https://podcastrex.com/shows/the-indicator-from-planet-money/how-did-we-get-a-nobel-prize-in-economics\">來源摘要</a></p></section><nav class=\"contents\"><a href=\"#understanding\">內容理解</a><a href=\"#vocabulary\">英文學習</a><a href=\"#summary\">英文摘要</a><a href=\"#reflection\">我的筆記</a></nav><section id=\"understanding\" class=\"reading\"><h2>經濟學獎的身世</h2><p>節目介紹從 Robert E. Hall 與 Michael Woodford 的總體經濟研究切入，再追問經濟學獎的由來。</p><details open><summary>它不是原始遺囑中的獎項</summary><p>來源摘要指出，瑞典中央銀行在 1968 年建行三百週年時創設此獎，1969 年首次頒發，名稱特別強調紀念 Alfred Nobel。</p></details><details><summary>聲望與政治的交會</summary><p>節目訪談經濟史學者 Gabriel Söderberg，討論創設獎項如何取得政府與諾貝爾家族支持，以及經濟學的科學地位與政策立場之間的爭論。這是受訪者的分析角度。</p></details></section><section id=\"vocabulary\" class=\"reading\"><h2>值得帶走的英文</h2><div id=\"vocab\"></div></section><section id=\"summary\" class=\"reading\"><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><div class=\"bilingual\"><p>The economics prize was created by Sweden’s central bank in 1968. It was not part of Alfred Nobel’s original will. The episode explores how a prize can shape scientific prestige and public debate.</p><p class=\"zh\">經濟學獎由瑞典中央銀行於 1968 年創設，不在 Alfred Nobel 原始遺囑中。本集探討獎項如何影響學術聲望與公共討論。</p></div></section>"
@@ -192,6 +234,90 @@ window.PODCAST_EPISODES = [
         "I did a double take when I saw the refund email.",
         "看到退款通知信時，我驚訝得又看了一眼。",
         "用於看到意外的消息、數字或人物時的反應；也可寫成 double-take。"
+      ],
+      [
+        "tariff",
+        "關稅",
+        "The company paid a tariff on imported goods.",
+        "公司為進口商品繳納關稅。",
+        "對進口商品課徵的稅。"
+      ],
+      [
+        "refund",
+        "退款",
+        "I received a refund for the cancelled order.",
+        "我收到取消訂單的退款。",
+        "先前繳付的款項退回。"
+      ],
+      [
+        "importer",
+        "進口商",
+        "The importer arranged the shipment.",
+        "進口商安排了貨物運送。",
+        "把商品輸入國境的個人或公司。"
+      ],
+      [
+        "eligible for",
+        "符合資格",
+        "You may be eligible for a refund.",
+        "你可能符合退款資格。",
+        "常搭配 refund、benefits 或 assistance。"
+      ],
+      [
+        "strike down",
+        "裁定無效",
+        "The court struck down the rule.",
+        "法院裁定這項規則無效。",
+        "不規則動詞：strike、struck、struck；法律新聞常用。"
+      ],
+      [
+        "margin",
+        "利潤空間；毛利率",
+        "Higher costs reduced our profit margin.",
+        "成本上升降低了我們的利潤率。",
+        "收入扣除相關成本後的空間，需依上下文判斷。"
+      ],
+      [
+        "reimburse",
+        "償還；報銷",
+        "The company will reimburse you for travel expenses.",
+        "公司會報銷你的差旅費。",
+        "reimburse someone for something；受詞通常是獲得償還的人。"
+      ],
+      [
+        "business as usual",
+        "一切照常",
+        "After the repairs, it was business as usual.",
+        "維修完成後，一切照常運作。",
+        "照平常方式運作。"
+      ],
+      [
+        "on your end",
+        "在你這邊",
+        "Is everything working on your end?",
+        "你那邊一切運作正常嗎？",
+        "描述對方需要處理的部分。"
+      ],
+      [
+        "out of luck",
+        "沒辦法；運氣不好",
+        "If the tickets are sold out, we’re out of luck.",
+        "如果票已售完，我們就沒辦法了。",
+        "口語中表示無法得到期待的結果。"
+      ],
+      [
+        "supply chain",
+        "供應鏈",
+        "A delay in the supply chain affected delivery.",
+        "供應鏈的延誤影響了交貨。",
+        "生產與配送商品的整個流程。"
+      ],
+      [
+        "shareholder",
+        "股東",
+        "Shareholders received the annual report.",
+        "股東收到了年度報告。",
+        "持有公司股份的人。"
       ]
     ],
     "glossary": [
@@ -240,85 +366,85 @@ window.PODCAST_EPISODES = [
       [
         "tariff",
         "關稅",
-        "",
-        "",
+        "The company paid a tariff on imported goods.",
+        "公司為進口商品繳納關稅。",
         "對進口商品課徵的稅。"
       ],
       [
         "refund",
         "退款",
-        "",
-        "",
+        "I received a refund for the cancelled order.",
+        "我收到取消訂單的退款。",
         "先前繳付的款項退回。"
       ],
       [
         "importer",
         "進口商",
-        "",
-        "",
+        "The importer arranged the shipment.",
+        "進口商安排了貨物運送。",
         "把商品輸入國境的個人或公司。"
       ],
       [
         "eligible for",
         "符合資格",
-        "",
-        "",
+        "You may be eligible for a refund.",
+        "你可能符合退款資格。",
         "常搭配 refund、benefits 或 assistance。"
       ],
       [
         "strike down",
         "裁定無效",
-        "",
-        "",
-        "法院否定法律或措施的效力。"
+        "The court struck down the rule.",
+        "法院裁定這項規則無效。",
+        "不規則動詞：strike、struck、struck；法律新聞常用。"
       ],
       [
         "margin",
         "利潤空間；毛利率",
-        "",
-        "",
+        "Higher costs reduced our profit margin.",
+        "成本上升降低了我們的利潤率。",
         "收入扣除相關成本後的空間，需依上下文判斷。"
       ],
       [
         "reimburse",
         "償還；報銷",
-        "",
-        "",
-        "歸還某人先前支出的費用。"
+        "The company will reimburse you for travel expenses.",
+        "公司會報銷你的差旅費。",
+        "reimburse someone for something；受詞通常是獲得償還的人。"
       ],
       [
         "business as usual",
         "一切照常",
-        "",
-        "",
+        "After the repairs, it was business as usual.",
+        "維修完成後，一切照常運作。",
         "照平常方式運作。"
       ],
       [
         "on your end",
         "在你這邊",
-        "",
-        "",
+        "Is everything working on your end?",
+        "你那邊一切運作正常嗎？",
         "描述對方需要處理的部分。"
       ],
       [
         "out of luck",
         "沒辦法；運氣不好",
-        "",
-        "",
+        "If the tickets are sold out, we’re out of luck.",
+        "如果票已售完，我們就沒辦法了。",
         "口語中表示無法得到期待的結果。"
       ],
       [
         "supply chain",
         "供應鏈",
-        "",
-        "",
+        "A delay in the supply chain affected delivery.",
+        "供應鏈的延誤影響了交貨。",
         "生產與配送商品的整個流程。"
       ],
       [
         "shareholder",
         "股東",
-        "",
-        "",
+        "Shareholders received the annual report.",
+        "股東收到了年度報告。",
         "持有公司股份的人。"
       ]
     ],
@@ -374,6 +500,132 @@ window.PODCAST_EPISODES = [
         "The job market is starting to cool off.",
         "就業市場開始降溫。",
         "可形容市場、經濟活動或情緒逐漸緩和。"
+      ],
+      [
+        "accrue",
+        "逐漸累積",
+        "Interest accrues over time.",
+        "利息會隨時間累積。",
+        "技能、經驗或利息的累積。"
+      ],
+      [
+        "go up and down",
+        "上下波動",
+        "Fuel prices go up and down throughout the year.",
+        "燃料價格一年之中會上下波動。",
+        "用於價格、費用或情緒。"
+      ],
+      [
+        "month to month",
+        "逐月；每個月之間",
+        "Our expenses vary from month to month.",
+        "我們每個月的支出都不一樣。",
+        "from month to month 表示逐月變化；month-to-month 可作形容詞。"
+      ],
+      [
+        "chase an idea",
+        "追求、實現想法",
+        "She left her job to chase an idea for a new business.",
+        "她離職去追求一個新事業的想法。",
+        "常用於創業或夢想。"
+      ],
+      [
+        "tick down",
+        "小幅下降",
+        "The unemployment rate ticked down slightly.",
+        "失業率小幅下降。",
+        "常見於經濟數據。"
+      ],
+      [
+        "come out as",
+        "結果顯示為",
+        "Healthcare came out as the top concern in the survey.",
+        "醫療在調查中顯示為最受關注的議題。",
+        "結果顯示為某個排名或身分；也可用 turn out to be，需依上下文判斷。"
+      ],
+      [
+        "job lock",
+        "工作鎖定效應",
+        "Health insurance can contribute to job lock.",
+        "醫療保險可能造成工作鎖定效應。",
+        "因保險等因素難以自由離職。"
+      ],
+      [
+        "health benefits",
+        "醫療福利",
+        "The job offers good health benefits.",
+        "這份工作提供不錯的醫療福利。",
+        "雇主提供的福利。"
+      ],
+      [
+        "health coverage",
+        "醫療保險保障",
+        "She wants to maintain her health coverage.",
+        "她希望維持自己的醫療保險保障。",
+        "描述保障範圍或是否有保險。"
+      ],
+      [
+        "premium",
+        "保險費",
+        "We pay an insurance premium every month.",
+        "我們每個月繳納保險費。",
+        "定期繳交的保費。"
+      ],
+      [
+        "out-of-pocket costs",
+        "自付費用",
+        "The plan has lower out-of-pocket costs.",
+        "這個方案的自付費用較低。",
+        "自己需要支付的金額。"
+      ],
+      [
+        "subsidy",
+        "補助、津貼",
+        "The subsidy helps families pay for insurance.",
+        "這項補助幫助家庭支付保險費。",
+        "政府提供的補貼。"
+      ],
+      [
+        "labor market friction",
+        "勞動市場摩擦",
+        "Better information can reduce labor market friction.",
+        "更充分的資訊能減少勞動市場摩擦。",
+        "阻礙人才與企業配對的因素。"
+      ],
+      [
+        "competitive labor market",
+        "競爭性的勞動市場",
+        "A competitive labor market gives workers more choices.",
+        "競爭性的勞動市場給勞工更多選擇。",
+        "勞工與企業能自由選擇、配對。"
+      ],
+      [
+        "economic worry",
+        "經濟上的擔憂",
+        "Rising rent is a major economic worry for many families.",
+        "租金上漲是許多家庭主要的經濟擔憂。",
+        "財務壓力與經濟焦慮。"
+      ],
+      [
+        "productivity",
+        "生產力",
+        "Better tools can improve productivity.",
+        "更好的工具可以提升生產力。",
+        "投入資源所創造的產出。"
+      ],
+      [
+        "job numbers",
+        "就業數據",
+        "The latest job numbers show slower hiring.",
+        "最新就業數據顯示招聘放緩。",
+        "新增或減少的工作。"
+      ],
+      [
+        "labor force",
+        "勞動力人口",
+        "She returned to the labor force last year.",
+        "她去年重返勞動市場。",
+        "就業者與積極求職者。"
       ]
     ],
     "glossary": [
@@ -422,127 +674,127 @@ window.PODCAST_EPISODES = [
       [
         "accrue",
         "逐漸累積",
-        "",
-        "",
+        "Interest accrues over time.",
+        "利息會隨時間累積。",
         "技能、經驗或利息的累積。"
       ],
       [
         "go up and down",
         "上下波動",
-        "",
-        "",
+        "Fuel prices go up and down throughout the year.",
+        "燃料價格一年之中會上下波動。",
         "用於價格、費用或情緒。"
       ],
       [
         "month to month",
         "逐月；每個月之間",
-        "",
-        "",
-        "強調月份之間的變化。"
+        "Our expenses vary from month to month.",
+        "我們每個月的支出都不一樣。",
+        "from month to month 表示逐月變化；month-to-month 可作形容詞。"
       ],
       [
         "chase an idea",
         "追求、實現想法",
-        "",
-        "",
+        "She left her job to chase an idea for a new business.",
+        "她離職去追求一個新事業的想法。",
         "常用於創業或夢想。"
       ],
       [
         "tick down",
         "小幅下降",
-        "",
-        "",
+        "The unemployment rate ticked down slightly.",
+        "失業率小幅下降。",
         "常見於經濟數據。"
       ],
       [
         "come out as",
         "結果顯示為",
-        "",
-        "",
-        "用於調查或評估的結果。"
+        "Healthcare came out as the top concern in the survey.",
+        "醫療在調查中顯示為最受關注的議題。",
+        "結果顯示為某個排名或身分；也可用 turn out to be，需依上下文判斷。"
       ],
       [
         "job lock",
         "工作鎖定效應",
-        "",
-        "",
+        "Health insurance can contribute to job lock.",
+        "醫療保險可能造成工作鎖定效應。",
         "因保險等因素難以自由離職。"
       ],
       [
         "health benefits",
         "醫療福利",
-        "",
-        "",
+        "The job offers good health benefits.",
+        "這份工作提供不錯的醫療福利。",
         "雇主提供的福利。"
       ],
       [
         "health coverage",
         "醫療保險保障",
-        "",
-        "",
+        "She wants to maintain her health coverage.",
+        "她希望維持自己的醫療保險保障。",
         "描述保障範圍或是否有保險。"
       ],
       [
         "premium",
         "保險費",
-        "",
-        "",
+        "We pay an insurance premium every month.",
+        "我們每個月繳納保險費。",
         "定期繳交的保費。"
       ],
       [
         "out-of-pocket costs",
         "自付費用",
-        "",
-        "",
+        "The plan has lower out-of-pocket costs.",
+        "這個方案的自付費用較低。",
         "自己需要支付的金額。"
       ],
       [
         "subsidy",
         "補助、津貼",
-        "",
-        "",
+        "The subsidy helps families pay for insurance.",
+        "這項補助幫助家庭支付保險費。",
         "政府提供的補貼。"
       ],
       [
         "labor market friction",
         "勞動市場摩擦",
-        "",
-        "",
+        "Better information can reduce labor market friction.",
+        "更充分的資訊能減少勞動市場摩擦。",
         "阻礙人才與企業配對的因素。"
       ],
       [
         "competitive labor market",
         "競爭性的勞動市場",
-        "",
-        "",
+        "A competitive labor market gives workers more choices.",
+        "競爭性的勞動市場給勞工更多選擇。",
         "勞工與企業能自由選擇、配對。"
       ],
       [
         "economic worry",
         "經濟上的擔憂",
-        "",
-        "",
+        "Rising rent is a major economic worry for many families.",
+        "租金上漲是許多家庭主要的經濟擔憂。",
         "財務壓力與經濟焦慮。"
       ],
       [
         "productivity",
         "生產力",
-        "",
-        "",
+        "Better tools can improve productivity.",
+        "更好的工具可以提升生產力。",
         "投入資源所創造的產出。"
       ],
       [
         "job numbers",
         "就業數據",
-        "",
-        "",
+        "The latest job numbers show slower hiring.",
+        "最新就業數據顯示招聘放緩。",
         "新增或減少的工作。"
       ],
       [
         "labor force",
         "勞動力人口",
-        "",
-        "",
+        "She returned to the labor force last year.",
+        "她去年重返勞動市場。",
         "就業者與積極求職者。"
       ]
     ],

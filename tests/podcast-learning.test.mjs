@@ -38,7 +38,7 @@ test('Each episode has its own cards and notes; mixed review includes both episo
   assert.equal(s.get('term').textContent,'pass along');
   assert.equal(s.get('note').value,'關稅筆記');
   s.get('scope').value='all';s.get('scope').onchange();
-  assert.equal(s.get('position').textContent,'1 / 54');
+  assert.equal(s.get('position').textContent,'1 / 73');
   s.get('episodeSelect').value='healthBenefits';s.get('episodeSelect').onchange();
   s.get('scope').value='episode';s.get('scope').onchange();
   assert.equal(s.get('term').textContent,'ballpark');
@@ -73,7 +73,7 @@ test('Deleted cards stay out of episode, mixed review and saved words after relo
   const again=setup(s.stored());
   assert.equal(again.get('position').textContent,'1 / 23');
   again.get('scope').value='all';again.get('scope').onchange();
-  assert.equal(again.get('position').textContent,'1 / 53');
+  assert.equal(again.get('position').textContent,'1 / 72');
   again.get('scope').value='saved';again.get('scope').onchange();
   assert.equal(again.get('position').textContent,'0 / 0');
   again.get('deletedList').children[0].children[2].onclick();

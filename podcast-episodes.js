@@ -1,5 +1,287 @@
 window.PODCAST_EPISODES = [
   {
+    "id": "aiAsilomar",
+    "title": "Wanna slow down AI? These biologists can help.",
+    "shortTitle": "AI & Asilomar",
+    "show": "Planet Money",
+    "date": "2026-10-14",
+    "source": "https://www.northcountrypublicradio.org/news/npr/nx-s1-6002910/wanna-slow-down-ai-these-biologists-can-help",
+    "apple": "https://podcasts.apple.com/tw/podcast/wanna-slow-down-ai-these-biologists-can-help/id290783428?i=1000796381396",
+    "teaser": "大家都擔心風險，為什麼卻沒有人敢先停下來？",
+    "prompt": "如果我希望大家一起放慢腳步，需要什麼規則，才能讓先停下的人不吃虧？",
+    "cards": [
+      [
+        "by and large",
+        "大致上；總體而言",
+        "By and large, the project is going well.",
+        "總體而言，專案進展順利。",
+        "用於概括整體狀況，同時保留例外的可能。"
+      ],
+      [
+        "hit pause",
+        "暫停一下",
+        "Let’s hit pause and review the risks.",
+        "我們先暫停一下，檢視風險。",
+        "口語比喻，常用於暫停計畫或討論。"
+      ],
+      [
+        "be left behind",
+        "被拋在後面；落後",
+        "No team wants to be left behind.",
+        "沒有團隊希望自己落後。",
+        "常用於競爭、科技發展與學習。"
+      ],
+      [
+        "hole up",
+        "躲起來；待在某處不外出",
+        "They holed up in a cabin to finish the draft.",
+        "他們待在小屋裡完成草稿。",
+        "通常接 in，形容在一處待上一段時間。"
+      ],
+      [
+        "set aside",
+        "暫時放下；留出",
+        "They set aside their differences to solve the problem.",
+        "他們暫時放下分歧，一起解決問題。",
+        "set aside differences 是放下分歧；set aside time 是留出時間。"
+      ],
+      [
+        "runaway",
+        "失控的；難以遏止的",
+        "The team worried about runaway costs.",
+        "團隊擔心成本失控。",
+        "作形容詞可修飾成本、成長或技術。"
+      ],
+      [
+        "collective action problem",
+        "集體行動困境",
+        "Pollution can create a collective action problem.",
+        "污染可能形成集體行動困境。",
+        "個別行動者的誘因，使共同利益難以實現。"
+      ],
+      [
+        "regulate",
+        "規範；監管",
+        "The agency regulates the industry.",
+        "這個機關監管該產業。",
+        "動詞；名詞是 regulation。"
+      ],
+      [
+        "tie someone’s hands",
+        "限制某人的行動自由",
+        "The contract ties our hands.",
+        "合約限制了我們的行動自由。",
+        "常指規則或承諾使人不能自由決定。"
+      ],
+      [
+        "pioneer",
+        "開創；先驅",
+        "She helped pioneer a new research method.",
+        "她協助開創一種新的研究方法。",
+        "可作動詞，也可作名詞指先驅者。"
+      ],
+      [
+        "competition",
+        "競爭",
+        "Competition encouraged the teams to move faster.",
+        "競爭促使各團隊加快腳步。",
+        "常搭配 intense 或 fierce；也可指競賽。"
+      ],
+      [
+        "ambition",
+        "抱負；企圖心",
+        "He has the ambition to build a better company.",
+        "他有打造更好公司的抱負。",
+        "可指追求成就的動力，也可指具體目標。"
+      ],
+      [
+        "voluntary",
+        "自願的",
+        "Participation in the program is voluntary.",
+        "參與這項計畫是自願的。",
+        "補充用詞；對照 mandatory（強制的）。"
+      ],
+      [
+        "moratorium",
+        "暫緩；暫停實施",
+        "They called for a moratorium on the project.",
+        "他們呼籲暫緩這項專案。",
+        "歷史背景補充；常搭配 on，表示一段時期內暫停某活動。"
+      ],
+      [
+        "safeguard",
+        "保護措施",
+        "The policy includes safeguards against misuse.",
+        "這項政策包含防止濫用的保護措施。",
+        "歷史背景補充；可作名詞或動詞。"
+      ],
+      [
+        "consensus",
+        "共識",
+        "The committee reached a consensus.",
+        "委員會達成了共識。",
+        "補充用詞；常搭配 reach 或 build。"
+      ],
+      [
+        "coordination",
+        "協調",
+        "The plan requires coordination across teams.",
+        "這項計畫需要跨團隊協調。",
+        "補充用詞；動詞是 coordinate。"
+      ],
+      [
+        "incentive",
+        "誘因",
+        "The policy gives firms an incentive to cooperate.",
+        "這項政策給企業合作的誘因。",
+        "補充用詞；an incentive to do something。"
+      ],
+      [
+        "recombinant DNA",
+        "重組 DNA",
+        "The lecture covered the history of recombinant DNA research.",
+        "這堂課介紹了重組 DNA 研究的歷史。",
+        "本集歷史背景用詞，指重新組合的 DNA。"
+      ]
+    ],
+    "glossary": [
+      [
+        "by and large",
+        "大致上；總體而言",
+        "By and large, the project is going well.",
+        "總體而言，專案進展順利。",
+        "用於概括整體狀況，同時保留例外的可能。"
+      ],
+      [
+        "hit pause",
+        "暫停一下",
+        "Let’s hit pause and review the risks.",
+        "我們先暫停一下，檢視風險。",
+        "口語比喻，常用於暫停計畫或討論。"
+      ],
+      [
+        "be left behind",
+        "被拋在後面；落後",
+        "No team wants to be left behind.",
+        "沒有團隊希望自己落後。",
+        "常用於競爭、科技發展與學習。"
+      ],
+      [
+        "hole up",
+        "躲起來；待在某處不外出",
+        "They holed up in a cabin to finish the draft.",
+        "他們待在小屋裡完成草稿。",
+        "通常接 in，形容在一處待上一段時間。"
+      ],
+      [
+        "set aside",
+        "暫時放下；留出",
+        "They set aside their differences to solve the problem.",
+        "他們暫時放下分歧，一起解決問題。",
+        "set aside differences 是放下分歧；set aside time 是留出時間。"
+      ],
+      [
+        "runaway",
+        "失控的；難以遏止的",
+        "The team worried about runaway costs.",
+        "團隊擔心成本失控。",
+        "作形容詞可修飾成本、成長或技術。"
+      ],
+      [
+        "collective action problem",
+        "集體行動困境",
+        "Pollution can create a collective action problem.",
+        "污染可能形成集體行動困境。",
+        "個別行動者的誘因，使共同利益難以實現。"
+      ],
+      [
+        "regulate",
+        "規範；監管",
+        "The agency regulates the industry.",
+        "這個機關監管該產業。",
+        "動詞；名詞是 regulation。"
+      ],
+      [
+        "tie someone’s hands",
+        "限制某人的行動自由",
+        "The contract ties our hands.",
+        "合約限制了我們的行動自由。",
+        "常指規則或承諾使人不能自由決定。"
+      ],
+      [
+        "pioneer",
+        "開創；先驅",
+        "She helped pioneer a new research method.",
+        "她協助開創一種新的研究方法。",
+        "可作動詞，也可作名詞指先驅者。"
+      ],
+      [
+        "competition",
+        "競爭",
+        "Competition encouraged the teams to move faster.",
+        "競爭促使各團隊加快腳步。",
+        "常搭配 intense 或 fierce；也可指競賽。"
+      ],
+      [
+        "ambition",
+        "抱負；企圖心",
+        "He has the ambition to build a better company.",
+        "他有打造更好公司的抱負。",
+        "可指追求成就的動力，也可指具體目標。"
+      ],
+      [
+        "voluntary",
+        "自願的",
+        "Participation in the program is voluntary.",
+        "參與這項計畫是自願的。",
+        "補充用詞；對照 mandatory（強制的）。"
+      ],
+      [
+        "moratorium",
+        "暫緩；暫停實施",
+        "They called for a moratorium on the project.",
+        "他們呼籲暫緩這項專案。",
+        "歷史背景補充；常搭配 on，表示一段時期內暫停某活動。"
+      ],
+      [
+        "safeguard",
+        "保護措施",
+        "The policy includes safeguards against misuse.",
+        "這項政策包含防止濫用的保護措施。",
+        "歷史背景補充；可作名詞或動詞。"
+      ],
+      [
+        "consensus",
+        "共識",
+        "The committee reached a consensus.",
+        "委員會達成了共識。",
+        "補充用詞；常搭配 reach 或 build。"
+      ],
+      [
+        "coordination",
+        "協調",
+        "The plan requires coordination across teams.",
+        "這項計畫需要跨團隊協調。",
+        "補充用詞；動詞是 coordinate。"
+      ],
+      [
+        "incentive",
+        "誘因",
+        "The policy gives firms an incentive to cooperate.",
+        "這項政策給企業合作的誘因。",
+        "補充用詞；an incentive to do something。"
+      ],
+      [
+        "recombinant DNA",
+        "重組 DNA",
+        "The lecture covered the history of recombinant DNA research.",
+        "這堂課介紹了重組 DNA 研究的歷史。",
+        "本集歷史背景用詞，指重新組合的 DNA。"
+      ]
+    ],
+    "html": "<section id=\"episode\" class=\"episode\"><small>PLANET MONEY · EPISODE 04</small><h2>Wanna slow down AI? These biologists can help.</h2><p class=\"episode-meta\">2026 年 10 月 14 日 · NPR · 約 29 分鐘</p><blockquote>大家都想更安全，<br>為什麼競爭仍讓每個人加速？</blockquote><p class=\"sample-note\">依節目介紹整理，尚未取得完整逐字稿。Asilomar 歷史另以原始文件補充；所有字卡例句為獨立撰寫，補充用詞已標示。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-6002910/wanna-slow-down-ai-these-biologists-can-help\" target=\"_blank\" rel=\"noreferrer\">NPR 節目介紹 ↗</a> · <a href=\"https://podcasts.apple.com/tw/podcast/wanna-slow-down-ai-these-biologists-can-help/id290783428?i=1000796381396\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 收聽 ↗</a></p></section>\n<section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>知道有風險，和能一起停下來，是兩件事。</h2><p class=\"lead\">節目把 AI 競爭與生物學史放在一起：當每個人都怕落後，單靠「希望大家慢一點」很難形成共同約束。</p><details open><summary>1. 節目的問題：誰願意先慢下來？</summary><p>節目介紹指出，部分 AI 領導者表達風險憂慮，卻仍在推進技術，因為不想被競爭者拋在後面。這就是本集提出的集體行動困境。</p></details><details open><summary>2. 歷史補充：先暫停，再討論怎樣繼續</summary><p>1974 年，科學界呼籲暫停部分重組 DNA 研究。1975 年 Asilomar 會議討論如何在風險尚不確定時繼續研究。原始聲明支持多數研究在適當保護措施下進行，部分高風險研究則暫緩。這段歷史包含暫停與有條件繼續兩個階段。<a href=\"https://www.dnai.org/b/asilomar/asilomar_paper.htm\" target=\"_blank\" rel=\"noreferrer\">會議原始聲明 ↗</a></p></details><details open><summary>3. 經濟學理解：改變大家的選擇條件</summary><p>把這個案例當成集體行動問題來看，關鍵在於能否建立大家都願意遵守的規則，讓謹慎行動者不必獨自承擔競爭劣勢。這是根據議題提出的延伸理解。</p></details><div class=\"episode-conclusion\"><h3>讀完這集，可以帶走的結論</h3><p><strong>要讓競爭中的人一起減速，需要可共同遵守的承諾、規則與安全條件。</strong></p><p>Asilomar 提供了一個協調風險的歷史案例。用在 AI 上時，仍要進一步問：誰參與、哪些活動受約束、如何確認承諾被遵守，以及何時能繼續？生物學案例不會自動替 AI 提供完整答案。</p><p class=\"sample-note\">本段是閱讀歸納，並非節目結尾的逐字轉述。</p></div></section>\n<section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><div id=\"vocab\"></div></section><section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><div class=\"bilingual\"><p>AI developers may worry about risks while still racing ahead because they fear being left behind. This creates a collective action problem.</p><p class=\"zh\">AI 開發者可能擔心風險，卻因害怕落後而持續加速。這形成了集體行動困境。</p><p>The Asilomar meeting offers a historical example of scientists coordinating around uncertain risks. A useful takeaway is that shared rules can help turn concern into collective action.</p><p class=\"zh\">Asilomar 會議提供了科學家面對不確定風險、共同協調的歷史案例。可以帶走的思考是：共同規則能幫助人們把擔憂轉化為集體行動。</p></div></section>"
+  },
+  {
     "id": "economicsNobel",
     "title": "How did we get a Nobel Prize in economics?",
     "shortTitle": "Economics Nobel",

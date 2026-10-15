@@ -6,7 +6,7 @@
   let scheduled = false;
   function update() {
     scheduled = false;
-    const boundary = nav.getBoundingClientRect().height + 25;
+    const boundary = Math.max(100,nav.getBoundingClientRect().height + 25);
     let active = links[0]?.hash;
     for (const link of links) {
       const target = document.getElementById(link.hash.slice(1));

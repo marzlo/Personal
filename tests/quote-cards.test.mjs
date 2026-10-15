@@ -9,3 +9,9 @@ test('ten distinct quote cards preserve original text and source; short pools ar
  assert.equal(selectQuoteCards(candidates.slice(0,2)).length,2);
  assert.deepEqual(selectQuoteCards([]),[]);
 });
+
+test('sources have equal opportunity, book-related podcasts share their book group, recent sources wait',()=>{
+ const candidates=[...Array.from({length:100},(_,i)=>({text:'many '+i,sourceUrl:'book-a'})),...Array.from({length:12},(_,i)=>({text:'other '+i,sourceUrl:'book-'+i}))];
+ const selected=selectQuoteCards(candidates,10,()=>0.5,[{sourceUrl:'book-a'}]);assert.equal(selected.length,10);assert.equal(new Set(selected.map(c=>c.sourceUrl)).size,10);assert.ok(selected.every(c=>c.sourceUrl!=='book-a'));
+ assert.equal(selectQuoteCards(candidates.slice(0,100)).length,1);
+});

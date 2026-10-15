@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import { refreshPodcastCovers } from "./podcast-covers.mjs";
-import { selectQuoteCards } from "./quote-cards.mjs";
+import { selectQuoteCards, buildQuoteCandidates } from "./quote-cards.mjs";
 import { pathToFileURL } from "node:url";
 import { loadCache } from "./notion-cache.mjs";
 const startedAt = Date.now();
@@ -219,7 +219,7 @@ for (const page of allQuotes) {
 }
 const articleBodies = {};
 const audioBookUrls = new Set(books.filter(book => book.hasAudio).map(book => book.url));
-const articlePages = [...allPodcasts, ...allBooks.filter(page => audioBookUrls.has(publicUrl(page.id)))];
+const articlePages = [...allPodcasts, ...allBooks];
 for (const page of articlePages) {
   try {
     articleBodies[publicUrl(page.id)] = await pageBody(page);
@@ -228,41 +228,11 @@ for (const page of articlePages) {
     articleBodies[publicUrl(page.id)] = "";
   }
 }
-const bookByUrl = new Map(titledBooks.map(book => [book.url, book]));
-const reflectiveWords = /自己|生命|意識|選擇|相信|理解|自由|改變|感受|存在|真正|行動|責任|世界|內在|思考|經驗|可能|看見|活著|成為/;
-function quoteCandidates(text) {
-  const lines = String(text || "").split(/\n+/)
-    .map(line => line.replace(/^\s*(?:#{1,3}\s|>\s?|[-*]\s|\d+\.\s)/, "").trim())
-    .filter(line => line && !/^(深度探討模式|辯論模式)$/.test(line));
-  return lines.flatMap(line => {
-    const sentences = line.match(/[^。！？.!?]+[。！？.!?]?/g) || [line];
-    return sentences.map(sentence => sentence.trim()).filter(sentence => sentence.length >= 28 && sentence.length <= 220);
-  });
-}
-const featuredCandidates = quotes.flatMap(quote => {
-  const body = quoteBodies[quote.url] || "";
-  let passages = quoteCandidates(body);
-  if (!passages.length) {
-    const firstLine = body.split(/\n+/).map(line => line.trim()).find(line => line.length >= 28);
-    if (firstLine) passages = [firstLine.slice(0, 180).replace(/[，、；：\s]+$/, "") + (firstLine.length > 180 ? "…" : "")];
-  }
-  const reflective = passages.filter(passage => reflectiveWords.test(passage));
-  if (reflective.length) passages = reflective;
-  if (!passages.length) return [];
-  const passage = passages[Math.floor(Math.random() * passages.length)];
-  const book = quote.bookRefs.map(url => bookByUrl.get(url)).find(Boolean);
-  return [{
-    text: passage,
-    sourceTitle: book?.title || quote.title || "Notion 金句",
-    sourceUrl: book?.url || quote.url,
-    notionUrl: quote.url,
-    page: quote.page
-  }];
-});
-const featuredQuotes = selectQuoteCards(featuredCandidates);
-const featuredQuote = featuredQuotes[0] || null;
 let previousSnapshot = {};
 try { previousSnapshot = JSON.parse((await fs.readFile('data.js','utf8')).replace(/^window\.DASHBOARD_DATA\s*=\s*/, '').replace(/;\s*$/, '')); } catch {}
+const featuredCandidates = buildQuoteCandidates(titledBooks, podcasts, quotes, articleBodies, quoteBodies);
+const featuredQuotes = selectQuoteCards(featuredCandidates,10,Math.random,previousSnapshot.featuredQuotes||[]);
+const featuredQuote = featuredQuotes[0] || null;
 let latestPodcastCovers = previousSnapshot.latestPodcastCovers || [];
 try { latestPodcastCovers = await refreshPodcastCovers(latestPodcastCovers); } catch(error) { console.warn('Keeping previous cover photos: '+error.message); }
 const snapshot = {

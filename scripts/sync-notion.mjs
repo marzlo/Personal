@@ -174,7 +174,8 @@ function richText(items) {
   return (items || []).map(item => item.plain_text || item.text?.content || "").join("");
 }
 
-async function blockLines(blockId, depth = 0) {
+const pageBlocks = {};
+async function blockLines(blockId, depth = 0, refs = []) {
   const result = [];
   for (const block of await children(blockId)) {
     const type = block.type;
@@ -198,20 +199,19 @@ async function blockLines(blockId, depth = 0) {
       else if (type === "to_do") line = (value.checked ? "[x] " : "[ ] ") + line;
       else if (type === "quote") line = "> " + line;
     }
-    if (line.trim()) result.push("  ".repeat(Math.min(depth, 5)) + line);
+    if (line.trim()) { result.push("  ".repeat(Math.min(depth, 5)) + line); refs.push({ text: line.trim(), id: block.id }); }
     if (block.has_children && !["child_database", "child_page"].includes(type)) {
-      result.push(...await blockLines(block.id, depth + 1));
+      result.push(...await blockLines(block.id, depth + 1, refs));
     }
   }
   return result;
 }
 
 async function pageBody(page) {
-  const saved = cache.get(page, "body");
-  if (saved !== undefined) return saved;
-  const body = (await blockLines(page.id)).join("\n").trim();
-  cache.set(page, "body", body);
-  return body;
+ const saved = cache.get(page, 'body'), savedBlocks = cache.get(page, 'blocks');
+ if(saved !== undefined && Array.isArray(savedBlocks)){pageBlocks[publicUrl(page.id)]=savedBlocks;return saved;}
+ const refs=[];const body=(await blockLines(page.id,0,refs)).join('\n').trim();
+ pageBlocks[publicUrl(page.id)]=refs;cache.set(page,'body',body);cache.set(page,'blocks',refs);return body;
 }
 const quoteBodies = {};
 for (const page of allQuotes) {
@@ -230,7 +230,7 @@ for (const page of articlePages) {
 }
 let previousSnapshot = {};
 try { previousSnapshot = JSON.parse((await fs.readFile('data.js','utf8')).replace(/^window\.DASHBOARD_DATA\s*=\s*/, '').replace(/;\s*$/, '')); } catch {}
-const featuredCandidates = buildQuoteCandidates(titledBooks, podcasts, quotes, articleBodies, quoteBodies);
+const featuredCandidates = buildQuoteCandidates(titledBooks, podcasts, quotes, articleBodies, quoteBodies, pageBlocks);
 const featuredQuotes = selectQuoteCards(featuredCandidates,10,Math.random,previousSnapshot.featuredQuotes||[]);
 const featuredQuote = featuredQuotes[0] || null;
 let latestPodcastCovers = previousSnapshot.latestPodcastCovers || [];

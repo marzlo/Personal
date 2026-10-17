@@ -1,9 +1,9 @@
 (() => {
  const host=document.getElementById('featuredQuote');if(!host)return;
  const cards=DB.featuredQuotes?.length?DB.featuredQuotes:DB.featuredQuote?[DB.featuredQuote]:[];
- const key=quote=>String(quote.notionUrl||quote.sourceUrl||'')+'|'+quote.text;
+ const key=quote=>String(quote.notionUrl||quote.sourceUrl||'').split('#')[0]+'|'+quote.text;
  const section=document.createElement('details');section.className='quote-favorites';section.innerHTML='<summary>收藏摘句 <span data-favorite-count></span></summary><div data-favorite-list></div>';host.after(section);
- const editUrl=quote=>{const id=notionUrl(quote.notionUrl||quote.sourceUrl).match(/([a-f0-9]{32})(?:[/?#]|$)/i)?.[1];return id?'https://www.notion.so/'+id:''};
+ const editUrl=quote=>{const id=notionUrl(quote.notionUrl||quote.sourceUrl).match(/([a-f0-9]{32})(?:[/?#]|$)/i)?.[1];const block=String(quote.blockId||String(quote.notionUrl||'').split('#')[1]||'').replaceAll('-','');return id?'https://www.notion.so/'+id+(/^[a-f0-9]{32}$/i.test(block)?'#'+block:''):''};
  const editLink=quote=>editUrl(quote)?'<a class="notion-edit-link" href="'+editUrl(quote)+'" target="_blank" rel="noreferrer">在 Notion 編輯 ↗</a>':'';
  const saved=()=>Array.isArray(customTags.__favoriteQuotes)?customTags.__favoriteQuotes:[];
  function write(items){customTags={...customTags,__favoriteQuotes:items};window.ShiyeNotes.write('shiyeArticleTags',customTags);refresh()}

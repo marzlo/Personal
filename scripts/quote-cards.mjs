@@ -7,13 +7,13 @@ export function selectQuoteCards(candidates, count = 10, random = Math.random, p
  const recent=new Set(previous.map(sourceKey));const keys=[...shuffle([...groups.keys()].filter(key=>!recent.has(key)),random),...shuffle([...groups.keys()].filter(key=>recent.has(key)),random)];
  const chosen=[],seen=new Set();for(const key of keys){const card=shuffle([...groups.get(key).values()],random).find(card=>!seen.has(card.text.trim()));if(!card)continue;chosen.push(card);seen.add(card.text.trim());if(chosen.length>=count)break;}return chosen;
 }
-export function buildQuoteCandidates(books,podcasts,quotes,articleBodies,quoteBodies){
+export function buildQuoteCandidates(books,podcasts,quotes,articleBodies,quoteBodies,pageBlocks={}){
  const byUrl=new Map(books.map(book=>[book.url,book]));
  const passages=completeQuotePassages;
  const cards=[];
  for(const quote of quotes){const book=(quote.bookRefs||[]).map(url=>byUrl.get(url)).find(Boolean);for(const text of passages(quoteBodies[quote.url]))cards.push({text,sourceTitle:book?.title||quote.title,sourceUrl:book?.url||quote.url,notionUrl:quote.url,page:quote.page});}
  for(const article of [...books,...podcasts]){const book=(article.bookRefs||[]).map(url=>byUrl.get(url)).find(Boolean)||books.find(book=>(book.podcastRefs||[]).includes(article.url));for(const text of passages(articleBodies[article.url]))cards.push({text,sourceTitle:book?.title||article.title,sourceUrl:book?.url||article.url,notionUrl:article.url,page:null});}
- return cards;
+ return cards.map(card=>{const first=card.text.split(/\n/)[0];const block=(pageBlocks[card.notionUrl]||[]).find(block=>block.text.includes(first));const id=String(block?.id||'').replaceAll('-','');return /^[a-f0-9]{32}$/i.test(id)?{...card,blockId:id,notionUrl:card.notionUrl+'#'+id}:card;});
 }
 
 export function completeQuotePassages(body){

@@ -34,3 +34,11 @@ test('list numbers are not sentences, and independent checklist items cannot be 
  assert.deepEqual(completeQuotePassages('1. '+sentence),[sentence]);
  assert.ok(completeQuotePassages('1.\n'+sentence+'\n1.').every(text=>!/(?:^|\n)1\./.test(text)));
 });
+
+test('quote links carry actual source block IDs and safely fall back when no block matches',async()=>{
+ const {buildQuoteCandidates}=await import('../scripts/quote-cards.mjs');
+ const url='https://pickle-trail-279.notion.site/11111111111111111111111111111111';const text='生命中的選擇與自己的理解，能使我們逐漸看見原先尚未察覺的可能性。';
+ const article={url,title:'文章',bookRefs:[]};const block='22222222-2222-2222-2222-222222222222';
+ const cards=buildQuoteCandidates([], [article],[],{[url]:text},{},{[url]:[{id:block,text}]});assert.equal(cards[0].notionUrl,url+'#'+block.replaceAll('-',''));assert.equal(cards[0].blockId,block.replaceAll('-',''));
+ assert.equal(buildQuoteCandidates([],[article],[],{[url]:text},{})[0].notionUrl,url);
+});

@@ -1,7 +1,7 @@
 (() => {
   const translations = {
     zh: {
-      close: '關閉並回到拾頁', language: '分享視窗語言', share: '分享',
+      edit: '在 Notion 編輯 ↗', close: '關閉並回到拾頁', language: '分享視窗語言', share: '分享',
       recipientKicker: '拾頁 · 分享給你的一篇閱讀', senderKicker: '拾頁 · 分享文章',
       missingTitle: '這篇文章目前不在收藏中', missingIntro: '分享網址可能已失效，回到拾頁探索其他閱讀。',
       recipientIntro: '留一點時間，讀一篇讓想法繼續生長的文章。',
@@ -11,7 +11,7 @@
       copied: '已複製分享網址。', copyFallback: '請複製上方已選取的網址。', audioBook: '含音訊書籍'
     },
     en: {
-      close: 'Close and return to Shiye', language: 'Share dialog language', share: 'Share',
+      edit: 'Edit in Notion ↗', close: 'Close and return to Shiye', language: 'Share dialog language', share: 'Share',
       recipientKicker: 'Shiye · A reading invitation for you', senderKicker: 'Shiye · Share an article',
       missingTitle: 'This article is no longer in the collection', missingIntro: 'This share link may be out of date. Return to Shiye to explore other reading.',
       recipientIntro: 'Take a moment to read something that gives your ideas room to grow.',
@@ -39,7 +39,7 @@
     <div class="share-kicker"></div><h2 id="shareArticleTitle"></h2><p class="share-meta"></p>
     <div class="share-divider"></div><blockquote class="share-excerpt" data-no-translate hidden></blockquote><p class="share-intro"></p>
     <div class="share-url-area" hidden><label for="shareArticleUrl">文章分享網址</label><input id="shareArticleUrl" readonly></div>
-    <div class="share-actions"><button type="button" class="primary share-copy">複製網址</button><button type="button" class="share-preview">預覽分享畫面</button><a class="primary share-notion" target="_blank" rel="noreferrer">前往 Notion 閱讀 ↗</a><button type="button" class="share-home">取消，回到拾頁</button></div>
+    <div class="share-actions"><button type="button" class="primary share-copy">複製網址</button><button type="button" class="share-preview">預覽分享畫面</button><a class="primary share-notion" target="_blank" rel="noreferrer">前往 Notion 閱讀 ↗</a><a class="share-edit notion-edit-link" target="_blank" rel="noreferrer"></a><button type="button" class="share-home">取消，回到拾頁</button></div>
     <p class="share-message" aria-live="polite"></p>`;
   document.body.append(dialog);
   const find = selector => dialog.querySelector(selector);
@@ -72,6 +72,9 @@
     find('.share-preview').textContent = t().preview;
     find('.share-notion').textContent = t().notion;
     find('.share-home').textContent = t().home;
+    find('.share-edit').textContent = t().edit;
+    find('.share-edit').hidden = !item;
+    if(item) find('.share-edit').href = 'https://www.notion.so/' + pageId(item.url);else find('.share-edit').removeAttribute('href');
     find('.share-url-area').hidden = recipient;
     find('.share-copy').hidden = recipient;
     find('.share-preview').hidden = recipient;
@@ -137,6 +140,7 @@
     document.body.classList.add('article-share-open');
   }
   function refreshShareButtons() {
+    document.querySelectorAll('.notion-edit-link').forEach(link=>link.textContent=t().edit);
     document.querySelectorAll('.article-share-button').forEach(button => {
       button.textContent = t().share;
       button.setAttribute('aria-label', t().share + '「' + button.dataset.shareTitle + '」');
@@ -157,15 +161,16 @@
       button.setAttribute('aria-label', t().share + '「' + item.title + '」');
       button.lang = language === 'en' ? 'en' : 'zh-Hant';
       button.onclick = () => open(item, 'sender');
+      const edit = document.createElement('a');edit.className='notion-edit-link';edit.href='https://www.notion.so/'+pageId(item.url);edit.target='_blank';edit.rel='noreferrer';edit.textContent=t().edit;
       if (element.matches('.article-row')) {
         const row = document.createElement('div');
         row.className = 'article-share-row';
         element.before(row);
-        row.append(element, button);
+        const actions=document.createElement('div');actions.className='article-row-actions';actions.append(button,edit);row.append(element,actions);
       } else {
         const actions = document.createElement('div');
         actions.className = 'article-share-card-actions';
-        actions.append(button);
+        actions.append(button,edit);
         element.querySelector('.podcast-photo-credit')?.before(actions);
       }
     });

@@ -186,3 +186,5 @@
 - 使用者已確認折行名詞按鈕設計：study-term-tabs改flex-wrap、無橫向溢位、44px點選區，淡綠選中態；系列頁籤及既有拖曳儲存方式保留，不變動整理資料。
 
 - 更新摘句改先依sourceUrl平衡來源，每輪每來源一句；書籍及其關聯Podcast統一來源，優先未在上一輪出現來源。候選含金句及所有書籍／Podcast正文（包括無音訊書籍），去除重複句子，不為湊數重複來源。收藏不變。
+
+- 文章列、最新／推薦Podcast、分享視窗及Indicator卡片提供在Notion編輯入口，Notion頁面ID轉為www.notion.so工作區網址，新分頁開啟；notes-visitor隱藏，實際編輯權限仍由Notion控制，公開閱讀連結保留。

@@ -25,3 +25,12 @@ test('sources have equal opportunity, book-related podcasts share their book gro
  assert.equal(completeQuotePassages('很長的生命與自己的句子'.repeat(60)+'。').length,0);
  assert.ok(cards.every(text=>/[。！？.!?][」』”’）)"']*$/.test(text)));
  });
+
+test('list numbers are not sentences, and independent checklist items cannot be joined',async()=>{
+ const {completeQuotePassages}=await import('../scripts/quote-cards.mjs');
+ const fragment='觀察市場上所有公司市佔率與利潤之關係，花時間來探索自己的優勢';
+ assert.deepEqual(completeQuotePassages('1. '+fragment+'\n1. 下一個項目'),[]);
+ const sentence='觀察市場上所有公司市佔率與利潤之關係，花時間來探索自己的優勢。';
+ assert.deepEqual(completeQuotePassages('1. '+sentence),[sentence]);
+ assert.ok(completeQuotePassages('1.\n'+sentence+'\n1.').every(text=>!/(?:^|\n)1\./.test(text)));
+});

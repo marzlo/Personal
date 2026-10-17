@@ -20,9 +20,12 @@ export function completeQuotePassages(body){
  const units=[];
  for(const line of String(body||'').split(/\n+/)){
   if(/^\s*#{1,6}\s/.test(line)){units.push(null);continue;}
-  const text=line.trim().replace(/^[-*>]\s*/,'');
+  const listItem=/^\s*(?:(?:\d+|[一二三四五六七八九十]+)[.、．)]\s*|[-*]\s+)/.test(line);
+  const text=line.trim().replace(/^(?:\d+|[一二三四五六七八九十]+)[.、．)]\s*/,'').replace(/^[-*>]\s*/,'');
   if(!text)continue;
-  units.push(...(text.match(/[^。！？.!?]+[。！？.!?]?[」』”’）)"']*/g)||[]).map(s=>s.trim()).filter(Boolean));
+  if(listItem)units.push(null);
+  units.push(...(text.match(/[^。！？.!?]+[。！？.!?]?[」』”’）)"']*/g)||[]).map(s=>s.trim()).filter(s=>s&&!/^[\d\s.,:、．]+$/.test(s)));
+  if(listItem)units.push(null);
  }
  const closed=text=>/[。！？.!?][」』”’）)"']*$/.test(text)&&[['「','」'],['『','』'],['（','）']].every(([a,b])=>text.split(a).length===text.split(b).length);
  const result=[];

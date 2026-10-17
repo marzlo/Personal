@@ -9,9 +9,29 @@ export function selectQuoteCards(candidates, count = 10, random = Math.random, p
 }
 export function buildQuoteCandidates(books,podcasts,quotes,articleBodies,quoteBodies){
  const byUrl=new Map(books.map(book=>[book.url,book]));
- const passages=body=>{const lines=String(body||'').split(/\n+/).filter(line=>!/^\s*#{1,6}\s/.test(line));let result=lines.flatMap(line=>(line.match(/[^。！？.!?]+[。！？.!?]?/g)||[]).map(text=>text.trim().replace(/^[-*>]\s*/,''))).filter(text=>text.length>=28&&text.length<=220&&!/https?:|深度探討模式|辯論模式|以下為|以下是|點擊|訂閱/.test(text));const reflective=result.filter(text=>/自己|生命|意識|選擇|相信|理解|自由|改變|感受|存在|行動|責任|世界|內在|思考|經驗|可能|看見|成為/.test(text));return reflective.length?reflective:result;};
+ const passages=completeQuotePassages;
  const cards=[];
  for(const quote of quotes){const book=(quote.bookRefs||[]).map(url=>byUrl.get(url)).find(Boolean);for(const text of passages(quoteBodies[quote.url]))cards.push({text,sourceTitle:book?.title||quote.title,sourceUrl:book?.url||quote.url,notionUrl:quote.url,page:quote.page});}
  for(const article of [...books,...podcasts]){const book=(article.bookRefs||[]).map(url=>byUrl.get(url)).find(Boolean)||books.find(book=>(book.podcastRefs||[]).includes(article.url));for(const text of passages(articleBodies[article.url]))cards.push({text,sourceTitle:book?.title||article.title,sourceUrl:book?.url||article.url,notionUrl:article.url,page:null});}
  return cards;
+}
+
+export function completeQuotePassages(body){
+ const units=[];
+ for(const line of String(body||'').split(/\n+/)){
+  if(/^\s*#{1,6}\s/.test(line)){units.push(null);continue;}
+  const text=line.trim().replace(/^[-*>]\s*/,'');
+  if(!text)continue;
+  units.push(...(text.match(/[^。！？.!?]+[。！？.!?]?[」』”’）)"']*/g)||[]).map(s=>s.trim()).filter(Boolean));
+ }
+ const closed=text=>/[。！？.!?][」』”’）)"']*$/.test(text)&&[['「','」'],['『','』'],['（','）']].every(([a,b])=>text.split(a).length===text.split(b).length);
+ const result=[];
+ for(let i=0;i<units.length;i++){
+  if(!units[i])continue;
+  let text=units[i];let next=i;
+  while((!closed(text)||text.length<28)&&next+1<units.length&&next-i<7&&units[next+1]&&text.length+units[next+1].length<=360){text+='\n'+units[++next];}
+  if(text.length>=28&&text.length<=360&&closed(text)&&!/https?:|深度探討模式|辯論模式|以下為|以下是|點擊|訂閱/.test(text))result.push(text);
+ }
+ const reflective=result.filter(text=>/自己|生命|意識|選擇|相信|理解|自由|改變|感受|存在|行動|責任|世界|內在|思考|經驗|可能|看見|成為/.test(text));
+ return reflective.length?reflective:result;
 }

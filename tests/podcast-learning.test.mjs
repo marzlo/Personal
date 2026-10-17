@@ -7,6 +7,7 @@ function setup(tags, episode = 'healthBenefits') {
   const elements = new Map();
   function element() {return {hidden:false,value:'',textContent:'',children:[],append(...items){this.children.push(...items)},replaceChildren(){this.children=[]},setAttribute(){},focus(){}};}
   const get = id => {if(!elements.has(id))elements.set(id,element());return elements.get(id)};
+  get('source').querySelector = selector => selector === '.card-sources' ? get('relatedSources') : get('source');
   get('studyEditor').hidden=true; get('scope').value='episode';
   let stored=JSON.stringify(tags); const events={};
   const context={URLSearchParams,document:{getElementById:get,createElement:element,querySelector:()=>get('source'),querySelectorAll:()=>[]},localStorage:{getItem:()=>stored},window:{location:{search:'?episode='+episode},scrollTo(){},addEventListener:(name,fn)=>events[name]=fn,ShiyeNotes:{write(key,value){assert.equal(key,'shiyeArticleTags');stored=JSON.stringify(value)}}}};
@@ -104,4 +105,28 @@ test('Merged AI study notes keep unique vocabulary, complete examples and stable
   for(const q of episode.studyNotes.quiz)assert.ok(q.options[q.answer] && q.explanation);
   const s=setup({__podcastDeleted:[{id:'aiAsilomar:collective action problem',text:'collective action problem',meaning:'集體行動問題',title:episode.title}]},'aiAsilomar');
   assert.equal(s.get('position').textContent,'1 / '+(episode.cards.length-1));
+});
+
+test('Repeated terms show every episode, normalize apostrophes, and protect unsaved notes on source navigation',()=>{
+  const s=setup({__podcastNotes:{healthBenefits:'保留筆記'}});
+  assert.equal(s.get('relatedSources').hidden,true);
+  s.get('next').onclick();
+  const sources=s.get('relatedSources');
+  assert.equal(sources.hidden,false);
+  assert.equal(sources.children[0].textContent,'這個詞句出現在 2 篇 Podcast');
+  const links=sources.children[1].children.map(row=>row.children[0]);
+  assert.equal(links.length,2);
+  assert.ok(links.some(link=>link.href==='?episode=movieMarket#episode'));
+  assert.ok(links.some(link=>link.href==='?episode=healthBenefits#episode'));
+  const other=links.find(link=>link.href==='?episode=movieMarket#episode');
+  s.get('editNote').onclick();s.get('note').value='未儲存';
+  let prevented=false;other.onclick({preventDefault(){prevented=true}});
+  assert.equal(prevented,true);
+  assert.equal(s.get('episodeSelect').value,'healthBenefits');
+  assert.equal(s.get('note').value,'未儲存');
+  s.get('cancelNote').onclick();
+  s.get('episode').scrollIntoView=()=>{};
+  other.onclick({preventDefault(){}});
+  assert.equal(s.get('episodeSelect').value,'movieMarket');
+  assert.deepEqual(s.stored(),{__podcastNotes:{healthBenefits:'保留筆記'}});
 });

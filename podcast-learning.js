@@ -10,6 +10,29 @@
   const requested = new URLSearchParams(window.location?.search || '').get('episode');
   episode = episodes.find(e => e.id === requested) || episode;
   const cardLabel = card => card?.old ? '原有 Indicator 收藏' : (card?.word[6] ? '★ 優先推薦 · ' : '') + (card?.word[5] || card?.episode?.show || '精選詞句');
+  const termKey = text => text.normalize('NFKC').toLowerCase().replace(/[‘’]/g,"'").trim().replace(/\s+/g,' ');
+  function renderRelatedSources(root, card) {
+    const container = root?.querySelector?.('.card-sources');
+    if (!container) return;
+    container.replaceChildren();
+    const matches = card ? episodes.filter(e => e.cards.some(word => termKey(word[0]) === termKey(card.word[0]))) : [];
+    container.hidden = matches.length < 2;
+    if (container.hidden) return;
+    const heading = document.createElement('p');
+    heading.textContent = '這個詞句出現在 ' + matches.length + ' 篇 Podcast';
+    const list = document.createElement('ul');
+    for (const sourceEpisode of matches) {
+      const row = document.createElement('li'), link = document.createElement('a');
+      link.textContent = sourceEpisode.title;
+      link.href = '?episode=' + encodeURIComponent(sourceEpisode.id) + '#episode';
+      link.onclick = event => {
+        event.preventDefault();
+        if (switchEpisode(sourceEpisode.id)) $('episode').scrollIntoView({behavior:'smooth'});
+      };
+      row.append(link); list.append(row);
+    }
+    container.append(heading,list);
+  }
   function rebuildCards() {
     cards = episodes.flatMap(e => e.cards.map(word => ({word, episode:e, id:e.id + ':' + word[0].trim().toLowerCase()})));
     for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) {
@@ -50,6 +73,7 @@
     source.onclick = card?.episode ? event => {
       event.preventDefault(); if (switchEpisode(card.episode.id)) $('episode').scrollIntoView({behavior:'smooth'});
     } : null;
+    renderRelatedSources(cardElement,card);
     $('answer').hidden = true; $('reveal').textContent = '顯示中文與用法 ＋'; $('reveal').disabled = !word; $('save').disabled = !word;
     $('deleteCard').disabled = !card;
     $('deleteCard').onclick = () => {if(card) deleteWord(card)};
@@ -76,6 +100,7 @@
       source.textContent = '來源：' + (card.episode?.title || card.old?.title || 'Podcast') + ' ↗';
       source.href = card.old && /^https:\/\//.test(card.old.source || '') ? card.old.source : '#episode';
       source.onclick = card.episode ? event => {event.preventDefault();if(switchEpisode(card.episode.id)) $('episode').scrollIntoView({behavior:'smooth'})} : null;
+      renderRelatedSources(slide,card);
       slide.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
       return slide;
     });

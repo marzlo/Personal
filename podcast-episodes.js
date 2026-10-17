@@ -11,275 +11,1535 @@ window.PODCAST_EPISODES = [
     "prompt": "如果我希望大家一起放慢腳步，需要什麼規則，才能讓先停下的人不吃虧？",
     "cards": [
       [
+        "On the fence",
+        "猶豫不決；尚未表態",
+        "I'm still on the fence about whether we should release the new version.",
+        "我還在猶豫是否應該發布新版本。",
+        "be on the fence about something；表示尚未決定立場。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "For that matter",
+        "而且；就這點而言",
+        "I haven’t read the report, or the summary for that matter.",
+        "我還沒讀報告，其實連摘要也沒讀。",
+        "把前面的論點延伸到另一個同樣適用的對象；不是單純轉換話題。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "Out of an abundance of caution",
+        "為了慎重起見",
+        "Out of an abundance of caution, we decided to postpone the release.",
+        "為了慎重起見，我們決定延後發布。",
+        "常用於安全、公共聲明與風險討論。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "Light a fire under someone",
+        "督促某人；激勵行動",
+        "The deadline really lit a fire under the team.",
+        "截止期限真的讓團隊開始積極行動。",
+        "light 的過去式為 lit；以壓力或動力促使人行動。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "It totally worked",
+        "真的奏效了",
+        "We tried a new approach, and it totally worked.",
+        "我們嘗試新方法，結果真的奏效了。",
+        "totally 在口語中加強肯定語氣。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "Kind of right",
+        "有幾分道理",
+        "You’re kind of right, but there are other risks.",
+        "你有幾分道理，但還有其他風險。",
+        "委婉地表達部分認同；kind of 可緩和語氣。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Sort of",
+        "某種程度上；算是",
+        "I sort of understand the problem now.",
+        "我現在算是理解這個問題了。",
+        "口語中可緩和肯定程度。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Basically",
+        "簡單來說；基本上",
+        "Basically, we need everyone to agree.",
+        "簡單來說，我們需要每個人都同意。",
+        "用於概括重點，不代表細節完全不重要。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Speaker after speaker",
+        "一位又一位講者",
+        "Speaker after speaker raised the same concern.",
+        "一位又一位講者提出相同的擔憂。",
+        "單數名詞＋after＋同一名詞，表示接連不斷。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "The whole thing",
+        "整件事；整個過程",
+        "The whole thing took longer than expected.",
+        "整個過程比預期花了更久。",
+        "口語概括一件事或整個過程。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "If you’re still out there",
+        "如果你們還在聽／還在那裡",
+        "If you’re still out there, we’d love to hear from you.",
+        "如果你們還在聽，我們很想收到你們的回覆。",
+        "依情境可向聽眾喊話，也可指某人仍在某處。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Head to",
+        "前往",
+        "Let’s head to the library.",
+        "我們去圖書館吧。",
+        "常見口語；後面接目的地。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Over to",
+        "往某處；到另一邊",
+        "We walked over to the meeting room.",
+        "我們走到會議室。",
+        "常接在 go、walk、head 等動詞後，形成移動方向的表達。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "The stacks",
+        "圖書館藏書區",
+        "I found the book in the stacks.",
+        "我在圖書館藏書區找到了這本書。",
+        "圖書館語境中的 stacks 指書架或藏書區。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "It became clear that",
+        "逐漸可以看出……",
+        "It became clear that we needed more time.",
+        "大家逐漸發現我們需要更多時間。",
+        "that 後接完整子句；表示情況逐漸明朗。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Address a problem",
+        "處理；因應問題",
+        "We need to address this problem immediately.",
+        "我們需要立即處理這個問題。",
+        "address 可搭配 a risk、safety concerns；表示處理，不保證已解決。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Pose a risk to",
+        "對……構成風險",
+        "The delay poses a risk to our certification schedule.",
+        "延遲對認證時程構成風險。",
+        "pose a risk 是造成風險；address a risk 是因應風險。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Key takeaway",
+        "核心重點；重要結論",
+        "What’s your key takeaway from the meeting?",
+        "你從會議中得到的核心重點是什麼？",
+        "常搭配 from a meeting、report 或 discussion。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Sell an idea",
+        "說服別人接受想法",
+        "We need to sell the idea to management.",
+        "我們需要說服管理階層接受這個想法。",
+        "sell 在此指說服；sell an idea to someone。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Make sure",
+        "確保；確認",
+        "Make sure everyone understands the rules.",
+        "確認每個人都理解規則。",
+        "後接子句；也可用 make sure to do something。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "The intention was to",
+        "目的是為了……",
+        "The intention was to improve safety.",
+        "原本的目的是改善安全。",
+        "用來說明原始目的，實際結果可能不同。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Convene a meeting",
+        "召開會議",
+        "They convened an emergency meeting.",
+        "他們召開了緊急會議。",
+        "較正式的表達；convene 也可表示人員集會。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Agree to",
+        "同意提案或安排",
+        "They agreed to the proposal.",
+        "他們同意了這項提案。",
+        "agree to a proposal；agree to do something 表示同意去做。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Agree on",
+        "就某事達成共識",
+        "We agreed on the schedule.",
+        "我們就時程達成了共識。",
+        "強調共同決定一個計畫、日期或方案。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Agree with",
+        "同意某人的看法",
+        "I agree with the manager’s assessment.",
+        "我同意經理的評估。",
+        "常接某人、看法或說法；不是所有 agree 都用同一介系詞。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Slow things down",
+        "放慢進度",
+        "We decided to slow things down temporarily.",
+        "我們決定暫時放慢進度。",
+        "口語中指讓過程或發展慢下來。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Accelerate",
+        "加速；促進",
+        "The funding could accelerate development.",
+        "這筆資金可能加速開發。",
+        "可搭配 development、growth 或 progress。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Want something done",
+        "希望某事被完成",
+        "We want the issue resolved before Friday.",
+        "我們希望問題在週五前獲得解決。",
+        "want＋受詞＋過去分詞，強調希望達成的結果。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Or at least",
+        "或者至少",
+        "Fix it, or at least find a workaround.",
+        "修好它，或者至少找到替代辦法。",
+        "提出較低限度、較容易達成的選項。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "collective action problem",
+        "集體行動問題",
+        "This is a collective action problem, not just an individual choice.",
+        "這是集體行動問題，牽涉的不只是個人選擇。",
+        "個別誘因使群體難以合作。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "moratorium",
+        "暫停令；暫緩措施",
+        "They called for a moratorium on the project.",
+        "他們呼籲暫緩這項專案。",
+        "通常具有暫時性；可指自願或正式的暫停措施。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Lift a moratorium",
+        "解除暫停措施",
+        "The committee agreed to lift the moratorium.",
+        "委員會同意解除暫停措施。",
+        "lift 可指解除限制、禁令或暫停措施。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Guardrails",
+        "安全防護規範",
+        "We need guardrails before expanding the program.",
+        "擴大計畫前，我們需要安全防護規範。",
+        "本義為護欄；比喻限制風險的規則與措施。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Enforcement",
+        "執行；強制實施",
+        "Rules require effective enforcement.",
+        "規則需要有效執行。",
+        "名詞；動詞 enforce 指確保規則被遵守。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Comply with",
+        "遵守；符合",
+        "We comply with the standard.",
+        "我們符合這項標準。",
+        "常用於法規、標準及認證要求；後接 with。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Self-regulate",
+        "自我規範",
+        "The industry agreed to self-regulate.",
+        "這個產業同意自我規範。",
+        "可涵蓋自行制定與遵循規範，實際範圍取決於上下文。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Self-police",
+        "自我監督；自行查核違規",
+        "The community must self-police to make the rules meaningful.",
+        "社群必須自行監督違規，規則才有意義。",
+        "更著重自行監督與處理違規；與 self-regulate 的用法可能重疊。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Abide by",
+        "遵守",
+        "We abide by the agreement.",
+        "我們遵守這項協議。",
+        "常接 agreement、rules 或 decision；意思與 comply with 部分重疊。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Temporary moratorium",
+        "臨時暫停措施",
+        "A temporary moratorium gave the team time to review the risks.",
+        "臨時暫停措施給團隊時間檢視風險。",
+        "強調暫時停止某活動；moratorium 本身通常已有暫時性。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Existential risk",
+        "生存性風險",
+        "The discussion focused on existential risk.",
+        "討論聚焦於生存性風險。",
+        "在本集議題語境中指威脅人類存續的風險。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Lab leak",
+        "實驗室洩漏",
+        "The report examined concerns about a lab leak.",
+        "報告檢視了人們對實驗室洩漏的擔憂。",
+        "生物安全語境中可指生物材料或病原體從實驗室逸出。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Superbug",
+        "超級病菌",
+        "The article discusses the spread of superbugs.",
+        "這篇文章討論超級病菌的傳播。",
+        "通常指對多種抗生素有抗藥性的細菌。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Designer baby",
+        "設計嬰兒",
+        "The debate raised questions about designer babies.",
+        "這場辯論提出了設計嬰兒相關的問題。",
+        "媒體與倫理討論用語，涉及以技術選擇遺傳特徵。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Physical injury",
+        "身體傷害",
+        "The policy aims to prevent physical injury.",
+        "這項政策旨在防止身體傷害。",
+        "法律、倫理與安全語境常見。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Analogous",
+        "類似的；可類比的",
+        "This situation is analogous to a problem we faced last year.",
+        "這個情況類似我們去年遇到的問題。",
+        "常搭配 analogous to；相似不代表完全相同。",
+        "進階單字",
+        true
+      ],
+      [
+        "Inadvertently",
+        "無意中；非故意地",
+        "I inadvertently deleted the wrong file.",
+        "我不小心刪錯了檔案。",
+        "強調結果並非有意造成。",
+        "進階單字",
+        true
+      ],
+      [
+        "Conundrum",
+        "棘手難題；兩難困境",
+        "The proposal presents an ethical conundrum.",
+        "這項提案帶來了一個倫理難題。",
+        "常用於難以找到明確答案的問題。",
+        "進階單字",
+        true
+      ],
+      [
+        "Encompass",
+        "涵蓋；包含",
+        "The review will encompass several areas.",
+        "這次審查將涵蓋數個領域。",
+        "直接接受詞，不必加介系詞。",
+        "進階單字",
+        true
+      ],
+      [
+        "Ironic",
+        "具有反諷意味的",
+        "It’s ironic that the safety rule created a new risk.",
+        "諷刺的是，這項安全規則反而造成新的風險。",
+        "用於結果與預期或表面目的形成反差。",
+        "進階單字",
+        true
+      ],
+      [
+        "Precocious",
+        "早熟的；超齡聰明的",
+        "She was a precocious teenager with a passion for science.",
+        "她是個早慧、熱愛科學的青少年。",
+        "常形容孩子的能力或表現超出同齡。",
+        "進階單字",
+        false
+      ],
+      [
+        "Incompetent",
+        "能力不足的；不稱職的",
+        "The review found that the manager was incompetent.",
+        "審查認定這位經理不稱職。",
+        "批評意味強烈，使用時要留意語氣。",
+        "進階單字",
+        false
+      ],
+      [
+        "Ultimately",
+        "最終；說到底",
+        "Ultimately, we decided to wait.",
+        "最終，我們決定等待。",
+        "可指最後的結果，也可引出根本考量。",
+        "進階單字",
+        false
+      ],
+      [
+        "Seemingly",
+        "似乎；表面上",
+        "The seemingly simple task took all day.",
+        "這項看似簡單的工作花了一整天。",
+        "保留表面印象與實際情況不同的可能。",
+        "進階單字",
+        false
+      ],
+      [
+        "Jargony",
+        "充滿專業術語的",
+        "The presentation was too jargony for a general audience.",
+        "這場簡報對一般聽眾而言用了太多專業術語。",
+        "非正式形容詞，源自 jargon。",
+        "進階單字",
+        false
+      ],
+      [
+        "Naysayer",
+        "反對者；唱反調的人",
+        "Despite the naysayers, the team continued.",
+        "儘管有人唱反調，團隊仍繼續前進。",
+        "帶評價色彩，形容經常否定某事的人。",
+        "進階單字",
+        false
+      ],
+      [
+        "Allegory",
+        "寓言；借喻",
+        "The story is an allegory for modern society.",
+        "這個故事是對現代社會的借喻。",
+        "以人物或事件象徵更廣泛的意義。",
+        "進階單字",
+        false
+      ],
+      [
+        "Reticulum",
+        "網狀結構；網胃",
+        "The glossary defines reticulum as a network-like structure.",
+        "詞彙表把 reticulum 解釋為網狀結構。",
+        "解剖學用詞。筆記中的 put a fire under everyone’s reticulum 非標準慣用語，可能是幽默或轉錄誤差；未核實原話，日常學習以 light a fire under someone 為主。",
+        "進階單字",
+        false
+      ],
+      [
+        "What is going to stop someone from V-ing?",
+        "有什麼能阻止某人做某事？",
+        "What’s going to stop other companies from doing the same thing?",
+        "有什麼能阻止其他公司做同樣的事情？",
+        "stop someone from＋動名詞。",
+        "重要句型",
+        false
+      ],
+      [
+        "It’s ironic that…",
+        "諷刺的是……",
+        "It’s ironic that we need a meeting to reduce meetings.",
+        "諷刺的是，我們需要開會來減少會議。",
+        "that 後接完整子句，指出反差。",
+        "重要句型",
+        true
+      ],
+      [
+        "Someone is likely to…",
+        "某人很可能會……",
+        "She is likely to support the plan.",
+        "她很可能會支持這項計畫。",
+        "be likely to＋動詞原形，表示可能性。",
+        "重要句型",
+        false
+      ],
+      [
+        "Something does happen.",
+        "某件事確實會發生",
+        "Mistakes do happen, even with careful planning.",
+        "即使規劃周全，錯誤仍確實會發生。",
+        "助動詞 do／does 加強肯定；後接動詞原形。",
+        "重要句型",
+        false
+      ],
+      [
+        "Out of + 原因／動機",
+        "出於某種原因",
+        "She asked the question out of curiosity.",
+        "她出於好奇提出這個問題。",
+        "常見 out of caution、curiosity、respect。",
+        "重要句型",
+        false
+      ],
+      [
+        "A after A",
+        "一個又一個；接連不斷",
+        "Day after day, they reviewed the evidence.",
+        "日復一日，他們檢視證據。",
+        "重複同一單數名詞，表達連續發生。",
+        "重要句型",
+        false
+      ],
+      [
         "by and large",
         "大致上；總體而言",
         "By and large, the project is going well.",
         "總體而言，專案進展順利。",
-        "用於概括整體狀況，同時保留例外的可能。"
+        "用於概括整體狀況，同時保留例外的可能。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "hit pause",
         "暫停一下",
         "Let’s hit pause and review the risks.",
         "我們先暫停一下，檢視風險。",
-        "口語比喻，常用於暫停計畫或討論。"
+        "口語比喻，常用於暫停計畫或討論。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "be left behind",
         "被拋在後面；落後",
         "No team wants to be left behind.",
         "沒有團隊希望自己落後。",
-        "常用於競爭、科技發展與學習。"
+        "常用於競爭、科技發展與學習。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "hole up",
         "躲起來；待在某處不外出",
         "They holed up in a cabin to finish the draft.",
         "他們待在小屋裡完成草稿。",
-        "通常接 in，形容在一處待上一段時間。"
+        "通常接 in，形容在一處待上一段時間。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "set aside",
         "暫時放下；留出",
         "They set aside their differences to solve the problem.",
         "他們暫時放下分歧，一起解決問題。",
-        "set aside differences 是放下分歧；set aside time 是留出時間。"
+        "set aside differences 是放下分歧；set aside time 是留出時間。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "runaway",
         "失控的；難以遏止的",
         "The team worried about runaway costs.",
         "團隊擔心成本失控。",
-        "作形容詞可修飾成本、成長或技術。"
-      ],
-      [
-        "collective action problem",
-        "集體行動困境",
-        "Pollution can create a collective action problem.",
-        "污染可能形成集體行動困境。",
-        "個別行動者的誘因，使共同利益難以實現。"
+        "作形容詞可修飾成本、成長或技術。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "regulate",
         "規範；監管",
         "The agency regulates the industry.",
         "這個機關監管該產業。",
-        "動詞；名詞是 regulation。"
+        "動詞；名詞是 regulation。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "tie someone’s hands",
         "限制某人的行動自由",
         "The contract ties our hands.",
         "合約限制了我們的行動自由。",
-        "常指規則或承諾使人不能自由決定。"
+        "常指規則或承諾使人不能自由決定。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "pioneer",
         "開創；先驅",
         "She helped pioneer a new research method.",
         "她協助開創一種新的研究方法。",
-        "可作動詞，也可作名詞指先驅者。"
+        "可作動詞，也可作名詞指先驅者。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "competition",
         "競爭",
         "Competition encouraged the teams to move faster.",
         "競爭促使各團隊加快腳步。",
-        "常搭配 intense 或 fierce；也可指競賽。"
+        "常搭配 intense 或 fierce；也可指競賽。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "ambition",
         "抱負；企圖心",
         "He has the ambition to build a better company.",
         "他有打造更好公司的抱負。",
-        "可指追求成就的動力，也可指具體目標。"
+        "可指追求成就的動力，也可指具體目標。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "voluntary",
         "自願的",
         "Participation in the program is voluntary.",
         "參與這項計畫是自願的。",
-        "補充用詞；對照 mandatory（強制的）。"
-      ],
-      [
-        "moratorium",
-        "暫緩；暫停實施",
-        "They called for a moratorium on the project.",
-        "他們呼籲暫緩這項專案。",
-        "歷史背景補充；常搭配 on，表示一段時期內暫停某活動。"
+        "補充用詞；對照 mandatory（強制的）。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "safeguard",
         "保護措施",
         "The policy includes safeguards against misuse.",
         "這項政策包含防止濫用的保護措施。",
-        "歷史背景補充；可作名詞或動詞。"
+        "歷史背景補充；可作名詞或動詞。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "consensus",
         "共識",
         "The committee reached a consensus.",
         "委員會達成了共識。",
-        "補充用詞；常搭配 reach 或 build。"
+        "補充用詞；常搭配 reach 或 build。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "coordination",
         "協調",
         "The plan requires coordination across teams.",
         "這項計畫需要跨團隊協調。",
-        "補充用詞；動詞是 coordinate。"
+        "補充用詞；動詞是 coordinate。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "incentive",
         "誘因",
         "The policy gives firms an incentive to cooperate.",
         "這項政策給企業合作的誘因。",
-        "補充用詞；an incentive to do something。"
+        "補充用詞；an incentive to do something。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "recombinant DNA",
         "重組 DNA",
         "The lecture covered the history of recombinant DNA research.",
         "這堂課介紹了重組 DNA 研究的歷史。",
-        "本集歷史背景用詞，指重新組合的 DNA。"
+        "本集歷史背景用詞，指重新組合的 DNA。",
+        "先前收錄的詞彙",
+        false
       ]
     ],
     "glossary": [
       [
+        "On the fence",
+        "猶豫不決；尚未表態",
+        "I'm still on the fence about whether we should release the new version.",
+        "我還在猶豫是否應該發布新版本。",
+        "be on the fence about something；表示尚未決定立場。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "For that matter",
+        "而且；就這點而言",
+        "I haven’t read the report, or the summary for that matter.",
+        "我還沒讀報告，其實連摘要也沒讀。",
+        "把前面的論點延伸到另一個同樣適用的對象；不是單純轉換話題。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "Out of an abundance of caution",
+        "為了慎重起見",
+        "Out of an abundance of caution, we decided to postpone the release.",
+        "為了慎重起見，我們決定延後發布。",
+        "常用於安全、公共聲明與風險討論。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "Light a fire under someone",
+        "督促某人；激勵行動",
+        "The deadline really lit a fire under the team.",
+        "截止期限真的讓團隊開始積極行動。",
+        "light 的過去式為 lit；以壓力或動力促使人行動。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "It totally worked",
+        "真的奏效了",
+        "We tried a new approach, and it totally worked.",
+        "我們嘗試新方法，結果真的奏效了。",
+        "totally 在口語中加強肯定語氣。",
+        "日常口語與慣用語",
+        true
+      ],
+      [
+        "Kind of right",
+        "有幾分道理",
+        "You’re kind of right, but there are other risks.",
+        "你有幾分道理，但還有其他風險。",
+        "委婉地表達部分認同；kind of 可緩和語氣。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Sort of",
+        "某種程度上；算是",
+        "I sort of understand the problem now.",
+        "我現在算是理解這個問題了。",
+        "口語中可緩和肯定程度。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Basically",
+        "簡單來說；基本上",
+        "Basically, we need everyone to agree.",
+        "簡單來說，我們需要每個人都同意。",
+        "用於概括重點，不代表細節完全不重要。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Speaker after speaker",
+        "一位又一位講者",
+        "Speaker after speaker raised the same concern.",
+        "一位又一位講者提出相同的擔憂。",
+        "單數名詞＋after＋同一名詞，表示接連不斷。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "The whole thing",
+        "整件事；整個過程",
+        "The whole thing took longer than expected.",
+        "整個過程比預期花了更久。",
+        "口語概括一件事或整個過程。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "If you’re still out there",
+        "如果你們還在聽／還在那裡",
+        "If you’re still out there, we’d love to hear from you.",
+        "如果你們還在聽，我們很想收到你們的回覆。",
+        "依情境可向聽眾喊話，也可指某人仍在某處。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Head to",
+        "前往",
+        "Let’s head to the library.",
+        "我們去圖書館吧。",
+        "常見口語；後面接目的地。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "Over to",
+        "往某處；到另一邊",
+        "We walked over to the meeting room.",
+        "我們走到會議室。",
+        "常接在 go、walk、head 等動詞後，形成移動方向的表達。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "The stacks",
+        "圖書館藏書區",
+        "I found the book in the stacks.",
+        "我在圖書館藏書區找到了這本書。",
+        "圖書館語境中的 stacks 指書架或藏書區。",
+        "日常口語與慣用語",
+        false
+      ],
+      [
+        "It became clear that",
+        "逐漸可以看出……",
+        "It became clear that we needed more time.",
+        "大家逐漸發現我們需要更多時間。",
+        "that 後接完整子句；表示情況逐漸明朗。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Address a problem",
+        "處理；因應問題",
+        "We need to address this problem immediately.",
+        "我們需要立即處理這個問題。",
+        "address 可搭配 a risk、safety concerns；表示處理，不保證已解決。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Pose a risk to",
+        "對……構成風險",
+        "The delay poses a risk to our certification schedule.",
+        "延遲對認證時程構成風險。",
+        "pose a risk 是造成風險；address a risk 是因應風險。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Key takeaway",
+        "核心重點；重要結論",
+        "What’s your key takeaway from the meeting?",
+        "你從會議中得到的核心重點是什麼？",
+        "常搭配 from a meeting、report 或 discussion。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Sell an idea",
+        "說服別人接受想法",
+        "We need to sell the idea to management.",
+        "我們需要說服管理階層接受這個想法。",
+        "sell 在此指說服；sell an idea to someone。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "Make sure",
+        "確保；確認",
+        "Make sure everyone understands the rules.",
+        "確認每個人都理解規則。",
+        "後接子句；也可用 make sure to do something。",
+        "商務會議與專案管理",
+        true
+      ],
+      [
+        "The intention was to",
+        "目的是為了……",
+        "The intention was to improve safety.",
+        "原本的目的是改善安全。",
+        "用來說明原始目的，實際結果可能不同。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Convene a meeting",
+        "召開會議",
+        "They convened an emergency meeting.",
+        "他們召開了緊急會議。",
+        "較正式的表達；convene 也可表示人員集會。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Agree to",
+        "同意提案或安排",
+        "They agreed to the proposal.",
+        "他們同意了這項提案。",
+        "agree to a proposal；agree to do something 表示同意去做。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Agree on",
+        "就某事達成共識",
+        "We agreed on the schedule.",
+        "我們就時程達成了共識。",
+        "強調共同決定一個計畫、日期或方案。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Agree with",
+        "同意某人的看法",
+        "I agree with the manager’s assessment.",
+        "我同意經理的評估。",
+        "常接某人、看法或說法；不是所有 agree 都用同一介系詞。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Slow things down",
+        "放慢進度",
+        "We decided to slow things down temporarily.",
+        "我們決定暫時放慢進度。",
+        "口語中指讓過程或發展慢下來。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Accelerate",
+        "加速；促進",
+        "The funding could accelerate development.",
+        "這筆資金可能加速開發。",
+        "可搭配 development、growth 或 progress。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Want something done",
+        "希望某事被完成",
+        "We want the issue resolved before Friday.",
+        "我們希望問題在週五前獲得解決。",
+        "want＋受詞＋過去分詞，強調希望達成的結果。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "Or at least",
+        "或者至少",
+        "Fix it, or at least find a workaround.",
+        "修好它，或者至少找到替代辦法。",
+        "提出較低限度、較容易達成的選項。",
+        "商務會議與專案管理",
+        false
+      ],
+      [
+        "collective action problem",
+        "集體行動問題",
+        "This is a collective action problem, not just an individual choice.",
+        "這是集體行動問題，牽涉的不只是個人選擇。",
+        "個別誘因使群體難以合作。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "moratorium",
+        "暫停令；暫緩措施",
+        "They called for a moratorium on the project.",
+        "他們呼籲暫緩這項專案。",
+        "通常具有暫時性；可指自願或正式的暫停措施。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Lift a moratorium",
+        "解除暫停措施",
+        "The committee agreed to lift the moratorium.",
+        "委員會同意解除暫停措施。",
+        "lift 可指解除限制、禁令或暫停措施。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Guardrails",
+        "安全防護規範",
+        "We need guardrails before expanding the program.",
+        "擴大計畫前，我們需要安全防護規範。",
+        "本義為護欄；比喻限制風險的規則與措施。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Enforcement",
+        "執行；強制實施",
+        "Rules require effective enforcement.",
+        "規則需要有效執行。",
+        "名詞；動詞 enforce 指確保規則被遵守。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Comply with",
+        "遵守；符合",
+        "We comply with the standard.",
+        "我們符合這項標準。",
+        "常用於法規、標準及認證要求；後接 with。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Self-regulate",
+        "自我規範",
+        "The industry agreed to self-regulate.",
+        "這個產業同意自我規範。",
+        "可涵蓋自行制定與遵循規範，實際範圍取決於上下文。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Self-police",
+        "自我監督；自行查核違規",
+        "The community must self-police to make the rules meaningful.",
+        "社群必須自行監督違規，規則才有意義。",
+        "更著重自行監督與處理違規；與 self-regulate 的用法可能重疊。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Abide by",
+        "遵守",
+        "We abide by the agreement.",
+        "我們遵守這項協議。",
+        "常接 agreement、rules 或 decision；意思與 comply with 部分重疊。",
+        "科技、安全與政策",
+        true
+      ],
+      [
+        "Temporary moratorium",
+        "臨時暫停措施",
+        "A temporary moratorium gave the team time to review the risks.",
+        "臨時暫停措施給團隊時間檢視風險。",
+        "強調暫時停止某活動；moratorium 本身通常已有暫時性。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Existential risk",
+        "生存性風險",
+        "The discussion focused on existential risk.",
+        "討論聚焦於生存性風險。",
+        "在本集議題語境中指威脅人類存續的風險。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Lab leak",
+        "實驗室洩漏",
+        "The report examined concerns about a lab leak.",
+        "報告檢視了人們對實驗室洩漏的擔憂。",
+        "生物安全語境中可指生物材料或病原體從實驗室逸出。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Superbug",
+        "超級病菌",
+        "The article discusses the spread of superbugs.",
+        "這篇文章討論超級病菌的傳播。",
+        "通常指對多種抗生素有抗藥性的細菌。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Designer baby",
+        "設計嬰兒",
+        "The debate raised questions about designer babies.",
+        "這場辯論提出了設計嬰兒相關的問題。",
+        "媒體與倫理討論用語，涉及以技術選擇遺傳特徵。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Physical injury",
+        "身體傷害",
+        "The policy aims to prevent physical injury.",
+        "這項政策旨在防止身體傷害。",
+        "法律、倫理與安全語境常見。",
+        "科技、安全與政策",
+        false
+      ],
+      [
+        "Analogous",
+        "類似的；可類比的",
+        "This situation is analogous to a problem we faced last year.",
+        "這個情況類似我們去年遇到的問題。",
+        "常搭配 analogous to；相似不代表完全相同。",
+        "進階單字",
+        true
+      ],
+      [
+        "Inadvertently",
+        "無意中；非故意地",
+        "I inadvertently deleted the wrong file.",
+        "我不小心刪錯了檔案。",
+        "強調結果並非有意造成。",
+        "進階單字",
+        true
+      ],
+      [
+        "Conundrum",
+        "棘手難題；兩難困境",
+        "The proposal presents an ethical conundrum.",
+        "這項提案帶來了一個倫理難題。",
+        "常用於難以找到明確答案的問題。",
+        "進階單字",
+        true
+      ],
+      [
+        "Encompass",
+        "涵蓋；包含",
+        "The review will encompass several areas.",
+        "這次審查將涵蓋數個領域。",
+        "直接接受詞，不必加介系詞。",
+        "進階單字",
+        true
+      ],
+      [
+        "Ironic",
+        "具有反諷意味的",
+        "It’s ironic that the safety rule created a new risk.",
+        "諷刺的是，這項安全規則反而造成新的風險。",
+        "用於結果與預期或表面目的形成反差。",
+        "進階單字",
+        true
+      ],
+      [
+        "Precocious",
+        "早熟的；超齡聰明的",
+        "She was a precocious teenager with a passion for science.",
+        "她是個早慧、熱愛科學的青少年。",
+        "常形容孩子的能力或表現超出同齡。",
+        "進階單字",
+        false
+      ],
+      [
+        "Incompetent",
+        "能力不足的；不稱職的",
+        "The review found that the manager was incompetent.",
+        "審查認定這位經理不稱職。",
+        "批評意味強烈，使用時要留意語氣。",
+        "進階單字",
+        false
+      ],
+      [
+        "Ultimately",
+        "最終；說到底",
+        "Ultimately, we decided to wait.",
+        "最終，我們決定等待。",
+        "可指最後的結果，也可引出根本考量。",
+        "進階單字",
+        false
+      ],
+      [
+        "Seemingly",
+        "似乎；表面上",
+        "The seemingly simple task took all day.",
+        "這項看似簡單的工作花了一整天。",
+        "保留表面印象與實際情況不同的可能。",
+        "進階單字",
+        false
+      ],
+      [
+        "Jargony",
+        "充滿專業術語的",
+        "The presentation was too jargony for a general audience.",
+        "這場簡報對一般聽眾而言用了太多專業術語。",
+        "非正式形容詞，源自 jargon。",
+        "進階單字",
+        false
+      ],
+      [
+        "Naysayer",
+        "反對者；唱反調的人",
+        "Despite the naysayers, the team continued.",
+        "儘管有人唱反調，團隊仍繼續前進。",
+        "帶評價色彩，形容經常否定某事的人。",
+        "進階單字",
+        false
+      ],
+      [
+        "Allegory",
+        "寓言；借喻",
+        "The story is an allegory for modern society.",
+        "這個故事是對現代社會的借喻。",
+        "以人物或事件象徵更廣泛的意義。",
+        "進階單字",
+        false
+      ],
+      [
+        "Reticulum",
+        "網狀結構；網胃",
+        "The glossary defines reticulum as a network-like structure.",
+        "詞彙表把 reticulum 解釋為網狀結構。",
+        "解剖學用詞。筆記中的 put a fire under everyone’s reticulum 非標準慣用語，可能是幽默或轉錄誤差；未核實原話，日常學習以 light a fire under someone 為主。",
+        "進階單字",
+        false
+      ],
+      [
+        "What is going to stop someone from V-ing?",
+        "有什麼能阻止某人做某事？",
+        "What’s going to stop other companies from doing the same thing?",
+        "有什麼能阻止其他公司做同樣的事情？",
+        "stop someone from＋動名詞。",
+        "重要句型",
+        false
+      ],
+      [
+        "It’s ironic that…",
+        "諷刺的是……",
+        "It’s ironic that we need a meeting to reduce meetings.",
+        "諷刺的是，我們需要開會來減少會議。",
+        "that 後接完整子句，指出反差。",
+        "重要句型",
+        true
+      ],
+      [
+        "Someone is likely to…",
+        "某人很可能會……",
+        "She is likely to support the plan.",
+        "她很可能會支持這項計畫。",
+        "be likely to＋動詞原形，表示可能性。",
+        "重要句型",
+        false
+      ],
+      [
+        "Something does happen.",
+        "某件事確實會發生",
+        "Mistakes do happen, even with careful planning.",
+        "即使規劃周全，錯誤仍確實會發生。",
+        "助動詞 do／does 加強肯定；後接動詞原形。",
+        "重要句型",
+        false
+      ],
+      [
+        "Out of + 原因／動機",
+        "出於某種原因",
+        "She asked the question out of curiosity.",
+        "她出於好奇提出這個問題。",
+        "常見 out of caution、curiosity、respect。",
+        "重要句型",
+        false
+      ],
+      [
+        "A after A",
+        "一個又一個；接連不斷",
+        "Day after day, they reviewed the evidence.",
+        "日復一日，他們檢視證據。",
+        "重複同一單數名詞，表達連續發生。",
+        "重要句型",
+        false
+      ],
+      [
         "by and large",
         "大致上；總體而言",
         "By and large, the project is going well.",
         "總體而言，專案進展順利。",
-        "用於概括整體狀況，同時保留例外的可能。"
+        "用於概括整體狀況，同時保留例外的可能。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "hit pause",
         "暫停一下",
         "Let’s hit pause and review the risks.",
         "我們先暫停一下，檢視風險。",
-        "口語比喻，常用於暫停計畫或討論。"
+        "口語比喻，常用於暫停計畫或討論。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "be left behind",
         "被拋在後面；落後",
         "No team wants to be left behind.",
         "沒有團隊希望自己落後。",
-        "常用於競爭、科技發展與學習。"
+        "常用於競爭、科技發展與學習。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "hole up",
         "躲起來；待在某處不外出",
         "They holed up in a cabin to finish the draft.",
         "他們待在小屋裡完成草稿。",
-        "通常接 in，形容在一處待上一段時間。"
+        "通常接 in，形容在一處待上一段時間。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "set aside",
         "暫時放下；留出",
         "They set aside their differences to solve the problem.",
         "他們暫時放下分歧，一起解決問題。",
-        "set aside differences 是放下分歧；set aside time 是留出時間。"
+        "set aside differences 是放下分歧；set aside time 是留出時間。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "runaway",
         "失控的；難以遏止的",
         "The team worried about runaway costs.",
         "團隊擔心成本失控。",
-        "作形容詞可修飾成本、成長或技術。"
-      ],
-      [
-        "collective action problem",
-        "集體行動困境",
-        "Pollution can create a collective action problem.",
-        "污染可能形成集體行動困境。",
-        "個別行動者的誘因，使共同利益難以實現。"
+        "作形容詞可修飾成本、成長或技術。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "regulate",
         "規範；監管",
         "The agency regulates the industry.",
         "這個機關監管該產業。",
-        "動詞；名詞是 regulation。"
+        "動詞；名詞是 regulation。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "tie someone’s hands",
         "限制某人的行動自由",
         "The contract ties our hands.",
         "合約限制了我們的行動自由。",
-        "常指規則或承諾使人不能自由決定。"
+        "常指規則或承諾使人不能自由決定。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "pioneer",
         "開創；先驅",
         "She helped pioneer a new research method.",
         "她協助開創一種新的研究方法。",
-        "可作動詞，也可作名詞指先驅者。"
+        "可作動詞，也可作名詞指先驅者。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "competition",
         "競爭",
         "Competition encouraged the teams to move faster.",
         "競爭促使各團隊加快腳步。",
-        "常搭配 intense 或 fierce；也可指競賽。"
+        "常搭配 intense 或 fierce；也可指競賽。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "ambition",
         "抱負；企圖心",
         "He has the ambition to build a better company.",
         "他有打造更好公司的抱負。",
-        "可指追求成就的動力，也可指具體目標。"
+        "可指追求成就的動力，也可指具體目標。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "voluntary",
         "自願的",
         "Participation in the program is voluntary.",
         "參與這項計畫是自願的。",
-        "補充用詞；對照 mandatory（強制的）。"
-      ],
-      [
-        "moratorium",
-        "暫緩；暫停實施",
-        "They called for a moratorium on the project.",
-        "他們呼籲暫緩這項專案。",
-        "歷史背景補充；常搭配 on，表示一段時期內暫停某活動。"
+        "補充用詞；對照 mandatory（強制的）。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "safeguard",
         "保護措施",
         "The policy includes safeguards against misuse.",
         "這項政策包含防止濫用的保護措施。",
-        "歷史背景補充；可作名詞或動詞。"
+        "歷史背景補充；可作名詞或動詞。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "consensus",
         "共識",
         "The committee reached a consensus.",
         "委員會達成了共識。",
-        "補充用詞；常搭配 reach 或 build。"
+        "補充用詞；常搭配 reach 或 build。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "coordination",
         "協調",
         "The plan requires coordination across teams.",
         "這項計畫需要跨團隊協調。",
-        "補充用詞；動詞是 coordinate。"
+        "補充用詞；動詞是 coordinate。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "incentive",
         "誘因",
         "The policy gives firms an incentive to cooperate.",
         "這項政策給企業合作的誘因。",
-        "補充用詞；an incentive to do something。"
+        "補充用詞；an incentive to do something。",
+        "先前收錄的詞彙",
+        false
       ],
       [
         "recombinant DNA",
         "重組 DNA",
         "The lecture covered the history of recombinant DNA research.",
         "這堂課介紹了重組 DNA 研究的歷史。",
-        "本集歷史背景用詞，指重新組合的 DNA。"
+        "本集歷史背景用詞，指重新組合的 DNA。",
+        "先前收錄的詞彙",
+        false
       ]
     ],
-    "html": "<section id=\"episode\" class=\"episode\"><small>PLANET MONEY · EPISODE 04</small><h2>Wanna slow down AI? These biologists can help.</h2><p class=\"episode-meta\">2026 年 10 月 14 日 · NPR · 約 29 分鐘</p><blockquote>大家都想更安全，<br>為什麼競爭仍讓每個人加速？</blockquote><p class=\"sample-note\">依節目介紹整理，尚未取得完整逐字稿。Asilomar 歷史另以原始文件補充；所有字卡例句為獨立撰寫，補充用詞已標示。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-6002910/wanna-slow-down-ai-these-biologists-can-help\" target=\"_blank\" rel=\"noreferrer\">NPR 節目介紹 ↗</a> · <a href=\"https://podcasts.apple.com/tw/podcast/wanna-slow-down-ai-these-biologists-can-help/id290783428?i=1000796381396\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 收聽 ↗</a></p></section>\n<section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>知道有風險，和能一起停下來，是兩件事。</h2><p class=\"lead\">節目把 AI 競爭與生物學史放在一起：當每個人都怕落後，單靠「希望大家慢一點」很難形成共同約束。</p><details open><summary>1. 節目的問題：誰願意先慢下來？</summary><p>節目介紹指出，部分 AI 領導者表達風險憂慮，卻仍在推進技術，因為不想被競爭者拋在後面。這就是本集提出的集體行動困境。</p></details><details open><summary>2. 歷史補充：先暫停，再討論怎樣繼續</summary><p>1974 年，科學界呼籲暫停部分重組 DNA 研究。1975 年 Asilomar 會議討論如何在風險尚不確定時繼續研究。原始聲明支持多數研究在適當保護措施下進行，部分高風險研究則暫緩。這段歷史包含暫停與有條件繼續兩個階段。<a href=\"https://www.dnai.org/b/asilomar/asilomar_paper.htm\" target=\"_blank\" rel=\"noreferrer\">會議原始聲明 ↗</a></p></details><details open><summary>3. 經濟學理解：改變大家的選擇條件</summary><p>把這個案例當成集體行動問題來看，關鍵在於能否建立大家都願意遵守的規則，讓謹慎行動者不必獨自承擔競爭劣勢。這是根據議題提出的延伸理解。</p></details><div class=\"episode-conclusion\"><h3>讀完這集，可以帶走的結論</h3><p><strong>要讓競爭中的人一起減速，需要可共同遵守的承諾、規則與安全條件。</strong></p><p>Asilomar 提供了一個協調風險的歷史案例。用在 AI 上時，仍要進一步問：誰參與、哪些活動受約束、如何確認承諾被遵守，以及何時能繼續？生物學案例不會自動替 AI 提供完整答案。</p><p class=\"sample-note\">本段是閱讀歸納，並非節目結尾的逐字轉述。</p></div></section>\n<section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><div id=\"vocab\"></div></section><section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><div class=\"bilingual\"><p>AI developers may worry about risks while still racing ahead because they fear being left behind. This creates a collective action problem.</p><p class=\"zh\">AI 開發者可能擔心風險，卻因害怕落後而持續加速。這形成了集體行動困境。</p><p>The Asilomar meeting offers a historical example of scientists coordinating around uncertain risks. A useful takeaway is that shared rules can help turn concern into collective action.</p><p class=\"zh\">Asilomar 會議提供了科學家面對不確定風險、共同協調的歷史案例。可以帶走的思考是：共同規則能幫助人們把擔憂轉化為集體行動。</p></div></section>"
+    "html": "<section id=\"episode\" class=\"episode\"><small>PLANET MONEY · EPISODE 04</small><h2>Wanna slow down AI? These biologists can help.</h2><p class=\"episode-meta\">2026 年 10 月 14 日 · NPR · 約 29 分鐘</p><blockquote>大家都想更安全，<br>為什麼競爭仍讓每個人加速？</blockquote><p class=\"sample-note\">依節目介紹整理，尚未取得完整逐字稿。Asilomar 歷史另以原始文件補充；所有字卡例句為獨立撰寫，補充用詞已標示。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-6002910/wanna-slow-down-ai-these-biologists-can-help\" target=\"_blank\" rel=\"noreferrer\">NPR 節目介紹 ↗</a> · <a href=\"https://podcasts.apple.com/tw/podcast/wanna-slow-down-ai-these-biologists-can-help/id290783428?i=1000796381396\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 收聽 ↗</a></p></section>\n<section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>知道有風險，和能一起停下來，是兩件事。</h2><p class=\"lead\">節目把 AI 競爭與生物學史放在一起：當每個人都怕落後，單靠「希望大家慢一點」很難形成共同約束。</p><details open><summary>1. 節目的問題：誰願意先慢下來？</summary><p>節目介紹指出，部分 AI 領導者表達風險憂慮，卻仍在推進技術，因為不想被競爭者拋在後面。這就是本集提出的集體行動困境。</p></details><details open><summary>2. 歷史補充：先暫停，再討論怎樣繼續</summary><p>1974 年，科學界呼籲暫停部分重組 DNA 研究。1975 年 Asilomar 會議討論如何在風險尚不確定時繼續研究。原始聲明支持多數研究在適當保護措施下進行，部分高風險研究則暫緩。這段歷史包含暫停與有條件繼續兩個階段。<a href=\"https://www.dnai.org/b/asilomar/asilomar_paper.htm\" target=\"_blank\" rel=\"noreferrer\">會議原始聲明 ↗</a></p></details><details open><summary>3. 經濟學理解：改變大家的選擇條件</summary><p>把這個案例當成集體行動問題來看，關鍵在於能否建立大家都願意遵守的規則，讓謹慎行動者不必獨自承擔競爭劣勢。這是根據議題提出的延伸理解。</p></details><div class=\"episode-conclusion\"><h3>讀完這集，可以帶走的結論</h3><p><strong>要讓競爭中的人一起減速，需要可共同遵守的承諾、規則與安全條件。</strong></p><p>Asilomar 提供了一個協調風險的歷史案例。用在 AI 上時，仍要進一步問：誰參與、哪些活動受約束、如何確認承諾被遵守，以及何時能繼續？生物學案例不會自動替 AI 提供完整答案。</p><p class=\"sample-note\">本段是閱讀歸納，並非節目結尾的逐字轉述。</p></div></section>\n<section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><p class=\"sample-note\">已加入使用者提供的分類學習筆記，合併重複表達。★ 為原筆記的推薦標記；例句與延伸用語不視為已核實的節目逐字引用。</p><div id=\"vocab\"></div><section id=\"episodePractice\" aria-label=\"英文練習\"></section></section><section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><div class=\"bilingual\"><p>AI developers may worry about risks while still racing ahead because they fear being left behind. This creates a collective action problem.</p><p class=\"zh\">AI 開發者可能擔心風險，卻因害怕落後而持續加速。這形成了集體行動困境。</p><p>The Asilomar meeting offers a historical example of scientists coordinating around uncertain risks. A useful takeaway is that shared rules can help turn concern into collective action.</p><p class=\"zh\">Asilomar 會議提供了科學家面對不確定風險、共同協調的歷史案例。可以帶走的思考是：共同規則能幫助人們把擔憂轉化為集體行動。</p></div></section>",
+    "studyNotes": {
+      "source": "使用者提供的學習整理；例句為提供的筆記或補充撰寫，未逐一核實為節目原話。",
+      "priority": [
+        "On the fence",
+        "For that matter",
+        "Out of an abundance of caution",
+        "It became clear that",
+        "Pose a risk to",
+        "Address a problem",
+        "Light a fire under someone",
+        "Key takeaway",
+        "Sell an idea",
+        "Comply with",
+        "Abide by",
+        "Inadvertently",
+        "Conundrum",
+        "It’s ironic that…",
+        "Encompass"
+      ],
+      "comparisons": [
+        [
+          "Pose a risk / Address a risk",
+          "pose 是構成風險；address 是處理風險。"
+        ],
+        [
+          "Agree to / Agree on / Agree with",
+          "to：同意提案或去做；on：就事項達成共識；with：認同看法。"
+        ],
+        [
+          "Abide by / Comply with / Enforce",
+          "前兩者著重遵守；enforce 著重確保規則被執行。self-regulate 與 self-police 可重疊，後者更強調監督違規。"
+        ]
+      ],
+      "quiz": [
+        {
+          "question": "I'm still on the fence about the proposal.",
+          "options": [
+            "我強烈反對這項提案",
+            "我還在猶豫是否接受提案",
+            "我已經同意提案"
+          ],
+          "answer": 1,
+          "explanation": "on the fence 表示尚未決定立場。"
+        },
+        {
+          "question": "Out of an abundance of caution, we delayed the release.",
+          "options": [
+            "因為缺乏資源",
+            "為了慎重起見",
+            "為了降低成本"
+          ],
+          "answer": 1,
+          "explanation": "此片語說明採取行動的謹慎動機。"
+        },
+        {
+          "question": "The new requirement poses a risk to the schedule.",
+          "options": [
+            "新要求解決了時程問題",
+            "新要求對時程構成風險",
+            "新要求縮短了時程"
+          ],
+          "answer": 1,
+          "explanation": "pose a risk to 表示對某事構成風險。"
+        },
+        {
+          "question": "The deadline lit a fire under the team.",
+          "options": [
+            "截止期限激勵團隊加快行動",
+            "截止期限讓團隊停止工作",
+            "團隊取消了截止期限"
+          ],
+          "answer": 0,
+          "explanation": "light a fire under someone 比喻促使人採取行動。"
+        },
+        {
+          "question": "They self-regulated but did not self-police.",
+          "options": [
+            "他們沒有任何規範",
+            "他們自行建立或遵循規範，但沒有自行監督違規",
+            "他們完全交由政府制定規範"
+          ],
+          "answer": 1,
+          "explanation": "本句以 but 區分規範與監督。兩詞在其他語境可能重疊，不宜視為絕對界線。"
+        }
+      ]
+    }
   },
   {
     "id": "economicsNobel",

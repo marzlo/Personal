@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+test('Practice scores and resets answers; mastery merges existing notes and remote refresh keeps answers',()=>{
+  let visitor=false,tags={__podcastNotes:{aiAsilomar:'保留'},__podcastDeleted:[{id:'old'}]};
+  function node(tag){return {tag,textContent:'',checked:false,children:[],attrs:{},append(...nodes){this.children.push(...nodes)},replaceChildren(){this.children=[]},setAttribute(k,v){this.attrs[k]=v}}}
+  const c={window:{},document:{createElement:node,createTextNode:text=>({textContent:text}),body:{classList:{contains:()=>visitor}}}};
+  for(const file of ['podcast-episodes.js','podcast-exercises.js'])vm.runInNewContext(fs.readFileSync(new URL('../'+file,import.meta.url),'utf8'),c);
+  const e=c.window.PODCAST_EPISODES.find(e=>e.id==='aiAsilomar'),host=node('section');
+  c.window.PodcastExercises.render(host,e,()=>tags,changes=>tags={...tags,...changes});
+  const flatten=n=>[n,...(n.children||[]).flatMap(flatten)],all=flatten(host),groups=all.filter(n=>n.tag==='fieldset');
+  groups.forEach((g,i)=>{const radio=flatten(g).filter(n=>n.tag==='input')[e.studyNotes.quiz[i].answer];radio.checked=true;radio.onchange()});
+  all.find(n=>n.tag==='button'&&n.textContent==='檢查答案').onclick();
+  assert.ok(all.some(n=>n.textContent==='答對 5 / 5 題'));
+  const checkboxes=all.filter(n=>n.tag==='input'&&n.type==='checkbox');checkboxes[0].checked=true;checkboxes[0].onchange();
+  assert.equal(tags.__podcastMastered.aiAsilomar[0],e.studyNotes.priority[0]);
+  assert.equal(tags.__podcastNotes.aiAsilomar,'保留');assert.equal(tags.__podcastDeleted[0].id,'old');
+  visitor=true;c.window.PodcastExercises.refresh(e,{__podcastMastered:{aiAsilomar:[]}});
+  assert.equal(checkboxes[0].disabled,true);assert.equal(checkboxes[0].checked,false);
+  assert.ok(flatten(groups[0]).some(n=>n.tag==='input'&&n.checked));
+  all.find(n=>n.tag==='button'&&n.textContent==='重做').onclick();
+  assert.ok(groups.every(g=>flatten(g).filter(n=>n.tag==='input').every(n=>!n.checked)));
+});

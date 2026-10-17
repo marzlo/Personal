@@ -12,7 +12,7 @@ function setup(tags, episode = 'healthBenefits') {
   const context={URLSearchParams,document:{getElementById:get,createElement:element,querySelector:()=>get('source'),querySelectorAll:()=>[]},localStorage:{getItem:()=>stored},window:{location:{search:'?episode='+episode},scrollTo(){},addEventListener:(name,fn)=>events[name]=fn,ShiyeNotes:{write(key,value){assert.equal(key,'shiyeArticleTags');stored=JSON.stringify(value)}}}};
   vm.runInNewContext(fs.readFileSync(new URL('../podcast-episodes.js',import.meta.url),'utf8'),context);
   vm.runInNewContext(fs.readFileSync(new URL('../podcast-learning.js',import.meta.url),'utf8'),context);
-  return {get,events,stored:()=>JSON.parse(stored)};
+  return {get,events,stored:()=>JSON.parse(stored),total:context.window.PODCAST_EPISODES.reduce((n,e)=>n+e.cards.length,0)};
 }
 
 test('Podcast saves preserve legacy tags, import old cards and keep removed legacy cards removed',()=>{
@@ -38,7 +38,7 @@ test('Each episode has its own cards and notes; mixed review includes both episo
   assert.equal(s.get('term').textContent,'pass along');
   assert.equal(s.get('note').value,'關稅筆記');
   s.get('scope').value='all';s.get('scope').onchange();
-  assert.equal(s.get('position').textContent,'1 / 73');
+  assert.equal(s.get('position').textContent,'1 / '+s.total);
   s.get('episodeSelect').value='healthBenefits';s.get('episodeSelect').onchange();
   s.get('scope').value='episode';s.get('scope').onchange();
   assert.equal(s.get('term').textContent,'ballpark');
@@ -73,7 +73,7 @@ test('Deleted cards stay out of episode, mixed review and saved words after relo
   const again=setup(s.stored());
   assert.equal(again.get('position').textContent,'1 / 23');
   again.get('scope').value='all';again.get('scope').onchange();
-  assert.equal(again.get('position').textContent,'1 / 72');
+  assert.equal(again.get('position').textContent,'1 / '+(again.total-1));
   again.get('scope').value='saved';again.get('scope').onchange();
   assert.equal(again.get('position').textContent,'0 / 0');
   again.get('deletedList').children[0].children[2].onclick();
@@ -90,4 +90,18 @@ test('Deleting every card keeps an empty carousel usable and remote restoration 
   assert.equal(s.stored().__podcastDeleted.length,12);
   s.events['shiye:notes-loaded']({detail:{data:{shiyeArticleTags:{...s.stored(),__podcastDeleted:[]}}}});
   assert.equal(s.get('position').textContent,'1 / 12');
+});
+
+test('Merged AI study notes keep unique vocabulary, complete examples and stable existing deleted card IDs',()=>{
+  const c={window:{}};vm.runInNewContext(fs.readFileSync(new URL('../podcast-episodes.js',import.meta.url),'utf8'),c);
+  const episode=c.window.PODCAST_EPISODES.find(e=>e.id==='aiAsilomar');
+  const normalize=s=>s.toLowerCase().replaceAll('’',"'").replace(/[.\u2026]+$/,'').trim();
+  assert.equal(new Set(episode.cards.map(w=>normalize(w[0]))).size,episode.cards.length);
+  assert.equal(episode.studyNotes.priority.length,15);
+  for(const term of episode.studyNotes.priority)assert.ok(episode.cards.some(w=>w[0]===term));
+  for(const word of episode.cards)for(const value of word.slice(0,6))assert.ok(value.trim());
+  assert.equal(episode.studyNotes.quiz.length,5);
+  for(const q of episode.studyNotes.quiz)assert.ok(q.options[q.answer] && q.explanation);
+  const s=setup({__podcastDeleted:[{id:'aiAsilomar:collective action problem',text:'collective action problem',meaning:'集體行動問題',title:episode.title}]},'aiAsilomar');
+  assert.equal(s.get('position').textContent,'1 / '+(episode.cards.length-1));
 });

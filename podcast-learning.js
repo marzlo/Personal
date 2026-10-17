@@ -9,6 +9,7 @@
   if (!episode) return;
   const requested = new URLSearchParams(window.location?.search || '').get('episode');
   episode = episodes.find(e => e.id === requested) || episode;
+  const cardLabel = card => card?.old ? '原有 Indicator 收藏' : (card?.word[6] ? '★ 優先推薦 · ' : '') + (card?.word[5] || card?.episode?.show || '精選詞句');
   function rebuildCards() {
     cards = episodes.flatMap(e => e.cards.map(word => ({word, episode:e, id:e.id + ':' + word[0].trim().toLowerCase()})));
     for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) {
@@ -42,7 +43,7 @@
     $('term').textContent = word?.[0] || '目前沒有可學習的字卡';
     $('example').textContent = word?.[2] || '可以切換學習範圍，或從「已刪除字卡」恢復。';
     $('meaning').textContent = word?.[1] || ''; $('translation').textContent = word?.[3] || ''; $('usage').textContent = word?.[4] || '';
-    $('kind').textContent = card?.old ? '原有 Indicator 收藏' : card?.episode?.show || '精選詞句';
+    $('kind').textContent = cardLabel(card);
     const source = cardElement?.querySelector ? cardElement.querySelector('footer a') : document.querySelector('.flashcard footer a');
     source.textContent = '來源：' + (card?.episode?.title || card?.old?.title || 'Podcast') + ' ↗';
     source.href = card?.old && /^https:\/\//.test(card.old.source || '') ? card.old.source : '#episode';
@@ -64,7 +65,7 @@
       const field = id => slide.querySelector('#' + id);
       field('term').textContent = word[0]; field('example').textContent = word[2];
       field('meaning').textContent = word[1]; field('translation').textContent = word[3]; field('usage').textContent = word[4];
-      field('kind').textContent = card.old ? '原有 Indicator 收藏' : card.episode.show;
+      field('kind').textContent = cardLabel(card);
       field('position').textContent = (i + 1) + ' / ' + pool.length;
       const answer = field('answer'), reveal = field('reveal'), save = field('save');
       reveal.onclick = () => {answer.hidden = !answer.hidden;reveal.textContent = answer.hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −'};
@@ -137,16 +138,19 @@
   function renderEpisode() {
     // Episode HTML is authored in the repository; saved user text uses textContent.
     $('episodeContent').innerHTML = episode.html;
+    let category='';
     for (const word of episode.glossary) {
+      if(word[5] && word[5]!==category){category=word[5];const heading=document.createElement('h3');heading.textContent=category;$('vocab').append(heading)}
       const row = document.createElement('div'); row.className = 'vocab-row';
       ['strong','span','span'].forEach((tag,i) => {
-        const cell = document.createElement(tag); cell.textContent = [word[0],word[1],word[4]][i]; row.append(cell);
+        const cell = document.createElement(tag); cell.textContent = [(word[6]?'★ ':'')+word[0],word[1],word[4]][i]; row.append(cell);
       }); $('vocab').append(row);
     }
     $('toggleSummary').onclick = () => {
       const hidden = $('toggleSummary').textContent === '隱藏中文'; document.querySelectorAll('.zh').forEach(p => p.hidden = hidden);
       $('toggleSummary').textContent = hidden ? '顯示中文' : '隱藏中文';
     };
+    window.PodcastExercises?.render($('episodePractice'),episode,()=>tags,changes=>{tags={...tags,...changes};window.ShiyeNotes.write('shiyeArticleTags',tags)});
     $('reflectionPrompt').textContent = episode.prompt; $('episodeSelect').value = episode.id; showNote();
   }
   function switchEpisode(id) {
@@ -165,7 +169,7 @@
     if (!tags.__podcastLegacyImported) {
       for (const old of Array.isArray(tags.__indicatorSaved) ? tags.__indicatorSaved : []) if (old.text && !saved.includes(old.text)) saved.push(old.text);
     }
-    rebuildCards(); showNote(); setPool(); render();
+    rebuildCards(); showNote(); setPool(); render();window.PodcastExercises?.refresh(episode,tags);
   }
   $('reveal').onclick = () => {
     $('answer').hidden = !$('answer').hidden; $('reveal').textContent = $('answer').hidden ? '顯示中文與用法 ＋' : '收起中文與用法 −';

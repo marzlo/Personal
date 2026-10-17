@@ -21,4 +21,12 @@ test('Practice scores and resets answers; mastery merges existing notes and remo
   assert.ok(flatten(groups[0]).some(n=>n.tag==='input'&&n.checked));
   all.find(n=>n.tag==='button'&&n.textContent==='重做').onclick();
   assert.ok(groups.every(g=>flatten(g).filter(n=>n.tag==='input').every(n=>!n.checked)));
+  const movie=c.window.PODCAST_EPISODES.find(e=>e.id==='movieMarket');visitor=false;
+  c.window.PodcastExercises.render(host,movie,()=>tags,changes=>tags={...tags,...changes});
+  const movieNodes=flatten(host),movieChecks=movieNodes.filter(n=>n.tag==='input'&&n.type==='checkbox');
+  assert.equal(movieNodes.filter(n=>n.tag==='fieldset').length,0);
+  assert.equal(movieChecks.length,15);
+  movieChecks[0].checked=true;movieChecks[0].onchange();
+  assert.equal(tags.__podcastMastered.movieMarket[0],movie.studyNotes.priority[0]);
+  assert.equal(tags.__podcastMastered.aiAsilomar[0],e.studyNotes.priority[0]);
 });

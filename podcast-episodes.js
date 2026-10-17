@@ -1,5 +1,1082 @@
 window.PODCAST_EPISODES = [
   {
+    "id": "movieMarket",
+    "title": "Anatomy of a Movie Market",
+    "shortTitle": "Movie Market",
+    "show": "Planet Money",
+    "date": "2026-10-17",
+    "source": "https://www.northcountrypublicradio.org/news/npr/nx-s1-6005392/anatomy-of-a-movie-market",
+    "apple": "https://podcasts.apple.com/tw/podcast/planet-money/id290783428?i=1000796720849",
+    "teaser": "好電影如何找到買家，走到觀眾面前？",
+    "prompt": "當品質很難預先衡量，我會用哪些訊號判斷一個作品或提案的價值？",
+    "cards": [
+      [
+        "In flux",
+        "持續變動中、尚未定案",
+        "The schedule is still in flux.",
+        "時程仍在變動中。",
+        "常用 be in flux 表示狀況尚未穩定或定案。",
+        "優先片語",
+        true
+      ],
+      [
+        "Keep someone posted",
+        "持續告知最新進展",
+        "Please keep me posted on the negotiations.",
+        "請持續告知我談判的最新進展。",
+        "keep someone posted on/about something。",
+        "優先片語",
+        true
+      ],
+      [
+        "Hammer out the details",
+        "反覆協商並敲定細節",
+        "We need to hammer out the details before signing the contract.",
+        "我們需要在簽約前把細節談妥。",
+        "強調經過反覆討論，逐步敲定細節。",
+        "優先片語",
+        true
+      ],
+      [
+        "Play A against B",
+        "利用雙方競爭爭取優勢",
+        "The supplier played two buyers against each other to get a better deal.",
+        "供應商利用兩個買家的競爭，爭取更好的交易條件。",
+        "讓雙方互相競爭以取得優勢；也可用 play them off against each other。",
+        "優先片語",
+        true
+      ],
+      [
+        "Belt-tightening",
+        "緊縮開支、勒緊褲帶",
+        "The studio announced another round of belt-tightening.",
+        "片商宣布另一輪開支緊縮。",
+        "名詞；tighten one’s belt 則是勒緊褲帶、節省開支。",
+        "優先片語",
+        true
+      ],
+      [
+        "Make the difference between",
+        "成為兩種結果之間的關鍵",
+        "Good planning can make the difference between success and failure.",
+        "好的規劃可能是成功與失敗之間的關鍵。",
+        "between 後接兩個結果，通常以 and 連接。",
+        "優先片語",
+        true
+      ],
+      [
+        "Get the right people in the room",
+        "讓關鍵人物參與",
+        "We need to get the right people in the room before deciding.",
+        "做決定前，我們需要讓關鍵人物參與。",
+        "常指讓有決策權、專業或資源的人一起討論。",
+        "優先片語",
+        true
+      ],
+      [
+        "Encroach on",
+        "逐漸侵入、蠶食",
+        "New competitors are encroaching on our market.",
+        "新的競爭者正逐漸侵入我們的市場。",
+        "也可形容侵占時間、空間或權利；常搭配 on。",
+        "優先片語",
+        true
+      ],
+      [
+        "First-mover advantage",
+        "先行者優勢",
+        "The company benefited from its first-mover advantage.",
+        "公司受惠於先行者優勢。",
+        "率先進入市場可能帶來的優勢；不保證能長期維持。",
+        "優先片語",
+        true
+      ],
+      [
+        "A softer market",
+        "較疲弱的市場",
+        "We may need to lower expectations in a softer market.",
+        "在較疲弱的市場中，我們可能需要降低預期。",
+        "soft 表示需求、價格或成交動能較弱，依情境判斷。",
+        "優先片語",
+        true
+      ],
+      [
+        "Contingent on",
+        "取決於某個條件",
+        "The deal is contingent on financing.",
+        "這筆交易取決於融資是否到位。",
+        "be contingent on 表示以某條件成立為前提。",
+        "優先片語",
+        true
+      ],
+      [
+        "Go on to + V",
+        "後來更進一步做某事",
+        "The director went on to make several successful films.",
+        "這位導演後來又拍了幾部成功的電影。",
+        "go on to do 指接著做另一件事；go on doing 指繼續同一件事。",
+        "優先片語",
+        true
+      ],
+      [
+        "Make it through",
+        "成功度過、通過難關",
+        "We made it through a difficult year.",
+        "我們度過了艱難的一年。",
+        "強調成功經歷某段困難時期或過程。",
+        "優先片語",
+        true
+      ],
+      [
+        "An uphill battle",
+        "一場艱難的硬仗",
+        "Finding a buyer was an uphill battle.",
+        "尋找買家是一場艱難的硬仗。",
+        "比喻需要付出很大努力的挑戰。",
+        "優先片語",
+        true
+      ],
+      [
+        "Make it to",
+        "成功趕到、趕上",
+        "Can you make it to the meeting by nine?",
+        "你能在九點前趕到會議嗎？",
+        "可指成功到達，也可指有辦法出席。",
+        "優先片語",
+        true
+      ],
+      [
+        "Seller's market",
+        "賣方市場",
+        "In a seller’s market, buyers have fewer options.",
+        "在賣方市場中，買家的選擇較少。",
+        "賣方在供需或議價上較有優勢；不代表每位賣家都能高價成交。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Buyer's market",
+        "買方市場",
+        "A buyer’s market gives distributors more bargaining power.",
+        "買方市場讓發行商有更大的議價能力。",
+        "供給相對充足、買方較有議價優勢的市場。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Bidding war",
+        "競價戰、搶標",
+        "The screening sparked a bidding war.",
+        "這場放映引發了競價戰。",
+        "多個買家競相提高報價或改善條件。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Deal-making",
+        "促成交易的活動與安排",
+        "Relationships are important in deal-making.",
+        "人際關係在促成交易時很重要。",
+        "涵蓋尋找對象、談判、安排條件等活動。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Hard-line negotiating",
+        "強硬談判",
+        "Hard-line negotiating can damage a relationship.",
+        "強硬談判可能損害關係。",
+        "hard-line 表示立場強硬、不輕易退讓。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Close a deal",
+        "完成交易",
+        "They hope to close a deal this week.",
+        "他們希望這週完成交易。",
+        "商務常用，強調交易達成。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Seal the deal",
+        "促成交易、一錘定音",
+        "The final screening helped seal the deal.",
+        "最後一場放映幫助促成了交易。",
+        "強調使交易確定的關鍵一步；與 close a deal 意義接近。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Consummate a deal",
+        "正式完成交易（正式用語）",
+        "The companies completed the paperwork to consummate the deal.",
+        "兩家公司完成文件程序，正式完成交易。",
+        "較正式或法律語氣，強調正式完成。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "First mover",
+        "市場先行者",
+        "Being a first mover can be expensive.",
+        "成為市場先行者可能需要很高的成本。",
+        "指率先進入市場的人或企業。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "A succession of",
+        "接連發生的一系列",
+        "A succession of delays disrupted the project.",
+        "接連的延誤打亂了專案。",
+        "後面通常接複數名詞，表示一連串事件或人物。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Highly contingent",
+        "高度取決於情境與偶然因素",
+        "The outcome is highly contingent on market conditions.",
+        "結果高度取決於市場狀況。",
+        "強調結果依賴特定條件，常接 on。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Overhyped",
+        "被過度炒作的",
+        "Some buyers thought the film was overhyped.",
+        "一些買家認為這部電影被過度炒作。",
+        "描述宣傳或期待超過實際價值，是帶評價的用語。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "A handful of",
+        "少數、幾個",
+        "Only a handful of buyers attended.",
+        "只有少數幾個買家出席。",
+        "表示數量少；字面意思是一把。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Or so",
+        "大約、左右",
+        "We waited for an hour or so.",
+        "我們等了大約一小時。",
+        "放在數量後面，表示大約。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Get a glimpse into",
+        "一窺……的內部情況",
+        "The interview gives us a glimpse into the industry.",
+        "這場訪談讓我們一窺這個產業的內部情況。",
+        "glimpse 表示短暫、局部的了解。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Have one's eyes peeled for",
+        "密切留意、睜大眼睛尋找",
+        "Keep your eyes peeled for new opportunities.",
+        "密切留意新的機會。",
+        "常見形式 keep/have one’s eyes peeled for something。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Sneak a glance",
+        "偷瞄一眼",
+        "She sneaked a glance at the offer.",
+        "她偷偷瞄了一眼報價。",
+        "表示快速而不想引人注意地看一眼。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Switch on a dime",
+        "瞬間轉變態度或方向",
+        "The mood can switch on a dime.",
+        "氣氛可以瞬間轉變。",
+        "on a dime 強調非常迅速地改變方向或狀態。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Flip out",
+        "情緒突然激動、抓狂或興奮",
+        "He flipped out when he heard the news.",
+        "他聽到消息時情緒突然激動起來。",
+        "口語，可指生氣、震驚或興奮，依上下文判斷。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "For some reason",
+        "不知道為什麼",
+        "For some reason, the buyer stopped replying.",
+        "不知道為什麼，買家不再回覆了。",
+        "表示原因不明，不等於沒有原因。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Do something anyway",
+        "儘管如此還是做某事",
+        "It was raining, but we went anyway.",
+        "雖然下雨，我們還是去了。",
+        "anyway 在此表示儘管如此仍然去做。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "For the time being",
+        "暫時、目前",
+        "We’ll keep the current plan for the time being.",
+        "目前我們暫時維持現有計畫。",
+        "表示暫時如此，之後可能改變。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Rush out the door",
+        "匆忙出門",
+        "I rushed out the door to catch the bus.",
+        "我匆忙出門趕公車。",
+        "強調急忙離開。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "A dime a dozen",
+        "隨處可見、不稀奇",
+        "Similar proposals are a dime a dozen.",
+        "類似的提案隨處可見。",
+        "美式口語，表示很常見、因而不稀奇。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Strike out on one's own",
+        "開始獨立發展、自行創業",
+        "She left the agency to strike out on her own.",
+        "她離開代理公司，開始獨立發展。",
+        "可指創業，也可指自行展開職涯或其他活動。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Slate",
+        "電影公司或代理人手上的一批作品",
+        "The agency has a diverse slate of films.",
+        "這家代理公司手上有多種類型的電影。",
+        "電影業中指規劃、製作或代理的一批作品。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Distributor",
+        "電影發行商",
+        "A distributor bought the rights to the film.",
+        "一家發行商買下了這部電影的發行權。",
+        "負責將作品送到戲院、平台或市場的公司。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Sales agent",
+        "電影銷售代理人",
+        "The sales agent contacted potential buyers.",
+        "銷售代理人聯絡了潛在買家。",
+        "代表作品尋找買家及協商交易。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Screening",
+        "電影放映",
+        "We attended a screening of the documentary.",
+        "我們參加了一場紀錄片放映。",
+        "一般的電影放映，不一定是首映或試映。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Test screening",
+        "試映會",
+        "The test screening revealed problems with the ending.",
+        "試映顯示觀眾對結尾有疑慮。",
+        "通常為收集觀眾回饋而安排的試映。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Premiere",
+        "首映",
+        "The film had its premiere at the festival.",
+        "這部電影在影展首映。",
+        "指首次公開放映；可區分世界首映、地區首映。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Documentary",
+        "紀錄片",
+        "The documentary follows a small family business.",
+        "這部紀錄片記錄一家小型家族企業。",
+        "名詞指紀錄片，亦可作形容詞。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Genre",
+        "電影類型、流派",
+        "What genre does the film belong to?",
+        "這部電影屬於什麼類型？",
+        "用於電影、音樂或文學的類型與流派。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Festival circuit",
+        "影展巡迴體系",
+        "The film traveled the festival circuit before its release.",
+        "這部電影上映前先在各影展巡迴。",
+        "指一系列影展構成的巡迴環境。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Audience Award",
+        "觀眾票選獎",
+        "The documentary won the Audience Award.",
+        "這部紀錄片贏得觀眾票選獎。",
+        "通常由觀眾投票決定；具體規則依影展而定。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Grand Jury Prize",
+        "評審團大獎",
+        "The film received the Grand Jury Prize.",
+        "這部電影獲得了評審團大獎。",
+        "由評審團評選，與觀眾票選獎不同。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Screen abysmally",
+        "試映反應極差",
+        "The film screened abysmally in an early test.",
+        "這部電影在早期試映中的反應極差。",
+        "screen 在此指放映時的表現；abysmally 強調非常差。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Break out",
+        "成功突圍、走紅",
+        "The film helped a new director break out.",
+        "這部電影幫助一位新導演成功走紅。",
+        "電影語境中指突圍、獲得更廣泛注意。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Be anointed",
+        "獲得權威認可、被奉為重要作品",
+        "The film was anointed as the festival’s next big hit.",
+        "這部電影被奉為影展下一部熱門作品。",
+        "比喻受到權威或重要人士的認可，不是客觀成功保證。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Be relegated to the dustbin of history",
+        "被歷史淘汰或遺忘",
+        "The failed proposal was relegated to the dustbin of history.",
+        "這項失敗的提案被歷史淘汰了。",
+        "強烈而生動的比喻，指被丟棄、遺忘或不再重視。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Split me wide open",
+        "讓我內心受到強烈觸動",
+        "That final scene split me wide open.",
+        "最後那一幕讓我內心受到強烈觸動。",
+        "依使用者筆記收錄的文學性比喻；不是一般工作溝通的固定慣用語。",
+        "延伸用詞與語感",
+        false
+      ],
+      [
+        "Consequential",
+        "影響重大的；後果重要的",
+        "It was a consequential decision for the studio.",
+        "這對片商而言是一項影響重大的決定。",
+        "來自筆記的延伸學習用詞；不等於只是先後順序上的「接下來」。",
+        "延伸用詞與語感",
+        false
+      ]
+    ],
+    "glossary": [
+      [
+        "In flux",
+        "持續變動中、尚未定案",
+        "The schedule is still in flux.",
+        "時程仍在變動中。",
+        "常用 be in flux 表示狀況尚未穩定或定案。",
+        "優先片語",
+        true
+      ],
+      [
+        "Keep someone posted",
+        "持續告知最新進展",
+        "Please keep me posted on the negotiations.",
+        "請持續告知我談判的最新進展。",
+        "keep someone posted on/about something。",
+        "優先片語",
+        true
+      ],
+      [
+        "Hammer out the details",
+        "反覆協商並敲定細節",
+        "We need to hammer out the details before signing the contract.",
+        "我們需要在簽約前把細節談妥。",
+        "強調經過反覆討論，逐步敲定細節。",
+        "優先片語",
+        true
+      ],
+      [
+        "Play A against B",
+        "利用雙方競爭爭取優勢",
+        "The supplier played two buyers against each other to get a better deal.",
+        "供應商利用兩個買家的競爭，爭取更好的交易條件。",
+        "讓雙方互相競爭以取得優勢；也可用 play them off against each other。",
+        "優先片語",
+        true
+      ],
+      [
+        "Belt-tightening",
+        "緊縮開支、勒緊褲帶",
+        "The studio announced another round of belt-tightening.",
+        "片商宣布另一輪開支緊縮。",
+        "名詞；tighten one’s belt 則是勒緊褲帶、節省開支。",
+        "優先片語",
+        true
+      ],
+      [
+        "Make the difference between",
+        "成為兩種結果之間的關鍵",
+        "Good planning can make the difference between success and failure.",
+        "好的規劃可能是成功與失敗之間的關鍵。",
+        "between 後接兩個結果，通常以 and 連接。",
+        "優先片語",
+        true
+      ],
+      [
+        "Get the right people in the room",
+        "讓關鍵人物參與",
+        "We need to get the right people in the room before deciding.",
+        "做決定前，我們需要讓關鍵人物參與。",
+        "常指讓有決策權、專業或資源的人一起討論。",
+        "優先片語",
+        true
+      ],
+      [
+        "Encroach on",
+        "逐漸侵入、蠶食",
+        "New competitors are encroaching on our market.",
+        "新的競爭者正逐漸侵入我們的市場。",
+        "也可形容侵占時間、空間或權利；常搭配 on。",
+        "優先片語",
+        true
+      ],
+      [
+        "First-mover advantage",
+        "先行者優勢",
+        "The company benefited from its first-mover advantage.",
+        "公司受惠於先行者優勢。",
+        "率先進入市場可能帶來的優勢；不保證能長期維持。",
+        "優先片語",
+        true
+      ],
+      [
+        "A softer market",
+        "較疲弱的市場",
+        "We may need to lower expectations in a softer market.",
+        "在較疲弱的市場中，我們可能需要降低預期。",
+        "soft 表示需求、價格或成交動能較弱，依情境判斷。",
+        "優先片語",
+        true
+      ],
+      [
+        "Contingent on",
+        "取決於某個條件",
+        "The deal is contingent on financing.",
+        "這筆交易取決於融資是否到位。",
+        "be contingent on 表示以某條件成立為前提。",
+        "優先片語",
+        true
+      ],
+      [
+        "Go on to + V",
+        "後來更進一步做某事",
+        "The director went on to make several successful films.",
+        "這位導演後來又拍了幾部成功的電影。",
+        "go on to do 指接著做另一件事；go on doing 指繼續同一件事。",
+        "優先片語",
+        true
+      ],
+      [
+        "Make it through",
+        "成功度過、通過難關",
+        "We made it through a difficult year.",
+        "我們度過了艱難的一年。",
+        "強調成功經歷某段困難時期或過程。",
+        "優先片語",
+        true
+      ],
+      [
+        "An uphill battle",
+        "一場艱難的硬仗",
+        "Finding a buyer was an uphill battle.",
+        "尋找買家是一場艱難的硬仗。",
+        "比喻需要付出很大努力的挑戰。",
+        "優先片語",
+        true
+      ],
+      [
+        "Make it to",
+        "成功趕到、趕上",
+        "Can you make it to the meeting by nine?",
+        "你能在九點前趕到會議嗎？",
+        "可指成功到達，也可指有辦法出席。",
+        "優先片語",
+        true
+      ],
+      [
+        "Seller's market",
+        "賣方市場",
+        "In a seller’s market, buyers have fewer options.",
+        "在賣方市場中，買家的選擇較少。",
+        "賣方在供需或議價上較有優勢；不代表每位賣家都能高價成交。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Buyer's market",
+        "買方市場",
+        "A buyer’s market gives distributors more bargaining power.",
+        "買方市場讓發行商有更大的議價能力。",
+        "供給相對充足、買方較有議價優勢的市場。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Bidding war",
+        "競價戰、搶標",
+        "The screening sparked a bidding war.",
+        "這場放映引發了競價戰。",
+        "多個買家競相提高報價或改善條件。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Deal-making",
+        "促成交易的活動與安排",
+        "Relationships are important in deal-making.",
+        "人際關係在促成交易時很重要。",
+        "涵蓋尋找對象、談判、安排條件等活動。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Hard-line negotiating",
+        "強硬談判",
+        "Hard-line negotiating can damage a relationship.",
+        "強硬談判可能損害關係。",
+        "hard-line 表示立場強硬、不輕易退讓。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Close a deal",
+        "完成交易",
+        "They hope to close a deal this week.",
+        "他們希望這週完成交易。",
+        "商務常用，強調交易達成。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Seal the deal",
+        "促成交易、一錘定音",
+        "The final screening helped seal the deal.",
+        "最後一場放映幫助促成了交易。",
+        "強調使交易確定的關鍵一步；與 close a deal 意義接近。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Consummate a deal",
+        "正式完成交易（正式用語）",
+        "The companies completed the paperwork to consummate the deal.",
+        "兩家公司完成文件程序，正式完成交易。",
+        "較正式或法律語氣，強調正式完成。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "First mover",
+        "市場先行者",
+        "Being a first mover can be expensive.",
+        "成為市場先行者可能需要很高的成本。",
+        "指率先進入市場的人或企業。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "A succession of",
+        "接連發生的一系列",
+        "A succession of delays disrupted the project.",
+        "接連的延誤打亂了專案。",
+        "後面通常接複數名詞，表示一連串事件或人物。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Highly contingent",
+        "高度取決於情境與偶然因素",
+        "The outcome is highly contingent on market conditions.",
+        "結果高度取決於市場狀況。",
+        "強調結果依賴特定條件，常接 on。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "Overhyped",
+        "被過度炒作的",
+        "Some buyers thought the film was overhyped.",
+        "一些買家認為這部電影被過度炒作。",
+        "描述宣傳或期待超過實際價值，是帶評價的用語。",
+        "商業談判與市場競爭",
+        false
+      ],
+      [
+        "A handful of",
+        "少數、幾個",
+        "Only a handful of buyers attended.",
+        "只有少數幾個買家出席。",
+        "表示數量少；字面意思是一把。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Or so",
+        "大約、左右",
+        "We waited for an hour or so.",
+        "我們等了大約一小時。",
+        "放在數量後面，表示大約。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Get a glimpse into",
+        "一窺……的內部情況",
+        "The interview gives us a glimpse into the industry.",
+        "這場訪談讓我們一窺這個產業的內部情況。",
+        "glimpse 表示短暫、局部的了解。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Have one's eyes peeled for",
+        "密切留意、睜大眼睛尋找",
+        "Keep your eyes peeled for new opportunities.",
+        "密切留意新的機會。",
+        "常見形式 keep/have one’s eyes peeled for something。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Sneak a glance",
+        "偷瞄一眼",
+        "She sneaked a glance at the offer.",
+        "她偷偷瞄了一眼報價。",
+        "表示快速而不想引人注意地看一眼。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Switch on a dime",
+        "瞬間轉變態度或方向",
+        "The mood can switch on a dime.",
+        "氣氛可以瞬間轉變。",
+        "on a dime 強調非常迅速地改變方向或狀態。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Flip out",
+        "情緒突然激動、抓狂或興奮",
+        "He flipped out when he heard the news.",
+        "他聽到消息時情緒突然激動起來。",
+        "口語，可指生氣、震驚或興奮，依上下文判斷。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "For some reason",
+        "不知道為什麼",
+        "For some reason, the buyer stopped replying.",
+        "不知道為什麼，買家不再回覆了。",
+        "表示原因不明，不等於沒有原因。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Do something anyway",
+        "儘管如此還是做某事",
+        "It was raining, but we went anyway.",
+        "雖然下雨，我們還是去了。",
+        "anyway 在此表示儘管如此仍然去做。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "For the time being",
+        "暫時、目前",
+        "We’ll keep the current plan for the time being.",
+        "目前我們暫時維持現有計畫。",
+        "表示暫時如此，之後可能改變。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Rush out the door",
+        "匆忙出門",
+        "I rushed out the door to catch the bus.",
+        "我匆忙出門趕公車。",
+        "強調急忙離開。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "A dime a dozen",
+        "隨處可見、不稀奇",
+        "Similar proposals are a dime a dozen.",
+        "類似的提案隨處可見。",
+        "美式口語，表示很常見、因而不稀奇。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Strike out on one's own",
+        "開始獨立發展、自行創業",
+        "She left the agency to strike out on her own.",
+        "她離開代理公司，開始獨立發展。",
+        "可指創業，也可指自行展開職涯或其他活動。",
+        "日常口語與生動表達",
+        false
+      ],
+      [
+        "Slate",
+        "電影公司或代理人手上的一批作品",
+        "The agency has a diverse slate of films.",
+        "這家代理公司手上有多種類型的電影。",
+        "電影業中指規劃、製作或代理的一批作品。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Distributor",
+        "電影發行商",
+        "A distributor bought the rights to the film.",
+        "一家發行商買下了這部電影的發行權。",
+        "負責將作品送到戲院、平台或市場的公司。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Sales agent",
+        "電影銷售代理人",
+        "The sales agent contacted potential buyers.",
+        "銷售代理人聯絡了潛在買家。",
+        "代表作品尋找買家及協商交易。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Screening",
+        "電影放映",
+        "We attended a screening of the documentary.",
+        "我們參加了一場紀錄片放映。",
+        "一般的電影放映，不一定是首映或試映。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Test screening",
+        "試映會",
+        "The test screening revealed problems with the ending.",
+        "試映顯示觀眾對結尾有疑慮。",
+        "通常為收集觀眾回饋而安排的試映。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Premiere",
+        "首映",
+        "The film had its premiere at the festival.",
+        "這部電影在影展首映。",
+        "指首次公開放映；可區分世界首映、地區首映。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Documentary",
+        "紀錄片",
+        "The documentary follows a small family business.",
+        "這部紀錄片記錄一家小型家族企業。",
+        "名詞指紀錄片，亦可作形容詞。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Genre",
+        "電影類型、流派",
+        "What genre does the film belong to?",
+        "這部電影屬於什麼類型？",
+        "用於電影、音樂或文學的類型與流派。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Festival circuit",
+        "影展巡迴體系",
+        "The film traveled the festival circuit before its release.",
+        "這部電影上映前先在各影展巡迴。",
+        "指一系列影展構成的巡迴環境。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Audience Award",
+        "觀眾票選獎",
+        "The documentary won the Audience Award.",
+        "這部紀錄片贏得觀眾票選獎。",
+        "通常由觀眾投票決定；具體規則依影展而定。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Grand Jury Prize",
+        "評審團大獎",
+        "The film received the Grand Jury Prize.",
+        "這部電影獲得了評審團大獎。",
+        "由評審團評選，與觀眾票選獎不同。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Screen abysmally",
+        "試映反應極差",
+        "The film screened abysmally in an early test.",
+        "這部電影在早期試映中的反應極差。",
+        "screen 在此指放映時的表現；abysmally 強調非常差。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Break out",
+        "成功突圍、走紅",
+        "The film helped a new director break out.",
+        "這部電影幫助一位新導演成功走紅。",
+        "電影語境中指突圍、獲得更廣泛注意。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Be anointed",
+        "獲得權威認可、被奉為重要作品",
+        "The film was anointed as the festival’s next big hit.",
+        "這部電影被奉為影展下一部熱門作品。",
+        "比喻受到權威或重要人士的認可，不是客觀成功保證。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Be relegated to the dustbin of history",
+        "被歷史淘汰或遺忘",
+        "The failed proposal was relegated to the dustbin of history.",
+        "這項失敗的提案被歷史淘汰了。",
+        "強烈而生動的比喻，指被丟棄、遺忘或不再重視。",
+        "電影產業專業英文",
+        false
+      ],
+      [
+        "Split me wide open",
+        "讓我內心受到強烈觸動",
+        "That final scene split me wide open.",
+        "最後那一幕讓我內心受到強烈觸動。",
+        "依使用者筆記收錄的文學性比喻；不是一般工作溝通的固定慣用語。",
+        "延伸用詞與語感",
+        false
+      ],
+      [
+        "Consequential",
+        "影響重大的；後果重要的",
+        "It was a consequential decision for the studio.",
+        "這對片商而言是一項影響重大的決定。",
+        "來自筆記的延伸學習用詞；不等於只是先後順序上的「接下來」。",
+        "延伸用詞與語感",
+        false
+      ]
+    ],
+    "studyNotes": {
+      "source": "使用者提供的分類學習筆記，例句為提供內容或補充撰寫；未逐字核實節目用詞。",
+      "priority": [
+        "In flux",
+        "Keep someone posted",
+        "Hammer out the details",
+        "Play A against B",
+        "Belt-tightening",
+        "Make the difference between",
+        "Get the right people in the room",
+        "Encroach on",
+        "First-mover advantage",
+        "A softer market",
+        "Contingent on",
+        "Go on to + V",
+        "Make it through",
+        "An uphill battle",
+        "Make it to"
+      ],
+      "comparisons": [
+        [
+          "Seller’s market / Buyer’s market / A softer market",
+          "前兩者著重誰較有議價優勢；softer market 描述市場動能較弱，不能在所有情境直接等同買方市場。"
+        ],
+        [
+          "Close / Seal / Consummate a deal",
+          "皆與完成交易有關；seal 常強調促成交易的關鍵一步，consummate 較正式。"
+        ],
+        [
+          "Contingent on / Highly contingent",
+          "contingent on 表示取決於條件；highly 加強依賴條件的程度。"
+        ]
+      ],
+      "quiz": []
+    },
+    "html": "<section id=\"episode\" class=\"episode\"><small>PLANET MONEY · EPISODE 05</small><h2>Anatomy of a Movie Market</h2><p class=\"episode-meta\">2026 年 10 月 17 日（台灣時間） · NPR · 約 32 分鐘</p><blockquote>作品被看見之前，<br>先要有人願意買下它的未來。</blockquote><p class=\"sample-note\">依使用者提供的學習筆記整理，節目資訊以 NPR 介紹核對。NPR 原頁日期為美東 10 月 16 日。字卡例句與五句摘要為學習用語，非逐字稿引用。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-6005392/anatomy-of-a-movie-market\" target=\"_blank\" rel=\"noreferrer\">NPR 節目介紹 ↗</a> · <a href=\"https://podcasts.apple.com/tw/podcast/planet-money/id290783428?i=1000796720849\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 收聽 ↗</a></p></section><section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>電影的品質，如何變成一筆交易？</h2><p class=\"lead\">日舞影展既是作品曝光的舞台，也是獨立電影尋找發行商的市場。從被選入影展，到真正送上銀幕，中間還有買家、談判與市場環境。</p><details open><summary>1. 交易如何成交：銷售代理人的角色</summary><p>依你提供的整理，代理人要找到買家、爭取注意、反覆協商條件。讓不同買家產生競爭，可以改善議價位置；有興趣並不等於交易已經完成。</p></details><details open><summary>2. 作品如何突圍：放映、反應與關鍵人物</summary><p>試映反應與重要人士的支持可能改變買家的期待。筆記提到《Precious》、《Little Miss Sunshine》與《Napoleon Dynamite》，作為理解電影銷售的案例。這也說明作品的命運受時機與人際關係影響。</p></details><details><summary>3. 市場如何改變：熱度與開支緊縮</summary><p>你的筆記指出，串流競爭、疫情與好萊塢開支緊縮改變了交易環境。市場轉弱時，賣家的期待與談判策略也要調整；先行者則可能面對新競爭者蠶食市場。</p></details><div class=\"episode-conclusion\"><h3>讀完這集，可以帶走的結論</h3><p><strong>獨立電影能否走到觀眾面前，取決於作品、需求、資訊與交易條件如何配合。</strong></p><p>一場成功放映可能創造機會，但能否成交仍受買家的選擇、預算及關鍵人物影響。對其他產業也可提出同樣的問題：好作品如何讓合適的人看見，又如何轉成實際合作？</p><p class=\"sample-note\">以上是依提供筆記所作的閱讀歸納，並非節目結尾的逐字轉述。</p></div></section><section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><p class=\"sample-note\">★ 為15個優先表達。先學可跨情境運用的片語，再學市場分析與電影產業專有名詞。</p><div id=\"vocab\"></div><section id=\"episodePractice\" aria-label=\"英文練習\"></section></section><section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用五句英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><p class=\"sample-note\">以下保留你提供的五句複習例句，不是逐字稿原句。</p><div class=\"bilingual\"><p>The film market has shifted from a seller's market to a softer market.</p><p class=\"zh\">電影市場已從賣方市場轉變為較疲弱的市場。</p><p>Sales agents try to play competing buyers against each other.</p><p class=\"zh\">銷售代理人試圖利用買家之間的競爭取得優勢。</p><p>A successful screening can spark a bidding war.</p><p class=\"zh\">成功的試映可能引發買家競價。</p><p>The success of an independent film is highly contingent on timing and relationships.</p><p class=\"zh\">獨立電影的成功高度取決於時機與人際關係。</p><p>The right deal can make the difference between obscurity and nationwide distribution.</p><p class=\"zh\">合適的交易可能決定一部電影是默默無聞，還是能在全國發行。</p></div></section>"
+  },
+  {
     "id": "aiAsilomar",
     "title": "Wanna slow down AI? These biologists can help.",
     "shortTitle": "AI & Asilomar",

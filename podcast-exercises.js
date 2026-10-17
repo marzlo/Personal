@@ -13,6 +13,7 @@
     function el(tag,text,parent=host){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;parent.append(node);return node}
     el('h3','容易混淆的表達');
     for(const [title,text] of notes.comparisons){el('h4',title);el('p',text)}
+    if(notes.quiz?.length){
     el('h3','互動複習');
     const progress=el('p','0 / '+notes.quiz.length+' 已作答');progress.setAttribute('aria-live','polite');
     const answers=[];
@@ -33,6 +34,7 @@
       score.textContent='答對 '+correct+' / '+answers.length+' 題';
     };
     const reset=el('button','重做');reset.type='button';reset.onclick=()=>{answers.forEach(a=>{a.inputs.forEach(n=>n.checked=false);a.result.textContent=''});progress.textContent='0 / '+answers.length+' 已作答';score.textContent=''};
+    }
     el('h3','優先學習清單');const count=el('p','');count.setAttribute('aria-live','polite');
     el('p','熟記進度登入後會自動同步；訪客可閱讀清單與練習測驗。').className='sample-note';
     const inputs=notes.priority.map(term=>{

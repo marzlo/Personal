@@ -2,6 +2,20 @@
   const nav = document.getElementById('podcastNavigation');
   const select = document.getElementById('podcastJump');
   if (!nav || !select) return;
+  document.getElementById('podcastReload')?.addEventListener('click', () => {
+    const editor = document.getElementById('studyEditor');
+    if (editor && !editor.hidden) {
+      document.getElementById('podcastReloadStatus').textContent = '請先儲存或取消筆記編輯，再重新整理。';
+      document.getElementById('reflection')?.scrollIntoView({behavior:'smooth'});
+      document.getElementById('note')?.focus();
+      return;
+    }
+    const url = new URL(location.href);
+    const episode = document.getElementById('episodeSelect')?.value;
+    if (episode) url.searchParams.set('episode',episode);
+    history.replaceState(null,'',url.pathname + url.search + url.hash);
+    location.reload();
+  });
   const links = [...nav.querySelectorAll('a[href^="#"]')];
   let scheduled = false;
   function update() {

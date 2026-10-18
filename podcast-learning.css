@@ -20,3 +20,5 @@ html{scroll-padding-top:90px}.podcast-navigation{position:sticky;top:0;z-index:2
 .podcast-navigation{display:flex;align-items:center;gap:12px}.podcast-nav-links{flex:1;min-width:0}.podcast-jump-label{flex:1;min-width:0}#podcastReload{flex:none;white-space:nowrap;font-size:12px;min-height:44px;padding:9px 12px}#podcastReloadStatus:empty{display:none}@media(max-width:420px){.podcast-jump-label{gap:8px}.podcast-jump-label select{padding:10px 6px}#podcastReload{padding:9px 8px}}
 
 .card-sources{border-top:1px solid var(--line);padding:16px 0;font-size:13px;line-height:1.8;overflow-wrap:anywhere}.card-sources p{margin:0 0 8px;color:var(--muted)}.card-sources ul{margin:0;padding-left:20px}.card-sources li+li{margin-top:8px}.card-sources a{text-decoration:underline;text-underline-offset:3px}.card-sources a:hover{color:var(--green)}
+
+header .podcast-cover-brand{display:flex;align-items:center;gap:12px}header .podcast-cover-brand img{display:block;border-radius:12px;flex:none}@media(max-width:620px){header .podcast-cover-brand{display:flex;font-size:0;letter-spacing:0}header .podcast-cover-brand img{width:44px;height:44px}}

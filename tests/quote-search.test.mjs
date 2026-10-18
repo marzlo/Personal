@@ -10,7 +10,7 @@ test('Keyword search uses complete original passages, matches all keywords, pres
  const matches=searchQuotes([...cards,...cards],'架構二 創造力');
  assert.equal(matches.length,1);assert.equal(matches[0].text,sentence);
  assert.equal(matches[0].notionUrl,url);assert.equal(matches[0].sourceTitle,'原文章');
- assert.ok(searchQuotes(cards,'架構二').some(q=>q.text===neutral));
+ const grouped=searchQuotes(cards,'架構二');assert.equal(grouped.length,1);assert.ok(grouped[0].passages.includes(neutral));assert.ok(grouped[0].passages.includes(sentence));
  assert.deepEqual(searchQuotes(cards,' '),[]);assert.deepEqual(searchQuotes(cards,'不存在的詞'),[]);
  assert.ok(!cards.some(q=>q.text.includes('未完成標題')||q.text==='架構二只有片段'));
  assert.equal(searchQuotes([{text:'A complete ORIGINAL passage.',notionUrl:url}],'original').length,1);
@@ -24,4 +24,9 @@ test('Background worker builds its index only on first search and reuses it for 
  c.self.onmessage({data:{type:'init',db:{},articleBodies:{},quoteBodies:{}}});assert.equal(builds,0);
  c.self.onmessage({data:{type:'search',id:1,query:'架構二'}});assert.equal(builds,1);assert.equal(replies[0].matches.length,1);assert.equal(replies[0].id,1);
  c.self.onmessage({data:{type:'search',id:2,query:'不存在'}});assert.equal(builds,1);assert.equal(replies[1].matches.length,0);assert.equal(replies[1].id,2);
+});
+
+test('One result per source article keeps all distinct matching passages and prefers the shortest preview',()=>{
+ const cards=[{text:'風暴中的自己，可以用不同的方式重新理解生活。',notionUrl:'a#block1'}, {text:'面對風暴，依然能夠看見新的可能性。',notionUrl:'a#block2'}, {text:'另一篇文章也談到風暴。',notionUrl:'b'}];
+ const results=searchQuotes([...cards,cards[0]],'風暴');assert.equal(results.length,2);assert.equal(results[0].passages.length,2);assert.equal(results[0].text,cards[1].text);
 });

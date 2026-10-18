@@ -5,11 +5,17 @@ export function quoteSearchCandidates(db,articleBodies,quoteBodies){
 export function searchQuotes(candidates,query){
  const terms=String(query||'').normalize('NFKC').toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
  if(!terms.length)return [];
- const seen=new Set();
- return candidates.filter(card=>{
+ const groups=new Map();
+ for(const card of candidates){
   const text=card.text.normalize('NFKC').toLocaleLowerCase();
-  const key=String(card.notionUrl||card.sourceUrl).split('#')[0]+'|'+card.text;
-  if(!terms.every(term=>text.includes(term))||seen.has(key))return false;
-  seen.add(key);return true;
+  if(!terms.every(term=>text.includes(term)))continue;
+  const key=String(card.notionUrl||card.sourceUrl).split('#')[0];
+  if(!groups.has(key))groups.set(key,{...card,passages:[]});
+  const group=groups.get(key);
+  if(!group.passages.includes(card.text))group.passages.push(card.text);
+ }
+ return [...groups.values()].map(group=>{
+  group.passages.sort((a,b)=>a.length-b.length);
+  return {...group,text:group.passages[0]};
  });
 }

@@ -19,11 +19,12 @@ if(host){
   more.hidden=matches.length<=limit;
   status.textContent=input.value.trim()?(matches.length?'找到 '+matches.length+' 句，顯示 '+Math.min(matches.length,limit)+' 句。':'找不到符合的完整句子，請換個關鍵字。'):'輸入關鍵字開始搜尋。';updateButtons();
  }
- function search(){
+ async function search(){
   clearTimeout(timer);limit=20;const id=++requestId;
   if(!input.value.trim()){matches=[];render();return}
   results.replaceChildren();more.hidden=true;status.textContent='正在搜尋原文句子…';
   try{
+   if(window.ShiyeLoadArticleBodies){status.textContent='正在載入文章正文，完成後會顯示搜尋結果…';await window.ShiyeLoadArticleBodies();if(id!==requestId)return}
    if(!worker){
     worker=new Worker(new URL('./quote-search-worker.js',import.meta.url),{type:'module'});
     worker.onmessage=event=>{if(event.data.id!==requestId)return;if(event.data.error){status.textContent='搜尋失敗，請再試一次。';return}matches=event.data.matches;render()};

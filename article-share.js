@@ -187,6 +187,7 @@
     refreshShareButtons();
     if (dialog.open) display(article, recipient ? 'recipient' : 'sender');
   });
+  window.addEventListener('shiye:article-bodies-ready',()=>{if(dialog.open)display(article,recipient?'recipient':'sender')});
   if (requested !== null) {
     directEntry = true;
     open(byId.get(requested.replaceAll('-', '').toLowerCase()) || null, 'recipient');

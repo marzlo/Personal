@@ -205,3 +205,5 @@
 - 摘句區新增「關鍵字找句子」（quote-search.js、scripts/quote-search.mjs），可從所有書籍、Podcast 正文及金句搜尋完整原文段句，多個空白分隔詞須同時符合，結果每次20筆可繼續載入。沿用完整句提取但不套反思詞偏好，保留原文、來源、頁碼；未具區塊ID的結果連到來源頁，不虛構定位。收藏沿用 __favoriteQuotes 與 ShiyeNotes.write，同來源同句不重複；不改儲存結構，自動摘句仍保留。訪客可搜尋及讀取，收藏操作只對擁有者開放。
 
 - 摘句搜尋效能：頁面初載不匯入搜尋模組或建立索引，首次輸入搜尋才啟動 module Web Worker（quote-search-worker.js），在背景建立並重用句子索引，舊請求結果以ID排除；初次頁面仍只顯示搜尋表單。文章正文 article-bodies.js 的快取鍵改用資料 syncedAt（備援 updatedAt），同快照重新載入可重用快取，新同步使用新網址；data.js 仍維持即時更新。
+
+- 首頁載入最佳化：article-bodies-loader.js 不阻擋首頁，在 window load 後背景載入全文，沿用快照版本快取；ShiyeLoadArticleBodies() 共用Promise、失敗可重試。全文搜尋等候正文就緒，系列推薦顯示載入／失敗提示且保留已選文章，正文就緒後更新文章篩選、系列推薦與已開啟分享摘句；不重建正在編輯的系列表單。以本機 Chromium 模擬150ms延遲、1.6Mbps下載、4倍CPU降速（外部服務請求未納入）測得主要內容由16.4秒降至3.4秒；實站時間仍依裝置、網路與服務回應而異。

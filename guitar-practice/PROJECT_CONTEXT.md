@@ -38,3 +38,5 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 圖庫68個指型並非全部已轉為可移調按法，本次只整理級數配和弦已使用的42個位置。作者標示與圖庫圖片保留。
 
 - 吉他封面已加入 icons/：木吉他圖案，768px WebP封面、180px Apple touch icon、32px favicon；三個匯出頁共用，navigation.html 同步顯示小圖。三頁 CSP 僅在 img-src 加入 self 允許本地圖示；未改互動內容。iPhone 已安裝的舊捷徑可能需重新加入主畫面才更換圖示。
+
+- 吉他圖示更新為極簡綠色吉他＋淡綠圓形與米色幾何背景，icons/*-v2；三個匯出頁及 navigation.html 同步，舊版素材保留。

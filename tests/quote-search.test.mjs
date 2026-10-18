@@ -15,3 +15,13 @@ test('Keyword search uses complete original passages, matches all keywords, pres
  assert.ok(!cards.some(q=>q.text.includes('未完成標題')||q.text==='架構二只有片段'));
  assert.equal(searchQuotes([{text:'A complete ORIGINAL passage.',notionUrl:url}],'original').length,1);
 });
+
+test('Background worker builds its index only on first search and reuses it for later requests',async()=>{
+ const {default:fs}=await import('node:fs');const {default:vm}=await import('node:vm');
+ const replies=[];let builds=0;
+ const c={self:{postMessage:message=>replies.push(message)},quoteSearchCandidates(){builds++;return [{text:'架構二的完整原文句子。',notionUrl:'source'}]},searchQuotes};
+ vm.runInNewContext(fs.readFileSync(new URL('../quote-search-worker.js',import.meta.url),'utf8').replace(/^import[^\n]*\n/,''),c);
+ c.self.onmessage({data:{type:'init',db:{},articleBodies:{},quoteBodies:{}}});assert.equal(builds,0);
+ c.self.onmessage({data:{type:'search',id:1,query:'架構二'}});assert.equal(builds,1);assert.equal(replies[0].matches.length,1);assert.equal(replies[0].id,1);
+ c.self.onmessage({data:{type:'search',id:2,query:'不存在'}});assert.equal(builds,1);assert.equal(replies[1].matches.length,0);assert.equal(replies[1].id,2);
+});

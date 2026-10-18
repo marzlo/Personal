@@ -3,8 +3,9 @@ const source=fs.readFileSync(__dirname+'/../src/harmony.html','utf8');
 const script=source.match(/<script>([\s\S]*?)<\/script>/)[1];
 new Function(script);
 const end=script.lastIndexOf('pcs.forEach((n,i)=>');
-const instrumented=script.slice(0,end)+'return {defs,modes,stacked,scale,spelling,label,set(k,m){key=k;mode=m;}};})();';
-global.document={getElementById(){return {querySelector(){}}}};global.window={};
+const instrumented=script.slice(0,end)+'return {defs,modes,stacked,scale,spelling,label,set(k,m){key=k;mode=m;},renderChart(d,pc,s){shape=s;chart(d,pc);}};})();';
+const chartNodes=new Map();
+global.document={getElementById(){return {querySelector(selector){if(!chartNodes.has(selector))chartNodes.set(selector,{});return chartNodes.get(selector)}}}};global.window={};
 const engine=eval(instrumented);
 let tested=0;
 for(let key=0;key<12;key++)for(const mode of Object.keys(engine.modes)){
@@ -26,3 +27,16 @@ engine.set(9,'natural');assert.deepEqual([9,2,4].map(pc=>engine.stacked(pc,true)
 engine.set(9,'harmonic');assert.deepEqual([9,2,4].map(pc=>engine.stacked(pc,true).suffix),['m(maj7)','m7','7']);
 engine.set(9,'melodic');assert.deepEqual([9,2,4].map(pc=>engine.stacked(pc,true).suffix),['m(maj7)','7','7']);
 console.log('PASS:',tested,'stacked chords across 12 tonics and 4 modes;',engine.defs.length*2,'voicings; A-minor progressions.');
+
+let diagrams=0;
+engine.set(4,'natural');
+for(const chord of engine.defs)for(let pc=0;pc<12;pc++)for(let shape=0;shape<2;shape++){
+ engine.renderChart(chord,pc,shape);
+ const svg=chartNodes.get('[data-chart]').innerHTML;
+ assert(!/Infinity|NaN/.test(svg),chord.id+' invalid diagram');
+ diagrams++;
+}
+engine.renderChart(engine.defs.find(d=>d.id==='m7'),4,0);
+assert(chartNodes.get('[data-chart]').innerHTML.includes('y="63">1</text>'),'Open-string chord starts at fret 1');
+assert(chartNodes.get('[data-shapeinfo]').textContent.includes('0 · × · 0 · 0 · 0 · ×'));
+console.log('PASS:',diagrams,'finite diagrams across all roots and both voicings; open-string Em7.');

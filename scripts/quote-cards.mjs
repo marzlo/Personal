@@ -7,16 +7,16 @@ export function selectQuoteCards(candidates, count = 10, random = Math.random, p
  const recent=new Set(previous.map(sourceKey));const keys=[...shuffle([...groups.keys()].filter(key=>!recent.has(key)),random),...shuffle([...groups.keys()].filter(key=>recent.has(key)),random)];
  const chosen=[],seen=new Set();for(const key of keys){const card=shuffle([...groups.get(key).values()],random).find(card=>!seen.has(card.text.trim()));if(!card)continue;chosen.push(card);seen.add(card.text.trim());if(chosen.length>=count)break;}return chosen;
 }
-export function buildQuoteCandidates(books,podcasts,quotes,articleBodies,quoteBodies,pageBlocks={}){
+export function buildQuoteCandidates(books,podcasts,quotes,articleBodies,quoteBodies,pageBlocks={},options={}){
  const byUrl=new Map(books.map(book=>[book.url,book]));
- const passages=completeQuotePassages;
+ const passages=body=>completeQuotePassages(body,options);
  const cards=[];
  for(const quote of quotes){const book=(quote.bookRefs||[]).map(url=>byUrl.get(url)).find(Boolean);for(const text of passages(quoteBodies[quote.url]))cards.push({text,sourceTitle:book?.title||quote.title,sourceUrl:book?.url||quote.url,notionUrl:quote.url,page:quote.page});}
  for(const article of [...books,...podcasts]){const book=(article.bookRefs||[]).map(url=>byUrl.get(url)).find(Boolean)||books.find(book=>(book.podcastRefs||[]).includes(article.url));for(const text of passages(articleBodies[article.url]))cards.push({text,sourceTitle:book?.title||article.title,sourceUrl:book?.url||article.url,notionUrl:article.url,page:null});}
  return cards.map(card=>{const first=card.text.split(/\n/)[0];const block=(pageBlocks[card.notionUrl]||[]).find(block=>block.text.includes(first));const id=String(block?.id||'').replaceAll('-','');return /^[a-f0-9]{32}$/i.test(id)?{...card,blockId:id,notionUrl:card.notionUrl+'#'+id}:card;});
 }
 
-export function completeQuotePassages(body){
+export function completeQuotePassages(body,{preferReflective=true}={}){
  const units=[];
  for(const line of String(body||'').split(/\n+/)){
   if(/^\s*#{1,6}\s/.test(line)){units.push(null);continue;}
@@ -36,5 +36,5 @@ export function completeQuotePassages(body){
   if(text.length>=28&&text.length<=360&&closed(text)&&!/https?:|深度探討模式|辯論模式|以下為|以下是|點擊|訂閱/.test(text))result.push(text);
  }
  const reflective=result.filter(text=>/自己|生命|意識|選擇|相信|理解|自由|改變|感受|存在|行動|責任|世界|內在|思考|經驗|可能|看見|成為/.test(text));
- return reflective.length?reflective:result;
+ return preferReflective&&reflective.length?reflective:result;
 }

@@ -1803,7 +1803,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;div class=&quot;topline&quot;&gt;&lt;label&gt;主音&lt;select class=&quot;cursor-interaction&quot; data-key aria-label=&quot;主音&quot;&gt;&lt;/select&gt;&lt;/label&gt;&lt;label&gt;調式&lt;select class=&quot;cursor-interaction&quot; data-mode aria-label=&quot;調式&quot;&gt;&lt;/select&gt;&lt;/label&gt;&lt;div&gt;&lt;span class=&quot;tag&quot;&gt;和弦進行 · 選擇根音&lt;/span&gt;&lt;div class=&quot;steps&quot;&gt;&lt;select class=&quot;cursor-interaction&quot; data-root=&quot;0&quot; aria-label=&quot;第一個和弦根音&quot;&gt;&lt;/select&gt;&lt;span&gt;→&lt;/span&gt;&lt;select class=&quot;cursor-interaction&quot; data-root=&quot;1&quot; aria-label=&quot;第二個和弦根音&quot;&gt;&lt;/select&gt;&lt;span&gt;→&lt;/span&gt;&lt;select class=&quot;cursor-interaction&quot; data-root=&quot;2&quot; aria-label=&quot;第三個和弦根音&quot;&gt;&lt;/select&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;sequence&quot; aria-label=&quot;和弦級數，點選查看適用種類&quot; data-sequence&gt;&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;&lt;section&gt;&lt;span class=&quot;tag&quot; data-context&gt;&lt;/span&gt;&lt;h3 data-heading&gt;&lt;/h3&gt;&lt;div class=&quot;types&quot; data-types aria-label=&quot;適用和弦種類&quot;&gt;&lt;/div&gt;&lt;div class=&quot;reason&quot; data-reason aria-live=&quot;polite&quot;&gt;&lt;/div&gt;&lt;details&gt;&lt;summary class=&quot;cursor-interaction&quot;&gt;其他色彩：含調外音的和弦&lt;/summary&gt;&lt;div class=&quot;types outside&quot; data-outside&gt;&lt;/div&gt;&lt;/details&gt;&lt;div class=&quot;notice&quot;&gt;「調內」表示組成音皆在目前調式內。實際搭配仍需聽旋律與前後和弦；含調外音也可以使用。&lt;/div&gt;&lt;/section&gt;
-&lt;section class=&quot;chordpanel&quot; aria-label=&quot;所選和弦按法&quot;&gt;&lt;span class=&quot;tag&quot;&gt;按法預覽 · 標準調弦&lt;/span&gt;&lt;h3 data-chordtitle&gt;&lt;/h3&gt;&lt;div class=&quot;notes&quot; data-tones&gt;&lt;/div&gt;&lt;div class=&quot;chart&quot; data-chart&gt;&lt;/div&gt;&lt;div class=&quot;notes&quot; data-shapeinfo&gt;&lt;/div&gt;&lt;div class=&quot;shapes&quot;&gt;&lt;button class=&quot;cursor-interaction&quot; data-shape=&quot;0&quot; aria-pressed=&quot;true&quot;&gt;六弦根音&lt;/button&gt;&lt;button class=&quot;cursor-interaction&quot; data-shape=&quot;1&quot; aria-pressed=&quot;false&quot;&gt;五弦根音&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;notice&quot;&gt;● 按弦位置　○ 空弦　× 不彈&lt;br&gt;圓點內為音名；此圖尚未標註手指編號。&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;section class=&quot;chordpanel&quot; aria-label=&quot;所選和弦按法&quot;&gt;&lt;span class=&quot;tag&quot;&gt;按法預覽 · 標準調弦&lt;/span&gt;&lt;h3 data-chordtitle&gt;&lt;/h3&gt;&lt;div class=&quot;notes&quot; data-tones&gt;&lt;/div&gt;&lt;div class=&quot;chart&quot; data-chart&gt;&lt;/div&gt;&lt;div class=&quot;notes&quot; data-shapeinfo&gt;&lt;/div&gt;&lt;p class=&quot;notice&quot; data-shapesource&gt;&lt;/p&gt;&lt;div class=&quot;shapes&quot;&gt;&lt;button class=&quot;cursor-interaction&quot; data-shape=&quot;0&quot; aria-pressed=&quot;true&quot;&gt;六弦根音&lt;/button&gt;&lt;button class=&quot;cursor-interaction&quot; data-shape=&quot;1&quot; aria-pressed=&quot;false&quot;&gt;五弦根音&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;notice&quot;&gt;● 按弦位置　○ 空弦　× 不彈&lt;br&gt;圓點內為音名；此圖尚未標註手指編號。&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;
 &lt;div class=&quot;degreebar&quot; aria-label=&quot;目前調式七個基本和弦&quot; data-degreebar&gt;&lt;/div&gt;
 &lt;div class=&quot;notice&quot; data-scale-notes&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1816,17 +1816,17 @@ const modes={major:{name:&#x27;大調&#x27;,iv:[0,2,4,5,7,9,11]},natural:{name:&
 const defs=[
 {id:&#x27;maj&#x27;,suffix:&#x27;&#x27;,name:&#x27;大三和弦&#x27;,iv:[0,4,7],sh:[[0,2,2,1,0,0],[null,0,2,2,2,0]]},
 {id:&#x27;maj7&#x27;,suffix:&#x27;maj7&#x27;,name:&#x27;大七和弦&#x27;,iv:[0,4,7,11],sh:[[0,null,1,1,0,null],[null,0,2,1,2,0]]},
-{id:&#x27;add9&#x27;,suffix:&#x27;add9&#x27;,name:&#x27;加九和弦&#x27;,iv:[0,4,7,2],sh:[[0,2,4,1,0,0],[null,0,2,4,2,0]]},
+{id:&#x27;add9&#x27;,suffix:&#x27;add9&#x27;,name:&#x27;加九和弦&#x27;,iv:[0,4,7,2],sh:[[0,null,2,1,0,2],[null,0,-1,-3,0,null]]},
 {id:&#x27;6&#x27;,suffix:&#x27;6&#x27;,name:&#x27;六和弦&#x27;,iv:[0,4,7,9],sh:[[0,null,2,1,2,null],[null,0,2,2,2,2]]},
-{id:&#x27;maj9&#x27;,suffix:&#x27;maj9&#x27;,name:&#x27;大九和弦&#x27;,iv:[0,4,7,11,2],sh:[[0,null,1,1,0,2],[null,0,-1,1,0,null]]},
+{id:&#x27;maj9&#x27;,suffix:&#x27;maj9&#x27;,name:&#x27;大九和弦&#x27;,iv:[0,4,7,11,2],sh:[[0,-1,1,-1,null,null],[null,0,-1,1,0,null]]},
 {id:&#x27;min&#x27;,suffix:&#x27;m&#x27;,name:&#x27;小三和弦&#x27;,iv:[0,3,7],sh:[[0,2,2,0,0,0],[null,0,2,2,1,0]]},
 {id:&#x27;m7&#x27;,suffix:&#x27;m7&#x27;,name:&#x27;小七和弦&#x27;,iv:[0,3,7,10],sh:[[0,null,0,0,0,null],[null,0,2,0,1,0]]},
 {id:&#x27;m9&#x27;,suffix:&#x27;m9&#x27;,name:&#x27;小九和弦&#x27;,iv:[0,3,7,10,2],sh:[[0,2,0,0,0,2],[null,0,-2,0,0,null]]},
-{id:&#x27;m11&#x27;,suffix:&#x27;m11&#x27;,name:&#x27;小十一和弦&#x27;,iv:[0,3,7,10,2,5],sh:[[0,0,0,0,0,0],[null,0,0,0,1,0]]},
-{id:&#x27;m6&#x27;,suffix:&#x27;m6&#x27;,name:&#x27;小六和弦&#x27;,iv:[0,3,7,9],sh:[[0,null,2,0,2,null],[null,0,2,2,1,2]]},
+{id:&#x27;m11&#x27;,suffix:&#x27;m11&#x27;,name:&#x27;小十一和弦&#x27;,iv:[0,3,7,10,2,5],sh:[[0,null,0,0,-2,null],[null,0,0,0,1,0]]},
+{id:&#x27;m6&#x27;,suffix:&#x27;m6&#x27;,name:&#x27;小六和弦&#x27;,iv:[0,3,7,9],sh:[[0,null,-1,0,0,null],[null,0,2,2,1,2]]},
 {id:&#x27;7&#x27;,suffix:&#x27;7&#x27;,name:&#x27;屬七和弦&#x27;,iv:[0,4,7,10],sh:[[0,2,0,1,0,0],[null,0,2,0,2,0]]},
 {id:&#x27;9&#x27;,suffix:&#x27;9&#x27;,name:&#x27;屬九和弦&#x27;,iv:[0,4,7,10,2],sh:[[0,null,0,1,0,2],[null,0,-1,0,0,null]]},
-{id:&#x27;sus2&#x27;,suffix:&#x27;sus2&#x27;,name:&#x27;掛二和弦&#x27;,iv:[0,2,7],sh:[[0,2,4,4,0,0],[null,0,2,2,0,0]]},
+{id:&#x27;sus2&#x27;,suffix:&#x27;sus2&#x27;,name:&#x27;掛二和弦&#x27;,iv:[0,2,7],sh:[[0,null,null,-1,0,0],[null,0,2,2,0,0]]},
 {id:&#x27;sus4&#x27;,suffix:&#x27;sus4&#x27;,name:&#x27;掛四和弦&#x27;,iv:[0,5,7],sh:[[0,2,2,2,0,0],[null,0,2,2,3,0]]},
 {id:&#x27;7sus4&#x27;,suffix:&#x27;7sus4&#x27;,name:&#x27;屬七掛四&#x27;,iv:[0,5,7,10],sh:[[0,2,0,2,0,0],[null,0,2,0,3,0]]},
 {id:&#x27;m7b5&#x27;,suffix:&#x27;m7♭5&#x27;,name:&#x27;半減七和弦&#x27;,iv:[0,3,6,10],sh:[[0,null,0,0,-1,null],[null,0,1,0,1,null]]},
@@ -1838,6 +1838,25 @@ defs.push(
 {id:&#x27;mMaj7&#x27;,suffix:&#x27;m(maj7)&#x27;,name:&#x27;小大七和弦&#x27;,iv:[0,3,7,11],sh:[[0,null,1,0,0,null],[null,0,2,1,1,0]]},
 {id:&#x27;augMaj7&#x27;,suffix:&#x27;maj7(♯5)&#x27;,name:&#x27;增大七和弦&#x27;,iv:[0,4,8,11],sh:[[0,null,1,1,1,null],[null,0,3,1,2,1]]}
 );
+// Verified against the embedded William Vinci / Chord Blueprint library.
+// Entries identify original page and figure, not fingering numbers.
+const shapeSources={
+ maj:[&#x27;第6頁・A 第1圖&#x27;,&#x27;第6頁・A 第2圖&#x27;],
+ min:[&#x27;第8頁・Am 第1圖&#x27;,&#x27;第8頁・Am 第2圖&#x27;],
+ maj7:[&#x27;第10頁・Amaj7 第1圖&#x27;,&#x27;第10頁・Amaj7 第6圖&#x27;],
+ add9:[&#x27;第17頁・A(add9) 第2圖&#x27;,&#x27;第17頁・A(add9) 第6圖&#x27;],
+ maj9:[&#x27;第23頁・Amaj9 第2圖&#x27;,&#x27;第23頁・Amaj9 第1圖&#x27;],
+ m7:[&#x27;第12頁・Am7 第3圖&#x27;,&#x27;第12頁・Am7 第7圖&#x27;],
+ m9:[&#x27;第23頁・Am9 第3圖&#x27;,&#x27;第23頁・Am9 第4圖&#x27;],
+ m11:[&#x27;第12頁・Am11 第1圖&#x27;,null],
+ m6:[&#x27;第12頁・Am6 第2圖&#x27;,null],
+ &#x27;7&#x27;:[&#x27;第14頁・A7 第8圖&#x27;,&#x27;第14頁・A7 第9圖&#x27;],
+ sus2:[null,&#x27;第21頁・Asus2 第6圖&#x27;],
+ sus4:[&#x27;第21頁・Asus4 第1圖&#x27;,&#x27;第21頁・Asus4 第5圖&#x27;],
+ &#x27;7sus4&#x27;:[&#x27;第21頁・A7sus4 第2圖&#x27;,&#x27;第21頁・A7sus4 第4圖&#x27;],
+ m7b5:[&#x27;第19頁・Am7(♭5) 第1圖&#x27;,&#x27;第19頁・Am7(♭5) 第3圖&#x27;],
+ dim7:[&#x27;第19頁・Adim7 第1圖&#x27;,&#x27;第19頁・Adim7 第2圖&#x27;]
+};
 let key=9,mode=&#x27;natural&#x27;,roots=[9,2,4],active=2,quality=&#x27;m7&#x27;,shape=0;
 function applySaved(saved){const s=saved?.modelContent;if(!s)return;if(Number.isInteger(s.key)&amp;&amp;s.key&gt;=0&amp;&amp;s.key&lt;12)key=s.key;if(modes[s.mode])mode=s.mode;if(Array.isArray(s.roots)&amp;&amp;s.roots.length===3&amp;&amp;s.roots.every(v=&gt;Number.isInteger(v)&amp;&amp;v&gt;=0&amp;&amp;v&lt;12))roots=s.roots.slice();if([0,1,2].includes(s.active))active=s.active;if(defs.some(d=&gt;d.id===s.quality))quality=s.quality;if([0,1].includes(saved.privateContent?.shape))shape=saved.privateContent.shape}
 applySaved(window.openai?.widgetState);
@@ -1856,6 +1875,7 @@ let svg=&#x27;&lt;svg viewBox=&quot;0 0 210 &#x27;+height+&#x27;&quot; role=&quo
 for(let i=0;i&lt;6;i++){let x=35+i*29;svg+=&#x27;&lt;line x1=&quot;&#x27;+x+&#x27;&quot; y1=&quot;40&quot; x2=&quot;&#x27;+x+&#x27;&quot; y2=&quot;&#x27;+(40+rows*35)+&#x27;&quot;/&gt;&#x27;;if(frets[i]===null||frets[i]===0)svg+=&#x27;&lt;text x=&quot;&#x27;+x+&#x27;&quot; y=&quot;25&quot; text-anchor=&quot;middle&quot;&gt;&#x27;+(frets[i]===null?&#x27;×&#x27;:&#x27;○&#x27;)+&#x27;&lt;/text&gt;&#x27;;svg+=&#x27;&lt;text x=&quot;&#x27;+x+&#x27;&quot; y=&quot;&#x27;+(height-5)+&#x27;&quot; text-anchor=&quot;middle&quot;&gt;&#x27;+[&#x27;E&#x27;,&#x27;A&#x27;,&#x27;D&#x27;,&#x27;G&#x27;,&#x27;B&#x27;,&#x27;E&#x27;][i]+&#x27;&lt;/text&gt;&#x27;}
 for(let i=0;i&lt;=rows;i++)svg+=&#x27;&lt;line x1=&quot;35&quot; y1=&quot;&#x27;+(40+i*35)+&#x27;&quot; x2=&quot;180&quot; y2=&quot;&#x27;+(40+i*35)+&#x27;&quot;/&gt;&#x27;;svg+=&#x27;&lt;text x=&quot;8&quot; y=&quot;63&quot;&gt;&#x27;+start+&#x27;&lt;/text&gt;&#x27;;
 frets.forEach((f,i)=&gt;{if(f&gt;0){const x=35+i*29,y=40+(f-start+.5)*35;svg+=&#x27;&lt;circle class=&quot;dot&quot; cx=&quot;&#x27;+x+&#x27;&quot; cy=&quot;&#x27;+y+&#x27;&quot; r=&quot;12&quot;/&gt;&lt;text class=&quot;dottext&quot; x=&quot;&#x27;+x+&#x27;&quot; y=&quot;&#x27;+(y+4)+&#x27;&quot; text-anchor=&quot;middle&quot;&gt;&#x27;+note((opens[i]+f)%12)+&#x27;&lt;/text&gt;&#x27;}});$(&#x27;[data-chart]&#x27;).innerHTML=svg+&#x27;&lt;/svg&gt;&#x27;;
+const reference=shapeSources[d.id]?.[shape];$(&#x27;[data-shapesource]&#x27;).textContent=reference?&#x27;圖庫參照：William Vinci / Chord Blueprint &#x27;+reference+&#x27;，按根音移調。&#x27;:&#x27;補充按法：圖庫未收錄此種類的這個根音位置；已檢查組成音。&#x27;;
 const played=frets.map((f,i)=&gt;f===null?null:(opens[i]+f)%12);const missing=d.iv.map(i=&gt;(pc+i)%12).filter(p=&gt;!played.includes(p));$(&#x27;[data-shapeinfo]&#x27;).textContent=&#x27;六弦 → 一弦：&#x27;+frets.map(f=&gt;f===null?&#x27;×&#x27;:f).join(&#x27; · &#x27;)+(missing.length?&#x27;；此按法省略 &#x27;+missing.map(note).join(&#x27;、&#x27;):&#x27;&#x27;)}
 function render(){const pc=roots[active],d=defs.find(v=&gt;v.id===quality)||defs[0];$(&#x27;[data-key]&#x27;).value=key;$(&#x27;[data-mode]&#x27;).value=mode;root.querySelectorAll(&#x27;[data-root]&#x27;).forEach((s,i)=&gt;{Array.from(s.options).forEach((o,n)=&gt;o.textContent=note(n));s.value=roots[i]});
 const seq=$(&#x27;[data-sequence]&#x27;);seq.replaceChildren();roots.forEach((r,i)=&gt;{const b=document.createElement(&#x27;button&#x27;);b.className=&#x27;cursor-interaction&#x27;;b.setAttribute(&#x27;aria-pressed&#x27;,String(active===i));const name=document.createElement(&#x27;span&#x27;);name.className=&#x27;chordname&#x27;;name.textContent=note(r)+(i===active?d.suffix:stacked(r,false).suffix);const deg=document.createElement(&#x27;span&#x27;);deg.className=&#x27;degree&#x27;;deg.textContent=label(r);const small=document.createElement(&#x27;small&#x27;);small.textContent=active===i?&#x27;正在探索 ↓&#x27;:&#x27;點選查看可用和弦&#x27;;b.append(name,deg,small);b.onclick=()=&gt;{active=i;resetQuality();render();save()};seq.appendChild(b)});

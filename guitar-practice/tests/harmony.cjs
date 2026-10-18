@@ -3,7 +3,7 @@ const source=fs.readFileSync(__dirname+'/../src/harmony.html','utf8');
 const script=source.match(/<script>([\s\S]*?)<\/script>/)[1];
 new Function(script);
 const end=script.lastIndexOf('pcs.forEach((n,i)=>');
-const instrumented=script.slice(0,end)+'return {defs,modes,stacked,scale,spelling,label,set(k,m){key=k;mode=m;},renderChart(d,pc,s){shape=s;chart(d,pc);}};})();';
+const instrumented=script.slice(0,end)+'return {defs,shapeSources,modes,stacked,scale,spelling,label,set(k,m){key=k;mode=m;},renderChart(d,pc,s){shape=s;chart(d,pc);}};})();';
 const chartNodes=new Map();
 global.document={getElementById(){return {querySelector(selector){if(!chartNodes.has(selector))chartNodes.set(selector,{});return chartNodes.get(selector)}}}};global.window={};
 const engine=eval(instrumented);
@@ -34,9 +34,26 @@ for(const chord of engine.defs)for(let pc=0;pc<12;pc++)for(let shape=0;shape<2;s
  engine.renderChart(chord,pc,shape);
  const svg=chartNodes.get('[data-chart]').innerHTML;
  assert(!/Infinity|NaN/.test(svg),chord.id+' invalid diagram');
+ const frets=chartNodes.get('[data-shapeinfo]').textContent.split('；')[0].split('：')[1].split(' · ').map(f=>f==='×'?null:Number(f));
+ assert.equal(frets.length,6);
+ assert(frets.every(f=>f===null||Number.isInteger(f)&&f>=0));
+ assert.equal(([4,9,2,7,11,4][shape]+frets[shape])%12,pc,'Root on chosen bass string');
+ assert(frets.every((f,i)=>f===null||chord.iv.includes((([4,9,2,7,11,4][i]+f-pc)%12+12)%12)),'Transposed nonchord tone');
+ const positive=frets.filter(f=>f>0);
+ assert(!positive.length||Math.max(...positive)-Math.min(...positive)<=3,chord.id+' excessive stretch');
+ const source=chartNodes.get('[data-shapesource]').textContent;
+ assert(source.includes(engine.shapeSources[chord.id]?.[shape]?'圖庫參照':'補充按法'));
+
  diagrams++;
 }
 engine.renderChart(engine.defs.find(d=>d.id==='m7'),4,0);
 assert(chartNodes.get('[data-chart]').innerHTML.includes('y="63">1</text>'),'Open-string chord starts at fret 1');
 assert(chartNodes.get('[data-shapeinfo]').textContent.includes('0 · × · 0 · 0 · 0 · ×'));
 console.log('PASS:',diagrams,'finite diagrams across all roots and both voicings; open-string Em7.');
+
+engine.renderChart(engine.defs.find(d=>d.id==='add9'),7,0);
+assert(chartNodes.get('[data-shapeinfo]').textContent.includes('3 · × · 5 · 4 · 3 · 5'));
+engine.renderChart(engine.defs.find(d=>d.id==='add9'),9,1);
+assert(chartNodes.get('[data-shapeinfo]').textContent.includes('× · 12 · 11 · 9 · 12 · ×'));
+assert.equal(Object.values(engine.shapeSources).flat().filter(Boolean).length,27);
+console.log('PASS: library reference labels for 27 voicings, supplementary labels for 15; reduced-span Gadd9.');

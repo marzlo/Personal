@@ -214,3 +214,5 @@
 - Podcast 封面已加入：icons/podcast/ 為耳機與書本圖案，含768px WebP封面、180px Apple touch icon、32px favicon。頁首顯示小圖，手機與桌面皆可見，僅 podcast.html 使用這組圖示，不取代拾頁首頁圖示。
 
 - 三站圖示更新為極簡森林綠剪影搭配淡綠／米色幾何背景：首頁 icons/home/ 書本、Podcast icons/podcast/*-v2 耳機、吉他 guitar-practice/icons/*-v2 吉他。首頁側欄品牌圖亦採用新書本，首頁原圖示檔保留；新路徑避開舊圖示快取。
+
+- Podcast 頁 script/CSS 使用內容雜湊 v 參數防舊快取，修改 podcast-episodes.js、podcast-exercises.js、podcast-learning.js、podcast-navigation.js、podcast-swipe.js 或 podcast-learning.css 時同步更新 podcast.html 該資源的 v（SHA256前12碼）。頁面無 episode query 仍按日期顯示最新集數；campaignSpending 日期10/15故不是預設集數，用 ?episode=campaignSpending 直達。

@@ -46,7 +46,7 @@
         write({__podcastMastered:{...(tags.__podcastMastered||{}),[episode.id]:next}});refresh(episode,read());
       };return [term,input];
     });
-    const copy=el('button','複製 15 個重點表達');copy.type='button';const copyStatus=el('p','');copyStatus.setAttribute('role','status');
+    const copy=el('button','複製 '+notes.priority.length+' 個重點表達');copy.type='button';const copyStatus=el('p','');copyStatus.setAttribute('role','status');
     copy.onclick=async()=>{const text=notes.priority.map(term=>{const word=episode.cards.find(w=>w[0]===term);return term+' — '+(word?.[1]||'')}).join('\n');try{await navigator.clipboard.writeText(text);copyStatus.textContent='已複製優先學習清單。'}catch{copyStatus.textContent='無法自動複製，請選取下方文字。';const area=el('textarea',text);area.readOnly=true;area.setAttribute('aria-label','優先學習清單文字');area.select()}};
     current={id:episode.id,count,inputs};refresh(episode,read());
   }

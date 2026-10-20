@@ -1077,6 +1077,709 @@ window.PODCAST_EPISODES = [
     "html": "<section id=\"episode\" class=\"episode\"><small>PLANET MONEY · EPISODE 05</small><h2>Anatomy of a Movie Market</h2><p class=\"episode-meta\">2026 年 10 月 17 日（台灣時間） · NPR · 約 32 分鐘</p><blockquote>作品被看見之前，<br>先要有人願意買下它的未來。</blockquote><p class=\"sample-note\">依使用者提供的學習筆記整理，節目資訊以 NPR 介紹核對。NPR 原頁日期為美東 10 月 16 日。字卡例句與五句摘要為學習用語，非逐字稿引用。<a href=\"https://www.northcountrypublicradio.org/news/npr/nx-s1-6005392/anatomy-of-a-movie-market\" target=\"_blank\" rel=\"noreferrer\">NPR 節目介紹 ↗</a> · <a href=\"https://podcasts.apple.com/tw/podcast/planet-money/id290783428?i=1000796720849\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 收聽 ↗</a></p></section><section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>電影的品質，如何變成一筆交易？</h2><p class=\"lead\">日舞影展既是作品曝光的舞台，也是獨立電影尋找發行商的市場。從被選入影展，到真正送上銀幕，中間還有買家、談判與市場環境。</p><details open><summary>1. 交易如何成交：銷售代理人的角色</summary><p>依你提供的整理，代理人要找到買家、爭取注意、反覆協商條件。讓不同買家產生競爭，可以改善議價位置；有興趣並不等於交易已經完成。</p></details><details open><summary>2. 作品如何突圍：放映、反應與關鍵人物</summary><p>試映反應與重要人士的支持可能改變買家的期待。筆記提到《Precious》、《Little Miss Sunshine》與《Napoleon Dynamite》，作為理解電影銷售的案例。這也說明作品的命運受時機與人際關係影響。</p></details><details><summary>3. 市場如何改變：熱度與開支緊縮</summary><p>你的筆記指出，串流競爭、疫情與好萊塢開支緊縮改變了交易環境。市場轉弱時，賣家的期待與談判策略也要調整；先行者則可能面對新競爭者蠶食市場。</p></details><div class=\"episode-conclusion\"><h3>讀完這集，可以帶走的結論</h3><p><strong>獨立電影能否走到觀眾面前，取決於作品、需求、資訊與交易條件如何配合。</strong></p><p>一場成功放映可能創造機會，但能否成交仍受買家的選擇、預算及關鍵人物影響。對其他產業也可提出同樣的問題：好作品如何讓合適的人看見，又如何轉成實際合作？</p><p class=\"sample-note\">以上是依提供筆記所作的閱讀歸納，並非節目結尾的逐字轉述。</p></div></section><section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><p class=\"sample-note\">★ 為15個優先表達。先學可跨情境運用的片語，再學市場分析與電影產業專有名詞。</p><div id=\"vocab\"></div><section id=\"episodePractice\" aria-label=\"英文練習\"></section></section><section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用五句英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><p class=\"sample-note\">以下保留你提供的五句複習例句，不是逐字稿原句。</p><div class=\"bilingual\"><p>The film market has shifted from a seller's market to a softer market.</p><p class=\"zh\">電影市場已從賣方市場轉變為較疲弱的市場。</p><p>Sales agents try to play competing buyers against each other.</p><p class=\"zh\">銷售代理人試圖利用買家之間的競爭取得優勢。</p><p>A successful screening can spark a bidding war.</p><p class=\"zh\">成功的試映可能引發買家競價。</p><p>The success of an independent film is highly contingent on timing and relationships.</p><p class=\"zh\">獨立電影的成功高度取決於時機與人際關係。</p><p>The right deal can make the difference between obscurity and nationwide distribution.</p><p class=\"zh\">合適的交易可能決定一部電影是默默無聞，還是能在全國發行。</p></div></section>"
   },
   {
+    "id": "campaignSpending",
+    "title": "How did political campaigns get so expensive?",
+    "shortTitle": "Campaign Spending",
+    "show": "The Indicator from Planet Money",
+    "date": "2026-10-15",
+    "source": "https://www.npr.org/podcasts/510325/the-indicator-from-planet-money",
+    "apple": "https://podcasts.apple.com/podcast/the-indicator-from-planet-money/id1320118593",
+    "teaser": "花更多錢，為什麼不一定贏得選舉，卻仍可能影響民主制度？",
+    "prompt": "當投入更多資源不保證成功，我會如何分辨「結果」與「對制度或行為的影響」？",
+    "cards": [
+      [
+        "Work out for someone",
+        "對某人有利、結果順利",
+        "It worked out for him.",
+        "結果對他來說很順利。",
+        "work out for + 人；work out 也可指解決問題或運動，須看上下文。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Set a precedent",
+        "開創先例",
+        "The decision could set a precedent for future cases.",
+        "這項決定可能為未來類似案件開創先例。",
+        "set a precedent for + 後續情況；precedent 是先例，不是 president。",
+        "高實用性片語",
+        true
+      ],
+      [
+        "Case in point",
+        "舉個實際例子",
+        "Campaign spending does not guarantee victory. Case in point, a well-funded candidate can still lose.",
+        "競選支出並不保證勝利。舉例來說，資金充裕的候選人仍可能落選。",
+        "用具體事例支持剛提出的觀點，常用作補充引導語。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Turn out",
+        "結果是、最後發展成",
+        "We know how that turned out.",
+        "我們都知道最後結果如何。",
+        "turn out 的意思依語境而變；此處指事情最後的結果。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Result in",
+        "導致、造成",
+        "Higher advertising costs can result in higher campaign spending.",
+        "廣告成本上升可能導致競選支出增加。",
+        "result in + 結果；result from + 原因。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "A combination of",
+        "多種因素的組合",
+        "The increase reflects a combination of factors.",
+        "這次增加反映了多種因素的共同作用。",
+        "a combination of A and B；可用於分析複合原因。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Does matter",
+        "確實很重要",
+        "Experience does matter.",
+        "經驗確實很重要。",
+        "肯定句用 does + 原形動詞加強語氣；主詞不同時改用 do 或 did。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Even if",
+        "即使、就算",
+        "Even if the plan does not work, we can learn from it.",
+        "即使計畫不成功，我們仍能從中學習。",
+        "even if 表示讓步條件；不等於表示已發生事實的 even though。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "This is where…",
+        "這正是……的環節",
+        "This is where money matters.",
+        "這正是金錢發揮作用的環節。",
+        "where 可指討論中的階段或情境，不限於實際地點。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "The way something works",
+        "某事的運作方式",
+        "We need to understand the way the system works.",
+        "我們需要了解這個制度的運作方式。",
+        "the way + 主詞 + 動詞；也可說 how the system works。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Outspend",
+        "花費超過",
+        "The campaign far outspent its opponent.",
+        "這個競選團隊的支出遠遠超過對手。",
+        "outspend someone；過去式、過去分詞皆為 outspent。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Win big",
+        "大獲全勝",
+        "The party hopes to win big in the election.",
+        "該政黨希望在選舉中大獲全勝。",
+        "常用於選舉、比賽或商業成果，屬較口語的說法。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Enforce",
+        "強制執行",
+        "The agency must enforce existing laws.",
+        "該機構必須執行現行法律。",
+        "enforce laws/rules；與制定法律的 pass 或 enact 不同。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Deadlocked",
+        "陷入僵局",
+        "A deadlocked Congress failed to clarify the rules.",
+        "陷入僵局的國會未能釐清規則。",
+        "be deadlocked over/on an issue，指各方無法達成決定。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Clarify",
+        "釐清、澄清",
+        "Could you clarify the rules before we proceed?",
+        "在繼續之前，可以請你釐清規則嗎？",
+        "clarify a point/the rules；職場中可禮貌請求說明。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Warp",
+        "扭曲、使變形",
+        "Too much political money can warp the political system.",
+        "過多的政治資金可能扭曲政治制度。",
+        "可指實體變形，也可比喻扭曲判斷、觀點或制度。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Non-disclosure",
+        "資訊不揭露",
+        "The report raises concerns about non-disclosure of funding.",
+        "這份報告提出對資金未揭露的疑慮。",
+        "non-disclosure of + 資訊；NDA 是 non-disclosure agreement（保密協議）。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Enormous sums",
+        "巨額款項",
+        "Campaigns can raise enormous sums of money.",
+        "競選團隊可能募集巨額款項。",
+        "enormous sums of money；sum 指一筆金額。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Guarantee victory",
+        "保證勝利",
+        "Spending more does not guarantee victory.",
+        "花更多錢並不保證勝利。",
+        "guarantee + 結果；guarantee that + 子句。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Increasingly",
+        "日益、越來越",
+        "Running a campaign is becoming increasingly expensive.",
+        "進行競選活動變得越來越昂貴。",
+        "increasingly + 形容詞／副詞，如 increasingly difficult。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Presidential election",
+        "總統大選",
+        "Campaign spending attracts attention during a presidential election.",
+        "競選支出在總統大選期間受到關注。",
+        "presidential 是 president 的形容詞。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "General election",
+        "正式大選",
+        "The nominee is preparing for the general election.",
+        "獲提名的候選人正在為正式大選做準備。",
+        "與政黨提名階段的 primary election 區分。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Primary election",
+        "初選",
+        "Voters choose a party nominee in a primary election.",
+        "選民在初選中選出政黨提名人。",
+        "美國各地提名程序與規則不同，不宜將所有提名程序一概視為初選。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Public funding",
+        "公共資金、政府補助",
+        "The candidate decided not to accept public funding.",
+        "這位候選人決定不接受公共資金補助。",
+        "選舉語境通常指政府提供的競選資助；適用條件依制度而定。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Campaign spending",
+        "競選支出",
+        "Campaign spending includes advertising and voter outreach.",
+        "競選支出包括廣告與選民接觸活動。",
+        "campaign spending/expenditure；與 fundraising（募款）不同。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Political opponent",
+        "政治對手",
+        "The candidate criticized her political opponent.",
+        "這位候選人批評了她的政治對手。",
+        "opponent 指競爭或對立的一方；不一定是個人敵人。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Turn out voters",
+        "動員選民投票",
+        "The campaign spent millions trying to turn out voters.",
+        "競選團隊花費數百萬美元試圖動員選民投票。",
+        "及物用法 turn out voters；voters turn out 則是選民出來投票。",
+        "美國選舉用語",
+        true
+      ],
+      [
+        "Voter turnout",
+        "選民投票率／投票人數",
+        "Voter turnout was higher than expected.",
+        "選民投票率高於預期。",
+        "turnout 是名詞，與動詞片語 turn out 區分；比率或人數需看資料定義。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Get out the vote (GOTV)",
+        "催票、動員投票",
+        "Volunteers joined a get-out-the-vote effort.",
+        "志工參與了催票活動。",
+        "GOTV 為 get out the vote 的縮寫；作形容詞常用連字號。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Federal Election Commission (FEC)",
+        "聯邦選舉委員會",
+        "The Federal Election Commission oversees federal campaign finance rules.",
+        "聯邦選舉委員會監督聯邦競選資金規則。",
+        "FEC 是機構縮寫；本集筆記討論其監管角色。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "We know how that turned out.",
+        "我們都知道最後結果如何。",
+        "He ignored all the warnings. Well, we know how that turned out.",
+        "他無視所有警告。嗯，最後結果如何大家都知道。",
+        "承接雙方已知的結果，可能帶反諷或無奈，使用時注意語氣。",
+        "重點表達與句型",
+        true
+      ],
+      [
+        "The Wild West",
+        "缺乏規範、近乎無法無天的環境",
+        "The industry has become the Wild West of regulation.",
+        "這個產業在監管方面已經變得幾乎毫無規範。",
+        "源自美國西部意象，比喻秩序或監管不足；是評價性說法。",
+        "重點表達與句型",
+        true
+      ],
+      [
+        "Warp the way something works",
+        "扭曲某個制度或事物的運作方式",
+        "Too much political money can warp the way democracy works.",
+        "過多的政治資金可能扭曲民主制度的運作方式。",
+        "warp the way + 主詞 + 動詞；用於分析影響機制。",
+        "重點表達與句型",
+        true
+      ],
+      [
+        "Even if A doesn’t guarantee B, it can still affect C.",
+        "即使 A 無法保證 B，它仍然可能影響 C。",
+        "Even if spending does not guarantee victory, it can still affect the political system.",
+        "即使支出無法保證勝選，它仍然可能影響政治制度。",
+        "讓步加上影響分析，適合經濟、政治與商業討論；A/B/C 為可替換的句型位置。",
+        "重點表達與句型",
+        false
+      ]
+    ],
+    "glossary": [
+      [
+        "Work out for someone",
+        "對某人有利、結果順利",
+        "It worked out for him.",
+        "結果對他來說很順利。",
+        "work out for + 人；work out 也可指解決問題或運動，須看上下文。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Set a precedent",
+        "開創先例",
+        "The decision could set a precedent for future cases.",
+        "這項決定可能為未來類似案件開創先例。",
+        "set a precedent for + 後續情況；precedent 是先例，不是 president。",
+        "高實用性片語",
+        true
+      ],
+      [
+        "Case in point",
+        "舉個實際例子",
+        "Campaign spending does not guarantee victory. Case in point, a well-funded candidate can still lose.",
+        "競選支出並不保證勝利。舉例來說，資金充裕的候選人仍可能落選。",
+        "用具體事例支持剛提出的觀點，常用作補充引導語。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Turn out",
+        "結果是、最後發展成",
+        "We know how that turned out.",
+        "我們都知道最後結果如何。",
+        "turn out 的意思依語境而變；此處指事情最後的結果。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Result in",
+        "導致、造成",
+        "Higher advertising costs can result in higher campaign spending.",
+        "廣告成本上升可能導致競選支出增加。",
+        "result in + 結果；result from + 原因。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "A combination of",
+        "多種因素的組合",
+        "The increase reflects a combination of factors.",
+        "這次增加反映了多種因素的共同作用。",
+        "a combination of A and B；可用於分析複合原因。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Does matter",
+        "確實很重要",
+        "Experience does matter.",
+        "經驗確實很重要。",
+        "肯定句用 does + 原形動詞加強語氣；主詞不同時改用 do 或 did。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Even if",
+        "即使、就算",
+        "Even if the plan does not work, we can learn from it.",
+        "即使計畫不成功，我們仍能從中學習。",
+        "even if 表示讓步條件；不等於表示已發生事實的 even though。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "This is where…",
+        "這正是……的環節",
+        "This is where money matters.",
+        "這正是金錢發揮作用的環節。",
+        "where 可指討論中的階段或情境，不限於實際地點。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "The way something works",
+        "某事的運作方式",
+        "We need to understand the way the system works.",
+        "我們需要了解這個制度的運作方式。",
+        "the way + 主詞 + 動詞；也可說 how the system works。",
+        "高實用性片語",
+        false
+      ],
+      [
+        "Outspend",
+        "花費超過",
+        "The campaign far outspent its opponent.",
+        "這個競選團隊的支出遠遠超過對手。",
+        "outspend someone；過去式、過去分詞皆為 outspent。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Win big",
+        "大獲全勝",
+        "The party hopes to win big in the election.",
+        "該政黨希望在選舉中大獲全勝。",
+        "常用於選舉、比賽或商業成果，屬較口語的說法。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Enforce",
+        "強制執行",
+        "The agency must enforce existing laws.",
+        "該機構必須執行現行法律。",
+        "enforce laws/rules；與制定法律的 pass 或 enact 不同。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Deadlocked",
+        "陷入僵局",
+        "A deadlocked Congress failed to clarify the rules.",
+        "陷入僵局的國會未能釐清規則。",
+        "be deadlocked over/on an issue，指各方無法達成決定。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Clarify",
+        "釐清、澄清",
+        "Could you clarify the rules before we proceed?",
+        "在繼續之前，可以請你釐清規則嗎？",
+        "clarify a point/the rules；職場中可禮貌請求說明。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Warp",
+        "扭曲、使變形",
+        "Too much political money can warp the political system.",
+        "過多的政治資金可能扭曲政治制度。",
+        "可指實體變形，也可比喻扭曲判斷、觀點或制度。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Non-disclosure",
+        "資訊不揭露",
+        "The report raises concerns about non-disclosure of funding.",
+        "這份報告提出對資金未揭露的疑慮。",
+        "non-disclosure of + 資訊；NDA 是 non-disclosure agreement（保密協議）。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Enormous sums",
+        "巨額款項",
+        "Campaigns can raise enormous sums of money.",
+        "競選團隊可能募集巨額款項。",
+        "enormous sums of money；sum 指一筆金額。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Guarantee victory",
+        "保證勝利",
+        "Spending more does not guarantee victory.",
+        "花更多錢並不保證勝利。",
+        "guarantee + 結果；guarantee that + 子句。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Increasingly",
+        "日益、越來越",
+        "Running a campaign is becoming increasingly expensive.",
+        "進行競選活動變得越來越昂貴。",
+        "increasingly + 形容詞／副詞，如 increasingly difficult。",
+        "政治與經濟新聞",
+        false
+      ],
+      [
+        "Presidential election",
+        "總統大選",
+        "Campaign spending attracts attention during a presidential election.",
+        "競選支出在總統大選期間受到關注。",
+        "presidential 是 president 的形容詞。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "General election",
+        "正式大選",
+        "The nominee is preparing for the general election.",
+        "獲提名的候選人正在為正式大選做準備。",
+        "與政黨提名階段的 primary election 區分。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Primary election",
+        "初選",
+        "Voters choose a party nominee in a primary election.",
+        "選民在初選中選出政黨提名人。",
+        "美國各地提名程序與規則不同，不宜將所有提名程序一概視為初選。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Public funding",
+        "公共資金、政府補助",
+        "The candidate decided not to accept public funding.",
+        "這位候選人決定不接受公共資金補助。",
+        "選舉語境通常指政府提供的競選資助；適用條件依制度而定。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Campaign spending",
+        "競選支出",
+        "Campaign spending includes advertising and voter outreach.",
+        "競選支出包括廣告與選民接觸活動。",
+        "campaign spending/expenditure；與 fundraising（募款）不同。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Political opponent",
+        "政治對手",
+        "The candidate criticized her political opponent.",
+        "這位候選人批評了她的政治對手。",
+        "opponent 指競爭或對立的一方；不一定是個人敵人。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Turn out voters",
+        "動員選民投票",
+        "The campaign spent millions trying to turn out voters.",
+        "競選團隊花費數百萬美元試圖動員選民投票。",
+        "及物用法 turn out voters；voters turn out 則是選民出來投票。",
+        "美國選舉用語",
+        true
+      ],
+      [
+        "Voter turnout",
+        "選民投票率／投票人數",
+        "Voter turnout was higher than expected.",
+        "選民投票率高於預期。",
+        "turnout 是名詞，與動詞片語 turn out 區分；比率或人數需看資料定義。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Get out the vote (GOTV)",
+        "催票、動員投票",
+        "Volunteers joined a get-out-the-vote effort.",
+        "志工參與了催票活動。",
+        "GOTV 為 get out the vote 的縮寫；作形容詞常用連字號。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "Federal Election Commission (FEC)",
+        "聯邦選舉委員會",
+        "The Federal Election Commission oversees federal campaign finance rules.",
+        "聯邦選舉委員會監督聯邦競選資金規則。",
+        "FEC 是機構縮寫；本集筆記討論其監管角色。",
+        "美國選舉用語",
+        false
+      ],
+      [
+        "We know how that turned out.",
+        "我們都知道最後結果如何。",
+        "He ignored all the warnings. Well, we know how that turned out.",
+        "他無視所有警告。嗯，最後結果如何大家都知道。",
+        "承接雙方已知的結果，可能帶反諷或無奈，使用時注意語氣。",
+        "重點表達與句型",
+        true
+      ],
+      [
+        "The Wild West",
+        "缺乏規範、近乎無法無天的環境",
+        "The industry has become the Wild West of regulation.",
+        "這個產業在監管方面已經變得幾乎毫無規範。",
+        "源自美國西部意象，比喻秩序或監管不足；是評價性說法。",
+        "重點表達與句型",
+        true
+      ],
+      [
+        "Warp the way something works",
+        "扭曲某個制度或事物的運作方式",
+        "Too much political money can warp the way democracy works.",
+        "過多的政治資金可能扭曲民主制度的運作方式。",
+        "warp the way + 主詞 + 動詞；用於分析影響機制。",
+        "重點表達與句型",
+        true
+      ],
+      [
+        "Even if A doesn’t guarantee B, it can still affect C.",
+        "即使 A 無法保證 B，它仍然可能影響 C。",
+        "Even if spending does not guarantee victory, it can still affect the political system.",
+        "即使支出無法保證勝選，它仍然可能影響政治制度。",
+        "讓步加上影響分析，適合經濟、政治與商業討論；A/B/C 為可替換的句型位置。",
+        "重點表達與句型",
+        false
+      ]
+    ],
+    "studyNotes": {
+      "priority": [
+        "Set a precedent",
+        "We know how that turned out.",
+        "The Wild West",
+        "Turn out voters",
+        "Warp the way something works"
+      ],
+      "comparisons": [
+        [
+          "Turn out／Turn out voters／Voter turnout",
+          "turn out 可指「結果是」；turn out voters 是動員選民；voter turnout 是投票率或投票人數。三者不能直接互換。"
+        ],
+        [
+          "Result in／Result from",
+          "result in 後接結果；result from 後接原因。"
+        ],
+        [
+          "Does matter／Even if",
+          "does 在肯定句加強語氣，不是過去式；even if 引出讓步條件，說明即使某條件成立，後面的影響仍可能存在。"
+        ]
+      ],
+      "quiz": [
+        {
+          "question": "「開創先例」的英文是？",
+          "options": [
+            "Set a precedent",
+            "Turn out voters",
+            "Result from"
+          ],
+          "answer": 0,
+          "explanation": "set a precedent 指建立供後續情況參照的先例。"
+        },
+        {
+          "question": "Money does matter 中的 does 有什麼作用？",
+          "options": [
+            "表示過去式",
+            "加強肯定語氣",
+            "表示疑問"
+          ],
+          "answer": 1,
+          "explanation": "此處 does + 原形動詞 matter，用來強調「確實重要」。"
+        },
+        {
+          "question": "Deadlocked Congress 是什麼意思？",
+          "options": [
+            "已經解散的國會",
+            "獲得多數支持的國會",
+            "陷入政治僵局的國會"
+          ],
+          "answer": 2,
+          "explanation": "deadlocked 指各方僵持，無法達成決定。"
+        },
+        {
+          "question": "Turn out voters 指的是？",
+          "options": [
+            "動員選民投票",
+            "公布選舉結果",
+            "淘汰候選人"
+          ],
+          "answer": 0,
+          "explanation": "此處 turn out 作及物用法，意思是動員選民出來投票。"
+        },
+        {
+          "question": "Warp the political system 的 warp 是？",
+          "options": [
+            "保護",
+            "扭曲",
+            "資助"
+          ],
+          "answer": 1,
+          "explanation": "warp 在這裡是比喻，指扭曲制度的運作。"
+        }
+      ]
+    },
+    "html": "<section id=\"episode\" class=\"episode\"><small>THE INDICATOR FROM PLANET MONEY · NPR</small><h2>How did political campaigns get so expensive?</h2><p class=\"episode-meta\">政治競選活動為什麼變得如此昂貴？ · 2026 年 10 月 15 日</p><div class=\"tags\"><span>競選資金</span><span>民主制度</span><span>政治英文</span></div><blockquote>金錢不一定能保證勝選，卻仍可能改變政治制度的運作方式。</blockquote><p class=\"sample-note\">依使用者提供的英文學習筆記整理；日期、節目內容與歷史案例沿用筆記，未逐字核對節目音訊或完整逐字稿。下方例句為使用者提供或學習補充，不宣稱為節目原話。</p><p class=\"sample-note\"><a href=\"https://www.npr.org/podcasts/510325/the-indicator-from-planet-money\" target=\"_blank\" rel=\"noreferrer\">NPR 節目總頁 ↗</a> · <a href=\"https://podcasts.apple.com/podcast/the-indicator-from-planet-money/id1320118593\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 節目收聽入口 ↗</a>（尚未提供本集直達連結）</p></section>\n<section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>花更多錢，和贏得選舉是同一回事嗎？</h2><p class=\"lead\">依這份筆記，本集探討美國政治競選經費為何持續增加，以及金錢如何影響民主制度。要區分的是：支出與勝選結果之間的關係，以及資金對制度運作與政治參與的影響。</p><details open><summary>競選支出不保證勝利</summary><p>筆記以 2024 年賀錦麗陣營支出高於川普陣營但仍敗選為例，說明支出不等於勝選保證。這裡未提供支出統計口徑與來源；候選人團隊、政黨與外部團體的支出不宜混為同一數字，也不能由單一案例推論金錢完全無效。</p></details><details open><summary>歐巴馬與公共資金的先例</summary><p>筆記提到，歐巴馬在 2008 年放棄大選公共資金補助，依靠私人募款勝選，為後續候選人的募款策略提供先例。重點表達是 set a precedent。</p></details><details open><summary>監管不足的批評</summary><p>依筆記轉述，受訪者批評最高法院、聯邦選舉委員會與國會未能有效處理競選資金問題。這是節目筆記中的受訪觀點，不代表所有機構有相同權責，也不是本頁獨立完成的監管成效評估。</p></details><details open><summary>沒有買到勝利，仍可能影響政治</summary><p>競選廣告、攻擊對手與動員選民都需要資金。筆記強調，即使花錢不能保證獲勝，仍可能改變甚至扭曲政治制度的運作方式。</p></details><div class=\"episode-conclusion\"><h3>這集值得帶走的分析方式</h3><p><strong>Even if A doesn’t guarantee B, it can still affect C.</strong></p><p>即使 A 無法保證 B，它仍然可能影響 C。把「能否保證結果」與「是否產生影響」分開思考，能讓經濟、政治及商業討論更精確。</p></div></section>\n<section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><p class=\"sample-note\">保留筆記中的30項詞彙，另加入 Wild West、兩個完整重點表達與本集句型，共34張字卡。例句為使用者提供或學習補充。</p><div id=\"vocab\"></div></section>\n<section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><p class=\"sample-note\">以下是依使用者筆記整理的雙語摘要，非節目逐字稿。</p><div class=\"bilingual\"><p>Spending more money does not guarantee victory in a political campaign.</p><p class=\"zh\">在競選活動中花更多錢，並不保證勝利。</p><p>According to these notes, Barack Obama’s decision to reject public funding in 2008 set a precedent for later campaigns.</p><p class=\"zh\">依這份筆記，歐巴馬在2008年拒絕公共資金補助的決定，為後續競選活動開創先例。</p><p>Campaigns use money for advertising, attacking opponents and turning out voters.</p><p class=\"zh\">競選團隊使用資金刊登廣告、攻擊對手與動員選民。</p><p>Even if spending does not guarantee victory, it can still affect the way the political system works.</p><p class=\"zh\">即使支出無法保證勝選，它仍然可能影響政治制度的運作方式。</p></div><div id=\"episodePractice\"></div></section>"
+  },
+  {
     "id": "aiAsilomar",
     "title": "Wanna slow down AI? These biologists can help.",
     "shortTitle": "AI & Asilomar",

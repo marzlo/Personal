@@ -12,7 +12,7 @@ test('Campaign notes retain all vocabulary and five practice answers without rep
  for(const term of e.studyNotes.priority)assert.ok(e.cards.some(w=>w[0]===term&&w[6]));
  assert.equal(e.studyNotes.quiz.map(q=>q.answer).join(','),'0,1,2,0,1');
  assert.ok(e.cards.some(w=>w[0]==='Voter turnout'));assert.ok(e.cards.some(w=>w[0]==='Turn out voters'));
- assert.equal(episodes[0].id,'movieMarket');assert.equal(episodes[1].id,e.id);
+ assert.ok(episodes.findIndex(e=>e.id==='movieMarket')<episodes.findIndex(e=>e.id==='campaignSpending'));
  for(const id of ['aiAsilomar','economicsNobel','tariffRefunds','healthBenefits'])assert.ok(episodes.some(e=>e.id===id));
  assert.ok(e.html.includes('id="episodePractice"'));assert.ok(e.html.includes('使用者提供'));
 });

@@ -1,5 +1,261 @@
 window.PODCAST_EPISODES = [
   {
+    "id": "sharingSalary",
+    "title": "The Case for Sharing Your Salary",
+    "shortTitle": "Sharing Your Salary",
+    "show": "The Indicator from Planet Money",
+    "date": "2026-10-21",
+    "source": "https://www.npr.org/podcasts/510325/the-indicator-from-planet-money",
+    "apple": "https://podcasts.apple.com/tw/podcast/the-indicator-from-planet-money/id1320118593?i=1000797339248",
+    "teaser": "從「中產階級」的標籤，走向更坦誠、具體的收入討論。",
+    "prompt": "如果要和朋友或同事討論收入，我想先了解哪些具體處境？我願意分享哪些資訊，又有哪些界線？",
+    "cards": [
+      [
+        "Best-case scenario",
+        "最理想的情況",
+        "Best-case scenario, we finish testing by Friday.",
+        "最理想的情況是，我們星期五前完成測試。",
+        "用於時程與風險分析；也可說 in the best-case scenario。相對說法為 worst-case scenario。",
+        "優先片語",
+        true
+      ],
+      [
+        "Get granular",
+        "深入細節、細緻分析",
+        "We need to get granular about the project costs.",
+        "我們需要更細緻地分析專案成本。",
+        "get granular about/with something；強調拆解細節，不只看概括數字。",
+        "優先片語",
+        true
+      ],
+      [
+        "Hide behind something",
+        "躲在某事背後、拿某事作掩飾",
+        "We should not hide behind convenient labels.",
+        "我們不應躲在方便套用的標籤背後。",
+        "hide behind + 名詞；比喻用規則、標籤或藉口迴避具體問題。",
+        "優先片語",
+        true
+      ],
+      [
+        "Be open about something",
+        "坦誠談論某件事",
+        "She is open about her financial situation.",
+        "她坦誠談論自己的財務狀況。",
+        "be open about + 名詞／動名詞，強調願意談論，不代表必須公開所有私人資料。",
+        "優先片語",
+        true
+      ],
+      [
+        "What others think of us",
+        "別人對我們的看法",
+        "We often worry about what others think of us.",
+        "我們常常擔心別人對我們的看法。",
+        "think of someone 在此指對某人的評價或印象；整段可當 worry about 的受詞。",
+        "優先片語",
+        true
+      ],
+      [
+        "Where we sit",
+        "我們所處的位置",
+        "The data helps us understand where we sit on the income ladder.",
+        "這些數據幫助我們了解自己在收入階梯上的位置。",
+        "where we sit 可比喻排名、市場定位或社會經濟位置，依上下文理解。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Income ladder",
+        "收入階梯、收入階層",
+        "People at different points on the income ladder face different pressures.",
+        "收入階梯上不同位置的人，面臨不同的壓力。",
+        "on the income ladder；比喻收入排序，不等於一個人的價值或所有資產狀況。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Rather than",
+        "而不是、與其……不如……",
+        "Let’s discuss the details rather than rely on labels.",
+        "我們來討論細節，而不是依賴標籤。",
+        "rather than 連接比較或替代選項，前後盡量維持平行結構。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Convenient label",
+        "方便套用的籠統標籤",
+        "Middle class can be a convenient label that hides important differences.",
+        "中產階級可能是個掩蓋重要差異的方便標籤。",
+        "convenient 在此可能帶批判意味，表示方便卻過度簡化；複數為 convenient labels。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Middle class",
+        "中產階級",
+        "The term middle class can mean different things to different people.",
+        "中產階級這個詞對不同的人可能有不同意思。",
+        "作名詞為 the middle class；修飾名詞常寫 middle-class，例如 middle-class households。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Coworker",
+        "同事",
+        "I discussed the new policy with a coworker.",
+        "我和一位同事討論了新政策。",
+        "也可拼作 co-worker；與 colleague 意義相近。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Data journalist",
+        "數據記者",
+        "A data journalist uses numbers and reporting to explain social issues.",
+        "數據記者運用數字與採訪來解釋社會議題。",
+        "data journalist 指記者；data journalism 指數據新聞這個領域。",
+        "社會與職場用語",
+        false
+      ]
+    ],
+    "glossary": [
+      [
+        "Best-case scenario",
+        "最理想的情況",
+        "Best-case scenario, we finish testing by Friday.",
+        "最理想的情況是，我們星期五前完成測試。",
+        "用於時程與風險分析；也可說 in the best-case scenario。相對說法為 worst-case scenario。",
+        "優先片語",
+        true
+      ],
+      [
+        "Get granular",
+        "深入細節、細緻分析",
+        "We need to get granular about the project costs.",
+        "我們需要更細緻地分析專案成本。",
+        "get granular about/with something；強調拆解細節，不只看概括數字。",
+        "優先片語",
+        true
+      ],
+      [
+        "Hide behind something",
+        "躲在某事背後、拿某事作掩飾",
+        "We should not hide behind convenient labels.",
+        "我們不應躲在方便套用的標籤背後。",
+        "hide behind + 名詞；比喻用規則、標籤或藉口迴避具體問題。",
+        "優先片語",
+        true
+      ],
+      [
+        "Be open about something",
+        "坦誠談論某件事",
+        "She is open about her financial situation.",
+        "她坦誠談論自己的財務狀況。",
+        "be open about + 名詞／動名詞，強調願意談論，不代表必須公開所有私人資料。",
+        "優先片語",
+        true
+      ],
+      [
+        "What others think of us",
+        "別人對我們的看法",
+        "We often worry about what others think of us.",
+        "我們常常擔心別人對我們的看法。",
+        "think of someone 在此指對某人的評價或印象；整段可當 worry about 的受詞。",
+        "優先片語",
+        true
+      ],
+      [
+        "Where we sit",
+        "我們所處的位置",
+        "The data helps us understand where we sit on the income ladder.",
+        "這些數據幫助我們了解自己在收入階梯上的位置。",
+        "where we sit 可比喻排名、市場定位或社會經濟位置，依上下文理解。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Income ladder",
+        "收入階梯、收入階層",
+        "People at different points on the income ladder face different pressures.",
+        "收入階梯上不同位置的人，面臨不同的壓力。",
+        "on the income ladder；比喻收入排序，不等於一個人的價值或所有資產狀況。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Rather than",
+        "而不是、與其……不如……",
+        "Let’s discuss the details rather than rely on labels.",
+        "我們來討論細節，而不是依賴標籤。",
+        "rather than 連接比較或替代選項，前後盡量維持平行結構。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Convenient label",
+        "方便套用的籠統標籤",
+        "Middle class can be a convenient label that hides important differences.",
+        "中產階級可能是個掩蓋重要差異的方便標籤。",
+        "convenient 在此可能帶批判意味，表示方便卻過度簡化；複數為 convenient labels。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Middle class",
+        "中產階級",
+        "The term middle class can mean different things to different people.",
+        "中產階級這個詞對不同的人可能有不同意思。",
+        "作名詞為 the middle class；修飾名詞常寫 middle-class，例如 middle-class households。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Coworker",
+        "同事",
+        "I discussed the new policy with a coworker.",
+        "我和一位同事討論了新政策。",
+        "也可拼作 co-worker；與 colleague 意義相近。",
+        "社會與職場用語",
+        false
+      ],
+      [
+        "Data journalist",
+        "數據記者",
+        "A data journalist uses numbers and reporting to explain social issues.",
+        "數據記者運用數字與採訪來解釋社會議題。",
+        "data journalist 指記者；data journalism 指數據新聞這個領域。",
+        "社會與職場用語",
+        false
+      ]
+    ],
+    "studyNotes": {
+      "priority": [
+        "Best-case scenario",
+        "Get granular",
+        "Hide behind something",
+        "Be open about something",
+        "What others think of us"
+      ],
+      "comparisons": [
+        [
+          "Get granular／Convenient label",
+          "get granular 是深入具體細節；convenient label 是方便但可能過度簡化的分類。兩者呈現本集從抽象標籤走向具體分析的方向。"
+        ],
+        [
+          "Be open about／Hide behind",
+          "be open about 強調願意坦誠談論；hide behind 可比喻借標籤或藉口迴避。坦誠分享也可以保留個人界線。"
+        ],
+        [
+          "Best-case scenario／Worst-case scenario",
+          "best-case 是最理想的情況；worst-case 是最壞的情況。用來討論可能情境，而非保證一定發生的結果。"
+        ]
+      ],
+      "quiz": []
+    },
+    "html": "<section id=\"episode\" class=\"episode\"><small>THE INDICATOR FROM PLANET MONEY · NPR</small><h2>The Case for Sharing Your Salary</h2><p class=\"episode-meta\">公開薪資的理由：為什麼我們應該更坦誠地討論收入？ · 2026 年 10 月 21 日</p><div class=\"tags\"><span>薪資透明</span><span>收入差距</span><span>社會階級</span></div><blockquote>不只說自己是「中產階級」，也試著理解彼此實際的經濟處境。</blockquote><p class=\"sample-note\">依使用者提供、涵蓋兩段節目內容的學習筆記整理，非整集逐字稿或完整詞彙盤點。標題、日期、人物與書名沿用筆記；本頁未另行核對音訊或 NPR 介紹。Best-case scenario 例句由使用者提供，其餘例句為學習補充，非節目逐字引用。</p><p><a href=\"https://podcasts.apple.com/tw/podcast/the-indicator-from-planet-money/id1320118593?i=1000797339248\" target=\"_blank\" rel=\"noreferrer\">Apple Podcasts 收聽本集 ↗</a></p></section>\n<section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>我們為什麼不願談自己的收入？</h2><p class=\"lead\">依這兩段筆記，人們往往擔心收入高低影響別人對自己的評價，因此以「中產階級」等較模糊的標籤描述自己。</p><div class=\"points\"><div><b>01</b><h3>評價帶來的顧慮</h3><p>What others think of us 描述我們在意的他人眼光，也提供理解收入話題為何敏感的切入點。</p></div><div><b>02</b><h3>標籤之外的差異</h3><p>Middle class 這個 convenient label 可能掩蓋收入與生活處境的差異；需要 get granular 才看得清楚。</p></div><div><b>03</b><h3>更坦誠，也更具體</h3><p>筆記中的 Mona Chalabi 主張與朋友、家人、同事更坦誠討論收入與社會階級，理解彼此在 income ladder 上的位置。</p></div></div><details open><summary>Mona Chalabi 與本集討論</summary><p>依使用者筆記，來賓 Mona Chalabi 是普立茲獎得主與數據記者，本集也談及她的新書 <em>Ten Lives: How What We Have Shapes Who We Are</em>。這裡保留筆記提供的資訊，不將兩段內容延伸為整集立場的完整總結。</p></details><div class=\"episode-conclusion\"><h3>從模糊分類，走向具體分析</h3><p><strong>Get granular</strong> 和 <strong>best-case scenario</strong> 不只適用於社會議題，也能帶到專案時程、風險分析和跨團隊會議。</p><p>Income ladder 描述相對位置，convenient labels 提醒我們分類的限制，be open about 則是練習坦誠溝通的入口。</p></div></section>\n<section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><p class=\"sample-note\">共12張字卡，前5項為優先練習片語；字卡使用筆記中的詞彙與學習例句。</p><div id=\"vocab\"></div></section>\n<section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><p class=\"sample-note\">依兩段學習筆記整理，以下為補充雙語摘要，非節目原話。</p><div class=\"bilingual\"><p>People may avoid discussing their income because they worry about what others think of them.</p><p class=\"zh\">人們可能因為擔心別人對自己的看法，而避免討論收入。</p><p>Convenient labels such as middle class can hide differences in people’s actual economic circumstances.</p><p class=\"zh\">中產階級等方便套用的標籤，可能掩蓋人們實際經濟處境的差異。</p><p>According to these notes, Mona Chalabi encourages more open conversations about income and social class with friends, family and coworkers.</p><p class=\"zh\">依這份筆記，Mona Chalabi 鼓勵人們與朋友、家人和同事更坦誠地討論收入及社會階級。</p><p>Rather than relying on labels, we can get granular and understand where we sit on the income ladder.</p><p class=\"zh\">與其依賴標籤，我們可以深入細節，了解自己在收入階梯上的位置。</p></div><div id=\"episodePractice\"></div></section>"
+  },
+  {
     "id": "movieMarket",
     "title": "Anatomy of a Movie Market",
     "shortTitle": "Movie Market",

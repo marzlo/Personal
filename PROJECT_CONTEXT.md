@@ -216,3 +216,5 @@
 - 三站圖示更新為極簡森林綠剪影搭配淡綠／米色幾何背景：首頁 icons/home/ 書本、Podcast icons/podcast/*-v2 耳機、吉他 guitar-practice/icons/*-v2 吉他。首頁側欄品牌圖亦採用新書本，首頁原圖示檔保留；新路徑避開舊圖示快取。
 
 - Podcast 頁 script/CSS 使用內容雜湊 v 參數防舊快取，修改 podcast-episodes.js、podcast-exercises.js、podcast-learning.js、podcast-navigation.js、podcast-swipe.js 或 podcast-learning.css 時同步更新 podcast.html 該資源的 v（SHA256前12碼）。頁面無 episode query 仍按日期顯示最新集數；campaignSpending 日期10/15故不是預設集數，用 ?episode=campaignSpending 直達。
+
+- Podcast 頁學習範圍預設為「全部集數混合複習」（scope=all），仍可手動切回本集／收藏，不更動收藏、刪除或筆記資料。

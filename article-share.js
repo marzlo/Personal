@@ -36,6 +36,7 @@
   dialog.setAttribute('aria-labelledby', 'shareArticleTitle');
   dialog.innerHTML = `<button type="button" class="share-close" aria-label="關閉並回到拾頁">×</button>
     <div class="share-language" role="group" aria-label="分享視窗語言"><button type="button" data-share-language="zh" lang="zh-Hant">中文</button><span aria-hidden="true">/</span><button type="button" data-share-language="en" lang="en">English</button></div>
+    <img class="share-thumbnail" width="1200" height="630" alt="" hidden>
     <div class="share-kicker"></div><h2 id="shareArticleTitle"></h2><p class="share-meta"></p>
     <div class="share-divider"></div><blockquote class="share-excerpt" data-no-translate hidden></blockquote><p class="share-intro"></p>
     <div class="share-url-area" hidden><label for="shareArticleUrl">文章分享網址</label><input id="shareArticleUrl" readonly></div>
@@ -50,6 +51,7 @@
   const makeUrl = item => {
     const url = new URL('/Personal/share/' + pageId(item.url) + '/', window.location.origin);
     url.searchParams.set('lang', language);
+    url.searchParams.set('v','2-'+(Date.parse(item.updated)||0));
     return url.href;
   };
   function display(item, mode) {
@@ -62,6 +64,9 @@
     dialog.querySelectorAll('[data-share-language]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.shareLanguage === language)));
     find('.share-kicker').textContent = recipient ? t().recipientKicker : t().senderKicker;
     find('#shareArticleTitle').textContent = item?.title || t().missingTitle;
+    const thumbnail=find('.share-thumbnail');
+    thumbnail.hidden=true;thumbnail.onload=()=>{thumbnail.hidden=false};thumbnail.onerror=()=>{thumbnail.hidden=true};
+    if(item){thumbnail.alt=item.title;thumbnail.src='/Personal/share/'+pageId(item.url)+'/cover.png?v=2-'+(Date.parse(item.updated)||0)}else{thumbnail.removeAttribute('src')}
     find('.share-meta').textContent = item ? [item.kind === '含音訊書籍' ? t().audioBook : item.kind, (item.authors || []).join('・') || item.author].filter(Boolean).join(' · ') : '';
     const excerpt = item ? window.ShiyeShareExcerpt(window.ARTICLE_BODIES?.[item.url], item.title) : '';
     find('.share-excerpt').textContent = excerpt;

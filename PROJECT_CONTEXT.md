@@ -219,3 +219,5 @@
 - Podcast 頁 script/CSS 使用內容雜湊 v 參數防舊快取，修改 podcast-episodes.js、podcast-exercises.js、podcast-learning.js、podcast-navigation.js、podcast-swipe.js 或 podcast-learning.css 時同步更新 podcast.html 該資源的 v（SHA256前12碼）。頁面無 episode query 仍按日期顯示最新集數；campaignSpending 日期10/15故不是預設集數，用 ?episode=campaignSpending 直達。
 
 - Podcast 頁學習範圍預設為「全部集數混合複習」（scope=all），仍可手動切回本集／收藏，不更動收藏、刪除或筆記資料。
+
+- iPad 直式閱讀版：tablet-reading.css 僅適用621–1024px且直式，改用頂端段落選單與全寬閱讀（最大960px），保留品牌與Podcast／吉他入口。正文18px、摘句21px、統計30px，文章卡片雙欄，系列深讀內容單欄。手機、橫式與桌面保留既有規則；已檢查768/820/834/1024直式及手機／桌面無橫向溢出。

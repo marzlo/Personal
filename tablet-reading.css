@@ -1,0 +1,54 @@
+/* Give portrait tablets a full-width reading layout and readable type. */
+@media (min-width:621px) and (max-width:1024px) and (orientation:portrait){
+ body{padding-top:70px}
+ .shell{display:block}
+ .sidebar{position:static;height:auto;padding:24px 32px;display:flex;flex-direction:row;align-items:center;flex-wrap:wrap;gap:14px 28px;border-right:0;border-bottom:1px solid var(--line)}
+ .sidebar .brand{font-size:25px;margin-right:auto}
+ .sidebar .brandmark{width:40px;height:40px}
+ .sidebar .subbrand,.sidebar .nav-label,.sidebar .side-bottom,.sidebar .nav{display:none}
+ .sidebar .indicator-entry{font-size:16px;line-height:1.5;min-height:44px;margin:0;padding:10px 0}
+ .mobile-navigation{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;gap:18px;height:70px;padding:10px 32px;background:var(--paper);border-bottom:1px solid var(--line)}
+ .mobile-navigation label{flex:none;font-size:16px;color:var(--muted)}
+ .mobile-navigation select{min-width:0;flex:1;height:48px;padding:10px 14px;border:1px solid #cbd8ce;border-radius:9px;background:var(--white);color:var(--green);font:inherit;font-size:18px}
+ #home,#latestPodcast,#recommendedArticles,#recent,#concepts,#seriesStudy,#archive{scroll-margin-top:90px}
+ .main{max-width:960px;padding:32px 32px 60px}
+ .topline{flex-wrap:wrap;gap:12px;margin-bottom:26px}
+ .eyebrow,.date{font-size:13px;line-height:1.6}
+ h1{font-size:38px;line-height:1.35;letter-spacing:-.025em}
+ .intro{font-size:18px;line-height:1.8}
+ .hero{display:block;padding:26px;margin-block:28px 36px}
+ .hero-kicker{font-size:14px}.hero-title{font-size:23px;line-height:1.6}.hero-note{font-size:17px;line-height:1.8}
+ .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:24px;padding-top:20px;border-top:1px solid #25342d16}
+ .stat{min-width:0}.stat strong{font-size:30px}.stat span{display:block;font-size:15px;line-height:1.6;margin-top:4px}
+ .section-head{gap:16px;flex-wrap:wrap;align-items:flex-start}
+ .section h2{font-size:26px;line-height:1.5}.section-desc,.link,.hint,.empty,.footnote{font-size:15px;line-height:1.8}
+ .podcast-cards,.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+ .podcast-cover{height:180px}.podcast-cover-label{font-size:12px}
+ .podcast-card-body{padding:18px}.podcast-card-body h3{font-size:19px;line-height:1.65;min-height:0}
+ .podcast-card-meta,.podcast-card-date,.recommended-books{font-size:14px;line-height:1.8}.podcast-photo-credit{font-size:12px}
+ .featured-quote blockquote{font-size:21px;line-height:1.95}
+ .featured-quote-meta,.quote-carousel-head{font-size:14px;line-height:1.8}
+ .featured-quote-meta{flex-wrap:wrap;gap:14px}
+ .quote-favorites summary,.quote-search label{font-size:17px}
+ .quote-favorites blockquote,.quote-search blockquote,.quote-search .quote-range-preview{font-size:19px;line-height:1.9}
+ .quote-favorites a,.quote-favorites button,[data-quote-save],.quote-search article a,.quote-search button,.quote-search select,.quote-search [data-search-status]{font-size:16px;line-height:1.6}
+ .quote-search input,.quote-search .quote-range-text{font-size:18px;line-height:1.9}
+ .quote-search h2{font-size:25px}
+ .content-workspace{grid-template-columns:1fr;gap:0}
+ .content-workspace>.concept-workspace{border-left:0;border-top:1px solid var(--line);padding-left:0}
+ .article-row{gap:14px;padding:22px 4px}.article-row h3{font-size:19px;line-height:1.7}.article-row .meta,.article-row-date,.article-row .tag{font-size:14px;line-height:1.7}
+ .article-row-meta{gap:10px}.article-filters{flex-wrap:wrap}
+ .article-filter,.article-more,.indicator-entry{font-size:16px;min-height:44px}
+ .concept-name{font-size:20px}.concept-meta{font-size:15px}.idea-display,.timeline-entry{font-size:18px;line-height:1.9}
+ .concept-workspace .compare-card label,.timeline-entry-date,.timeline-entry a,.related-article-note,.related-passage{font-size:15px;line-height:1.8}
+ .related-article{font-size:17px;line-height:1.8}
+ .concept-workspace button,.concept-workspace input,.concept-workspace select,.concept-workspace textarea{font-size:16px}
+ #seriesStudy{padding:26px}#seriesStudy .study-columns{grid-template-columns:1fr;padding:22px}
+ #seriesStudy .study-panel{padding:0}#seriesStudy .study-panel+.study-panel{border-left:0;border-top:1px solid var(--line);padding:24px 0 0;margin-top:24px}
+ #seriesStudy .study-tabs button,#seriesStudy button,#seriesStudy summary,#seriesStudy label,#seriesStudy .study-group-heading{font-size:16px;line-height:1.7}
+ #seriesStudy .study-intro p,#seriesStudy .study-note p,#seriesStudy .study-article blockquote{font-size:18px;line-height:1.9}
+ #seriesStudy .study-article h4{font-size:19px}#seriesStudy .study-article small{font-size:14px}
+ #seriesStudy input,#seriesStudy textarea,#seriesStudy select{font-size:18px}
+ .cat-title{font-size:18px}.cat-count,.cat-row{font-size:15px;line-height:1.7}
+ .main button,.main select{min-height:44px}
+}

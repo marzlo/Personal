@@ -51,7 +51,7 @@
   const makeUrl = item => {
     const url = new URL('/Personal/share/' + pageId(item.url) + '/', window.location.origin);
     url.searchParams.set('lang', language);
-    url.searchParams.set('v','2-'+(Date.parse(item.updated)||0));
+    url.searchParams.set('v','3-'+(Date.parse(DB.syncedAt||item.updated)||0));
     return url.href;
   };
   function display(item, mode) {
@@ -66,7 +66,7 @@
     find('#shareArticleTitle').textContent = item?.title || t().missingTitle;
     const thumbnail=find('.share-thumbnail');
     thumbnail.hidden=true;thumbnail.onload=()=>{thumbnail.hidden=false};thumbnail.onerror=()=>{thumbnail.hidden=true};
-    if(item){thumbnail.alt=item.title;thumbnail.src='/Personal/share/'+pageId(item.url)+'/cover.png?v=2-'+(Date.parse(item.updated)||0)}else{thumbnail.removeAttribute('src')}
+    if(item){thumbnail.alt=item.title;thumbnail.src='/Personal/share/'+pageId(item.url)+'/cover.png?v=3-'+(Date.parse(DB.syncedAt||item.updated)||0)}else{thumbnail.removeAttribute('src')}
     find('.share-meta').textContent = item ? [item.kind === '含音訊書籍' ? t().audioBook : item.kind, (item.authors || []).join('・') || item.author].filter(Boolean).join(' · ') : '';
     const excerpt = item ? window.ShiyeShareExcerpt(window.ARTICLE_BODIES?.[item.url], item.title) : '';
     find('.share-excerpt').textContent = excerpt;

@@ -1,6 +1,7 @@
 # 拾頁專案接續紀錄
 
 ## Podcast 聽讀筆記（2026-10-13 新版）
+- 加入2026-10-22「Can a “moneyball” system work for campaign funding?」，id campaignMoneyball，依使用者提供的開場與逐段整理，10單字＋14片語共24張字卡、5個優先熟記、雙語摘要與比較；未提供測驗故quiz=[]。保留Oath無正式政黨隸屬與實際合作對象的區別，以及勝選不證明因果、有限效益與制度改革的結論。未提供Apple單集URL，僅標示缺少直達網址並連NPR節目總頁，不虛構網址；例句為補充，使用者的bang for our buck例句保留。
 - 加入使用者提供的 2026-10-21「The Case for Sharing Your Salary」，id sharingSalary，12張字卡、5個優先片語及雙語摘要；Apple單集連結採使用者提供的 i=1000797339248。內容只涵蓋兩段學習筆記，未自行驗證完整音訊或NPR介紹；使用者範例保留，其餘例句標示補充，未提供測驗故 quiz=[]。保持全部集數混合複習預設及既有收藏／筆記。新增集數時更新 podcast.html 內資料檔SHA256版本。
 - 2026-10-20：加入使用者提供的 2026-10-15 The Indicator「How did political campaigns get so expensive?」，id campaignSpending，依日期排序，不取代較新的 movieMarket。34張字卡（原三組30詞＋Wild West、兩個完整重點表達、核心句型）、5個優先熟記與5題測驗；保留使用者例句，補充例句標示非節目原話。內容依筆記，未逐字核對音訊／逐字稿；未提供本集URL，僅連NPR與Apple節目總頁並明示。podcast-exercises.js 的複製按鈕改依實際優先項目數顯示，不再固定15。
 - 字卡的同一單字／片語若出現在兩篇以上 Podcast，在卡片列出全部來源與可切換集數的連結；比對忽略大小寫、重複空白與直／彎單引號。以所有集數字卡資料比對，每集只列一次；來源列表不受目前學習範圍或刪除字卡影響，保留未儲存筆記的切換防護，不變更收藏／刪除／筆記儲存結構。

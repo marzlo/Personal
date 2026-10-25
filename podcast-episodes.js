@@ -1,5 +1,476 @@
 window.PODCAST_EPISODES = [
   {
+    "id": "campaignMoneyball",
+    "title": "Can a “moneyball” system work for campaign funding?",
+    "shortTitle": "Campaign Moneyball",
+    "show": "The Indicator from Planet Money",
+    "date": "2026-10-22",
+    "source": "https://www.npr.org/podcasts/510325/the-indicator-from-planet-money",
+    "teaser": "捐款不只看名氣：數據能否找出每一分錢更有影響力的選戰？",
+    "prompt": "面對有限的時間或金錢，我會用哪些資料判斷投入的效益？哪些成果仍不足以證明因果？",
+    "cards": [
+      [
+        "undervalued",
+        "價值被低估的",
+        "The team looked for undervalued players.",
+        "球隊尋找實力被低估的球員。",
+        "undervalued players/assets；意指市場或他人的評估偏低。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "data analytics",
+        "數據分析",
+        "Data analytics can help us decide where to invest limited resources.",
+        "數據分析能幫助我們決定把有限資源投入何處。",
+        "運用數據進行分析，不代表模型能保證結果。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "fundraising",
+        "募款",
+        "Political fundraising often attracts public attention.",
+        "政治募款經常受到公眾關注。",
+        "fundraising 指募集資金的過程；與 spending（支出）區分。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "donor",
+        "捐款人",
+        "The donor wanted to support a smaller campaign.",
+        "這位捐款人希望支持規模較小的競選活動。",
+        "提供資金的人；常見 political donor。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "fundraiser",
+        "募款人；募款活動",
+        "The fundraiser helped candidates reach new donors.",
+        "這位募款人協助候選人接觸新的捐款人。",
+        "本集語境指募款人；a fundraiser 也可能指募款活動。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "grassroots",
+        "基層的、由一般民眾發起的",
+        "The campaign relies on grassroots donations.",
+        "競選團隊依靠基層民眾的捐款。",
+        "grassroots donations/support；強調由一般民眾發起。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "candidate",
+        "候選人",
+        "An independent candidate focused on local transportation.",
+        "一位無黨籍候選人聚焦地方交通議題。",
+        "independent candidate 是無黨籍候選人；也可指求職者。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "race",
+        "選戰、選舉競爭",
+        "A smaller race may receive less national attention.",
+        "規模較小的選戰可能較少受到全國關注。",
+        "在政治新聞中指選舉競爭，不是種族或賽跑。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "bipartisan",
+        "涉及兩黨的；兩黨共同支持的",
+        "Political fundraising can be a bipartisan problem.",
+        "政治募款可能是兩黨都涉及的問題。",
+        "bipartisan problem 不等於兩黨共同支持這個問題；含義要看搭配。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "status quo",
+        "現狀、既有的運作方式",
+        "Some donors are fed up with the fundraising status quo.",
+        "有些捐款人受夠了既有的募款方式。",
+        "the status quo；常與 maintain、challenge、change 搭配。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "get more bang for your buck",
+        "讓每一分錢發揮更大效益",
+        "We want to get more bang for our buck.",
+        "我們希望讓每一分預算都發揮更大的效益。",
+        "口語表達，適用購物、投資及工作預算；依主詞可改 your 為 our。",
+        "實用片語",
+        true
+      ],
+      [
+        "take a leaf out of someone’s book",
+        "效法某人的做法",
+        "The campaign took a leaf out of the baseball team’s book.",
+        "競選團隊效法了那支棒球隊的做法。",
+        "比喻參考別人的方法，不是實際從書中撕下一頁。",
+        "實用片語",
+        false
+      ],
+      [
+        "think in terms of…",
+        "從……的角度思考",
+        "We should think in terms of impact rather than publicity.",
+        "我們應該從影響力而非宣傳聲量的角度思考。",
+        "think in terms of + 名詞／動名詞，指定分析框架。",
+        "實用片語",
+        false
+      ],
+      [
+        "get fed up with…",
+        "受夠了……",
+        "Donors can get fed up with repeated fundraising messages.",
+        "捐款人可能受夠了反覆出現的募款訊息。",
+        "get/be fed up with + 名詞／動名詞，表示厭煩或不耐。",
+        "實用片語",
+        false
+      ],
+      [
+        "make a difference",
+        "帶來改變、產生影響",
+        "A small donation can make a difference in a close race.",
+        "在勢均力敵的選戰中，小額捐款可能產生影響。",
+        "make a difference to/in something；有影響不等於保證勝選。",
+        "實用片語",
+        true
+      ],
+      [
+        "end up + V-ing",
+        "最後卻……；結果變成……",
+        "He ended up rage donating after watching the debate.",
+        "他看完辯論後，最後變成因憤怒而捐款。",
+        "end up 後可接動名詞，描述最後發展出的結果。",
+        "實用片語",
+        false
+      ],
+      [
+        "rage donating",
+        "憤怒式捐款",
+        "Rage donating may direct money toward highly visible races.",
+        "憤怒式捐款可能讓資金流向高曝光度的選戰。",
+        "依這份筆記，指因政治上的憤怒而衝動捐款。",
+        "實用片語",
+        false
+      ],
+      [
+        "into the abyss",
+        "投入深淵；比喻投入後看不到成果",
+        "The donor felt as if the money had disappeared into the abyss.",
+        "這位捐款人覺得錢彷彿消失在深淵裡。",
+        "abyss 原指深淵；此處是看不到投入成效的比喻。",
+        "實用片語",
+        false
+      ],
+      [
+        "be affiliated with…",
+        "與……有隸屬或正式關聯",
+        "The organization is not formally affiliated with a political party.",
+        "這個組織與政黨沒有正式隸屬關係。",
+        "正式關係與實際支持某些候選人是不同層次的事情。",
+        "實用片語",
+        false
+      ],
+      [
+        "run on an issue",
+        "以某議題作為競選主軸",
+        "The candidate ran on the issue of keeping the local hospital open.",
+        "這位候選人以維持地方醫院營運為競選主軸。",
+        "run 在此指參選；run on + 政策、議題或主張。",
+        "實用片語",
+        true
+      ],
+      [
+        "show up to vote",
+        "出門投票、到場投票",
+        "Local issues can encourage people to show up to vote.",
+        "地方議題可能鼓勵人們出門投票。",
+        "show up 是到場；to vote 說明目的。",
+        "實用片語",
+        false
+      ],
+      [
+        "around the margins",
+        "在有限範圍內、在細微之處",
+        "The strategy may help around the margins.",
+        "這個策略可能在有限範圍內提供幫助。",
+        "保留語氣，描述有限或邊際的影響，並非全面改變。",
+        "實用片語",
+        true
+      ],
+      [
+        "it is fair to say that…",
+        "可以合理地說……",
+        "It is fair to say that more evidence is needed.",
+        "可以合理地說，我們仍需要更多證據。",
+        "用來提出審慎判斷，後接完整子句。",
+        "實用片語",
+        false
+      ],
+      [
+        "the bigger picture",
+        "全局、整體情況",
+        "We should not lose sight of the bigger picture.",
+        "我們不應忽略整體情況。",
+        "the bigger picture 強調全局；不只關注單次選戰或捐款效率。",
+        "實用片語",
+        true
+      ]
+    ],
+    "glossary": [
+      [
+        "undervalued",
+        "價值被低估的",
+        "The team looked for undervalued players.",
+        "球隊尋找實力被低估的球員。",
+        "undervalued players/assets；意指市場或他人的評估偏低。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "data analytics",
+        "數據分析",
+        "Data analytics can help us decide where to invest limited resources.",
+        "數據分析能幫助我們決定把有限資源投入何處。",
+        "運用數據進行分析，不代表模型能保證結果。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "fundraising",
+        "募款",
+        "Political fundraising often attracts public attention.",
+        "政治募款經常受到公眾關注。",
+        "fundraising 指募集資金的過程；與 spending（支出）區分。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "donor",
+        "捐款人",
+        "The donor wanted to support a smaller campaign.",
+        "這位捐款人希望支持規模較小的競選活動。",
+        "提供資金的人；常見 political donor。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "fundraiser",
+        "募款人；募款活動",
+        "The fundraiser helped candidates reach new donors.",
+        "這位募款人協助候選人接觸新的捐款人。",
+        "本集語境指募款人；a fundraiser 也可能指募款活動。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "grassroots",
+        "基層的、由一般民眾發起的",
+        "The campaign relies on grassroots donations.",
+        "競選團隊依靠基層民眾的捐款。",
+        "grassroots donations/support；強調由一般民眾發起。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "candidate",
+        "候選人",
+        "An independent candidate focused on local transportation.",
+        "一位無黨籍候選人聚焦地方交通議題。",
+        "independent candidate 是無黨籍候選人；也可指求職者。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "race",
+        "選戰、選舉競爭",
+        "A smaller race may receive less national attention.",
+        "規模較小的選戰可能較少受到全國關注。",
+        "在政治新聞中指選舉競爭，不是種族或賽跑。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "bipartisan",
+        "涉及兩黨的；兩黨共同支持的",
+        "Political fundraising can be a bipartisan problem.",
+        "政治募款可能是兩黨都涉及的問題。",
+        "bipartisan problem 不等於兩黨共同支持這個問題；含義要看搭配。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "status quo",
+        "現狀、既有的運作方式",
+        "Some donors are fed up with the fundraising status quo.",
+        "有些捐款人受夠了既有的募款方式。",
+        "the status quo；常與 maintain、challenge、change 搭配。",
+        "政治與數據單字",
+        false
+      ],
+      [
+        "get more bang for your buck",
+        "讓每一分錢發揮更大效益",
+        "We want to get more bang for our buck.",
+        "我們希望讓每一分預算都發揮更大的效益。",
+        "口語表達，適用購物、投資及工作預算；依主詞可改 your 為 our。",
+        "實用片語",
+        true
+      ],
+      [
+        "take a leaf out of someone’s book",
+        "效法某人的做法",
+        "The campaign took a leaf out of the baseball team’s book.",
+        "競選團隊效法了那支棒球隊的做法。",
+        "比喻參考別人的方法，不是實際從書中撕下一頁。",
+        "實用片語",
+        false
+      ],
+      [
+        "think in terms of…",
+        "從……的角度思考",
+        "We should think in terms of impact rather than publicity.",
+        "我們應該從影響力而非宣傳聲量的角度思考。",
+        "think in terms of + 名詞／動名詞，指定分析框架。",
+        "實用片語",
+        false
+      ],
+      [
+        "get fed up with…",
+        "受夠了……",
+        "Donors can get fed up with repeated fundraising messages.",
+        "捐款人可能受夠了反覆出現的募款訊息。",
+        "get/be fed up with + 名詞／動名詞，表示厭煩或不耐。",
+        "實用片語",
+        false
+      ],
+      [
+        "make a difference",
+        "帶來改變、產生影響",
+        "A small donation can make a difference in a close race.",
+        "在勢均力敵的選戰中，小額捐款可能產生影響。",
+        "make a difference to/in something；有影響不等於保證勝選。",
+        "實用片語",
+        true
+      ],
+      [
+        "end up + V-ing",
+        "最後卻……；結果變成……",
+        "He ended up rage donating after watching the debate.",
+        "他看完辯論後，最後變成因憤怒而捐款。",
+        "end up 後可接動名詞，描述最後發展出的結果。",
+        "實用片語",
+        false
+      ],
+      [
+        "rage donating",
+        "憤怒式捐款",
+        "Rage donating may direct money toward highly visible races.",
+        "憤怒式捐款可能讓資金流向高曝光度的選戰。",
+        "依這份筆記，指因政治上的憤怒而衝動捐款。",
+        "實用片語",
+        false
+      ],
+      [
+        "into the abyss",
+        "投入深淵；比喻投入後看不到成果",
+        "The donor felt as if the money had disappeared into the abyss.",
+        "這位捐款人覺得錢彷彿消失在深淵裡。",
+        "abyss 原指深淵；此處是看不到投入成效的比喻。",
+        "實用片語",
+        false
+      ],
+      [
+        "be affiliated with…",
+        "與……有隸屬或正式關聯",
+        "The organization is not formally affiliated with a political party.",
+        "這個組織與政黨沒有正式隸屬關係。",
+        "正式關係與實際支持某些候選人是不同層次的事情。",
+        "實用片語",
+        false
+      ],
+      [
+        "run on an issue",
+        "以某議題作為競選主軸",
+        "The candidate ran on the issue of keeping the local hospital open.",
+        "這位候選人以維持地方醫院營運為競選主軸。",
+        "run 在此指參選；run on + 政策、議題或主張。",
+        "實用片語",
+        true
+      ],
+      [
+        "show up to vote",
+        "出門投票、到場投票",
+        "Local issues can encourage people to show up to vote.",
+        "地方議題可能鼓勵人們出門投票。",
+        "show up 是到場；to vote 說明目的。",
+        "實用片語",
+        false
+      ],
+      [
+        "around the margins",
+        "在有限範圍內、在細微之處",
+        "The strategy may help around the margins.",
+        "這個策略可能在有限範圍內提供幫助。",
+        "保留語氣，描述有限或邊際的影響，並非全面改變。",
+        "實用片語",
+        true
+      ],
+      [
+        "it is fair to say that…",
+        "可以合理地說……",
+        "It is fair to say that more evidence is needed.",
+        "可以合理地說，我們仍需要更多證據。",
+        "用來提出審慎判斷，後接完整子句。",
+        "實用片語",
+        false
+      ],
+      [
+        "the bigger picture",
+        "全局、整體情況",
+        "We should not lose sight of the bigger picture.",
+        "我們不應忽略整體情況。",
+        "the bigger picture 強調全局；不只關注單次選戰或捐款效率。",
+        "實用片語",
+        true
+      ]
+    ],
+    "studyNotes": {
+      "priority": [
+        "get more bang for your buck",
+        "make a difference",
+        "run on an issue",
+        "around the margins",
+        "the bigger picture"
+      ],
+      "comparisons": [
+        [
+          "Donor／Fundraiser／Fundraising",
+          "donor 是捐款人；fundraiser 可指募款人或募款活動，本集指人；fundraising 是募款過程。"
+        ],
+        [
+          "Be affiliated with／Support",
+          "與政黨沒有正式隸屬關係，不等於不支持該黨候選人；組織關係與支持對象要分開看。"
+        ],
+        [
+          "Make a difference／Prove causation",
+          "捐款可能有幫助，但候選人勝出並不足以證明捐款或數據分析造成勝選；需要更多證據來判斷因果。"
+        ]
+      ],
+      "quiz": []
+    },
+    "html": "<section id=\"episode\" class=\"episode\"><small>THE INDICATOR FROM PLANET MONEY · NPR</small><h2>Can a “moneyball” system work for campaign funding?</h2><p class=\"episode-meta\">「魔球」策略能用來分配競選資金嗎？ · 2026 年 10 月 22 日</p><div class=\"tags\"><span>政治捐款</span><span>數據分析</span><span>地方選舉</span></div><blockquote>同樣一筆錢，投入哪一場選舉，最有機會產生實際影響？</blockquote><p class=\"sample-note\">依使用者提供的開場與逐段整理編寫，日期及內容沿用筆記，未另行核對完整音訊或逐字稿。字卡例句為學習補充，非節目逐字引用；We want to get more bang for our buck. 為使用者提供的例句。</p><p class=\"sample-note\">尚未提供本集 Apple Podcasts 完整網址；<a href=\"https://www.npr.org/podcasts/510325/the-indicator-from-planet-money\" target=\"_blank\" rel=\"noreferrer\">NPR 節目總頁 ↗</a>。</p></section>\n<section id=\"understanding\" class=\"reading\"><small>01 / UNDERSTAND</small><h2>不只捐得多，也要問錢花在哪裡。</h2><p class=\"lead\">《魔球》的思維是用數據找出被低估的球員，以有限預算換取更多勝場。本集筆記將這個問題帶到政治捐款：如何讓有限的資金產生更大的影響？</p><details open><summary>憤怒能促成捐款，未必帶來成效</summary><p>Rage donating 指因政治憤怒而衝動捐款。資金可能因此集中在知名度高、媒體關注多的選戰；但熱門選戰不一定最缺錢，額外捐款也未必改變結果。筆記中的 into the abyss，是捐款人形容看不到投入成果的比喻。</p></details><details open><summary>Oath 想找出較少人注意的選戰</summary><p>依使用者整理，新創公司 Oath 透過數據分析，協助捐款人尋找規模較小、較不知名，但資金可能更能發揮作用的選舉。它與民主黨沒有正式隸屬關係，主要與民主黨及無黨籍候選人合作。</p><p>重點不是只看候選人的名氣，而是評估這筆新增捐款能增加多少實際效益。</p></details><details open><summary>地方議題可能更能促成投票</summary><p>當地醫院關閉、交通問題或資料中心設置，可能比全國政治爭論更貼近部分選民的生活。州議員候選人以這些議題參選，可能促使原本缺乏投票意願的人 show up to vote。</p></details><details open><summary>初步成效，不等於因果證明</summary><p>部分捐款人與募款人表示，Oath 幫助他們把錢投入較小的選戰，而支持的候選人也勝出。但候選人勝選，不足以證明是 Oath 的分析或捐款造成勝選；筆記保留地說，這個做法似乎能在有限範圍內提供一些幫助。</p></details><div class=\"episode-conclusion\"><h3>效率之外，仍要看全局</h3><p>依筆記，政治金錢是兩黨都涉及的問題。提高捐款效率之外，還需要思考更全面的制度改革。</p><p><strong>We want to get more bang for our buck.</strong><br>我們希望讓每一分預算都發揮更大的效益。</p></div></section>\n<section id=\"vocabulary\" class=\"reading\"><small>02 / KEEP THE WORDS</small><h2>值得帶走的英文</h2><p class=\"sample-note\">10 個單字與14個片語，共24張字卡。保留使用者提供的意思與用法，另補充完整例句。</p><div id=\"vocab\"></div></section>\n<section id=\"summary\" class=\"reading\"><small>03 / READ IT AGAIN</small><div class=\"section-top\"><h2>用英文，再理解一次。</h2><button id=\"toggleSummary\">隱藏中文</button></div><p class=\"sample-note\">以下為依筆記整理的雙語摘要，非節目逐字稿。</p><div class=\"bilingual\"><p>A moneyball approach uses data to look for undervalued opportunities and make a limited budget go further.</p><p class=\"zh\">魔球式思維透過數據尋找被低估的機會，讓有限預算發揮更大效益。</p><p>Rage donating can send money toward highly visible races, even when extra funding may have little effect.</p><p class=\"zh\">憤怒式捐款可能讓錢流向高曝光度的選戰，即使額外資金的影響可能有限。</p><p>According to these notes, Oath helps donors identify smaller races where their money may make more of a difference.</p><p class=\"zh\">依這份筆記，Oath 協助捐款人找出資金可能更有影響力的小型選戰。</p><p>Winning candidates do not prove that the donations caused their victories. The bigger picture still includes political finance reform.</p><p class=\"zh\">候選人勝出不能證明捐款造成勝選；整體問題仍包含政治資金制度改革。</p></div><div id=\"episodePractice\"></div></section>"
+  },
+  {
     "id": "sharingSalary",
     "title": "The Case for Sharing Your Salary",
     "shortTitle": "Sharing Your Salary",

@@ -5,10 +5,10 @@ const groups=[
  ['G6(no3)',[null,null,5,7,5,null],'G6(no3)','省略三音 B，保留六音 E。'],
  ['G♭5(add6)',[null,null,5,6,5,null],'G(add6,♭5,no3)','G 為根音，降低五音；不是 G♭ 和弦。'],
  ['D',[null,null,7,7,7,null],'D/A','回到第一個 D 按法。']]},
- {title:'第二組 · 第 10–14 品',items:[
+ {title:'第二組 · 第 9–14 品',items:[
  ['D',[null,null,7,7,7,null],'D/A','沿用兩組之間的 D，作為這組起點。'],
- ['A6(no3)',[null,12,14,14,null,null],'A5','實際為 A–E–A；沒有六音 F♯。'],
- ['G6(no3)',[null,10,12,12,null,null],'G5','實際為 G–D–G；沒有六音 E。'],
+ ['A6(no3)',[null,12,14,11,null,null],'A6(no3)','A–E–F♯；省略三音 C♯，保留六音 F♯。'],
+ ['G6(no3)',[null,10,12,9,null,null],'G6(no3)','G–D–E；省略三音 B，保留六音 E。'],
  ['G♭5(add6)',[null,10,11,12,null,null],'G(♭5,no3)','實際為 G–C♯–G；沒有六音 E。'],
  ['D',[10,null,11,11,10,null],'Dmaj7','實際為 D–C♯–F♯–A；含大七音 C♯。']]}
 ];

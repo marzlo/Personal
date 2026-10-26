@@ -12,3 +12,16 @@ body>.shell{position:relative;z-index:1}.main{background:linear-gradient(to bott
 
 .scene-opening{height:clamp(240px,42vw,460px);margin:0 0 30px;pointer-events:none}
 @media print{.scene-opening{display:none}}
+
+/* Generated still scenes use gentle camera/light motion; rain is exclusive to rain-window. */
+.ambience-backdrop[data-effect]:not([data-effect="rain"]):before{content:'';position:absolute;inset:-2%;background:var(--ambience-image) center/cover;animation:ambient-drift 26s ease-in-out infinite alternate;will-change:transform}
+.ambience-backdrop[data-effect="leaves"]:before{animation-name:ambient-leaves;animation-duration:18s}
+.ambience-backdrop[data-effect="coast"]:before{animation-name:ambient-coast;animation-duration:24s}
+.ambience-backdrop[data-effect="night"]:before{animation-name:ambient-night;animation-duration:20s}
+body[data-ambience-paused] .ambience-backdrop:before{animation-play-state:paused!important}
+.ambient-credit[hidden]{display:none}
+@keyframes ambient-drift{from{transform:scale(1) translateX(-.4%);filter:brightness(.98)}to{transform:scale(1.025) translateX(.4%);filter:brightness(1.04)}}
+@keyframes ambient-leaves{from{transform:scale(1.015) translate(-.3%,.2%);filter:brightness(.98)}to{transform:scale(1.03) translate(.3%,-.2%);filter:brightness(1.05)}}
+@keyframes ambient-coast{from{transform:scale(1.01) translateX(-.5%)}to{transform:scale(1.025) translateX(.5%)}}
+@keyframes ambient-night{from{transform:scale(1.01);filter:brightness(.96)}to{transform:scale(1.035);filter:brightness(1.04)}}
+@media(prefers-reduced-motion:reduce){.ambience-backdrop:before{animation:none!important;will-change:auto!important}}

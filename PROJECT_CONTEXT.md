@@ -240,3 +240,5 @@
 - 首頁場景轉場：同一fixed WebGL層在頂端定位到原子小圖下方的清晰封面位置，隨捲動連續擴展至整個viewport並淡化，米白閱讀層保留背景可見度；回頂還原，不是兩張互不相關的圖片。新增都市咖啡窗景city-cafe壓縮圖，與rain-window輪換。scripts/ambience-scenes.mjs集中定義，Notion成功產生新snapshot時寫入下一個ambienceScene；舊snapshot預設rain-window，同次資料重新整理保持不變。未在本機執行實際Notion同步，已測試輪換函式及模擬新版snapshot的選圖。
 
 - 原子小圖移入品牌導覽區：平板直式置於拾頁品牌與Podcast／吉他入口之間，手機品牌右側、桌面側欄品牌下方。移除米色底板改透明，原子核放大1.8倍並提高軌道對比；動畫與暫停行為保留。
+
+- 背景動態修正：轉場完成後背景仍留在viewport，移除依progress<1停止雨效的條件；維持使用者暫停、分頁隱藏、減少動態及省流量控制，以及原20fps／60萬像素上限。

@@ -230,3 +230,5 @@
 - 首頁新增雨窗街景動態：assets/ambience/ 為使用者確認的生成圖壓縮版（小圖約59KB／大圖151KB），ambience.css/js 在主內容後低優先載入圖片，頂部呈現場景與18條CSS雨滴、緩慢光影；捲動時固定背景透明度由0.9降至0.16並增加米白遮罩。文字閱讀層維持高對比，提供暫停／播放，頁面隱藏會暫停，prefers-reduced-motion使用靜態，saveData預設暫停。只套首頁；目前只有一個雨窗場景，尚無多場景隨同步輪換。已驗證手機／直式iPad／桌面、捲動淡化、暫停與減少動態。
 
 - 首頁雨效改用Lively作者 Rainy Window 的原始rain.frag（rocksdanister/rain threejs分支55d90619c2ba0cfc68c81f6b39f8d2dc64e8072b），保留rocksdanister／BigWings署名及CC BY-NC-SA 3.0授權於assets/ambience/rain/NOTICE.txt與畫面來源連結。未採原桌布照片或Icons8圖示。rain-renderer.js為原生WebGL接合層，同樣CC BY-NC-SA，無three.js額外依賴，保留原選定街景、折射雨滴、關閉閃電／多重模糊；最大1000px渲染寬、20fps上限。首內容後才載入、離開視窗／捲離場景停止、減少動態／省流量預設靜態、WebGL失敗回退靜態。後續生活場景不限定雨景，目前先替換此版本。
+
+- 背景呈現修正：移除頂部獨立ambient-window圖片區，WebGL直接掛在整個viewport的fixed背景，內容層在前方；以捲動距離調整背景透明度／米白遮罩與閱讀層透明度，回頂恢復。暫停及來源移到右下角。捲超過首屏停止雨效，回頂恢復；全屏渲染限制60萬像素、20fps。手機／iPad／桌面已驗證背景不隨內容移動、淡化與回復、48項測試通過。

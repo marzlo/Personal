@@ -23,11 +23,11 @@ export async function createRainRenderer(host,image){
   for(const [name,value] of Object.entries({u_blur_iterations:1,u_panning:0,u_post_processing:0,u_lightning:0,u_texture_fill:1}))gl.uniform1i(uniform(name),value);
   const resolution=uniform('u_resolution'),clock=uniform('u_time');
   function draw(){if(disposed||gl.isContextLost())return;gl.uniform1f(clock,time);gl.drawArrays(gl.TRIANGLES,0,6)}
-  function resize(){const box=host.getBoundingClientRect(),scale=Math.min(1,1000/Math.max(1,box.width));canvas.width=Math.max(1,Math.round(box.width*scale));canvas.height=Math.max(1,Math.round(box.height*scale));gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(resolution,canvas.width,canvas.height);draw()}
+  function resize(){const box=host.getBoundingClientRect(),scale=Math.min(1,1000/Math.max(1,box.width),Math.sqrt(600000/Math.max(1,box.width*box.height)));canvas.width=Math.max(1,Math.round(box.width*scale));canvas.height=Math.max(1,Math.round(box.height*scale));gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(resolution,canvas.width,canvas.height);draw()}
   function tick(now){if(!running||disposed)return;if(!last)last=now;if(now-last>=50){time+=Math.min((now-last)/1000,.1);last=now;draw()}frame=requestAnimationFrame(tick)}
   host.prepend(canvas);observer=new ResizeObserver(resize);observer.observe(host);resize();ready=true;
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();cleanup();host.dataset.rain='fallback';host.dispatchEvent(new Event('ambience-fallback'))});
   host.dataset.rain='ready';
-  return {setRunning(value){if(disposed)return;running=value;cancelAnimationFrame(frame);last=0;if(running&&ready)frame=requestAnimationFrame(tick);host.dataset.rainPlaying=String(running)},dispose:cleanup};
+  return {setRunning(value){if(disposed||running===value)return;running=value;cancelAnimationFrame(frame);last=0;if(running&&ready)frame=requestAnimationFrame(tick);host.dataset.rainPlaying=String(running)},dispose:cleanup};
  }catch{cleanup();host.dataset.rain='fallback';return null}
 }

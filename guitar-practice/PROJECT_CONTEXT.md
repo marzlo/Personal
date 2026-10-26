@@ -63,3 +63,10 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 每段自由輸入和弦或級數（僅記法標示，不自動轉換或移調），多選和聲概念、記錄編曲／練習安排。新歌預設四段且不預填實際歌曲。
 - 獨立localStorage鍵fret.bandSetlist.v1，自動儲存，不改原吉他或拾頁資料。不跨裝置同步。JSON匯出與驗證後匯入副本（保留目前歌單），原資料無法解析時停止寫入並可匯出原始備份；儲存失敗警示且離開頁面提醒，仍可匯出當前內容。
 - 瀏覽器驗證tests/setlist-browser.cjs（Playwright、SETLIST_URL指定本機網址）：新增／編輯／概念勾選／段落排序／重新載入／匯入匯出／無效資料保護、既有storage不變與390/820/1440排版；原harmony/package測試亦通過。
+
+## 歌單段落和弦編輯器
+- 歌單與歌曲內容改為上下全寬；和弦種類與指板亦上下排列，避免平板左右窄欄。
+- 新增section-harmony.mjs與harmony-data.mjs，沿用src/harmony.html的4調式、21和弦種類、42個按法及William Vinci / Chord Blueprint參照；測試核對兩份理論資料一致，非替換原級數工具。
+- 每個段落可建立獨立harmony={key,mode,inputMode,active,chords:[{root,quality,shape}]}；按音名或級數新增／移除根音，點進行卡選種類與五／六弦根音圖。每個和弦保留自己的種類與位置，切換時不重設；調內／調外分類保留。
+- 級數模式換調移調根音並保留級數，音名模式保持絕對根音；和弦種類保持不變並重新標示調外音。按法組成音、省略音、音名圓點、作者參照皆顯示。所有改動自動儲存，另提供「儲存這段和弦」確認。
+- 沿用fret.bandSetlist.v1且harmony為可選欄位，原文字進行／idea／段落筆記不改，舊備份仍可讀，新備份含和弦按法。原文字不自動解析或被新編輯器覆寫。tests/section-harmony.mjs驗證504圖與原資料一致；section-harmony-browser.cjs驗證按音名／級數、選種類位置、換調、跨和弦保留、段落獨立、重新載入／匯入與390/820/1440上下全寬。

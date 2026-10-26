@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 
 base=Path(__file__).parent
-navigation=(base/'navigation.html').read_text(encoding='utf-8')
+navigation=(base/'navigation.html').read_text(encoding='utf-8').rstrip()
 for name in ['index.html','library.html','studio.html','fingering-notes.html','setlist.html']:
     file=base/name
     nav=navigation.replace('href="'+name+'">','href="'+name+'" aria-current="page">')

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f2ebdf"><title>原子軌道 · 動態預覽｜拾頁</title>
+<style>
+:root{color-scheme:light;--paper:#f2ebdf;--ink:#35594d;--muted:#7c8173}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,"Microsoft JhengHei",sans-serif}main{min-height:100svh;display:grid;place-items:center;padding:60px 20px 100px}.atom{display:block;width:min(82vw,720px);height:auto;overflow:visible}.orbit{fill:none;stroke:#899c893f;stroke-width:1.2;vector-effect:non-scaling-stroke}.electron{fill:#4b756b;stroke:#f2ebdf;stroke-width:3}.electron-gold{fill:#b58d56}.nucleus-green{fill:#708c78}.nucleus-gold{fill:#c3a279}.nucleus-light{fill:#9bad90}header{position:absolute;inset:26px 30px auto;display:flex;justify-content:space-between;gap:20px;font-size:13px}a{color:inherit;text-decoration:none}footer{position:fixed;inset:auto 20px 25px;text-align:center}.caption{font-size:11px;letter-spacing:.18em;color:var(--muted);margin:0 0 16px}button{font:inherit;font-size:13px;color:var(--ink);background:#ffffff50;border:1px solid #35594d33;border-radius:99px;min-height:44px;padding:10px 22px;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:5px}button:disabled{cursor:default;opacity:.65}@media(max-width:620px){header{inset:22px 20px auto}.atom{width:94vw}main{padding-inline:0}}@media print{header,footer{display:none}}
+</style>
+</head>
+<body>
+<header><span>拾頁 · 動態背景試作</span><a href="./">回到拾頁 ↗</a></header>
+<main>
+<svg class="atom" viewBox="0 0 720 600" role="img" aria-labelledby="atomTitle atomDescription">
+<title id="atomTitle">電子沿軌道繞行的極簡原子動畫</title><desc id="atomDescription">米色背景，三條灰綠色橢圓軌道交會於中央原子核，三個電子緩慢繞行。這是視覺化示意。</desc>
+<defs><path id="orbitPath" d="M 110 300 a 250 94 0 1 0 500 0 a 250 94 0 1 0 -500 0"/></defs>
+<g transform="rotate(-58 360 300)"><use class="orbit" href="#orbitPath"/><circle class="electron" r="9"><animateMotion dur="13s" begin="-2s" repeatCount="indefinite"><mpath href="#orbitPath"/></animateMotion></circle></g>
+<g transform="rotate(58 360 300)"><use class="orbit" href="#orbitPath"/><circle class="electron electron-gold" r="8"><animateMotion dur="17s" begin="-9s" repeatCount="indefinite"><mpath href="#orbitPath"/></animateMotion></circle></g>
+<g transform="rotate(0 360 300)"><use class="orbit" href="#orbitPath"/><circle class="electron" r="8"><animateMotion dur="21s" begin="-15s" repeatCount="indefinite"><mpath href="#orbitPath"/></animateMotion></circle></g>
+<g stroke="#f2ebdf" stroke-width="1.5">
+<circle class="nucleus-light" cx="349" cy="287" r="14"/><circle class="nucleus-gold" cx="372" cy="288" r="14"/><circle class="nucleus-green" cx="340" cy="306" r="14"/><circle class="nucleus-light" cx="379" cy="309" r="14"/><circle class="nucleus-gold" cx="359" cy="319" r="14"/><circle class="nucleus-green" cx="359" cy="300" r="15"/>
+</g>
+</svg>
+</main>
+<footer><p class="caption">慢一點，讓想法繼續運行。</p><button type="button" aria-pressed="false">暫停動畫</button></footer>
+<script>
+(()=>{const svg=document.querySelector('svg'),button=document.querySelector('button'),reduce=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduce.matches;function update(){const stopped=paused||document.hidden||reduce.matches;if(stopped)svg.pauseAnimations();else svg.unpauseAnimations();button.disabled=reduce.matches;button.textContent=reduce.matches?'已減少動態':paused?'播放動畫':'暫停動畫';button.setAttribute('aria-pressed',String(paused||reduce.matches))}button.onclick=()=>{paused=!paused;update()};document.addEventListener('visibilitychange',update);reduce.addEventListener('change',()=>{paused=reduce.matches;update()});update()})();
+</script>
+</body></html>

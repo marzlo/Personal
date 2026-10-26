@@ -232,3 +232,5 @@
 - 首頁雨效改用Lively作者 Rainy Window 的原始rain.frag（rocksdanister/rain threejs分支55d90619c2ba0cfc68c81f6b39f8d2dc64e8072b），保留rocksdanister／BigWings署名及CC BY-NC-SA 3.0授權於assets/ambience/rain/NOTICE.txt與畫面來源連結。未採原桌布照片或Icons8圖示。rain-renderer.js為原生WebGL接合層，同樣CC BY-NC-SA，無three.js額外依賴，保留原選定街景、折射雨滴、關閉閃電／多重模糊；最大1000px渲染寬、20fps上限。首內容後才載入、離開視窗／捲離場景停止、減少動態／省流量預設靜態、WebGL失敗回退靜態。後續生活場景不限定雨景，目前先替換此版本。
 
 - 背景呈現修正：移除頂部獨立ambient-window圖片區，WebGL直接掛在整個viewport的fixed背景，內容層在前方；以捲動距離調整背景透明度／米白遮罩與閱讀層透明度，回頂恢復。暫停及來源移到右下角。捲超過首屏停止雨效，回頂恢復；全屏渲染限制60萬像素、20fps。手機／iPad／桌面已驗證背景不隨內容移動、淡化與回復、48項測試通過。
+
+- 新增atom-preview.html獨立預覽：米色底、三條細橢圓軌道、中央原子核與3顆電子的SVG動畫（13／17／21秒），提供暫停與減少動態支援，無外部資源；為視覺示意而非電子實際軌跡模型。目前只提供獨立預覽，尚未取代首頁雨景。

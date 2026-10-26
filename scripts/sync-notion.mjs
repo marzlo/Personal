@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { nextAmbienceScene } from "./ambience-scenes.mjs";
 import { refreshPodcastCovers } from "./podcast-covers.mjs";
 import { selectQuoteCards, buildQuoteCandidates } from "./quote-cards.mjs";
 import { pathToFileURL } from "node:url";
@@ -236,6 +237,7 @@ const featuredQuote = featuredQuotes[0] || null;
 let latestPodcastCovers = previousSnapshot.latestPodcastCovers || [];
 try { latestPodcastCovers = await refreshPodcastCovers(latestPodcastCovers); } catch(error) { console.warn('Keeping previous cover photos: '+error.message); }
 const snapshot = {
+  ambienceScene: nextAmbienceScene(previousSnapshot.ambienceScene),
   latestPodcastCovers,
   updatedAt: new Date().toISOString().slice(0, 10),
   syncedAt: new Date().toISOString(),

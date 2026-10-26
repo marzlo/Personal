@@ -42,3 +42,22 @@ body[data-ambience-paused] .ambient-motion i{animation-play-state:paused!importa
 @keyframes ambient-water{from{transform:translate(-1%,-3%);opacity:.3}to{transform:translate(1%,3%);opacity:.7}}
 @keyframes ambient-traffic{0%{transform:translate(0,0) scaleX(.1) rotate(10deg);opacity:0}20%{opacity:.8}80%{opacity:.6}100%{transform:translate(170%,85px) scaleX(1.3) rotate(10deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){.ambient-motion{display:none}.ambient-motion i{animation:none!important}}
+
+/* Window-shaped sunshine and independently swaying foliage shadows. */
+[data-scene="reading-room"] .ambient-motion i:first-child{inset:-4%;background:linear-gradient(115deg,transparent 20%,#fff5ca66 38%,#ffe8ab33 53%,transparent 73%);clip-path:polygon(0 0,49% 0,100% 82%,57% 100%,0 56%);animation:room-sunlight 14s ease-in-out infinite alternate}
+[data-scene="reading-room"] .ambient-motion i:nth-child(2){display:block;left:38%;top:22%;width:66%;height:77%;background:linear-gradient(112deg,transparent 30%,#654a242b 31% 33%,transparent 34% 60%,#654a2424 61% 63%,transparent 64%);animation:room-window-shadow 19s ease-in-out infinite alternate}
+[data-scene="reading-room"] .ambient-motion i:nth-child(3){display:block;left:53%;right:-8%;top:2%;height:67%;background:radial-gradient(ellipse at 38% 24%,#33452333 0 4%,transparent 7%),radial-gradient(ellipse at 57% 40%,#33452333 0 5%,transparent 9%),radial-gradient(ellipse at 74% 25%,#3345232b 0 4%,transparent 8%),radial-gradient(ellipse at 46% 59%,#33452329 0 6%,transparent 10%);animation:room-leaf-shadow 6s ease-in-out infinite alternate}
+[data-effect="leaves"] .ambient-motion i:nth-child(2),[data-effect="leaves"] .ambient-motion i:nth-child(3){display:block;inset:-12%;background:radial-gradient(ellipse at 20% 30%,#1c392a38 0 3%,transparent 6%),radial-gradient(ellipse at 55% 70%,#1c392a33 0 4%,transparent 8%),radial-gradient(ellipse at 75% 35%,#1c392a33 0 5%,transparent 9%);background-size:37% 44%;animation:room-leaf-shadow 5s ease-in-out infinite alternate;opacity:.55}
+[data-effect="leaves"] .ambient-motion i:nth-child(3){background-size:51% 63%;animation-duration:8s;animation-delay:-3s;opacity:.4}
+[data-scene="city-cafe"] .ambient-motion i:first-child{display:block;left:0;top:20%;width:46%;height:80%;background:radial-gradient(ellipse at 25% 60%,#ffd38f52,transparent 68%);animation:cafe-warmth 9s ease-in-out infinite alternate}
+.ambient-grass{display:none}
+[data-effect="coast"] .ambient-grass{display:block;position:absolute;bottom:-10px;left:0;width:47%;height:140px;opacity:.55;mask-image:linear-gradient(to top,#000 65%,transparent)}
+.ambient-grass b{position:absolute;bottom:0;left:calc(var(--blade)*6.4%);width:9px;height:var(--height);border-left:3px solid #71734c;border-radius:90% 0 0 0;transform-origin:50% 100%;animation:coastal-grass 4s ease-in-out infinite alternate;animation-delay:calc(var(--blade)*-.23s)}
+.ambient-grass b:nth-child(3n){border-color:#b3a36d;animation-duration:5.3s}
+body[data-ambience-paused] .ambient-grass b{animation-play-state:paused!important}
+@keyframes room-sunlight{from{transform:translate(-2%,-1%);opacity:.45}to{transform:translate(3%,1%);opacity:.9}}
+@keyframes room-window-shadow{from{transform:translate(-2%,0);opacity:.45}to{transform:translate(2%,1%);opacity:.75}}
+@keyframes room-leaf-shadow{from{transform:translate(-1.2%,-.6%) rotate(-1deg)}to{transform:translate(1.2%,.6%) rotate(1deg)}}
+@keyframes cafe-warmth{from{opacity:.3}to{opacity:.75}}
+@keyframes coastal-grass{from{transform:rotate(calc(var(--lean) - 9deg)) skewX(-3deg)}to{transform:rotate(calc(var(--lean) + 12deg)) skewX(3deg)}}
+@media(prefers-reduced-motion:reduce){.ambient-grass b{animation:none!important}}

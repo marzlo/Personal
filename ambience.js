@@ -3,7 +3,8 @@
  const reduce=matchMedia('(prefers-reduced-motion: reduce)'),button=document.querySelector('.ambient-toggle');
  let paused=reduce.matches||Boolean(navigator.connection?.saveData),frame=0;
  const opening=document.querySelector('.scene-opening');
- const motion=document.createElement('div');motion.className='ambient-motion';motion.innerHTML='<i></i><i></i><i></i>';windowElement.append(motion);
+ const motion=document.createElement('div');motion.className='ambient-motion';motion.innerHTML='<i></i><i></i><i></i><div class="ambient-grass"></div>';
+ const grass=motion.querySelector('.ambient-grass');for(let n=0;n<16;n++){const blade=document.createElement('b');blade.style.setProperty('--blade',n);blade.style.setProperty('--height',(44+(n*29)%76)+'px');blade.style.setProperty('--lean',(-16+(n*13)%30)+'deg');grass.append(blade)}windowElement.append(motion);
  let renderer=null,artwork,rainLoading=false,artworkRequest=0,effect='rain';
  const sceneButton=document.createElement('button');sceneButton.type='button';sceneButton.className='ambient-toggle ambient-scene';sceneButton.disabled=true;sceneButton.textContent='載入場景';document.querySelector('.ambient-controls').prepend(sceneButton);
  const credit=document.createElement('a');credit.className='ambient-credit';credit.href='./assets/ambience/rain/NOTICE.txt';credit.target='_blank';credit.rel='noopener';credit.textContent='雨效：rocksdanister / BigWings';credit.title='CC BY-NC-SA 3.0 · 非商業使用';document.querySelector('.ambient-controls').append(credit);

@@ -10,13 +10,12 @@
 
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-v2.png"><link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-v2.png"><meta name="apple-mobile-web-app-title" content="指間"><meta property="og:image" content="https://marzlo.github.io/Personal/guitar-practice/icons/cover-v2.webp"><meta name="twitter:card" content="summary_large_image"></head>
 <body>
-<nav aria-label="指間功能" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;max-width:1100px;margin:14px auto;padding:10px 20px;font:14px/1.6 system-ui;background:Canvas;color:CanvasText">
-  <img src="icons/apple-touch-icon-v2.png" width="48" height="48" alt="指間吉他封面" style="border-radius:10px">
-  <a href="index.html" style="color:inherit">級數配和弦</a>
-  <a href="library.html" style="color:inherit">和弦指型庫</a>
-  <a href="studio.html" style="color:inherit">音階探索草圖</a>
-  <a href="fingering-notes.html" style="color:inherit">我的指板筆記</a>
-</nav>
+<style data-guitar-navigation>
+.guitar-nav{--nav-ink:#263f33;--nav-muted:#66796c;display:flex;align-items:center;gap:28px;max-width:1200px;margin:0 auto;padding:18px 24px;border-bottom:1px solid #dce3d8;font:14px/1.5 system-ui,sans-serif;color:var(--nav-ink);background:#f5f4ef}.guitar-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex:none;font-size:19px;font-weight:750;letter-spacing:.06em}.guitar-brand img{width:42px;height:42px;border-radius:12px}.guitar-brand small{display:block;font-size:9px;font-weight:500;letter-spacing:.16em;color:var(--nav-muted)}.guitar-tabs{display:flex;gap:5px;overflow-x:auto;min-width:0;padding:5px 0;scrollbar-width:thin}.guitar-tabs a{flex:none;display:flex;align-items:center;min-height:42px;padding:9px 13px;border-radius:10px;text-decoration:none;color:var(--nav-muted);white-space:nowrap}.guitar-tabs a:hover{background:#e7ece3;color:var(--nav-ink)}.guitar-tabs a[aria-current="page"]{background:#315c43;color:#fffefa;font-weight:650}.guitar-nav a:focus-visible{outline:3px solid #ad925c;outline-offset:2px}@media(max-width:760px){.guitar-nav{display:block;padding:14px 18px 8px}.guitar-brand{font-size:18px;margin-bottom:8px}.guitar-brand img{width:34px;height:34px}.guitar-brand small{display:inline;margin-left:8px}.guitar-tabs{margin-right:-18px;padding-right:18px}.guitar-tabs a{padding:9px 12px;font-size:13px}}@media(prefers-color-scheme:dark){html[data-visualize-standalone] .guitar-nav{background:#18231d;border-color:#354338;--nav-ink:#e0e9dc;--nav-muted:#afbfaf}html[data-visualize-standalone] .guitar-tabs a:hover{background:#293b2e}}
+</style>
+<nav class="guitar-nav" aria-label="指間功能"><a class="guitar-brand" href="index.html"><img src="icons/apple-touch-icon-v2.png" width="42" height="42" alt=""><span>指間<small>FRET / PRACTICE</small></span></a><div class="guitar-tabs"><a href="index.html">級數配和弦</a><a href="library.html" aria-current="page">和弦指型庫</a><a href="fingering-notes.html">我的指板筆記</a><a href="setlist.html">目前練團歌單</a><a href="studio.html">音階探索</a></div></nav>
+
+
 
 <iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="FRET 指間" data-srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot; data-visualize-standalone&gt;

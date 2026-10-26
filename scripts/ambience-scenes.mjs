@@ -1,6 +1,6 @@
 export const sceneDetails={
  'rain-window':{label:'雨窗街景',effect:'rain'},
- 'city-cafe':{label:'咖啡窗景',effect:'light'},
+ 'city-cafe':{label:'咖啡窗景',effect:'rain'},
  'sunlit-trees':{label:'陽光樹蔭',effect:'leaves'},
  'quiet-coast':{label:'清晨海岸',effect:'coast'},
  'night-street':{label:'夜晚街道',effect:'night'},

@@ -14,5 +14,5 @@ test('Six complete scenes rotate once each and remain stable within a snapshot',
   scene=nextAmbienceScene(scene);
  }
  assert.equal(scene,first);assert.equal(currentAmbienceScene({ambienceScene:'unknown'}),first);
- assert.deepEqual(ambienceScenes.filter(s=>sceneDetails[s].effect==='rain'),['rain-window']);
+ assert.deepEqual(ambienceScenes.filter(s=>sceneDetails[s].effect==='rain'),['rain-window','city-cafe']);
 });

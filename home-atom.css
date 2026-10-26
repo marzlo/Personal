@@ -1,0 +1,9 @@
+.home-atom{display:flex;justify-content:center;margin:0 0 18px}
+.home-atom .home-atom-toggle{display:block;flex:none;width:132px;height:110px;min-height:0;padding:0;border:0;border-radius:20px;background:#f2ebdf;color:inherit;cursor:pointer}
+.home-atom .home-atom-toggle:focus-visible{outline:2px solid var(--green);outline-offset:5px}
+.home-atom-svg{display:block;width:100%;height:100%;overflow:visible}
+.home-atom .orbit{fill:none;stroke:#81958280;stroke-width:1;vector-effect:non-scaling-stroke}
+.home-atom .electron{fill:#4b756b;stroke:#f2ebdf;stroke-width:3}.home-atom .electron-gold{fill:#b58d56}
+.home-atom .nucleus-green{fill:#708c78}.home-atom .nucleus-gold{fill:#c3a279}.home-atom .nucleus-light{fill:#9bad90}
+@media(max-width:620px){.home-atom{margin-bottom:16px}.home-atom .home-atom-toggle{width:112px;height:94px;border-radius:16px}}
+@media print{.home-atom{display:none}}

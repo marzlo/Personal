@@ -1,0 +1,30 @@
+Rain by Rocksdanister licensed under
+Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+Source:
+https://github.com/rocksdanister/rain
+
+**********************************************************************************************
+
+Heartfelt - by Martijn Steinrucken aka BigWings - 2017
+Twitter:@The_ArtOfCode
+License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+https://www.shadertoy.com/view/ltffzl
+
+**********************************************************************************************
+
+Mountain Surrounded With Fog by Stephan Seeber from Pexels
+https://www.pexels.com/photo/mountain-surrounded-with-fog-1772973/
+
+Rainfall icon by Icons8
+https://icons8.com/icon/19542/rainfall
+Shiye integration:
+The rain.frag shader is copied unchanged from rocksdanister/rain,
+commit 55d90619c2ba0cfc68c81f6b39f8d2dc64e8072b (threejs branch).
+Original rain renderer by rocksdanister and Heartfelt shader by
+Martijn Steinrucken (BigWings). License: CC BY-NC-SA 3.0.
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Modifications: a lightweight native WebGL integration in rain-renderer.js,
+using Shiye's generated city-window artwork instead of bundled background
+photography. Shiye integration of this rain effect is also provided under
+CC BY-NC-SA 3.0. No original wallpaper photographs or icons are included.

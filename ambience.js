@@ -2,16 +2,17 @@
  const windowElement=document.querySelector('.ambient-window');if(!windowElement)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)'),button=windowElement.querySelector('.ambient-toggle');
  let paused=reduce.matches||Boolean(navigator.connection?.saveData),frame=0;
- const rain=document.createElement('div');rain.className='ambience-rain';rain.setAttribute('aria-hidden','true');
- for(let i=0;i<18;i++){
-  const drop=document.createElement('span');drop.className='ambience-drop';
-  drop.style.setProperty('--drop-x',((i*37+11)%100)+'%');drop.style.setProperty('--drop-length',(28+(i*13)%54)+'px');
-  drop.style.setProperty('--drop-duration',(5+(i*7)%8)+'s');drop.style.setProperty('--drop-delay',(-i*.81)+'s');rain.append(drop);
+ let renderer=null,visible=true,artwork,rainLoading=false;
+ const credit=document.createElement('a');credit.className='ambient-credit';credit.href='./assets/ambience/rain/NOTICE.txt';credit.target='_blank';credit.rel='noopener';credit.textContent='雨效：rocksdanister / BigWings';credit.title='CC BY-NC-SA 3.0 · 非商業使用';windowElement.append(credit);
+ async function enableRain(){
+  if(renderer||rainLoading||!artwork||reduce.matches||(navigator.connection?.saveData&&paused))return;
+  rainLoading=true;try{const module=await import('./rain-renderer.js');renderer=await module.createRainRenderer(windowElement,artwork)}catch{windowElement.dataset.rain='fallback'}finally{rainLoading=false;updateButton()}
  }
- windowElement.prepend(rain);
- function updateButton(){document.body.toggleAttribute('data-ambience-paused',paused||document.hidden||reduce.matches);button.textContent=paused?'播放動態':'暫停動態';button.setAttribute('aria-pressed',String(!paused));button.disabled=reduce.matches;if(reduce.matches)button.textContent='已減少動態'}
- button.onclick=()=>{paused=!paused;updateButton()};document.addEventListener('visibilitychange',updateButton);
- reduce.addEventListener('change',()=>{paused=reduce.matches;updateButton()});updateButton();
+ const visibility=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;updateButton()});visibility.observe(windowElement);
+ function updateButton(){document.body.toggleAttribute('data-ambience-paused',paused||document.hidden||reduce.matches);button.textContent=paused?'播放動態':'暫停動態';button.setAttribute('aria-pressed',String(!paused));renderer?.setRunning(!paused&&!document.hidden&&!reduce.matches&&visible);button.disabled=reduce.matches;if(reduce.matches)button.textContent='已減少動態';else if(windowElement.dataset.rain==='fallback'){button.textContent='使用靜態背景';button.disabled=true;button.setAttribute('aria-pressed','false')}}
+ windowElement.addEventListener('ambience-fallback',updateButton);
+ button.onclick=()=>{paused=!paused;if(!paused)enableRain().catch(()=>{});updateButton()};document.addEventListener('visibilitychange',updateButton);
+ reduce.addEventListener('change',()=>{paused=reduce.matches;if(!paused)enableRain().catch(()=>{});updateButton()});updateButton();
  function updateScroll(){
   frame=0;const progress=Math.min(1,Math.max(0,scrollY/(windowElement.offsetTop+windowElement.offsetHeight)));
   document.documentElement.style.setProperty('--ambience-opacity',String(.9-progress*.74));
@@ -21,7 +22,7 @@
  function loadArtwork(){
   const image=new Image();image.decoding='async';image.fetchPriority='low';
   const url=innerWidth<=1024?'./assets/ambience/rain-window-small.webp':'./assets/ambience/rain-window.webp';
-  image.onload=()=>document.documentElement.style.setProperty('--ambience-image','url("'+new URL(url,location.href).href+'")');
+  image.onload=()=>{document.documentElement.style.setProperty('--ambience-image','url("'+new URL(url,location.href).href+'")');artwork=image;enableRain().catch(()=>{})};
   image.src=url;
  }
  const start=()=>setTimeout(loadArtwork,0);

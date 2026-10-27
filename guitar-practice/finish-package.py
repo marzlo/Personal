@@ -3,6 +3,9 @@ from pathlib import Path
 import re
 
 base=Path(__file__).parent
+stylesheet=(base/'setlist.css').read_text(encoding='utf-8')
+if '<!doctype' in stylesheet.lower() or '<html' in stylesheet.lower() or ':root{' not in stylesheet or '.view-section' not in stylesheet:
+    raise ValueError('setlist.css must contain CSS, not an HTML page; refusing to export.')
 navigation=(base/'navigation.html').read_text(encoding='utf-8').rstrip()
 for name in ['index.html','library.html','studio.html','fingering-notes.html','setlist.html']:
     file=base/name

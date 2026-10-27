@@ -10,6 +10,9 @@ for (const page of ['index.html','library.html','studio.html','fingering-notes.h
   assert(text.includes('href="'+page+'" aria-current="page"'),page+' needs active navigation');
   assert(!text.includes('C:/Users/'),page+' must not depend on local paths');
 }
+const setlistCss=fs.readFileSync(path.join(base,'setlist.css'),'utf8');
+assert(!/<!doctype|<html/i.test(setlistCss),'setlist.css must not contain HTML');
+for(const selector of [':root{','.panel{','.view-section{','.harmony-toolbar{','.recovery-entry{'])assert(setlistCss.includes(selector),'setlist CSS must include '+selector);
 const library=fs.readFileSync(path.join(base,'src/library.html'),'utf8');
 const data=JSON.parse(library.match(/id="chord-library-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 assert.equal(data.length,10);

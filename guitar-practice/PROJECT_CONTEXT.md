@@ -83,3 +83,5 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 歌單取消橫向隱藏卡片，改完整換行列出，加入「顯示全部歌曲」清除搜尋。新增「找回歌單」列出本機備份內歌名、日期，合併缺少／不同版本並保留目前歌曲；不假造Circles資料。
 - setlist-storage.mjs以fret.bandSetlist.v1沿用原資料；每次寫入先比較讀取版本，不同就拒絕舊分頁覆寫並提示先匯出。寫入前保留五份滾動備份與首次永久備份（fret.bandSetlist.backups.v1 / fret.bandSetlist.firstBackup.v1）。備份只對安裝此版本後有效，不能找回先前已不存在的資料，也不跨瀏覽器／裝置。備份寫入失敗時不覆寫主資料。
 - 單元測試與setlist-recovery-browser驗證備份、同id不同版本合併、所有歌曲可見、Circles測試資料與idea還原、舊分頁不覆寫更新。測試fixture不代表已讀取或還原真實使用者資料。
+
+- 2026-10-27版面事故修正：a7d0327誤將src/setlist.html內容寫進setlist.css，頁面雖載入成功卻沒有有效CSS。已從5aca3a8恢復完整樣式並補回完整歌單／復原區樣式，CSS快取版本改v5。finish-package.py與package測試拒絕HTML冒充CSS；setlist-layout-browser在390/820/1440驗證CSS回應類型、實際背景色／卡片圓角／邊框／間距、檢視與編輯排版及無橫向溢出。本次不更動歌單儲存程式或資料。

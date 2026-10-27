@@ -70,3 +70,10 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 每個段落可建立獨立harmony={key,mode,inputMode,active,chords:[{root,quality,shape}]}；按音名或級數新增／移除根音，點進行卡選種類與五／六弦根音圖。每個和弦保留自己的種類與位置，切換時不重設；調內／調外分類保留。
 - 級數模式換調移調根音並保留級數，音名模式保持絕對根音；和弦種類保持不變並重新標示調外音。按法組成音、省略音、音名圓點、作者參照皆顯示。所有改動自動儲存，另提供「儲存這段和弦」確認。
 - 沿用fret.bandSetlist.v1且harmony為可選欄位，原文字進行／idea／段落筆記不改，舊備份仍可讀，新備份含和弦按法。原文字不自動解析或被新編輯器覆寫。tests/section-harmony.mjs驗證504圖與原資料一致；section-harmony-browser.cjs驗證按音名／級數、選種類位置、換調、跨和弦保留、段落獨立、重新載入／匯入與390/820/1440上下全寬。
+
+## Letting Go 原譜與練團檢視（2026-10-27）
+- 使用者提供5頁Letting Go.pdf（Potsu，B key，100BPM，4/4）；assets/scores/letting-go/保留原PDF與各頁WebP。repertoire.mjs按第1–8／9–16／17–24／25–32／33–40／41–48／49–54／55–59小節整理8個練習段落，不猜作主歌副歌；原譜3x記號與solo推弦、連音、三連音保留，solo直接展開原譜而不猜寫逐音TAB。
+- Letting Go在瀏覽器首次載入新版時加入一次，保留既有歌曲與筆記；installedRepertoire標記避免重複加入與刪除後再出現。歌單達500首不再自動加入。既有同名Potsu歌曲或同id不覆寫。
+- 第1段特殊CM7/C♯標記依原譜保留；其他段落提供按原和弦名建立的可編輯harmony與通用指板，註明參考按法不是原譜逐音轉錄。第16/40小節原譜無另標名，依TAB暫記Emaj7並提示核對。第54–56小節的斜線用作同小節先後和弦而非slash bass，文字有註明。
+- song-view.mjs預設精簡檢視：歌曲資料、ideas、段落和弦／概念／筆記；指板與原譜各自details按需展開，譜頁延後載入。有「編輯歌曲」切入完整編輯器，sticky「儲存並檢視」成功後回檢視。保留舊版localStorage與備份格式、原有文字及harmony；新增sourceId、label、bars、scorePages等可選欄位。
+- repertoire單元測試驗證來源、段落與一次性加入；song-view-browser驗證CIRCLE既有資料保留、新譜加入一次、solo頁面載入、編輯保存及390/820/1440排版。原歌單與和弦瀏覽器測試更新為顯式進入編輯模式。

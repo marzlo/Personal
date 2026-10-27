@@ -1,13 +1,14 @@
+import {SETLIST_KEY,writeSnapshot,recoveryCandidates,mergeRecovered} from './setlist-storage.mjs?v=1';
 import {renderSongView,scoreLinks} from './song-view.mjs?v=1';
 import {ensureRepertoire,scoreSource} from './repertoire.mjs?v=1';
 import {mountHarmony,validHarmony,initialHarmony,summary} from './section-harmony.mjs?v=1';
-const KEY='fret.bandSetlist.v1',sectionNames=['前奏','主歌','主旋律','預副歌','副歌','間奏','橋段','尾奏','Solo','其他'],concepts=['調內級數','共同音連接','省略三音','延伸和弦','轉位／低音走向','借用和弦','屬和弦／解決','節奏／律動','旋律動機'];
+const KEY=SETLIST_KEY,sectionNames=['前奏','主歌','主旋律','預副歌','副歌','間奏','橋段','尾奏','Solo','其他'],concepts=['調內級數','共同音連接','省略三音','延伸和弦','轉位／低音走向','借用和弦','屬和弦／解決','節奏／律動','旋律動機'];
 const $=s=>document.querySelector(s),id=()=>crypto.randomUUID(),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let data={version:1,songs:[]},blocked=false,dirty=false,editingSong=null;
+let data={version:1,songs:[]},blocked=false,dirty=false,editingSong=null,lastReadRaw=null;
 function status(message,error=false){$('#save-status').textContent=message;$('#save-status').classList.toggle('error',error)}
 function valid(d){return d?.version===1&&Array.isArray(d.songs)&&d.songs.length<=500&&d.songs.every(s=>typeof s.id==='string'&&typeof s.title==='string'&&typeof s.artist==='string'&&typeof s.key==='string'&&typeof s.tempo==='string'&&Array.isArray(s.ideas)&&s.ideas.length<=500&&s.ideas.every(i=>typeof i.id==='string'&&typeof i.text==='string')&&Array.isArray(s.sections)&&s.sections.length<=500&&s.sections.every(p=>typeof p.id==='string'&&sectionNames.includes(p.name)&&(p.label===undefined||typeof p.label==='string')&&(p.bars===undefined||typeof p.bars==='string')&&(p.scorePages===undefined||Array.isArray(p.scorePages)&&p.scorePages.every(n=>Number.isInteger(n)&&n>=1&&n<=5))&&typeof p.chords==='string'&&(p.harmony===undefined||validHarmony(p.harmony))&&typeof p.notes==='string'&&['notes','degrees'].includes(p.notation)&&Array.isArray(p.concepts)&&p.concepts.every(c=>concepts.includes(c))))&&new Set(d.songs.map(s=>s.id)).size===d.songs.length}
-try{const raw=localStorage.getItem(KEY);if(raw){const loaded=JSON.parse(raw);if(!valid(loaded))throw Error('Invalid data');data=loaded}status('資料僅存於此瀏覽器 · 編輯後自動儲存')}catch{blocked=true;status('無法讀取原有歌單，已停止寫入以保留資料。可先匯出原始備份，再於其他瀏覽器匯入有效備份。',true)}
-function persist(){if(blocked)return false;try{localStorage.setItem(KEY,JSON.stringify(data));dirty=false;status('已儲存於此瀏覽器 · '+new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}));return true}catch{dirty=true;status('儲存未成功，內容仍在本頁。請立即匯出備份，避免關閉後遺失。',true);return false}}
+try{const raw=localStorage.getItem(KEY);lastReadRaw=raw;if(raw){const loaded=JSON.parse(raw);if(!valid(loaded))throw Error('Invalid data');data=loaded}status('資料僅存於此瀏覽器 · 編輯後自動儲存')}catch{blocked=true;status('無法讀取原有歌單，已停止寫入以保留資料。可先匯出原始備份，再於其他瀏覽器匯入有效備份。',true)}
+function persist(){if(blocked)return false;try{const result=writeSnapshot(localStorage,lastReadRaw,JSON.stringify(data));if(!result.ok){dirty=true;status('偵測到另一個分頁已更新歌單，已停止覆寫。請先匯出目前內容，再重新整理或按「找回歌單」查看備份。',true);return false}lastReadRaw=result.raw;dirty=false;status('已儲存於此瀏覽器 · '+new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}));return true}catch{dirty=true;status('儲存未成功，內容仍在本頁。請立即匯出備份，避免關閉後遺失。',true);return false}}
 if(!blocked&&ensureRepertoire(data))persist();
 addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
 const selected=()=>{let value=location.hash.slice(1);try{value=decodeURIComponent(value)}catch{}return data.songs.find(s=>s.id===value)||data.songs[0]};
@@ -36,3 +37,14 @@ $('#export').onclick=()=>{if(blocked){try{download(localStorage.getItem(KEY)||'{
 $('#import').onclick=()=>{if(blocked){status('原始資料讀取失敗，為避免覆蓋，請先匯出，再於其他瀏覽器匯入有效備份。',true);return}$('#import-file').click()};
 $('#import-file').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>5*1024*1024)throw Error('檔案超過 5MB');const loaded=JSON.parse(await file.text());if(!valid(loaded))throw Error('不是有效的指間歌單備份');if(data.songs.length+loaded.songs.length>500)throw Error('歌曲總數超過 500 首');if(!confirm(`將加入 ${loaded.songs.length} 首歌曲的副本，保留目前歌單。繼續嗎？`))return;for(const song of loaded.songs)data.songs.push({...song,id:id(),ideas:song.ideas.map(i=>({...i,id:id()})),sections:song.sections.map(p=>({...p,id:id()}))});persist();render()}catch(err){status('匯入失敗：'+err.message+'。目前歌單沒有變更。',true)}finally{e.target.value=''}};
 render();if(blocked)$('#new-song').disabled=true;
+
+$('#show-all-songs').onclick=()=>{$('#song-search').value='';list();$('#song-sidebar').scrollIntoView({behavior:'smooth'})};
+$('#recover').onclick=()=>{
+ const dialog=$('#recovery-dialog'),slot=$('#recovery-list');let candidates=[];try{candidates=recoveryCandidates(localStorage,valid)}catch{}
+ slot.replaceChildren();
+ const current=document.createElement('p');current.textContent='本頁目前讀到：'+(data.songs.map(s=>s.title||'未命名歌曲').join('、')||'沒有歌曲');slot.append(current);
+ if(!candidates.length){const message=document.createElement('p');message.className='hint';message.textContent='這個瀏覽器還沒有可用的歷史備份。請在原本新增 Circles 的裝置／瀏覽器開啟歌單，或匯入先前匯出的 JSON 備份。這裡無法讀取其他裝置，也無法還原更新前尚未建立的歷史備份。';slot.append(message)}
+ candidates.forEach(candidate=>{const box=document.createElement('section');box.className='recovery-entry';const title=document.createElement('strong');title.textContent=new Date(candidate.at).toLocaleString('zh-TW');const names=document.createElement('p');names.textContent=candidate.data.songs.map(s=>s.title||'未命名歌曲').join('、')||'空白歌單';const button=document.createElement('button');button.textContent='合併找回（保留目前歌曲）';button.disabled=blocked;button.onclick=()=>{if(!confirm('把這份備份中缺少或不同版本的歌曲加入目前歌單？目前歌曲會保留。'))return;let latestRaw,latest;try{latestRaw=localStorage.getItem(KEY);latest=latestRaw?JSON.parse(latestRaw):{version:1,songs:[]};if(!valid(latest))throw Error('Invalid latest data')}catch{status('目前儲存的歌單無法讀取，先匯出原始備份，避免覆蓋。',true);return}if(dirty){status('本頁仍有未儲存內容，請先匯出再重新整理，之後再執行找回。',true);return}const count=mergeRecovered(latest,candidate.data,id);data=latest;lastReadRaw=latestRaw;if(persist()){dialog.close();render();status('已找回 '+count+' 首歌曲；目前歌曲與不同版本均保留。')}};box.append(title,names,button);slot.append(box)});
+ dialog.showModal();
+};
+$('#close-recovery').onclick=()=>$('#recovery-dialog').close();

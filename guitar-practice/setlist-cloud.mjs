@@ -24,7 +24,7 @@ export function createSetlistCloud({get,apply,validate,editing,localReady,endpoi
    remember(remote);status((merged.conflicts.length?'已同步；不同修改已保留為「本機版本」副本。':'三台裝置使用同一份歌單 · 已同步')+' '+new Date(remote.updatedAt||Date.now()).toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}));return;
   }
   pending=true;status('其他裝置也在儲存，稍後繼續合併，本機內容已保留。');
- }catch(error){status(error.message,true)}finally{busy=false;auth();if(pending)changed()}}
+ }catch(error){const network=error instanceof TypeError&&/load failed|failed to fetch|network|fetch/i.test(error.message);status(network?'無法連線到歌單同步服務（網路或跨站連線失敗）。若尚未更新 Cloudflare Worker，請先按「連線設定」完成部署。本機歌單未被替換。':error.message,true)}finally{busy=false;auth();if(pending)changed()}}
  function changed(){clearTimeout(timer);pending=true;if(!token){status('已存本機；在三台裝置登入同一 GitHub 帳號即可同步。');return}status(editing()?'編輯中，已存本機；按「儲存並檢視」後同步。':'已存本機，等待雲端同步…');timer=setTimeout(sync,900)}
  button.onclick=sync;login.onclick=()=>{if(editing()){status('請先按「儲存並檢視」，再登入同步。',true);return false}};
  panel.querySelector('[data-cloud-logout]').onclick=()=>{token='';localStorage.removeItem(TOKEN);localStorage.setItem('fret.bandSetlist.cloudPaused','1');clearTimeout(timer);auth();status('已中斷此頁的同步，本機歌單保留。')};

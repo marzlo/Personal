@@ -92,3 +92,5 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - fret.bandSetlist.cloud.v1保存同步基底，fret.bandSetlist.session.v1保存登入，資料主鍵不變。可沿用本機已有shiyeNotesSession；不修改其他筆記。雲端原子revision防止同時覆蓋。120KB超額或服務錯誤只提示，不替換本機。
 - 已測三個隔離Playwright profile、共享mock後端：iPad Circles合併到電腦手機、電腦新增歌傳播、同首不同idea保留、斷線不丟資料；worker測試驗證私有性、公開筆記隔離、revision409與OAuth路徑。這是模擬測試，非正式服務驗證。
 - 執行環境沒有Cloudflare登入或API token，GitHub secret列表亦遭API403。Worker尚無法在此直接部署；已提供CLOUD_SYNC_SETUP.md具體一次性更新步驟。Pages推送不代表後端啟用，需明確告知使用者未完成的Worker發布步驟，不宣稱已三機實際同步。
+
+- 使用者回報Safari「Load failed」：屬fetch連線／跨站層錯誤，不能單憑截圖斷定Worker是否已更新。前端把TypeError連線失敗轉成中文，提示核對網路與Worker部署並保留本機。mock browser增加中斷連線情境，確認不替換或移除歌曲；仍不宣稱已發布正式Worker。

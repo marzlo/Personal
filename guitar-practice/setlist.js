@@ -1,4 +1,4 @@
-import {createSetlistCloud} from './setlist-cloud.mjs?v=1';
+import {createSetlistCloud} from './setlist-cloud.mjs?v=2';
 import {SETLIST_KEY,writeSnapshot,recoveryCandidates,mergeRecovered} from './setlist-storage.mjs?v=1';
 import {renderSongView,scoreLinks} from './song-view.mjs?v=1';
 import {ensureRepertoire,scoreSource} from './repertoire.mjs?v=1';

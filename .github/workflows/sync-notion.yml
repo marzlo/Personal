@@ -72,6 +72,9 @@ jobs:
           node scripts/build-share-pages.mjs
           python scripts/build-share-images.py
 
+      - name: Prepare offline reading assets
+        run: node scripts/build-offline-assets.mjs
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 

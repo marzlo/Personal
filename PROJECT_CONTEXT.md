@@ -250,3 +250,11 @@
 - 動態可見度修正：咖啡窗景恢復雨滴WebGL；其他場景除了緩慢鏡頭，增加可見的光束／樹影／水面亮紋／夜景光軌CSS疊層，仍是圖片上的動畫，不是真實影片。轉場後持續播放，暫停與減少動態一併控制所有層。更新CSS/JS/場景模組快取版本。
 
 - 生活光影進一步依場景調整：窗邊閱讀為斜向陽光／窗框陰影／牆面葉影三層；樹蔭增多層不同節奏的斑駁樹影；咖啡窗景保留WebGL雨滴並加局部暖光；海岸前景增加16根不同高度與相位的草影搖曳（原圖草木不變形）。皆為CSS合成效果非實拍影片，所有新層沿用暫停與減少動態。
+
+## Personal 離線功能（2026-10-29）
+- 新增service-worker.js、offline.js、offline-assets.js、offline.html與主站manifest／圖示，涵蓋首頁、Podcast、吉他5頁與原譜。首次連線下載約6.8MB、101個白名單公開資源，左下「離線已備妥」後可斷網重新開啟／整理；不只是已開頁留在畫面。外部音樂／登入／Notion與雲端同步仍需連線。
+- Worker scope僅Personal，資料快照network-first失敗回快取，其餘程式頁面採版本一致的cache-first，v參數不妨礙離線；分享頁／圖片最近60資源保留完整query避免舊縮圖。有缺頁時回offline導覽。
+- 完全不動本機資料鍵與同步服務；跨來源、Authorization、api/auth/login/sync/worker及身份query一律不快取。原吉他iframe sandbox不變，僅外層CSP加入本站script／worker允許。來源setlist.html亦保留離線入口，finish-package重建不會遺失。
+- 新版先完整下載等待，使用者儲存後按「套用新版」才切換並重載；編輯模式／輸入焦點下不允許套用。關閉本站所有分頁後重開也會啟用新版。後續發布需告知使用者查看左下更新提示，單純刷新可能仍是完整舊版本。
+- Node生成器build-offline-assets.mjs由push與Notion同步workflow發布前執行，contenthash含資料快照，因此每日同步也會產生新版。CSS含HTML會使構建失敗避免原版面事故。維護與限制見OFFLINE.md。
+- Chromium斷網測試通過首頁資料、Podcast字卡、吉他iframe新增和弦／圖庫、歌單離線保存／重整、solo譜頁、缺頁導覽與API排除；獨立server測試新版waiting、編輯保護、套用後資料保留。66項unit測試與原吉他測試通過。這不是三台真實裝置或Safari實測，不保證瀏覽器永遠不回收快取。

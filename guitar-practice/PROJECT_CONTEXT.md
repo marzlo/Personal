@@ -94,3 +94,5 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 執行環境沒有Cloudflare登入或API token，GitHub secret列表亦遭API403。Worker尚無法在此直接部署；已提供CLOUD_SYNC_SETUP.md具體一次性更新步驟。Pages推送不代表後端啟用，需明確告知使用者未完成的Worker發布步驟，不宣稱已三機實際同步。
 
 - 使用者回報Safari「Load failed」：屬fetch連線／跨站層錯誤，不能單憑截圖斷定Worker是否已更新。前端把TypeError連線失敗轉成中文，提示核對網路與Worker部署並保留本機。mock browser增加中斷連線情境，確認不替換或移除歌曲；仍不宣稱已發布正式Worker。
+
+- Personal離線功能整合：五個吉他正式頁面共用../offline.js，離線快取涵蓋工具、圖庫、歌單程式、Letting Go原譜與譜圖。原儲存鍵／資料／雲端程式未變，離線編輯留本機。有網路第一次下載完顯示「離線已備妥」後可斷網重整。更新需先儲存再套用，避免編輯中重載；詳見上層OFFLINE.md。

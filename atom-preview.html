@@ -25,4 +25,4 @@
 <script>
 (()=>{const svg=document.querySelector('svg'),button=document.querySelector('button'),reduce=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduce.matches;function update(){const stopped=paused||document.hidden||reduce.matches;if(stopped)svg.pauseAnimations();else svg.unpauseAnimations();button.disabled=reduce.matches;button.textContent=reduce.matches?'已減少動態':paused?'播放動畫':'暫停動畫';button.setAttribute('aria-pressed',String(paused||reduce.matches))}button.onclick=()=>{paused=!paused;update()};document.addEventListener('visibilitychange',update);reduce.addEventListener('change',()=>{paused=reduce.matches;update()});update()})();
 </script>
-</body></html>
+<script defer src="./offline.js" data-personal-offline></script></body></html>

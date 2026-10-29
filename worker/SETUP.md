@@ -62,3 +62,7 @@ Validation: `node --test tests/notes-worker.test.mjs` from the repository root. 
 
 ### 記住登入與自動發布
 登入憑證有效180天；驗證成功、剩餘不足90天的 `/api/notes` 請求以 `X-Notes-Session` 回傳續期憑證，CORS 只對網站來源公開該標頭。前端 localStorage 記住登入並遷移舊 sessionStorage；401與登出清除兩處憑證。狀態列取消手動同步入口，儲存後自動發布。
+
+## Guitar setlist sync
+
+`/api/guitar-setlist` reuses owner-only notes sessions but selects the distinct Durable Object name `marzlo:guitar-setlist`; its data is never returned by the public notes API. Login via `/login?app=guitar` uses a signed OAuth state cookie suffix and returns only to the fixed guitar setlist URL. Existing notes login and Notion sync redirects remain unchanged. The existing NotesStore class/binding is reused, so no new migration is required for an environment already running the notes service. Deploy the updated `worker/index.js` to activate this endpoint; deploying Pages alone does not update it. See `guitar-practice/CLOUD_SYNC_SETUP.md` for device setup.

@@ -10,3 +10,5 @@
 
 /* Always show all songs; no cards hidden off the side of the playlist. */
 .song-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));overflow:visible;max-height:none}.song-link{min-width:0;max-width:100%}.recovery-entry{margin:16px 0;padding:16px;border:1px solid var(--line);border-radius:12px}.recovery-entry p{overflow-wrap:anywhere}#recovery-dialog{width:min(640px,calc(100% - 32px));max-height:85vh;overflow:auto}@media(max-width:500px){.song-list{grid-template-columns:1fr}}
+
+.cloud-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;margin:18px 0;border:1px solid #b9ceb2;background:#edf3e7;border-radius:14px}.cloud-panel p{font-size:14px;color:var(--muted);margin:6px 0 0}.cloud-panel p.error{color:#9d3d26}.cloud-login{display:inline-flex;align-items:center;min-height:44px;padding:9px 15px;border-radius:10px;background:#315c43;color:#fffefa;text-decoration:none}.cloud-panel .actions{flex:none}@media(max-width:900px){.cloud-panel{align-items:flex-start;flex-direction:column}}

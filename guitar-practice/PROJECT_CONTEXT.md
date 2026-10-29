@@ -85,3 +85,10 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 單元測試與setlist-recovery-browser驗證備份、同id不同版本合併、所有歌曲可見、Circles測試資料與idea還原、舊分頁不覆寫更新。測試fixture不代表已讀取或還原真實使用者資料。
 
 - 2026-10-27版面事故修正：a7d0327誤將src/setlist.html內容寫進setlist.css，頁面雖載入成功卻沒有有效CSS。已從5aca3a8恢復完整樣式並補回完整歌單／復原區樣式，CSS快取版本改v5。finish-package.py與package測試拒絕HTML冒充CSS；setlist-layout-browser在390/820/1440驗證CSS回應類型、實際背景色／卡片圓角／邊框／間距、檢視與編輯排版及無橫向溢出。本次不更動歌單儲存程式或資料。
+
+## 三裝置雲端同步（2026-10-29）
+- setlist-cloud.mjs沿用marzlo GitHub身份，獨立歌單端點/api/guitar-setlist與DO名稱marzlo:guitar-setlist，不讀寫拾頁筆記欄位／公開筆記。Worker沿用NotesStore綁定不加migration，/login?app=guitar固定回歌單，不接受任意return URL。
+- 前端新增雲端狀態、登入、立即同步、中斷、設定連結；15秒輪詢，重新連線／回頁時同步。編輯時延後套用與上傳，儲存並檢視後900ms同步，離線留本機。首次合併每台裝置歌曲；三向按song id合併，不同歌曲各自更新，同首不同修改保留本機副本，已知刪除會傳播，刪除對編輯保留編輯版。已有資料先經writeSnapshot備份；本機版本衝突時不套用。
+- fret.bandSetlist.cloud.v1保存同步基底，fret.bandSetlist.session.v1保存登入，資料主鍵不變。可沿用本機已有shiyeNotesSession；不修改其他筆記。雲端原子revision防止同時覆蓋。120KB超額或服務錯誤只提示，不替換本機。
+- 已測三個隔離Playwright profile、共享mock後端：iPad Circles合併到電腦手機、電腦新增歌傳播、同首不同idea保留、斷線不丟資料；worker測試驗證私有性、公開筆記隔離、revision409與OAuth路徑。這是模擬測試，非正式服務驗證。
+- 執行環境沒有Cloudflare登入或API token，GitHub secret列表亦遭API403。Worker尚無法在此直接部署；已提供CLOUD_SYNC_SETUP.md具體一次性更新步驟。Pages推送不代表後端啟用，需明確告知使用者未完成的Worker發布步驟，不宣稱已三機實際同步。

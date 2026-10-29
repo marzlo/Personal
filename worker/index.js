@@ -36,7 +36,10 @@ function validNotes(data) {
   if (!data || typeof data !== 'object' || Array.isArray(data) || Object.keys(data).length !== NOTES_KEYS.length) return false;
   return NOTES_KEYS.every(key => Object.hasOwn(data, key) && (data[key] === null || (['shiyeIdeas', 'shiyeSeriesConfigs'].includes(key) ? Array.isArray(data[key]) : typeof data[key] === 'object' && !Array.isArray(data[key]))));
 }
-async function notesApi(request, env) {
+function validGuitar(data) {
+  return data?.version===1 && Array.isArray(data.songs) && data.songs.length<=500 && new Set(data.songs.map(s=>s?.id)).size===data.songs.length && data.songs.every(s=>s && typeof s.id==='string' && typeof s.title==='string' && typeof s.artist==='string' && typeof s.key==='string' && typeof s.tempo==='string' && Array.isArray(s.ideas) && s.ideas.length<=500 && s.ideas.every(i=>typeof i?.id==='string'&&typeof i.text==='string') && Array.isArray(s.sections) && s.sections.length<=500 && s.sections.every(p=>typeof p?.id==='string'&&typeof p.name==='string'&&typeof p.chords==='string'&&typeof p.notes==='string'&&Array.isArray(p.concepts)));
+}
+async function notesApi(request, env, guitar = false) {
   const origin = request.headers.get('Origin');
   const cors = { 'Access-Control-Allow-Origin': DASHBOARD_ORIGIN, 'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS', 'Access-Control-Allow-Headers': 'Authorization, Content-Type', Vary: 'Origin' };
   if (origin && origin !== DASHBOARD_ORIGIN) return jsonResponse({ error: 'origin' }, 403);
@@ -62,10 +65,10 @@ async function notesApi(request, env) {
       const combined = new Uint8Array(bytes); let offset = 0;
       for (const chunk of chunks) { combined.set(chunk, offset); offset += chunk.length; }
       body = JSON.parse(new TextDecoder().decode(combined));
-      if (!Number.isSafeInteger(body.revision) || body.revision < 0 || !validNotes(body.data)) return jsonResponse({ error: 'invalid_data' }, 400, cors);
+      if (!Number.isSafeInteger(body.revision) || body.revision < 0 || !(guitar ? validGuitar(body.data) : validNotes(body.data))) return jsonResponse({ error: 'invalid_data' }, 400, cors);
     }
-    const store = env.NOTES_STORE.get(env.NOTES_STORE.idFromName(ALLOWED_GITHUB_LOGIN));
-    const result = await store.fetch(new Request('https://notes.internal/', { method: request.method, ...(body ? { body: JSON.stringify(body) } : {}) }));
+    const store = env.NOTES_STORE.get(env.NOTES_STORE.idFromName(guitar ? ALLOWED_GITHUB_LOGIN + ':guitar-setlist' : ALLOWED_GITHUB_LOGIN));
+    const result = await store.fetch(new Request('https://notes.internal/', { method: request.method, headers: guitar ? {'X-Document-Type':'guitar'} : {}, ...(body ? { body: JSON.stringify(body) } : {}) }));
     const session = (request.headers.get('Authorization') || '').replace(/^Bearer /, '');
     const payload = JSON.parse(new TextDecoder().decode(decodeUrl64(session.split('.')[0])));
     const renewal = payload.exp < Date.now() / 1000 + 90 * 86400 ? { 'X-Notes-Session': await createNotesSession(env.GITHUB_CLIENT_SECRET) } : {};
@@ -94,7 +97,7 @@ export class NotesStore {
     if (request.method === 'GET') return jsonResponse(await this.storage.get('current') || { revision: 0, data: null });
     if (request.method !== 'PUT') return jsonResponse({ error: 'method' }, 405);
     const incoming = await request.json();
-    if (!Number.isSafeInteger(incoming.revision) || !validNotes(incoming.data)) return jsonResponse({ error: 'invalid_data' }, 400);
+    if (!Number.isSafeInteger(incoming.revision) || !(request.headers.get('X-Document-Type')==='guitar' ? validGuitar(incoming.data) : validNotes(incoming.data))) return jsonResponse({ error: 'invalid_data' }, 400);
     return this.storage.transaction(async txn => {
       const current = await txn.get('current') || { revision: 0, data: null };
       if (incoming.revision !== current.revision) return jsonResponse(current, 409);
@@ -173,6 +176,7 @@ export default {
     if (url.pathname === "/api/sync-status") return syncStatus(request, env);
     if (url.pathname === "/api/public-notes") return publicNotesApi(request, env);
     if (url.pathname === "/api/notes") return notesApi(request, env);
+    if (url.pathname === "/api/guitar-setlist") return notesApi(request, env, true);
     if (request.method !== "GET") return response("Method not allowed", 405, { Allow: "GET" });
 
     if (url.pathname === "/sync" || url.pathname === "/login") {
@@ -180,6 +184,7 @@ export default {
         return dashboardResult("error", "configuration");
       }
       const state = randomState();
+      const guitarLogin = url.pathname === "/login" && url.searchParams.get("app") === "guitar";
       const callback = `${url.origin}/auth/callback`;
       const authorize = new URL("https://github.com/login/oauth/authorize");
       authorize.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
@@ -188,7 +193,7 @@ export default {
       authorize.searchParams.set("state", state);
       authorize.searchParams.set("allow_signup", "false");
       return redirect(authorize.toString(), {
-        "Set-Cookie": `sync_oauth_state=${state}${url.pathname === "/login" ? ":notes" : ""}; Path=/auth/callback; HttpOnly; Secure; SameSite=Lax; Max-Age=600`,
+        "Set-Cookie": `sync_oauth_state=${state}${guitarLogin ? ":guitar" : url.pathname === "/login" ? ":notes" : ""}; Path=/auth/callback; HttpOnly; Secure; SameSite=Lax; Max-Age=600`,
       });
     }
 
@@ -196,7 +201,8 @@ export default {
       const clearCookie = "sync_oauth_state=; Path=/auth/callback; HttpOnly; Secure; SameSite=Lax; Max-Age=0";
       const state = url.searchParams.get("state") || "";
       const stateCookie = getCookie(request, "sync_oauth_state");
-      const notesLogin = stateCookie.endsWith(":notes");
+      const guitarLogin = stateCookie.endsWith(":guitar");
+      const notesLogin = stateCookie.endsWith(":notes") || guitarLogin;
       const expectedState = stateCookie.split(":")[0];
       if (!state || !expectedState || state !== expectedState) {
         return dashboardResult("error", "state");
@@ -223,7 +229,7 @@ export default {
         if (user.login !== ALLOWED_GITHUB_LOGIN) return redirect(`${DASHBOARD_URL}?sync=unauthorized`, { "Set-Cookie": clearCookie });
         if (notesLogin) {
           const session = await createNotesSession(env.GITHUB_CLIENT_SECRET);
-          return redirect(`${DASHBOARD_URL}#notes_session=${session}`, { "Set-Cookie": clearCookie, "Referrer-Policy": "no-referrer" });
+          return redirect(`${guitarLogin ? DASHBOARD_URL+"guitar-practice/setlist.html" : DASHBOARD_URL}#notes_session=${session}`, { "Set-Cookie": clearCookie, "Referrer-Policy": "no-referrer" });
         }
 
         stage = "pat_identity";

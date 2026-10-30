@@ -1,7 +1,7 @@
-import {createSetlistCloud} from './setlist-cloud.mjs?v=2';
+import {createSetlistCloud} from './setlist-cloud.mjs?v=3';
 import {SETLIST_KEY,writeSnapshot,recoveryCandidates,mergeRecovered} from './setlist-storage.mjs?v=1';
-import {renderSongView,scoreLinks} from './song-view.mjs?v=1';
-import {ensureRepertoire,scoreSource} from './repertoire.mjs?v=1';
+import {renderSongView,scoreLinks} from './song-view.mjs?v=2';
+import {ensureRepertoire,scoreSource} from './repertoire.mjs?v=2';
 import {mountHarmony,validHarmony,initialHarmony,summary} from './section-harmony.mjs?v=1';
 const KEY=SETLIST_KEY,sectionNames=['前奏','主歌','主旋律','預副歌','副歌','間奏','橋段','尾奏','Solo','其他'],concepts=['調內級數','共同音連接','省略三音','延伸和弦','轉位／低音走向','借用和弦','屬和弦／解決','節奏／律動','旋律動機'];
 const $=s=>document.querySelector(s),id=()=>crypto.randomUUID(),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

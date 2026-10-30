@@ -1,4 +1,4 @@
-import {lettingGo} from './repertoire.mjs?v=1';
+import {builtInSongs} from './repertoire.mjs?v=2';
 const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 // Three-way merge: unmodified copies follow the other device; conflicting edits keep both versions.
 export function mergeSetlists(base,local,remote,newId=()=>crypto.randomUUID()){
@@ -10,8 +10,8 @@ export function mergeSetlists(base,local,remote,newId=()=>crypto.randomUUID()){
   else if(base&&equal(r,b))chosen=l;
   else if(!l)chosen=r;
   else if(!r)chosen=l;
-  else if(!base&&equal(l,lettingGo))chosen=r;
-  else if(!base&&equal(r,lettingGo))chosen=l;
+  else if(!base&&builtInSongs.some(song=>equal(l,song)))chosen=r;
+  else if(!base&&builtInSongs.some(song=>equal(r,song)))chosen=l;
   else {chosen=r;const copy=structuredClone(l);copy.id=newId();copy.title=(copy.title||'未命名歌曲')+'（本機版本）';songs.push(copy);conflicts.push(l.title)}
   if(chosen)songs.push(structuredClone(chosen));
  }

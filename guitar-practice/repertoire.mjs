@@ -13,5 +13,18 @@ export const lettingGo={id,title:'Letting Go',artist:'Potsu',key:'B 大調',temp
  section(8,'尾段旋律 B／收尾','55–59','G♯m7 / Gm7 → F♯m7 / Fm7 → Emaj7 → D♯maj7 → G♯m7','第 5 頁下半。前兩小節各有兩個和弦，以半音下行連接；斜線表示同小節先後演奏。最後停在 G♯m7。',[5],['共同音連接','節奏／律動'])]};
 const scoreChords={'Emaj7':[4,'maj7'],'Em7':[4,'m7'],'Bmaj9':[11,'maj9'],'Adim':[9,'dim'],'C♯m7':[1,'m7'],'Cmaj7':[0,'maj7'],'Bmaj7':[11,'maj7'],'C♯m9':[1,'m9'],'F♯7':[6,'7'],'A♯m7':[10,'m7'],'D♯m7':[3,'m7'],'D♯maj7':[3,'maj7'],'G♯m7':[8,'m7'],'Gm7':[7,'m7'],'F♯m7':[6,'m7'],'Fm7':[5,'m7']};
 for(const p of lettingGo.sections.slice(1)){p.harmony={key:11,mode:'major',inputMode:'notes',active:0,chords:p.chords.split(/ → | \/ /).map(symbol=>{const [root,quality]=scoreChords[symbol];return {root,quality,shape:0}})};p.harmonyOrigin='reference'}
-export function ensureRepertoire(data){if(data.songs.length>=500)return false;if(!Array.isArray(data.installedRepertoire))data.installedRepertoire=[];if(data.installedRepertoire.includes(id))return false;if(!data.songs.some(s=>s.id===id||s.sourceId===id||(s.title.trim().toLowerCase()==='letting go'&&s.artist.trim().toLowerCase()==='potsu')))data.songs.push(structuredClone(lettingGo));data.installedRepertoire.push(id);return true}
+export const shantou={id:'shantou-wuwang-v1',title:'山頭',artist:'無妄合作社',key:'',tempo:'',sourceFilename:'山頭 -  無妄合作社.wav',audioStatus:'pending',ideas:[],sections:[]};
+export const builtInSongs=[lettingGo,shantou];
+export function ensureRepertoire(data){
+ if(!Array.isArray(data.installedRepertoire))data.installedRepertoire=[];
+ let changed=false;
+ for(const song of builtInSongs){
+  if(data.installedRepertoire.includes(song.id))continue;
+  const existing=data.songs.some(s=>s.id===song.id||s.sourceId===song.id||(s.title.trim().toLowerCase()===song.title.toLowerCase()&&s.artist.trim().toLowerCase()===song.artist.toLowerCase()));
+  if(!existing&&data.songs.length>=500)continue;
+  if(!existing)data.songs.push(structuredClone(song));
+  data.installedRepertoire.push(song.id);changed=true;
+ }
+ return changed;
+}
 export function scoreSource(song){return song.sourceId===id?{url:'assets/scores/letting-go/score.pdf',pages:5,title:'Letting Go.pdf · 使用者提供的練團譜'}:null}

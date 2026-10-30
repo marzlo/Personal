@@ -1,4 +1,4 @@
-import {mergeSetlists} from './setlist-merge.mjs?v=2';
+import {mergeSetlists} from './setlist-merge.mjs?v=3';
 const TOKEN='fret.bandSetlist.session.v1',META='fret.bandSetlist.cloud.v1';
 const eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function createSetlistCloud({get,apply,validate,editing,localReady,endpoint=window.SYNC_WORKER_URL}){

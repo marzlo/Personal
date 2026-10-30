@@ -1,3 +1,4 @@
+import {ensureScoreSupplements,isShantou,supplementShantou} from './shantou-score.mjs?v=1';
 // User-supplied Letting Go.pdf. Section labels are practice labels, not original verse/chorus labels.
 const id='letting-go-potsu-v1';
 function section(n,label,bars,chords,notes,pages,concepts=[]){return {id:`letting-go-${n}`,name:label.includes('Solo')?'Solo':'其他',label,bars,chords,notation:'notes',concepts,notes,scorePages:pages}}
@@ -13,8 +14,10 @@ export const lettingGo={id,title:'Letting Go',artist:'Potsu',key:'B 大調',temp
  section(8,'尾段旋律 B／收尾','55–59','G♯m7 / Gm7 → F♯m7 / Fm7 → Emaj7 → D♯maj7 → G♯m7','第 5 頁下半。前兩小節各有兩個和弦，以半音下行連接；斜線表示同小節先後演奏。最後停在 G♯m7。',[5],['共同音連接','節奏／律動'])]};
 const scoreChords={'Emaj7':[4,'maj7'],'Em7':[4,'m7'],'Bmaj9':[11,'maj9'],'Adim':[9,'dim'],'C♯m7':[1,'m7'],'Cmaj7':[0,'maj7'],'Bmaj7':[11,'maj7'],'C♯m9':[1,'m9'],'F♯7':[6,'7'],'A♯m7':[10,'m7'],'D♯m7':[3,'m7'],'D♯maj7':[3,'maj7'],'G♯m7':[8,'m7'],'Gm7':[7,'m7'],'F♯m7':[6,'m7'],'Fm7':[5,'m7']};
 for(const p of lettingGo.sections.slice(1)){p.harmony={key:11,mode:'major',inputMode:'notes',active:0,chords:p.chords.split(/ → | \/ /).map(symbol=>{const [root,quality]=scoreChords[symbol];return {root,quality,shape:0}})};p.harmonyOrigin='reference'}
-export const shantou={id:'shantou-wuwang-v1',title:'山頭',artist:'無妄合作社',key:'',tempo:'',sourceFilename:'山頭 -  無妄合作社.wav',audioStatus:'pending',ideas:[],sections:[]};
+export const shantouBeforeScore={id:'shantou-wuwang-v1',title:'山頭',artist:'無妄合作社',key:'',tempo:'',sourceFilename:'山頭 -  無妄合作社.wav',audioStatus:'pending',ideas:[],sections:[]};
+export const shantou=structuredClone(shantouBeforeScore);supplementShantou(shantou);
 export const builtInSongs=[lettingGo,shantou];
+export const pristineBuiltIns=[...builtInSongs,shantouBeforeScore];
 export function ensureRepertoire(data){
  if(!Array.isArray(data.installedRepertoire))data.installedRepertoire=[];
  let changed=false;
@@ -25,6 +28,10 @@ export function ensureRepertoire(data){
   if(!existing)data.songs.push(structuredClone(song));
   data.installedRepertoire.push(song.id);changed=true;
  }
- return changed;
+ return ensureScoreSupplements(data)||changed;
 }
-export function scoreSource(song){return song.sourceId===id?{url:'assets/scores/letting-go/score.pdf',pages:5,title:'Letting Go.pdf · 使用者提供的練團譜'}:null}
+export function scoreSource(song){
+ if(song.sourceId===id)return {url:'assets/scores/letting-go/score.pdf',assetDir:'assets/scores/letting-go',label:'Letting Go',pages:5,title:'Letting Go.pdf · 使用者提供的練團譜',description:'依小節整理練習段落，不另猜作主歌／副歌。原譜的音符、TAB、Solo 記號保留於 PDF。'};
+ if(isShantou(song))return {url:'assets/scores/shantou-utopia/score.pdf',assetDir:'assets/scores/shantou-utopia',label:'山頭 Utopia',pages:14,title:'山頭 Utopia.pdf · 使用者提供的練團譜',description:'原譜標示 126 BPM、4/4。依原譜標記及小節整理；和弦為段落概要，特殊指法、雙吉他聲部、泛音、悶音與主奏記號以原譜為準。未依音檔確認調性或節奏。'};
+ return null;
+}

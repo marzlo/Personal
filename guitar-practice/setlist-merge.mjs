@@ -1,4 +1,5 @@
-import {builtInSongs} from './repertoire.mjs?v=2';
+import {pristineBuiltIns} from './repertoire.mjs?v=3';
+import {ensureScoreSupplements} from './shantou-score.mjs?v=1';
 const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 // Three-way merge: unmodified copies follow the other device; conflicting edits keep both versions.
 export function mergeSetlists(base,local,remote,newId=()=>crypto.randomUUID()){
@@ -10,11 +11,11 @@ export function mergeSetlists(base,local,remote,newId=()=>crypto.randomUUID()){
   else if(base&&equal(r,b))chosen=l;
   else if(!l)chosen=r;
   else if(!r)chosen=l;
-  else if(!base&&builtInSongs.some(song=>equal(l,song)))chosen=r;
-  else if(!base&&builtInSongs.some(song=>equal(r,song)))chosen=l;
-  else {chosen=r;const copy=structuredClone(l);copy.id=newId();copy.title=(copy.title||'未命名歌曲')+'（本機版本）';songs.push(copy);conflicts.push(l.title)}
+  else if(!base&&pristineBuiltIns.some(song=>equal(l,song)))chosen=r;
+  else if(!base&&pristineBuiltIns.some(song=>equal(r,song)))chosen=l;
+  else {chosen=r;const copy=structuredClone(l);ensureScoreSupplements({songs:[copy]});copy.id=newId();copy.title=(copy.title||'未命名歌曲')+'（本機版本）';songs.push(copy);conflicts.push(l.title)}
   if(chosen)songs.push(structuredClone(chosen));
  }
  if(songs.length>500)throw Error('合併後超過 500 首，請先匯出備份再整理歌單。');
- return {data:{...structuredClone(remote),version:1,songs,installedRepertoire:[...new Set([...(local.installedRepertoire||[]),...(remote.installedRepertoire||[])])]},conflicts};
+ const data={...structuredClone(remote),version:1,songs,installedRepertoire:[...new Set([...(local.installedRepertoire||[]),...(remote.installedRepertoire||[])])]};ensureScoreSupplements(data);return {data,conflicts};
 }

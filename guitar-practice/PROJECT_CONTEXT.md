@@ -103,3 +103,5 @@ Chord Blueprint 原檔未放入程式庫；只保留使用者要求加入的指�
 - 2026-10-30補入使用者提供「山頭 Utopia.pdf」（263149 bytes、14頁）。assets/scores/shantou-utopia/保留原PDF與14張WebP；shantou-score.mjs依譜面1–166小節整理15段，126 BPM／4/4依封面，未標明主調故不填。保留Dadd4(add9)、Em13、D9等標記與3x/6x反覆，不把不支援的種類換成普通和弦；E5/C5/D5明示為TAB簡記，未另標名的前奏過門／尾奏標為練習分段。
 - 既有山頭以scoreSupplements標記一次性附加，ideas／自訂tempo／原sections與harmony不覆寫；source頁預覽改為通用assetDir與page count，scorePages驗證擴至200但顯示只接受來源實際頁數。首次雲端合併也會補入舊版山頭的PDF，未修改內建舊版識別仍保留；使用者刪除已補段落後不反覆再加入。段落總數達500而無空間時不自動追加。
 - 山頭測試驗證14頁實檔、15段小節範圍、舊歌補充一次、手動內容與指板保存、雲端舊歌合併不丟notes；瀏覽器測試驗證第14頁載入與存檔。離線清單117資源約7.8MB；WAV仍待補，本次只有PDF可讀，未新增音訊播放。
+
+- 2026-11-01 我的指板筆記新增使用者提供的爵士學習筆記（G小調混合七和弦、半減七、Hendrix Chord、Autumn Leaves兩組終止式及16小節分組）。原D大調10張卡與Suno連結保留，新增頁內跳轉。assets/jazz-notes保留兩張使用者原圖，折疊展示；重新繪製附圖Am7♭5 x12 13 12 13x與5x554x，另補D7♯9 x5456x（省五音、非原圖）。明確區分Adim7的𝄫7與Am7♭5的♭7，16小節表註明未對照原譜，不假定通用曲式。390/820/1440瀏覽器檢查原筆記、三張新圖、兩張原圖載入與無溢出通過；harmony/package/offline manifest測試通過。未更動儲存與雲端同步。

@@ -33,3 +33,17 @@ const jazzShapes=[
  ['D7(♯9) · 練習參考',[null,5,4,5,6,null],'D–F♯–C–E♯（等音 F）','另補常用參考按法，非附圖內容；省略五音 A，第三音 F♯ 與升九音 E♯ 同時存在。']
 ];
 for(const [label,frets,tones,note] of jazzShapes){const card=document.createElement('article');const spelling=label.startsWith('D7')?names:jazzNames;card.innerHTML=`<h3>${label}</h3>${chart(label,frets,spelling)}<p class="frets">${frets.map(f=>f===null?'×':f).join(' · ')}</p><p>組成音：${tones}</p><p class="explanation">${note}</p>`;document.querySelector('#jazz-diagrams').append(card)}
+
+// 筆記各自顯示；網址片段可分享選中的筆記，不更動原有儲存。
+const noteTabs=[...document.querySelectorAll('.note-index [role="tab"]')];
+function selectNote(hash){
+ const selected=noteTabs.find(tab=>tab.hash===hash)||noteTabs[0];
+ for(const tab of noteTabs){const active=tab===selected;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;document.getElementById(tab.getAttribute('aria-controls')).hidden=!active;}
+}
+for(const [index,tab] of noteTabs.entries()){
+ tab.addEventListener('click',event=>{event.preventDefault();history.pushState(null,'',tab.hash);selectNote(tab.hash);});
+ tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%noteTabs.length;else if(event.key==='ArrowLeft')next=(index+noteTabs.length-1)%noteTabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=noteTabs.length-1;else return;event.preventDefault();noteTabs[next].focus();noteTabs[next].click();});
+}
+window.addEventListener('hashchange',()=>selectNote(location.hash));
+window.addEventListener('popstate',()=>selectNote(location.hash));
+selectNote(location.hash);

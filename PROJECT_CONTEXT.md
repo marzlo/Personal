@@ -260,3 +260,5 @@
 - Chromium斷網測試通過首頁資料、Podcast字卡、吉他iframe新增和弦／圖庫、歌單離線保存／重整、solo譜頁、缺頁導覽與API排除；獨立server測試新版waiting、編輯保護、套用後資料保留。66項unit測試與原吉他測試通過。這不是三台真實裝置或Safari實測，不保證瀏覽器永遠不回收快取。
 
 - 山頭 Utopia.pdf已納入吉他歌單與離線白名單：14頁原譜與譜圖、15段練習分段，通用譜頁預覽不再只支援Letting Go。新版離線資源117個、約7.8MB，部署後需從左下提示套用新版。
+
+- 2026-11-06 使用者提供同步發布失敗紀錄：Pillow wheel build failed。pages.yml與sync-notion.yml原先都使用runner預設Python安裝Pillow10.4，存在新版Python無對應wheel而退回原始碼編譯風險；兩者加入setup-python@v5固定3.12，pip加--only-binary=:all:避免隱式原始碼建置。乾淨Python3.12 venv實測下載cp312 manylinux wheel安裝成功，share-previews與兩個share-photo-images測試通過。僅收到錯誤尾段，未宣稱已確認正式runner具體Python版本；推送觸發Pages發布，正式Actions狀態仍因API Forbidden無法由此驗證。

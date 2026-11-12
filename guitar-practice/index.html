@@ -23,7 +23,7 @@
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
-&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src 'self' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src &#x27;self&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
 &lt;title&gt;FRET 指間&lt;/title&gt;
 &lt;style&gt;:root {
   color-scheme: light dark;
@@ -1818,6 +1818,9 @@ const pcs=[&#x27;C&#x27;,&#x27;D♭&#x27;,&#x27;D&#x27;,&#x27;E♭&#x27;,&#x27;E
 const letters=[&#x27;C&#x27;,&#x27;D&#x27;,&#x27;E&#x27;,&#x27;F&#x27;,&#x27;G&#x27;,&#x27;A&#x27;,&#x27;B&#x27;],naturals=[0,2,4,5,7,9,11];
 const modes={major:{name:&#x27;大調&#x27;,iv:[0,2,4,5,7,9,11]},natural:{name:&#x27;自然小調&#x27;,iv:[0,2,3,5,7,8,10]},harmonic:{name:&#x27;和聲小調&#x27;,iv:[0,2,3,5,7,8,11]},melodic:{name:&#x27;旋律小調（爵士）&#x27;,iv:[0,2,3,5,7,9,11]}};
 const defs=[
+{id:&#x27;7b13&#x27;,suffix:&#x27;7(♭13)&#x27;,name:&#x27;屬七降十三和弦&#x27;,iv:[0,4,7,10,8],sh:[[0,null,0,1,1,null],[null,0,2,0,2,1]]},
+{id:&#x27;7sharp9&#x27;,suffix:&#x27;7(♯9)&#x27;,name:&#x27;屬七升九和弦&#x27;,iv:[0,4,7,10,3],sh:[[0,2,0,1,3,3],[null,0,-1,0,1,null]]},
+{id:&#x27;7b9&#x27;,suffix:&#x27;7(♭9)&#x27;,name:&#x27;屬七降九和弦&#x27;,iv:[0,4,7,10,1],sh:[[0,2,0,1,0,1],[null,0,-1,0,-1,null]]},
 {id:&#x27;maj&#x27;,suffix:&#x27;&#x27;,name:&#x27;大三和弦&#x27;,iv:[0,4,7],sh:[[0,2,2,1,0,0],[null,0,2,2,2,0]]},
 {id:&#x27;maj7&#x27;,suffix:&#x27;maj7&#x27;,name:&#x27;大七和弦&#x27;,iv:[0,4,7,11],sh:[[0,null,1,1,0,null],[null,0,2,1,2,0]]},
 {id:&#x27;add9&#x27;,suffix:&#x27;add9&#x27;,name:&#x27;加九和弦&#x27;,iv:[0,4,7,2],sh:[[0,null,2,1,0,2],[null,0,-1,-3,0,null]]},
@@ -1845,6 +1848,9 @@ defs.push(
 // Verified against the embedded William Vinci / Chord Blueprint library.
 // Entries identify original page and figure, not fingering numbers.
 const shapeSources={
+ &#x27;7b13&#x27;:[&#x27;第14頁・A7(♭13) 第1圖&#x27;,&#x27;第14頁・A7(♭13) 第6圖&#x27;],
+ &#x27;7sharp9&#x27;:[null,&#x27;第14頁・A7(♯9) 第2圖&#x27;],
+ &#x27;7b9&#x27;:[null,&#x27;第14頁・A7(♭9) 第3圖&#x27;],
  maj:[&#x27;第6頁・A 第1圖&#x27;,&#x27;第6頁・A 第2圖&#x27;],
  min:[&#x27;第8頁・Am 第1圖&#x27;,&#x27;第8頁・Am 第2圖&#x27;],
  maj7:[&#x27;第10頁・Amaj7 第1圖&#x27;,&#x27;第10頁・Amaj7 第6圖&#x27;],

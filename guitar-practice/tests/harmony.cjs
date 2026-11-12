@@ -3,7 +3,7 @@ const source=fs.readFileSync(__dirname+'/../src/harmony.html','utf8');
 const script=source.match(/<script>([\s\S]*?)<\/script>/)[1];
 new Function(script);
 const end=script.lastIndexOf('pcs.forEach((n,i)=>');
-const instrumented=script.slice(0,end)+'return {defs,shapeSources,modes,applySaved,state(){return {roots:[...roots],active,inputMode};},stacked,scale,spelling,label,set(k,m){key=k;mode=m;},renderChart(d,pc,s){shape=s;chart(d,pc);}};})();';
+const instrumented=script.slice(0,end)+'return {defs,shapeSources,modes,inScale,applySaved,state(){return {roots:[...roots],active,inputMode};},stacked,scale,spelling,label,set(k,m){key=k;mode=m;},renderChart(d,pc,s){shape=s;chart(d,pc);}};})();';
 const chartNodes=new Map();
 global.document={getElementById(){return {querySelector(selector){if(!chartNodes.has(selector))chartNodes.set(selector,{});return chartNodes.get(selector)}}}};global.window={};
 const engine=eval(instrumented);
@@ -55,8 +55,28 @@ engine.renderChart(engine.defs.find(d=>d.id==='add9'),7,0);
 assert(chartNodes.get('[data-shapeinfo]').textContent.includes('3 · × · 5 · 4 · 3 · 5'));
 engine.renderChart(engine.defs.find(d=>d.id==='add9'),9,1);
 assert(chartNodes.get('[data-shapeinfo]').textContent.includes('× · 12 · 11 · 9 · 12 · ×'));
-assert.equal(Object.values(engine.shapeSources).flat().filter(Boolean).length,27);
-console.log('PASS: library reference labels for 27 voicings, supplementary labels for 15; reduced-span Gadd9.');
+assert.equal(Object.values(engine.shapeSources).flat().filter(Boolean).length,31);
+console.log('PASS: library reference labels for 31 voicings, supplementary labels for 17; reduced-span Gadd9.');
+
+// User's library example: altered dominants must be selectable, not image-only.
+const altered=id=>engine.defs.find(d=>d.id===id);
+for(const id of ['7b13','7sharp9','7b9'])assert(altered(id));
+engine.set(2,'melodic');
+assert(engine.inScale(altered('7b13'),9),'A7(b13) belongs to D melodic minor');
+assert(!engine.inScale(altered('7sharp9'),9));
+assert(!engine.inScale(altered('7b9'),9));
+engine.set(2,'harmonic');
+assert(engine.inScale(altered('7b13'),9));
+assert(engine.inScale(altered('7b9'),9));
+engine.set(2,'major');
+assert(!engine.inScale(altered('7b13'),9),'A7(b13) has an F natural outside D major');
+for(const [id,shape,expected] of [
+ ['7b13',0,'5 · × · 5 · 6 · 6 · ×'],
+ ['7b13',1,'× · 0 · 2 · 0 · 2 · 1'],
+ ['7sharp9',1,'× · 12 · 11 · 12 · 13 · ×'],
+ ['7b9',1,'× · 12 · 11 · 12 · 11 · ×']
+]){engine.renderChart(altered(id),9,shape);assert(chartNodes.get('[data-shapeinfo]').textContent.includes(expected));assert(chartNodes.get('[data-shapesource]').textContent.includes('圖庫參照'));}
+console.log('PASS: altered dominant classification and four original A-root diagrams.');
 
 engine.applySaved({modelContent:{roots:[0,2,4,5,7,9,11,0],active:7,inputMode:'degrees'}});
 assert.equal(engine.state().roots.length,8);assert.equal(engine.state().active,7);assert.equal(engine.state().inputMode,'degrees');

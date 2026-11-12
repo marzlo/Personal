@@ -22,6 +22,9 @@ const pcs=['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
 const letters=['C','D','E','F','G','A','B'],naturals=[0,2,4,5,7,9,11];
 const modes={major:{name:'大調',iv:[0,2,4,5,7,9,11]},natural:{name:'自然小調',iv:[0,2,3,5,7,8,10]},harmonic:{name:'和聲小調',iv:[0,2,3,5,7,8,11]},melodic:{name:'旋律小調（爵士）',iv:[0,2,3,5,7,9,11]}};
 const defs=[
+{id:'7b13',suffix:'7(♭13)',name:'屬七降十三和弦',iv:[0,4,7,10,8],sh:[[0,null,0,1,1,null],[null,0,2,0,2,1]]},
+{id:'7sharp9',suffix:'7(♯9)',name:'屬七升九和弦',iv:[0,4,7,10,3],sh:[[0,2,0,1,3,3],[null,0,-1,0,1,null]]},
+{id:'7b9',suffix:'7(♭9)',name:'屬七降九和弦',iv:[0,4,7,10,1],sh:[[0,2,0,1,0,1],[null,0,-1,0,-1,null]]},
 {id:'maj',suffix:'',name:'大三和弦',iv:[0,4,7],sh:[[0,2,2,1,0,0],[null,0,2,2,2,0]]},
 {id:'maj7',suffix:'maj7',name:'大七和弦',iv:[0,4,7,11],sh:[[0,null,1,1,0,null],[null,0,2,1,2,0]]},
 {id:'add9',suffix:'add9',name:'加九和弦',iv:[0,4,7,2],sh:[[0,null,2,1,0,2],[null,0,-1,-3,0,null]]},
@@ -49,6 +52,9 @@ defs.push(
 // Verified against the embedded William Vinci / Chord Blueprint library.
 // Entries identify original page and figure, not fingering numbers.
 const shapeSources={
+ '7b13':['第14頁・A7(♭13) 第1圖','第14頁・A7(♭13) 第6圖'],
+ '7sharp9':[null,'第14頁・A7(♯9) 第2圖'],
+ '7b9':[null,'第14頁・A7(♭9) 第3圖'],
  maj:['第6頁・A 第1圖','第6頁・A 第2圖'],
  min:['第8頁・Am 第1圖','第8頁・Am 第2圖'],
  maj7:['第10頁・Amaj7 第1圖','第10頁・Amaj7 第6圖'],

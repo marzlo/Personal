@@ -1,0 +1,3717 @@
+{
+  "batches": [
+    {
+      "archive": "圖片_001.zip",
+      "images": [
+        {
+          "file": "GFHJ3964.JPG",
+          "sha256": "551f59e9a0281a4c9d965f4585885c3b34036f1188170d073fe3f174f8b30cc1",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0330.webp",
+            "difference": 0.46169354838709675,
+            "rmse": 30.41416585038952
+          }
+        },
+        {
+          "file": "IMG_0013.JPG",
+          "sha256": "d022d9784bc2ffdd9adf32423c7acbed50dc56ee43893351c99d9a1c9445efd2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.45060483870967744,
+            "rmse": 34.559589615257295
+          }
+        },
+        {
+          "file": "IMG_0014.JPG",
+          "sha256": "fa41a3ae94494a6fbb06d01a289bf0f66643dc75657fce3aa3563895ad90f299",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.4536290322580645,
+            "rmse": 33.92676510699185
+          }
+        },
+        {
+          "file": "IMG_0015.JPG",
+          "sha256": "d381f484e4697a10d256d5b1e44de867888da7223b753107e0b879b25f5d1fbd",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0352.webp",
+            "difference": 0.4274193548387097,
+            "rmse": 31.91113148260337
+          }
+        },
+        {
+          "file": "IMG_0016.JPG",
+          "sha256": "e9943410acd0d071eff08f8801dbe96b1b49a7ad008f50c3f59ac70bb39f6fc6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.4576612903225806,
+            "rmse": 39.3913408552565
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_002.zip",
+      "images": [
+        {
+          "file": "IMG_0017.JPG",
+          "sha256": "5304e4e7e7197d9fbcb87bc8d7729438eff03378f1ccd3b78e204fabd99aefbb",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0345.webp",
+            "difference": 0.4596774193548387,
+            "rmse": 39.98200278719164
+          }
+        },
+        {
+          "file": "IMG_0018.JPG",
+          "sha256": "61fde9bf264eae55f3d0b4fd15a941b57cfe8c2ae52c73d6f6859f780592a827",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4596774193548387,
+            "rmse": 39.065674870978484
+          }
+        },
+        {
+          "file": "IMG_0019.JPG",
+          "sha256": "4e21e97b065bdfe59e50a7ef472a7004ba48670fc69219f8f88c6f6f2594ecc3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0344.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 43.60662892195979
+          }
+        },
+        {
+          "file": "IMG_0020.JPG",
+          "sha256": "4369e1b5179bbcc6c6e8d256e6638e8924af4e8b69ce398d18872d1c051e22dd",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0345.webp",
+            "difference": 0.46169354838709675,
+            "rmse": 39.20324643763575
+          }
+        },
+        {
+          "file": "IMG_0021.JPG",
+          "sha256": "c15e7d435c36853fd460e5a7afc50e5792cb06d8254d3e057bd7534764df249d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.4536290322580645,
+            "rmse": 42.05602197515832
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_003.zip",
+      "images": [
+        {
+          "file": "IMG_0022.JPG",
+          "sha256": "b126842f8ff48b97d307f1ec707ddb64da5b9b604c566487d63ced747fdd5800",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.4586693548387097,
+            "rmse": 30.568857978750202
+          }
+        },
+        {
+          "file": "IMG_0023.JPG",
+          "sha256": "9c37701c408120a4803cb2ec4623c2129c6423cd0dd1c3432325dbaaaf37ab4f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0345.webp",
+            "difference": 0.4647177419354839,
+            "rmse": 31.91813870082339
+          }
+        },
+        {
+          "file": "IMG_0024.JPG",
+          "sha256": "09871e5e58bc29f1891113229c021b82dfe6ada0155911484e831028f5eeada5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.4596774193548387,
+            "rmse": 44.99379297469819
+          }
+        },
+        {
+          "file": "IMG_0025.JPG",
+          "sha256": "9f6cb72a739d720fe6e8240f127c6a712f67461278f1af70115ff15808d64468",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0339.webp",
+            "difference": 0.41935483870967744,
+            "rmse": 46.863519427428834
+          }
+        },
+        {
+          "file": "IMG_0026.JPG",
+          "sha256": "53df5fa6b800a4fb88023296ba30ac7758082c90cfeb4575030a87522cdc31b7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.4475806451612903,
+            "rmse": 36.82625220630658
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_004.zip",
+      "images": [
+        {
+          "file": "IMG_0027.JPG",
+          "sha256": "36f3311d3fddd62e95ae8e4d19a053942cb371c57839c462c99b1fed51350c20",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 36.55022496938288
+          }
+        },
+        {
+          "file": "IMG_0028.JPG",
+          "sha256": "bf2c54ecc2fbee9aeda159fd405fdfa840c15c65068872011cf380034c1989e9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.45060483870967744,
+            "rmse": 38.912097954074646
+          }
+        },
+        {
+          "file": "IMG_0029.JPG",
+          "sha256": "252a65203f0d7cb9e9cd1b5ea1a06f49ac10556b9d2f9e1c482a5db92ad48a1a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0339.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 43.40360638097945
+          }
+        },
+        {
+          "file": "IMG_0030.JPG",
+          "sha256": "99ace681c5ec86c1f305ea13244cde62c3ac7214d699fa49234cce5faa543b17",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.46774193548387094,
+            "rmse": 41.75390606727711
+          }
+        },
+        {
+          "file": "IMG_0031.JPG",
+          "sha256": "3dc70eb6423130e28185cc2977a261d5ddb4bb4517d39e35496bc629fd2b075a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 34.951361293231486
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_005.zip",
+      "images": [
+        {
+          "file": "IMG_0032.JPG",
+          "sha256": "145c9d94fa0fa7d1a6c475b9071b1e86d80bdb23e11a294187755ff8972550e2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 37.747167215732894
+          }
+        },
+        {
+          "file": "IMG_0033.JPG",
+          "sha256": "a820c28403bb004b019ab3133b1de6d4ec43f929377f176ee11d9fe1a9934270",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 36.588785957072965
+          }
+        },
+        {
+          "file": "IMG_0034.JPG",
+          "sha256": "c36d848fb7dbb7d1748a2a818f6dd7c057b706a8520f65a235fd5d25f3d82571",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 41.02787019591073
+          }
+        },
+        {
+          "file": "IMG_0035.JPG",
+          "sha256": "93b6042554153b8e8ac2b61c1721e8cfd18d27307bac571394e519acd6ccdd69",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 44.207717263222264
+          }
+        },
+        {
+          "file": "IMG_0036.JPG",
+          "sha256": "ca4dbd446a3ac07695123ccf875bc608c7efc189c2ed9669fc101967f977f676",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.45463709677419356,
+            "rmse": 41.69870773252452
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_006.zip",
+      "images": [
+        {
+          "file": "IMG_0037.JPG",
+          "sha256": "5b306bdff19908340e86d1b743b78be1531cb434d8902e7740b45508f2ac8082",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 38.675987786351364
+          }
+        },
+        {
+          "file": "IMG_0038.JPG",
+          "sha256": "a58de80d5e7bdf0a9c9cfb70bacba1edfd1f345fe431fa8a0355bf50adbca6f5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.45463709677419356,
+            "rmse": 28.777958552293107
+          }
+        },
+        {
+          "file": "IMG_0039.JPG",
+          "sha256": "51c25cfbad26948c29b838e047cd176bbdb78586ede119c8f212b2c091c576a2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 25.054277017607195
+          }
+        },
+        {
+          "file": "IMG_0041.JPG",
+          "sha256": "33ac0f195f123fa0f55d131b1b9bb0f15f1df885d18e59b9805477d9c8265c06",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4173387096774194,
+            "rmse": 11.702321818233337
+          }
+        },
+        {
+          "file": "IMG_0042.JPG",
+          "sha256": "27074ef49d23d15eeff90e10480d4c39dab8ee66b14f3b3656d3137c4e018b90",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 19.536474301290905
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_007.zip",
+      "images": [
+        {
+          "file": "IMG_0043.JPG",
+          "sha256": "3894d8d55ea1489d798adaacadfff659784d1bfe1dd5897dc896dcedeb3cfac7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4314516129032258,
+            "rmse": 17.670956264800726
+          }
+        },
+        {
+          "file": "IMG_0044.JPG",
+          "sha256": "fc90bfd3298616ffe4103f2059c1b1a37715ae3159e6bf8bd463ef142830f550",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 16.86793833727169
+          }
+        },
+        {
+          "file": "IMG_0045.JPG",
+          "sha256": "6a7cdcc99384b95ecb132b3a8eb87dce3af0caf4e4ba39e3aea1805c0ab9cb48",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 20.176927378505876
+          }
+        },
+        {
+          "file": "IMG_0046.JPG",
+          "sha256": "865d342e256776c19c52644d0856035f477129bfa35a5f93238190be27263bf4",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.4657258064516129,
+            "rmse": 15.703490356446238
+          }
+        },
+        {
+          "file": "IMG_0047.JPG",
+          "sha256": "5b224a891ff677401ca90aaf3840d2219b8ebe701c609443e23afa2097edc5b7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 17.067106749900525
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_008.zip",
+      "images": [
+        {
+          "file": "IMG_0048.JPG",
+          "sha256": "b6cf6cb1114fde9e38fb4708d1bdc36576af99a63125fe373c04b00221fc3720",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.42036290322580644,
+            "rmse": 23.775767272056648
+          }
+        },
+        {
+          "file": "IMG_0049.JPG",
+          "sha256": "c7226e6a28b943ae33bf9321883c9e202b2daddd9f666be9d217a9bc611aa5f0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 14.813126305324612
+          }
+        },
+        {
+          "file": "IMG_0050.JPG",
+          "sha256": "06e66986365e709d1316f76d286b2c3cb063e48ab4be5f542a5e82e3ae6fb293",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.4254032258064516,
+            "rmse": 13.478462275515705
+          }
+        },
+        {
+          "file": "IMG_0051.JPG",
+          "sha256": "17b5f97c3faf11df3dc4caab1ea23faaecfb1c7c9e17720072d249516de44ae7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 15.368456432739105
+          }
+        },
+        {
+          "file": "IMG_0052.JPG",
+          "sha256": "0b7c2cbaaead7318bfa47ded085b02246f84e26e523530d6b58be1882ff260a9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 22.982181446992797
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_009.zip",
+      "images": [
+        {
+          "file": "IMG_0053.JPG",
+          "sha256": "58d194217e436309eb8cb379abe89532e84af6914177fec234bbc3258ec83654",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.43850806451612906,
+            "rmse": 14.38990395859194
+          }
+        },
+        {
+          "file": "IMG_0054.JPG",
+          "sha256": "6592a5ed2f5049f414b32c9f991937638946136d10b3405082a01f12b9abb0f4",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4627016129032258,
+            "rmse": 17.247848597723717
+          }
+        },
+        {
+          "file": "IMG_0055.JPG",
+          "sha256": "6df6c0108ed79ea63134b0a2ce6211a130124c1b7345ceb03e8f520b6e17cd72",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.42943548387096775,
+            "rmse": 11.970422533269241
+          }
+        },
+        {
+          "file": "IMG_0056.JPG",
+          "sha256": "8aecdd15324e2c5a56ebeb96c22a1b30ead0cd538389c85c8c1f2fad284835c3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.43850806451612906,
+            "rmse": 15.99615432299276
+          }
+        },
+        {
+          "file": "IMG_0057.JPG",
+          "sha256": "61c9eecba510eaa99ef483508acc7ffa38431a8ce1b332b2b0c8b6c5806d40e0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.42943548387096775,
+            "rmse": 16.870717049076486
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_010.zip",
+      "images": [
+        {
+          "file": "IMG_0058.JPG",
+          "sha256": "32b7e9ec3f05b7e449576fa7a30ea56b353d567ba4ee6800a765e49628188223",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 15.007257358941374
+          }
+        },
+        {
+          "file": "IMG_0059.JPG",
+          "sha256": "1b970514bc0fe655210a55339eec7edb6f23585a32ca16cbad7454f132f3d640",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.45060483870967744,
+            "rmse": 15.694719454326032
+          }
+        },
+        {
+          "file": "IMG_0060.JPG",
+          "sha256": "4eb3048004f5563245dc5615891fb73b53f1ac4c550a40cea4b193e390242baf",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 19.735358496870536
+          }
+        },
+        {
+          "file": "IMG_0061.JPG",
+          "sha256": "9910624072c8be255b80293ce4502c8bfd901d390f87b57a1facb1445fc422ad",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 21.14345994480326
+          }
+        },
+        {
+          "file": "IMG_0062.JPG",
+          "sha256": "bdb29fdd0241bec84953e591761fd79f0c49ddb6718c7105b9259b0a3811f412",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.45463709677419356,
+            "rmse": 17.982684814148303
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_011.zip",
+      "images": [
+        {
+          "file": "IMG_0063.JPG",
+          "sha256": "5907da279e6d267e136604970478ea56cbd8f47facf28c5b8a2b05663f94defa",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.4526209677419355,
+            "rmse": 19.59953064648488
+          }
+        },
+        {
+          "file": "IMG_0064.JPG",
+          "sha256": "98eae022f3ac4dba033ee8d1cac550e5cc3a0b748552440663fd93f24fc44d70",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4475806451612903,
+            "rmse": 19.602171236562036
+          }
+        },
+        {
+          "file": "IMG_0065.JPG",
+          "sha256": "484bdc642afcc4bba0fc55854b45cb91ee8d6c03c6e64bf5302ba64c9c579903",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 27.844749561182983
+          }
+        },
+        {
+          "file": "IMG_0066.JPG",
+          "sha256": "818549122bde676678085fd5362e2f84033e82947c3a29bde8ffee941862ae69",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 20.544777697142404
+          }
+        },
+        {
+          "file": "IMG_0067.JPG",
+          "sha256": "2f7ae2f7c9b3f792c427c7c7a017a4d8cbc341077900a901108060ed322fdb35",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4375,
+            "rmse": 24.860784254524233
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_012.zip",
+      "images": [
+        {
+          "file": "IMG_0069.JPG",
+          "sha256": "103503462613f661f958cf15379444fdfdbba909cf3be49e50825b296e65e5af",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 24.168415436008626
+          }
+        },
+        {
+          "file": "IMG_0070.JPG",
+          "sha256": "0450f0c35dd66f2e403c2655b24d6880d0b94f2bba9e6309800c6cea4a2bb905",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.42943548387096775,
+            "rmse": 18.437976688753025
+          }
+        },
+        {
+          "file": "IMG_0071.JPG",
+          "sha256": "fa99bd2d237ee5885ba1c82b797b09e2d857bb63432a074620fd849b53b42932",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4264112903225806,
+            "rmse": 24.836712839816382
+          }
+        },
+        {
+          "file": "IMG_0072.JPG",
+          "sha256": "02493ab4821a01e468ffde241e1827c305adee8ef09e5142f7e1a1740e43f6eb",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4536290322580645,
+            "rmse": 26.20135000696529
+          }
+        },
+        {
+          "file": "IMG_0073.JPG",
+          "sha256": "fd8cac473146736b25cbf34ae5dc0c6a015dd97bcc1a88156ed1af039194e89b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 25.0276604792078
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_013.zip",
+      "images": [
+        {
+          "file": "IMG_0074.JPG",
+          "sha256": "335bc089477076200827cc345bd38a3d39d8a5e82c8c312fa025a42cbaf2ce3b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 24.498545077973507
+          }
+        },
+        {
+          "file": "IMG_0075.JPG",
+          "sha256": "d1c153de0f7fa17c1520236f2bad17d2e2278a6b900cda4906ad84a5e9d63bc3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.3971774193548387,
+            "rmse": 20.565349346655893
+          }
+        },
+        {
+          "file": "IMG_0076.JPG",
+          "sha256": "f8bdff4b336d002a067936da4e0fd768945786c69d24fc514da08a5a01706eb5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 24.961650273469502
+          }
+        },
+        {
+          "file": "IMG_0077.JPG",
+          "sha256": "57a4d941d6883fbf1204f64f9f1f0f3547088fdd5afa457814cc79708ba35aaf",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 23.236597279399582
+          }
+        },
+        {
+          "file": "IMG_0079.JPG",
+          "sha256": "1153c4c7f14bf4cfe1c3c85abb8e685eba202d8a7ea4feb2c6993c0ab6e3b72c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4526209677419355,
+            "rmse": 25.773464733617015
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_014.zip",
+      "images": [
+        {
+          "file": "IMG_0080.JPG",
+          "sha256": "04654852fd1c3e84a7d5a94629d53e1b1020e02adf3120ec0547329eaa426b75",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4173387096774194,
+            "rmse": 25.658781087085956
+          }
+        },
+        {
+          "file": "IMG_0081.JPG",
+          "sha256": "c24153b02cebdb968cb4cc1a18ec70526a5995534144c188c0db0b5069cdd5f9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.4314516129032258,
+            "rmse": 29.698714986931673
+          }
+        },
+        {
+          "file": "IMG_0082.JPG",
+          "sha256": "a6d6a0855850b1e1bf4210899925af28fb5b3e49bd88e6bb9aaa6c25a29c296a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 11.514639119942057
+          }
+        },
+        {
+          "file": "IMG_0083.JPG",
+          "sha256": "4603c97b003eabf52468e1ba47de13a3e526afe3745a7cfe277a02405188da55",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4183467741935484,
+            "rmse": 13.554613202245942
+          }
+        },
+        {
+          "file": "IMG_0084.JPG",
+          "sha256": "16e98258982d5d83e9b1573ab9d020cab3ce3121b9400cee3c225c5ff8d1e35a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0356.webp",
+            "difference": 0.4586693548387097,
+            "rmse": 19.16106689031172
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_015.zip",
+      "images": [
+        {
+          "file": "IMG_0085.JPG",
+          "sha256": "7590c2e0e5273bca79cdb63a7030cb46b5d31f587bfebbeee63c9424c7fd2413",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.4223790322580645,
+            "rmse": 19.444406932007468
+          }
+        },
+        {
+          "file": "IMG_0086.JPG",
+          "sha256": "53303287f9af2e1216a556c6b6f24694b096544476350d70c006c166680f4a54",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.4596774193548387,
+            "rmse": 25.52801769624896
+          }
+        },
+        {
+          "file": "IMG_0087.JPG",
+          "sha256": "9e21a38724733016352203819850501a4a7ea48dc2745265b113eecbd9139976",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 27.139253167690523
+          }
+        },
+        {
+          "file": "IMG_0088.JPG",
+          "sha256": "75c4eefe898950e5c3827fcf811ea5fc7c1a4f2b5443b051c93e2b56018eb9b3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.43850806451612906,
+            "rmse": 28.12208318208308
+          }
+        },
+        {
+          "file": "IMG_0089.JPG",
+          "sha256": "70338e061f408b809781d23266f6734265ca7015a76753d0c1bc03c1b1c4f8b7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0345.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 28.127013816791855
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_016.zip",
+      "images": [
+        {
+          "file": "IMG_0090.JPG",
+          "sha256": "d1bcea80f5736d61e1db6e2d1cdcb11797c26e16d7a529764e44d08652a2cf9b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0340.webp",
+            "difference": 0.45060483870967744,
+            "rmse": 27.637405302868068
+          }
+        },
+        {
+          "file": "IMG_0091.JPG",
+          "sha256": "6eb2b8b20cb0c986552adba4fd721b6fc4918ebf217110d31aad979a072e76c0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 22.78793626159464
+          }
+        },
+        {
+          "file": "IMG_0092.JPG",
+          "sha256": "240995a17b8dd3a466a0a5446c853cadadd391d4382dd54708d8d5221d440bc5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 18.68292690700523
+          }
+        },
+        {
+          "file": "IMG_0093.JPG",
+          "sha256": "ab955e7e43a549c5cec74b7818d02a93cfda87a6e144517897807e8999c7277d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 30.200760545059126
+          }
+        },
+        {
+          "file": "IMG_0094.JPG",
+          "sha256": "6396f6f76057d47df3988757b5a7b281dcf3f0112e82fa9731156aef52d24722",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4022177419354839,
+            "rmse": 22.8327179243405
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_017.zip",
+      "images": [
+        {
+          "file": "IMG_0095.JPG",
+          "sha256": "df852c9a5fad93883ab725d2530f427ba446b0fa2aff4d08bad3cdb2ae595658",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 26.738881304899426
+          }
+        },
+        {
+          "file": "IMG_0096.JPG",
+          "sha256": "6376feed86662e320c46586867a70a7fbf3261c80849784ef16cb37741e3d063",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.43951612903225806,
+            "rmse": 24.929314132663176
+          }
+        },
+        {
+          "file": "IMG_0097.JPG",
+          "sha256": "ccd6a26501e8af80f2d8c94105c8cd9e9e440a400f0da4aea7323b8947600024",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 26.895631615561662
+          }
+        },
+        {
+          "file": "IMG_0098.JPG",
+          "sha256": "29173490cec20c6c14a8e58233bf630ec2f564c4fa10a6c85ce091f97d316a0e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 20.06410624411165
+          }
+        },
+        {
+          "file": "IMG_0099.JPG",
+          "sha256": "97bbe7857fc4f6349117e329cd5f4e51556db3aef6dfa9708dd9bedf26d2f9bd",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 18.24823407552084
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_018.zip",
+      "images": [
+        {
+          "file": "IMG_0100.JPG",
+          "sha256": "f010cc8741e363ce613c8137384b27dea16703803abd4ea4beecd8dca1b20fa7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 30.501216676552428
+          }
+        },
+        {
+          "file": "IMG_0101.JPG",
+          "sha256": "e1896294b5d7989bfd7dff5a3a130394c29012741207619bff50653a5b790330",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4264112903225806,
+            "rmse": 20.09673869686323
+          }
+        },
+        {
+          "file": "IMG_0102.JPG",
+          "sha256": "9d008275c89042a5bd73e800eec50f4eb93484f930b519d4e886328de4918d92",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4566532258064516,
+            "rmse": 23.739533055380427
+          }
+        },
+        {
+          "file": "IMG_0103.JPG",
+          "sha256": "6486b82a9e666d43332d00593a249397cde0732090abcf723bd2be0f79477b6c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.45060483870967744,
+            "rmse": 21.743129302724572
+          }
+        },
+        {
+          "file": "IMG_0104.JPG",
+          "sha256": "3bad350e13e0626eb412455ed221cf21538a68c06d9a759bac717771757ddc6c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0352.webp",
+            "difference": 0.45161290322580644,
+            "rmse": 22.519284270653454
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_019.zip",
+      "images": [
+        {
+          "file": "IMG_0105.JPG",
+          "sha256": "0529e53180a4117cea84dc879b5a24ef6a1549b9fc4d4536047a4226f93f562d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 20.871865408367313
+          }
+        },
+        {
+          "file": "IMG_0106.JPG",
+          "sha256": "96833700fd20ee7091509fa4f4ebacce5d05702012191e38fd0479855a716768",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 25.689248723931186
+          }
+        },
+        {
+          "file": "IMG_0107.JPG",
+          "sha256": "3b7a06917467248ed60ef99800cbb8fb542a2f955db3bd300ef538f0583429e7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 23.802245167210593
+          }
+        },
+        {
+          "file": "IMG_0108.JPG",
+          "sha256": "0955a4e4dfe8d06a4c9ffbebb609cfad64a6756494facd0e8e6a58753c7d0cf0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 16.73112859500219
+          }
+        },
+        {
+          "file": "IMG_0109.JPG",
+          "sha256": "863cad21b2da28b5f4012e504bf591d0fd8a81c7f381ee9bd0730e01ca9b0250",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.40725806451612906,
+            "rmse": 18.01662101539853
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_020.zip",
+      "images": [
+        {
+          "file": "IMG_0110.JPG",
+          "sha256": "ebbd517c365bb1b7230d17edb3f847a1333a7fb2d1b41e5e83e45e669c96b325",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 24.701123614372282
+          }
+        },
+        {
+          "file": "IMG_0111.JPG",
+          "sha256": "8f1c85e0879c75bc854b5d0e4c1f591898f1cfc95228a63304f911e48ee10fd4",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 23.564033438165886
+          }
+        },
+        {
+          "file": "IMG_0112.JPG",
+          "sha256": "fa8065dc8d832c8108d7545811aff5f38d290247f7e91a037c86af352e57c76e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 22.015198052992847
+          }
+        },
+        {
+          "file": "IMG_0113.JPG",
+          "sha256": "8707e9c33e0a02a09b57f1b9114df9ff206f52fe8e907e932ad50888a26c035b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 23.624276609295364
+          }
+        },
+        {
+          "file": "IMG_0114.JPG",
+          "sha256": "32f35d3419370a1fb4ef70cb9a4a7d2d7d7ca30dbdcf2c5a2357f3ce03e527cb",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.4405241935483871,
+            "rmse": 25.287989676425447
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_021.zip",
+      "images": [
+        {
+          "file": "IMG_0115.JPG",
+          "sha256": "ff7e9b35364b09671001c9ab298bf6e5a23269a8973dab38df9d7144c65200e8",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4112903225806452,
+            "rmse": 18.20537137426754
+          }
+        },
+        {
+          "file": "IMG_0116.JPG",
+          "sha256": "bc8829d64be48715865af3599578c433b99e797c8c9f40448e88270d82831f66",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0324.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 25.578139317344803
+          }
+        },
+        {
+          "file": "IMG_0117.JPG",
+          "sha256": "37d2a04c906303cd8853394335295d07d09b68be8af164e17cf63d2910516b90",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 18.769391014694644
+          }
+        },
+        {
+          "file": "IMG_0118.JPG",
+          "sha256": "f29da42b609003c91ed69b79dbfb1731a3a95750acd3bffb438e5b056afa4e96",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 21.068966922644783
+          }
+        },
+        {
+          "file": "IMG_0119.JPG",
+          "sha256": "c0567d2a4d7450b191e6e7def9dceb95eea753fa556b65dfb563d2769655369e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4475806451612903,
+            "rmse": 21.29668584838965
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_022.zip",
+      "images": [
+        {
+          "file": "IMG_0120.JPG",
+          "sha256": "c0ca78365b521bfca6ab0572b6c3eec0f287747ce3ad8540c01d5b159353e05b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 21.55908034477584
+          }
+        },
+        {
+          "file": "IMG_0121.JPG",
+          "sha256": "0011e3a38f6fde87d41d0eb5593498252d9ef0cd1e8ba2715566ae777bacb31f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.45463709677419356,
+            "rmse": 17.122376623880225
+          }
+        },
+        {
+          "file": "IMG_0122.JPG",
+          "sha256": "2fda91e06331afd4907e92d801841116466acd5b516e8f0517bb12ec29b93b51",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.46068548387096775,
+            "rmse": 23.118432344397835
+          }
+        },
+        {
+          "file": "IMG_0123.JPG",
+          "sha256": "218a73f03cc4eac5bbdaab77182621bc081d0c76f0317eb9783afc78cec0a09a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4274193548387097,
+            "rmse": 20.34679796675634
+          }
+        },
+        {
+          "file": "IMG_0124.JPG",
+          "sha256": "b752ed459edf0c737750c3b444742f725acaffd314d3d3d79a2b688a7ff839f1",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 20.39476131418311
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_023.zip",
+      "images": [
+        {
+          "file": "IMG_0125.JPG",
+          "sha256": "514908e59579e7514e6878e333b09369ec5799f95b6a0a15cb46dc8eedb34342",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 21.89971817741041
+          }
+        },
+        {
+          "file": "IMG_0126.JPG",
+          "sha256": "c49c7978859df9e51f6862b8fc59ee9755348ec3c7ce7d886ddacced40c9221a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 20.642227653526156
+          }
+        },
+        {
+          "file": "IMG_0127.JPG",
+          "sha256": "15657ae53e27d388a1c8e801cb1009b49dfa38600a4ea726c3108b495a32143b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.40423387096774194,
+            "rmse": 16.88318667158247
+          }
+        },
+        {
+          "file": "IMG_0128.JPG",
+          "sha256": "5facd830d2ac750f561b69b04dee92d0cc15b97c24f2110a003e9b50d6eb0d87",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4526209677419355,
+            "rmse": 25.217413998068874
+          }
+        },
+        {
+          "file": "IMG_0129.JPG",
+          "sha256": "eb8d46512282b1ee0bb7a229db1c35aaebd342651b059720ccbe1167830ea29e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0324.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 26.60002863602782
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_024.zip",
+      "images": [
+        {
+          "file": "IMG_0130.JPG",
+          "sha256": "4bf448f46d083281e7ea2c8fdc0bd844f6b2894d68a27b6cc396c3695ddc34a4",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.45161290322580644,
+            "rmse": 25.3486431774464
+          }
+        },
+        {
+          "file": "IMG_0131.JPG",
+          "sha256": "7f47fd44e9c217c69dc892755501bf3c0835e6eab16ef13929170d745cf432f9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 22.473269712316007
+          }
+        },
+        {
+          "file": "IMG_0132.JPG",
+          "sha256": "d53c9d9eb9cc25eed704a840e7f1f2e3f08019d5b31f2330effd5abd9fd2efeb",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 24.643314889640962
+          }
+        },
+        {
+          "file": "IMG_0133.JPG",
+          "sha256": "9da6bb1b24ad8994f48b38d08813cb3939a4379fff3b0e6178a617ee47429fb6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 23.040025465209453
+          }
+        },
+        {
+          "file": "IMG_0135.JPG",
+          "sha256": "e7392007b30092598274a34178c6f9d3413402667c5a09a28feb0fca104c1667",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.4566532258064516,
+            "rmse": 27.647756464132854
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_025.zip",
+      "images": [
+        {
+          "file": "IMG_0136.JPG",
+          "sha256": "13e6eeeef48f98dd2b35b97a82b22cd9fccfedf87bffe8466bcd4e17c05f4228",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4153225806451613,
+            "rmse": 17.569449247913266
+          }
+        },
+        {
+          "file": "IMG_0137.JPG",
+          "sha256": "9add6733e37ab7d0bb82981b66529aef86e78ae4c76324000c31f3c364bdf678",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0332.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 22.250504734443666
+          }
+        },
+        {
+          "file": "IMG_0138.JPG",
+          "sha256": "51ce942e13c9365979c8322949ba0d2b171579a9d2fdaabbbdf05a30af2e74db",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4576612903225806,
+            "rmse": 23.39473181215164
+          }
+        },
+        {
+          "file": "IMG_0139.JPG",
+          "sha256": "123056caf50b6f3b1948762cd309342696f41a09f810352b0aeadeb267f728e8",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0331.webp",
+            "difference": 0.4254032258064516,
+            "rmse": 17.789870493837217
+          }
+        },
+        {
+          "file": "IMG_0140.JPG",
+          "sha256": "6898bcbabcb59ccecbbc15f0af783c8f356e1f430b7d6d0b0f2ac570923d4704",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 19.495442175672753
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_026.zip",
+      "images": [
+        {
+          "file": "IMG_0141.JPG",
+          "sha256": "44a12d7e18fa71863b5206304857de5ce816856e7108ab2592e0db734b063388",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 19.62017257505652
+          }
+        },
+        {
+          "file": "IMG_0142.JPG",
+          "sha256": "21e1f0e774cf4756e7e75daa85bfe61149521e4352076ad9ee7c9a675ce887c5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.4002016129032258,
+            "rmse": 22.385559659074865
+          }
+        },
+        {
+          "file": "IMG_0143.JPG",
+          "sha256": "1e28129129cdbaaecfd5919751036c9879931e3b125760d125403269f82ce3e0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 21.220015610267584
+          }
+        },
+        {
+          "file": "IMG_0144.JPG",
+          "sha256": "83d966d456c41821dc018f8466a5c4141bcce54210e30f9f2d67f99dd4109749",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.43850806451612906,
+            "rmse": 19.7960302207286
+          }
+        },
+        {
+          "file": "IMG_0145.JPG",
+          "sha256": "0be8971b8fc259aa9164517d522edc5ba746e92e3e23bd4809f8518b0589a1ba",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4254032258064516,
+            "rmse": 20.11240386086407
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_027.zip",
+      "images": [
+        {
+          "file": "IMG_0146.JPG",
+          "sha256": "9a84c32d72a0d01ae9251afb78e5f1f8438ca950aace5d5f321c5c0e2c55a863",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 21.712454123440306
+          }
+        },
+        {
+          "file": "IMG_0147.JPG",
+          "sha256": "a3d5d075d6c8e90f0279b4a4f7b1e5a59b9dd071d760c72779481fc47f16aa87",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 20.820615910078164
+          }
+        },
+        {
+          "file": "IMG_0148.JPG",
+          "sha256": "bd3823943a8810b7158504588b2ba59d15df3617720e045a21bc5d96e32adc30",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 19.938479599758853
+          }
+        },
+        {
+          "file": "IMG_0149.JPG",
+          "sha256": "ac283357d3970baf01d57c57b63133c3f4f2b78d5439629a06eb4dc6d13e5640",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 18.270723465082053
+          }
+        },
+        {
+          "file": "IMG_0150.JPG",
+          "sha256": "be7c34a4e86b3b65f246a61d3b45412426bb53f7561132c3b114aa57880994f3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 23.556904176376825
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_028.zip",
+      "images": [
+        {
+          "file": "IMG_0151.JPG",
+          "sha256": "7b029bdc8db6875db533e0ec82b0d81bd88b792494d26c314234593d7fce4abb",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.43951612903225806,
+            "rmse": 19.455929767682655
+          }
+        },
+        {
+          "file": "IMG_0152.JPG",
+          "sha256": "5acfca9bbfd8381a7db4f3445f088491315f6aaffad075706c5a973bfd1750ed",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 19.742161221292363
+          }
+        },
+        {
+          "file": "IMG_0153.JPG",
+          "sha256": "c641bbbad26a1eda65eb069e28e450247d42263b976b1e000883d9f4817be2d8",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 18.66718691146312
+          }
+        },
+        {
+          "file": "IMG_0154.JPG",
+          "sha256": "7c6c68fd603a3fc771cad25c3e2698b5e6782c75f02def563299598765a5bd51",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0336.webp",
+            "difference": 0.43951612903225806,
+            "rmse": 23.66941509495957
+          }
+        },
+        {
+          "file": "IMG_0155.JPG",
+          "sha256": "18cb8f3c6e6f627329ca1a65a8b45a8b03b6b1351054b266c6f971790d203139",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 20.363853354350695
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_029.zip",
+      "images": [
+        {
+          "file": "IMG_0156.JPG",
+          "sha256": "203f205a91ad15378bce5e5e7bd810a314944a2aa30e82de28c30f14887f031a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 20.307763870931236
+          }
+        },
+        {
+          "file": "IMG_0157.JPG",
+          "sha256": "dc755fe7643b73ff95e7afe6002b82b564b79a069aea75962d2d3362b0b656d6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 23.839879272974517
+          }
+        },
+        {
+          "file": "IMG_0158.JPG",
+          "sha256": "97ea8a951dfd1bd9d5068709084fd99e0b611ef8dfd39bcac7a613150ff64713",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 25.667438181721604
+          }
+        },
+        {
+          "file": "IMG_0159.JPG",
+          "sha256": "afa9b5ef240be7f2294a8b513cd574b5c42f40bad6ba795851b47d130008e60e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 20.349725504905464
+          }
+        },
+        {
+          "file": "IMG_0160.JPG",
+          "sha256": "cbceb73c5de1e81a2ccb3ca39b3bf49e481727e3f47420e412379debb66e1b4d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0339.webp",
+            "difference": 0.4475806451612903,
+            "rmse": 27.306331540276513
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_030.zip",
+      "images": [
+        {
+          "file": "IMG_0161.JPG",
+          "sha256": "8fd53cbe4cc7e83eb540c69112dfab38f6eceac7b802fc8d5cacb5a61eb332f1",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0332.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 29.766424693981975
+          }
+        },
+        {
+          "file": "IMG_0162.JPG",
+          "sha256": "acc0fca279ef2c77cece4c9561c23151f2d387fd603083a319f268c9de18774a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0344.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 27.347196211403464
+          }
+        },
+        {
+          "file": "IMG_0163.JPG",
+          "sha256": "bd49d609bcd2154ed0cf30a9fad19588e3d6d130e663ca79ee080e92f3a6445f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0330.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 23.93811193734794
+          }
+        },
+        {
+          "file": "IMG_0164.JPG",
+          "sha256": "12b467320b2fc054905165eb5e2e8d577c59f156ecae6514d15069badfe3cc13",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4223790322580645,
+            "rmse": 23.633968205212597
+          }
+        },
+        {
+          "file": "IMG_0165.JPG",
+          "sha256": "e81f0e2e2f374ebbd67838c7a2a27e4bdbca6b34efcf79b7144e1b1c23f04fc6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4475806451612903,
+            "rmse": 23.256530500861473
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_031.zip",
+      "images": [
+        {
+          "file": "IMG_0166.JPG",
+          "sha256": "244a729641573d259be656049dd341b79283e62ba5c7cd01e52167f3e2a53850",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 20.38305055677388
+          }
+        },
+        {
+          "file": "IMG_0167.JPG",
+          "sha256": "ffcaa5e6a140e3780975c4a43f6bac6e3f5314d984a6341cf2f8e706e4083c07",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.4314516129032258,
+            "rmse": 26.904689269484233
+          }
+        },
+        {
+          "file": "IMG_0168.JPG",
+          "sha256": "380758067c5e2e774b997b4efc601d537011d1f042bfeefbebb054c0ec2058cd",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0358.webp",
+            "difference": 0.4627016129032258,
+            "rmse": 27.667970680237826
+          }
+        },
+        {
+          "file": "IMG_0169.JPG",
+          "sha256": "2049ec0ea62e1b9c83d934576da48bada25dd6eb470df8181dcf0988d777b27f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4314516129032258,
+            "rmse": 20.361887076410675
+          }
+        },
+        {
+          "file": "IMG_0170.JPG",
+          "sha256": "24e08f5fb6daa58748017e75ba81d7f03ad5cb67cae80c5ccb50fc7333f0ea66",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4223790322580645,
+            "rmse": 18.16345597105628
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_032.zip",
+      "images": [
+        {
+          "file": "IMG_0171.JPG",
+          "sha256": "cbb54404a8d3ef8229ff293c94ad1073f856fffb2a5f23b4a7c4f50f98f07ebe",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 21.829439160512116
+          }
+        },
+        {
+          "file": "IMG_0172.JPG",
+          "sha256": "af3820755e0ec2dee25964bd6aa54c47bbb6b71ba7b9ca7050497421c8429716",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 27.979519574592413
+          }
+        },
+        {
+          "file": "IMG_0173.JPG",
+          "sha256": "5d07133a2ec03614d05d3da5c1bf853e2f3ad5dc251143bc20a75935de01f3b2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4627016129032258,
+            "rmse": 15.89052513488777
+          }
+        },
+        {
+          "file": "IMG_0174.JPG",
+          "sha256": "9a1903588e920e2a2c485d17ea1723854cf68b879157591cb28a8b88a094f99f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 19.866571522597955
+          }
+        },
+        {
+          "file": "IMG_0175.JPG",
+          "sha256": "4dc0dd6703f24c323e38ae18d93a15807aec0f80384efd07ab38699f5c8653e5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0326.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 19.963785572255578
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_033.zip",
+      "images": [
+        {
+          "file": "IMG_0176.JPG",
+          "sha256": "4bdf8a5be474bcb54a3a6107f3206e65c954b44c5dc2578143311288769d4205",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 19.66456998004279
+          }
+        },
+        {
+          "file": "IMG_0177.JPG",
+          "sha256": "6993ceb85e3010e79d5796915a27316910ac1c5fd5e36cc0885c4235d2a99c1b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 20.845647402395542
+          }
+        },
+        {
+          "file": "IMG_0178.JPG",
+          "sha256": "c2e322d4d7fb32c6ea0bcb3658e6a2e2a73d5b1a27601beab2d51c631babb3bf",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 16.828233808840427
+          }
+        },
+        {
+          "file": "IMG_0179.JPG",
+          "sha256": "3e28d7c053b1b7971efcafb30501dac18cdc9d6962a38d9dcf16185cca6b86e2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 14.458656036264228
+          }
+        },
+        {
+          "file": "IMG_0180.JPG",
+          "sha256": "aced794511f5a43b6f02beef311ffa57bf2335a006d09e0a3538b1035d9cd5c2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0326.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 15.652569427653084
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_034.zip",
+      "images": [
+        {
+          "file": "IMG_0181.JPG",
+          "sha256": "d9b347dc76a89cf9f8ffbd29a4f8860a5634e40ff8c9cf2dae67ba38a4fd39a0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.42036290322580644,
+            "rmse": 10.877873183669683
+          }
+        },
+        {
+          "file": "IMG_0182.JPG",
+          "sha256": "f36cc64f9638688a80443d26be98c938179ef1e8e41a93f7de008f17bc1d70f7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 19.373765081612298
+          }
+        },
+        {
+          "file": "IMG_0183.JPG",
+          "sha256": "d8e1005ce044913d812b781f44ba25959bacf3076f256a3251a068441e5eb625",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.4375,
+            "rmse": 19.47594670356232
+          }
+        },
+        {
+          "file": "IMG_0184.JPG",
+          "sha256": "99d7f125b041d039e1836a8202d5eb0ed1cef63f3859acafce6a315d80511ec3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 19.424131254704804
+          }
+        },
+        {
+          "file": "IMG_0185.JPG",
+          "sha256": "6c00b58d219b3eb8f26d7306b54c8b96d4e2cf3e751be97c6aa1de09cfb44286",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.35786290322580644,
+            "rmse": 18.710009436796124
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_035.zip",
+      "images": [
+        {
+          "file": "IMG_0186.JPG",
+          "sha256": "a72e084f7d56510e78be20208b93da486fa2cbc115573b0d2858c64ba5f26d29",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 17.58869820900626
+          }
+        },
+        {
+          "file": "IMG_0187.JPG",
+          "sha256": "00fcc4933701155ede124b0ded86476114642ff825e39afcf6682d6d3689b792",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 22.095650554747195
+          }
+        },
+        {
+          "file": "IMG_0189.JPG",
+          "sha256": "e15c3ef082fe76a08433d438f66373839013dfa13aa3bec7369b8c07a64de65d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4223790322580645,
+            "rmse": 12.57493165985406
+          }
+        },
+        {
+          "file": "IMG_0190.JPG",
+          "sha256": "78cb9d715ea39c602d840ddcb8ad6ff66798c2c43a8bb3ff78ab2a601cb4c99c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 19.50736038973495
+          }
+        },
+        {
+          "file": "IMG_0191.JPG",
+          "sha256": "32d3bd9d952cb26cc927c87697c3f57081d10aa2144cd4a74d613f4bfca93b05",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 17.463522249964353
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_036.zip",
+      "images": [
+        {
+          "file": "IMG_0192.JPG",
+          "sha256": "fa7cee8c42b726615b5ea0426f66545cd4860907c87f3b9f7fd79a665ae801ab",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0326.webp",
+            "difference": 0.37399193548387094,
+            "rmse": 11.098458507828914
+          }
+        },
+        {
+          "file": "IMG_0193.JPG",
+          "sha256": "0747114ba053130c5d591749268be78553be729c65514266e6b22c8d74169bb0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 14.576408326041776
+          }
+        },
+        {
+          "file": "IMG_0194.JPG",
+          "sha256": "d392c35947a2b09a19a00501a6da32a28fc46dc0e05e618f78c186918360bd2b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4012096774193548,
+            "rmse": 11.530064302184094
+          }
+        },
+        {
+          "file": "IMG_0195.JPG",
+          "sha256": "8fded3ccd00c341bb328e84b1d5e6f20deeff2865cb28a122573f8871fbaf814",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.42943548387096775,
+            "rmse": 17.591196528732773
+          }
+        },
+        {
+          "file": "IMG_0196.JPG",
+          "sha256": "8cb99d914e6e38d93ec077428e0c138e619c66904933cd116f45548bfaa1997d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 20.689034119854412
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_037.zip",
+      "images": [
+        {
+          "file": "IMG_0197.JPG",
+          "sha256": "a1239bfe448d47d4122d619cf2937141f33cad2ac20b142a1107a6b92eac2a05",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0338.webp",
+            "difference": 0.46068548387096775,
+            "rmse": 21.729111736907242
+          }
+        },
+        {
+          "file": "IMG_0198.JPG",
+          "sha256": "a8a7f372e5f6e8d90ab8dd8112a3076d60dafca25a5efd15a06a971f0aaab02a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 16.14799716683156
+          }
+        },
+        {
+          "file": "IMG_0199.JPG",
+          "sha256": "615d6a49d2ab027bd8084480e1c813293223297e2e8614df0119ac6c3741d1c1",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 22.170636196893405
+          }
+        },
+        {
+          "file": "IMG_0200.JPG",
+          "sha256": "00d94397b63fb6c2f198cbbee4cdf3365a7c812bb7e4c6216b9e0b39a4cba37a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 19.187321863993944
+          }
+        },
+        {
+          "file": "IMG_0201.JPG",
+          "sha256": "4910ec26cabe609504996d21ce83a48a467496d12d8f6786a49487992bf94b97",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 20.47385432539511
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_038.zip",
+      "images": [
+        {
+          "file": "IMG_0202.JPG",
+          "sha256": "ddc0e437e4cc36fe40cb14eed85391716403a279d695ebb2ed15655ce4f1009a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 19.701458345449964
+          }
+        },
+        {
+          "file": "IMG_0203.JPG",
+          "sha256": "b9102f03de0cc37266e0677f0dfbb21ff1cd0cb2f5fb8ed3f07b74a9affac694",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 20.734604604983428
+          }
+        },
+        {
+          "file": "IMG_0204.JPG",
+          "sha256": "d8ef78d0a4990468c2704797a9058f1dd4570563598d2e6343f09f4add1e67cc",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.4122983870967742,
+            "rmse": 14.255275887368859
+          }
+        },
+        {
+          "file": "IMG_0205.JPG",
+          "sha256": "db95aadee48c8152bcb8fd8363ebe02d107782d1299065ec5e5000a63cfef402",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4264112903225806,
+            "rmse": 19.735135822626102
+          }
+        },
+        {
+          "file": "IMG_0206.JPG",
+          "sha256": "0a9d027001b7c58cffc394fc421958c1c0f18850ae6ddc017e0ae45463944eb6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4153225806451613,
+            "rmse": 18.61744813340432
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_039.zip",
+      "images": [
+        {
+          "file": "IMG_0207.JPG",
+          "sha256": "f5482230644f3223e9492c727ea82a89e34574bc98a815ff82ccbd85a1094780",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.45463709677419356,
+            "rmse": 17.885076923583526
+          }
+        },
+        {
+          "file": "IMG_0208.JPG",
+          "sha256": "65a86e4e2ba199f2dbf44162db73c477ceaea1c302934aa679180e82ec6677de",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.42036290322580644,
+            "rmse": 15.531375754018057
+          }
+        },
+        {
+          "file": "IMG_0209.JPG",
+          "sha256": "9773f82c3a110a9ba8debb5d79e95b38c7970a1dcb68c468a8f81870ec09a44c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 18.65250695282004
+          }
+        },
+        {
+          "file": "IMG_0210.JPG",
+          "sha256": "14e255e7af717cbc176783bc8c01bd8bfdc8c6a7c09b87a4320c5d3447d98f21",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4012096774193548,
+            "rmse": 11.026557075420232
+          }
+        },
+        {
+          "file": "IMG_0211.JPG",
+          "sha256": "6a7c3417d8bafd0336af0bf80cd4a7834c27122c46f5e02dc10d73a69e7856c1",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.43850806451612906,
+            "rmse": 13.759797645677788
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_040.zip",
+      "images": [
+        {
+          "file": "IMG_0212.JPG",
+          "sha256": "407c77777b9fe9beabbbb2462ee70865bed2ee2f67b33839595711cd05d90297",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 13.76111056791929
+          }
+        },
+        {
+          "file": "IMG_0213.JPG",
+          "sha256": "e385825f3ec163c4b556a337f814abe21c6a4e2bb9bbd83753515b91d95a8f40",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 14.911162712461426
+          }
+        },
+        {
+          "file": "IMG_0214.JPG",
+          "sha256": "781ea62d58952ffeaf61957b739696ba7851aca9ab9043a3fb9230497b64a65f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0356.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 16.316749925306816
+          }
+        },
+        {
+          "file": "IMG_0215.JPG",
+          "sha256": "05ac78085c0d5007f6f1a6c07986459e1d8c304e5e6688bd86ec858625820442",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4112903225806452,
+            "rmse": 19.794426890857437
+          }
+        },
+        {
+          "file": "IMG_0216.JPG",
+          "sha256": "19ed83ef74492edfd65be6e13dd56f4928f8e9de0d0e10d6060d6ba79ff4c684",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 13.043646681430772
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_041.zip",
+      "images": [
+        {
+          "file": "IMG_0217.JPG",
+          "sha256": "e85b933a84fcfd0d32c608b8b3bd844b86a06aa24bfedfcde8e28fb4bf1e35da",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 20.97734082587686
+          }
+        },
+        {
+          "file": "IMG_0218.JPG",
+          "sha256": "18e2be806e44c6b371ed24544681d987933df4e44b05a81c7d3280b13c9d5acf",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0336.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 18.76067404506032
+          }
+        },
+        {
+          "file": "IMG_0219.JPG",
+          "sha256": "a55342996db933cce8a742c6c80de2d8a469e535b3eea4f4c1b7d269c152a3a7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.43951612903225806,
+            "rmse": 17.87336093883856
+          }
+        },
+        {
+          "file": "IMG_0220.JPG",
+          "sha256": "6c6ab27ceb07a0a8495ac3e361ff9171d85e21a197dbc5c2c71023f86beef6b5",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 21.87645084474399
+          }
+        },
+        {
+          "file": "IMG_0221.JPG",
+          "sha256": "4622eb309ff26fb5c45c15865c22e8eb6930cd99be7719acf13d69733937f292",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.39314516129032256,
+            "rmse": 18.566813471891184
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_042.zip",
+      "images": [
+        {
+          "file": "IMG_0222.JPG",
+          "sha256": "be444727f6e19097a4a2be7660dbeda9eeee2468a2f9478bf21c170804e648da",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0340.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 18.758019118499693
+          }
+        },
+        {
+          "file": "IMG_0223.JPG",
+          "sha256": "7f92c8fe31047280e058d17f9b503c071870c9aa34da937a86fa17377d4c7aa3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 17.690094774336288
+          }
+        },
+        {
+          "file": "IMG_0224.JPG",
+          "sha256": "1916ef35e8370589fec6833b75bd81acebf7d7ce5b863071dd8029017593b3af",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.45161290322580644,
+            "rmse": 21.4685907927139
+          }
+        },
+        {
+          "file": "IMG_0225.JPG",
+          "sha256": "f046b8416bfec46a8b7588c9318ee73f4dcef9ebac3aed630561f450468ce849",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 22.087848398497307
+          }
+        },
+        {
+          "file": "IMG_0226.JPG",
+          "sha256": "04be546e93cb24d7bcfec6132cda172a3e4999f386d60c968f26857dd149de54",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 18.64457339784153
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_043.zip",
+      "images": [
+        {
+          "file": "IMG_0227.JPG",
+          "sha256": "c7bbd9ed570160c6b4a83d511483b6c7c055f5cc4d4cae65593cab88dc91c34e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 16.484960001468004
+          }
+        },
+        {
+          "file": "IMG_0228.JPG",
+          "sha256": "87a00e3a10403bb25a02222da135d8b1a0cf4b4de92c9c1320ee14a480e479a9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 20.77657372198313
+          }
+        },
+        {
+          "file": "IMG_0229.JPG",
+          "sha256": "b4e3704c81ee448afae53bc96a37d16f5131e84b6c56d38736eca9bea15b17cd",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 20.28382591499937
+          }
+        },
+        {
+          "file": "IMG_0230.JPG",
+          "sha256": "13275b7b080a5950413f3f04faaf6460340dd7cfacf1ed54461a1edf74986ffc",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 21.54510167648322
+          }
+        },
+        {
+          "file": "IMG_0231.JPG",
+          "sha256": "bd13f2f9c2c110373f593af9bc54cc515ae62afd76324e89a3b97373cf225c7d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 21.905581302204695
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_044.zip",
+      "images": [
+        {
+          "file": "IMG_0232.JPG",
+          "sha256": "0b3529e3c931011f141d7b8c46fe3ec2164af8c6420a8b1d5f70d2888540c428",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 23.438583308297453
+          }
+        },
+        {
+          "file": "IMG_0233.JPG",
+          "sha256": "f28a775c825134af0eb274c9e3ad22bfcdf5f72e66060787bb8b6faa83431156",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 21.693397973231395
+          }
+        },
+        {
+          "file": "IMG_0234.JPG",
+          "sha256": "f42c019c5f330ea24c11065ddc72c3f09329959ca5fd11df64a021dba2131c24",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 20.314110513076866
+          }
+        },
+        {
+          "file": "IMG_0235.JPG",
+          "sha256": "3a09b4dc747ac62dc200cfecb429c9262035e231dd140e74204c3eaed5244314",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 20.584334911529204
+          }
+        },
+        {
+          "file": "IMG_0236.JPG",
+          "sha256": "d29082c3c4ea13f99f1f1204a195d38cf1ee201fb1314dd85f97b116fa71d373",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 19.11595987323158
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_045.zip",
+      "images": [
+        {
+          "file": "IMG_0237.JPG",
+          "sha256": "6fcd3de481530629ed7a8f100896cd4c10242dedf593926838b2ce5d1804376c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 19.771077558203547
+          }
+        },
+        {
+          "file": "IMG_0238.JPG",
+          "sha256": "fbd3bbed55bff976563d58a60382473bab7abb7978a0c9d9d027fb8281fd55b8",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 24.784914609243664
+          }
+        },
+        {
+          "file": "IMG_0239.JPG",
+          "sha256": "a1950d5c83b7f7ca04ef1c8b5186f9b8ae17fda6233caa3980b992d757e0c795",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 16.988104753768148
+          }
+        },
+        {
+          "file": "IMG_0240.JPG",
+          "sha256": "0d1466eb40f4d622531d9e5082b40d54107deeb2acbd57a8b4a6d0a11718b3db",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0339.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 20.88007516898586
+          }
+        },
+        {
+          "file": "IMG_0241.JPG",
+          "sha256": "024f865a6bc9913ed7b12125aa954caefd594f3badb2bf504d6c5970549ff5f7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.43548387096774194,
+            "rmse": 16.090564005031023
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_046.zip",
+      "images": [
+        {
+          "file": "IMG_0242.JPG",
+          "sha256": "91fbbe71edb018438eaec28cdc6a32c63e8fbfe93ae77f1d6b52b54333616b42",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.4586693548387097,
+            "rmse": 24.01905574876956
+          }
+        },
+        {
+          "file": "IMG_0243.JPG",
+          "sha256": "e664d811cb6dcee3915497b5c05a3199218672f9ce943765eb633f47977ead0a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 12.842077141665985
+          }
+        },
+        {
+          "file": "IMG_0244.JPG",
+          "sha256": "e5bcdd2475e3449abeb0e3134db13ca9fdb6ac88c28b643faf79552d66aa6319",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4213709677419355,
+            "rmse": 18.167649175457456
+          }
+        },
+        {
+          "file": "IMG_0245.JPG",
+          "sha256": "9bc5c05cbd827def7a350b39890259baa4e6f886823e2cb1cc716c224de8503d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0340.webp",
+            "difference": 0.4536290322580645,
+            "rmse": 20.233789808140244
+          }
+        },
+        {
+          "file": "IMG_0246.JPG",
+          "sha256": "18ed17f7bb39a98dd6a99f20deff73b281a65ce319cc94f5df1b6be4191bec85",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0332.webp",
+            "difference": 0.44556451612903225,
+            "rmse": 23.391914000889283
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_047.zip",
+      "images": [
+        {
+          "file": "IMG_0247.JPG",
+          "sha256": "a7dacbeac4ade493baa107865016e28a05a6cdd622150126b2909d1cb3611ad6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.43951612903225806,
+            "rmse": 24.710274305438215
+          }
+        },
+        {
+          "file": "IMG_0248.JPG",
+          "sha256": "490174fd1122eed23ae17ffd74f7c964cd3182e12bd77d77a230382785a21085",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.40625,
+            "rmse": 16.08236854835133
+          }
+        },
+        {
+          "file": "IMG_0249.JPG",
+          "sha256": "1c5bba6a335ff9df0f621dbbc1d3e849978e29ee99077dbfccda28c4bbdfa897",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.43649193548387094,
+            "rmse": 21.244737399824455
+          }
+        },
+        {
+          "file": "IMG_0250.JPG",
+          "sha256": "2e4861361d20ce785d7012d1bfb9ed5a25f677e30b9cb66df34ad1584e814f48",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 19.97469101763529
+          }
+        },
+        {
+          "file": "IMG_0251.JPG",
+          "sha256": "b38c3bbbe09b1f577d3dff4b7742d64930694eaedb7e917434c07d9446e0aa8e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4435483870967742,
+            "rmse": 15.871647037642314
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_048.zip",
+      "images": [
+        {
+          "file": "IMG_0252.JPG",
+          "sha256": "a8761bc61732cc588178209f793d72cb108401b6eb3e6ac0cb5e97f62bfa1916",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4375,
+            "rmse": 16.73034060845744
+          }
+        },
+        {
+          "file": "IMG_0253.JPG",
+          "sha256": "b083e4d302ebd3914e5d1d0871ef2e64cb7206dc59e34bd0f1aed58e2505f6d9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0344.webp",
+            "difference": 0.4475806451612903,
+            "rmse": 21.898759418343772
+          }
+        },
+        {
+          "file": "IMG_0254.JPG",
+          "sha256": "cb6acd2118db6a953a17f011d99e5c3852d17471c6599e2a3d8acc7e6b2ec26b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.4284274193548387,
+            "rmse": 19.79842264076863
+          }
+        },
+        {
+          "file": "IMG_0255.JPG",
+          "sha256": "89cea14a3f31e537bade338ced517959197c18dc0b5d3c421f9dce48b222a194",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4485887096774194,
+            "rmse": 20.855108411969475
+          }
+        },
+        {
+          "file": "IMG_0256.JPG",
+          "sha256": "75dfdbbbadbf949183a36f851b71dd24e4896482db1b94e3f1067e8cb885adca",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0336.webp",
+            "difference": 0.4375,
+            "rmse": 20.85625561881854
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_049.zip",
+      "images": [
+        {
+          "file": "IMG_0257.JPG",
+          "sha256": "12b3757b929e73aae0c58990077a4acbeb79725ae5c4dc40be286dcafc28886b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.41330645161290325,
+            "rmse": 18.573649849989096
+          }
+        },
+        {
+          "file": "IMG_0258.JPG",
+          "sha256": "8d0e1299899bdbae418f6997463558c7371888c32ab2dc3f4729c0e54bc2cba6",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0352.webp",
+            "difference": 0.4627016129032258,
+            "rmse": 22.73522872108394
+          }
+        },
+        {
+          "file": "IMG_0259.JPG",
+          "sha256": "9d19483c29dc12517ff46af061af144282a21aca051beb02d62bc786a28d9af3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 20.456866779580395
+          }
+        },
+        {
+          "file": "IMG_0260.JPG",
+          "sha256": "2e20f088af9b1309c10e2207885c0ad7a1780e03fe60f095155f53839552c5ef",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.4324596774193548,
+            "rmse": 24.63263285892314
+          }
+        },
+        {
+          "file": "IMG_0261.JPG",
+          "sha256": "8b431c5d60d908c5db7e62affaa75ea52e67457b9c3f663af7eee197bf42f9a9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.41431451612903225,
+            "rmse": 14.564042300302482
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_050.zip",
+      "images": [
+        {
+          "file": "IMG_0262.JPG",
+          "sha256": "09ff4defdae7c39e504e3232ee05e5734dafaee7ae9b344565ea64aed0887753",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.4405241935483871,
+            "rmse": 22.892432735786294
+          }
+        },
+        {
+          "file": "IMG_0263.JPG",
+          "sha256": "97f9b949df87e33e15b7dc09d4c169db73c970301418a5de170b217c304a2ef3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0345.webp",
+            "difference": 0.4526209677419355,
+            "rmse": 19.532574955059047
+          }
+        },
+        {
+          "file": "IMG_0264.JPG",
+          "sha256": "1a694bb6cdf2b8052b24abbf1d7c53f38c6b85d0b7ae8ec046fe3edb49b10f7f",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0340.webp",
+            "difference": 0.3941532258064516,
+            "rmse": 12.494803607400158
+          }
+        },
+        {
+          "file": "IMG_0265.JPG",
+          "sha256": "b5e72d124923e53e3a3317b2d32e1f5adc335bf6f455744b00583c3a4e52d59a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4586693548387097,
+            "rmse": 20.040973653991962
+          }
+        },
+        {
+          "file": "IMG_0266.JPG",
+          "sha256": "6f09906451f5326d699538532fd41158695f336d43dbc1f3d6077740f39fd081",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4536290322580645,
+            "rmse": 16.45507615448801
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_051.zip",
+      "images": [
+        {
+          "file": "IMG_0267.JPG",
+          "sha256": "043b17cc26446c9ae84effc6442e6a406147dd0d2ac098d095e85ea05c5d922a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.36189516129032256,
+            "rmse": 11.16176334355374
+          }
+        },
+        {
+          "file": "IMG_0268.JPG",
+          "sha256": "5928943dec23f1cafcae6c009f602828026aa98f1146893e6a0eb3a70290db10",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4314516129032258,
+            "rmse": 21.075153839889282
+          }
+        },
+        {
+          "file": "IMG_0269.JPG",
+          "sha256": "2120d9267c4523d39ff059c36733f818f63e992ad56942ff47c0823069798539",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 14.581465654213227
+          }
+        },
+        {
+          "file": "IMG_0270.JPG",
+          "sha256": "f98e5346b9968e3c932b3bdaab786817ba80df5e76d87e1fe7ce8981ae68aefb",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.4465725806451613,
+            "rmse": 18.35346314391374
+          }
+        },
+        {
+          "file": "IMG_0271.JPG",
+          "sha256": "7e7777ad0568bb6f4a4efa44992706adb228e390d5ece9fda3782ee266c148d2",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.4495967741935484,
+            "rmse": 21.45505385538568
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_052.zip",
+      "images": [
+        {
+          "file": "IMG_0272.JPG",
+          "sha256": "d7422fe1a04c61e74db883bc54f355bfb55c4ee70428b0aa951b6f3910aee4fc",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.38205645161290325,
+            "rmse": 19.99435955619734
+          }
+        },
+        {
+          "file": "IMG_0273.JPG",
+          "sha256": "135528034d361c04f8e816eac002a383cacf446b2a8bf224d1f74115ab46804b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4254032258064516,
+            "rmse": 19.380367200146132
+          }
+        },
+        {
+          "file": "IMG_0274.JPG",
+          "sha256": "7cae60ce5fa3e80b0697be8536c24bc734b5930f5841a2494c257515aad5fe7d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.4012096774193548,
+            "rmse": 13.368865415584077
+          }
+        },
+        {
+          "file": "IMG_0275.JPG",
+          "sha256": "873d5cb4dd23c0ce3d5242562562e0d89a37f05de66dcd7742899f27660a359c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.40625,
+            "rmse": 11.986279591161722
+          }
+        },
+        {
+          "file": "IMG_0276.JPG",
+          "sha256": "86f8be4fc13e6cfd4d28212c0bbc7496d15b6e38a679b25425ae59917de9e3a1",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.34173387096774194,
+            "rmse": 12.78029489096398
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_053.zip",
+      "images": [
+        {
+          "file": "IMG_0277.JPG",
+          "sha256": "af9c387e8a277ce8c074ea99ac3ba11e72c4c5320f612ba9a30cfe74ec776fd7",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0326.webp",
+            "difference": 0.3911290322580645,
+            "rmse": 14.352461951264669
+          }
+        },
+        {
+          "file": "IMG_0278.JPG",
+          "sha256": "e478e45a6b27bf485312b6942dc19dfde6cd849691696e89090714d50b4c8d09",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.3659274193548387,
+            "rmse": 20.40057826999029
+          }
+        },
+        {
+          "file": "IMG_0279.JPG",
+          "sha256": "550442810fc8c1a94abe48055198a881b8ae9746d8632a2c57ef2734e374e448",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0336.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 19.065804016943527
+          }
+        },
+        {
+          "file": "IMG_0280.JPG",
+          "sha256": "c2f34e444aa955a4868a35c3eafe3c32eba6c24f58e25021a07e065940975e07",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.3397177419354839,
+            "rmse": 20.399716603423684
+          }
+        },
+        {
+          "file": "IMG_0281.JPG",
+          "sha256": "477a56404faa18ccec252d7c2a4bc99619f465f4e413b37c36641c1754425c42",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4012096774193548,
+            "rmse": 19.725459436981435
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_054.zip",
+      "images": [
+        {
+          "file": "IMG_0282.JPG",
+          "sha256": "3ff54c7c3e26a7025750bea17a95ca44d7aafb664a3c6c43da75881ebef420e9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0339.webp",
+            "difference": 0.3659274193548387,
+            "rmse": 16.43931192484953
+          }
+        },
+        {
+          "file": "IMG_0283.JPG",
+          "sha256": "303f8e4ed95b42dd7f4169d901f65574046f3b7078a4df0bf406c3c3e7cad3f0",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.3901209677419355,
+            "rmse": 14.867973655646555
+          }
+        },
+        {
+          "file": "IMG_0284.JPG",
+          "sha256": "9b6f5e0ca6e7043e39254f03dcfc94095d70c63b4c65c5bd21ef4c3504eea457",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4415322580645161,
+            "rmse": 23.181961097208752
+          }
+        },
+        {
+          "file": "IMG_0285.JPG",
+          "sha256": "899d7524cd4a3c29a1144028dbf4556447f4f66f1a404a8f77dba03bc2f1da5d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 18.805724485844728
+          }
+        },
+        {
+          "file": "IMG_0286.JPG",
+          "sha256": "c90fac82dfe0b81e2e99b4ba9587cdb8e5b8e938a86c023abe9c264da70498a9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.41431451612903225,
+            "rmse": 20.987393909797376
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_055.zip",
+      "images": [
+        {
+          "file": "IMG_0287.JPG",
+          "sha256": "87efc2a6ddde4b69333b8911cbbb380f09f325149c0e66f03ce20582745037ac",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.3810483870967742,
+            "rmse": 18.52829866886056
+          }
+        },
+        {
+          "file": "IMG_0288.JPG",
+          "sha256": "1c4212d420c520b43e28ca85a49a987e1efed80b64c1f07457dd7ce86bca0b85",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 21.5013853114747
+          }
+        },
+        {
+          "file": "IMG_0289.JPG",
+          "sha256": "227c04a26a86a759d64bd38ffd11f84e5a7e8290aa04ac1bbb7b0a4d0be61536",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4112903225806452,
+            "rmse": 17.643164398712607
+          }
+        },
+        {
+          "file": "IMG_0290.JPG",
+          "sha256": "2e2d40a0e1a8e5dc7e4bf29e9a15bb7b709764eaabeae7686f8ed57500c14f47",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.3941532258064516,
+            "rmse": 18.282825786786898
+          }
+        },
+        {
+          "file": "IMG_0291.JPG",
+          "sha256": "6be133d9bd85800a25a8f4e82400f777f806c39945bd9e02d412c9962dc8f635",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.4032258064516129,
+            "rmse": 11.60061286096558
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_056.zip",
+      "images": [
+        {
+          "file": "IMG_0292.JPG",
+          "sha256": "31392a99850190037163baeabae71e6acc87d6e8461846223b4a8e7a461336e9",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.40826612903225806,
+            "rmse": 13.791768944736567
+          }
+        },
+        {
+          "file": "IMG_0293.JPG",
+          "sha256": "0d38a3390277ff1bed9ba2ae3cf1100ad584342abdef11251bf56e09d4fcbe3d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.44455645161290325,
+            "rmse": 19.470480460815548
+          }
+        },
+        {
+          "file": "IMG_0294.JPG",
+          "sha256": "4f7593b379e654da05a08756afcc2715cedafb7c5cf5bc5f01db910978a59eef",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 19.940805956317313
+          }
+        },
+        {
+          "file": "IMG_0295.JPG",
+          "sha256": "839e2b392f67801d3239787aa8b3e122f60b1d258f8e3cf4d5e6854e7755743d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.38911290322580644,
+            "rmse": 13.860458314482246
+          }
+        },
+        {
+          "file": "IMG_0296.JPG",
+          "sha256": "5812cddc673736a2f21468048b82f7e0c0f9a47a81252e5ac961553f3af931be",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0330.webp",
+            "difference": 0.4163306451612903,
+            "rmse": 21.889303359460758
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_057.zip",
+      "images": [
+        {
+          "file": "IMG_0297.JPG",
+          "sha256": "5c6593d97d18b0e24944539830cd997331713d0e9e1a147f18d704af92abeb4c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.42036290322580644,
+            "rmse": 14.646051889075773
+          }
+        },
+        {
+          "file": "IMG_0298.JPG",
+          "sha256": "8bb5c6166ff1c223936891717e678ce294851d278e7182ba9eb9d60b3983f3cc",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.4334677419354839,
+            "rmse": 18.421073190778
+          }
+        },
+        {
+          "file": "IMG_0299.JPG",
+          "sha256": "aa2740782560897e6f357763bc46edf179ab41e2a6f35bc7922b2619830c0769",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.43044354838709675,
+            "rmse": 16.369810723554505
+          }
+        },
+        {
+          "file": "IMG_0300.JPG",
+          "sha256": "530bf720c42bb10ee661fc524ae35f7bd903a51906effd07f86b5114d8559814",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0331.webp",
+            "difference": 0.4405241935483871,
+            "rmse": 13.629514733657981
+          }
+        },
+        {
+          "file": "IMG_0301.JPG",
+          "sha256": "f9204a5cddc6627f6505bc16bed86b571a538e8a5972d2a473c8fdb6b9392f92",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.41935483870967744,
+            "rmse": 20.772883654237802
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_058.zip",
+      "images": [
+        {
+          "file": "IMG_0303.JPG",
+          "sha256": "b681a3dea572925dbe9b40b0d4124bd89730acfa447a1b590bce1dcf0303871c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.4425403225806452,
+            "rmse": 12.395343127562061
+          }
+        },
+        {
+          "file": "IMG_0304.JPG",
+          "sha256": "f92a1b3c5611e61ed33fbb0bdef0cb1229680c72c7ce76eb1052fd23bc8c119b",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4163306451612903,
+            "rmse": 19.23784620383737
+          }
+        },
+        {
+          "file": "IMG_0305.JPG",
+          "sha256": "fd39d5da054f76cf69005656cb52b692604ce8856c780e99fe1c900fb05ae4d8",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.3387096774193548,
+            "rmse": 11.182785319409472
+          }
+        },
+        {
+          "file": "IMG_0306.JPG",
+          "sha256": "8ceda72113b8c545169d19cc61144e62e714f006a8e55ea3c4a443178a0530ce",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.4344758064516129,
+            "rmse": 19.6385055041747
+          }
+        },
+        {
+          "file": "IMG_0307.JPG",
+          "sha256": "72aba1b31fb6b07f3f9770cec3a908220d0a6464e7b2c785d977e34de0b5ba46",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.4032258064516129,
+            "rmse": 21.40465322511673
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_059.zip",
+      "images": [
+        {
+          "file": "IMG_0308.JPG",
+          "sha256": "7b17f2d71d2204394f2bedd024516288a3c1c05b4ed1a1d7132c0017a66052fa",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.42036290322580644,
+            "rmse": 20.858479615614364
+          }
+        },
+        {
+          "file": "IMG_0309.JPG",
+          "sha256": "9a8225c2cadec396ff42e49a5537e44258ad7c72eb3b534c94e6a27d63635204",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.40625,
+            "rmse": 16.508136014932152
+          }
+        },
+        {
+          "file": "IMG_0310.JPG",
+          "sha256": "44b0d2f8d976132c41c2ac07f6eb497afd5c261d5a1e7733d7bfc5de116bffa3",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.3971774193548387,
+            "rmse": 12.691809612896026
+          }
+        },
+        {
+          "file": "IMG_0311.JPG",
+          "sha256": "c6ee15d90fc5473c53a186547e2e43186d56a37c5256fc6045c18dd5a6c8488c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0326.webp",
+            "difference": 0.38306451612903225,
+            "rmse": 15.063018663269325
+          }
+        },
+        {
+          "file": "IMG_0312.JPG",
+          "sha256": "a01470f1281e8c810be79c211ed8e9fec2e581cc30ca93f8ba4e3e4a5fec136a",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.4264112903225806,
+            "rmse": 14.956904237675657
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_060.zip",
+      "images": [
+        {
+          "file": "IMG_0313.JPG",
+          "sha256": "3a387bc383774a4e14624eda577f0fa206d22497455ba21cfda1cd180f49aa61",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0340.webp",
+            "difference": 0.3961693548387097,
+            "rmse": 13.182870929258922
+          }
+        },
+        {
+          "file": "IMG_0314.JPG",
+          "sha256": "43fb4d397c8549e96223c9466ac1bb08b95d694e48211efd07178b10f9ef2f4d",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.40625,
+            "rmse": 14.699363559777002
+          }
+        },
+        {
+          "file": "IMG_0316.JPG",
+          "sha256": "7e67cc826fd65734f11b33f5990adcd0a93d546f595cc4ccd22487998c01f450",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.42439516129032256,
+            "rmse": 16.642143416639577
+          }
+        },
+        {
+          "file": "IMG_0317.JPG",
+          "sha256": "c1fc888162c3e8c804d750de4ab68255d507c16ab6717ec7b249fe0282dc6a6e",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.39818548387096775,
+            "rmse": 16.782384738171153
+          }
+        },
+        {
+          "file": "IMG_0319.JPG",
+          "sha256": "f1a4bce46a06cc57b5d764be69548ea0fff490aeb142373dee0f370d405327ed",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.42943548387096775,
+            "rmse": 13.238644898553629
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_061.zip",
+      "images": [
+        {
+          "file": "IMG_0320.JPG",
+          "sha256": "a15f740a60551177019fd5a959b0646c88198d67401abb6f8c475050564328db",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0337.webp",
+            "difference": 0.3629032258064516,
+            "rmse": 12.225701347468782
+          }
+        },
+        {
+          "file": "IMG_0321.JPG",
+          "sha256": "47a238f96faf295e6018289ffd894c0d61b61e0e3b67716e127103623027209c",
+          "duplicateOf": null,
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.43951612903225806,
+            "rmse": 25.89209127561928
+          }
+        },
+        {
+          "file": "IMG_0322.JPG",
+          "sha256": "e77da73ed89a3d5b5c8316e7a49173e4b51c01864860d0acd7405653108030ff",
+          "duplicateOf": "assets/handwritten/img-0322.webp",
+          "closest": {
+            "image": "handwritten/img-0322.webp",
+            "difference": 0.010080645161290322,
+            "rmse": 0.3365728004459065
+          }
+        },
+        {
+          "file": "IMG_0323.JPG",
+          "sha256": "cfbdff30e868bc1bf9195ab276e2dcd235ec110a5e2cca9ae95b128b953c07db",
+          "duplicateOf": "assets/handwritten/img-0323.webp",
+          "closest": {
+            "image": "handwritten/img-0323.webp",
+            "difference": 0.012096774193548387,
+            "rmse": 0.34375
+          }
+        },
+        {
+          "file": "IMG_0324.JPG",
+          "sha256": "d1e406a76e0e0afc3c0f08a8663efd6c6012f712422e9f9bebc90434e9504b37",
+          "duplicateOf": "assets/handwritten/img-0324.webp",
+          "closest": {
+            "image": "handwritten/img-0324.webp",
+            "difference": 0.007056451612903226,
+            "rmse": 0.34938562148434216
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_062.zip",
+      "images": [
+        {
+          "file": "IMG_0325.JPG",
+          "sha256": "8c2444dff36d6e87421c0ba53e61c50c4c638e0e6b84bd118151b5662d595cb2",
+          "duplicateOf": "assets/handwritten/img-0325.webp",
+          "closest": {
+            "image": "handwritten/img-0325.webp",
+            "difference": 0.005040322580645161,
+            "rmse": 0.30935921676911454
+          }
+        },
+        {
+          "file": "IMG_0326.JPG",
+          "sha256": "f4978e801dc31edc8556a61c4a23480bd5cb599fa8c261e539e72a2533f94f97",
+          "duplicateOf": "assets/handwritten/img-0326.webp",
+          "closest": {
+            "image": "handwritten/img-0326.webp",
+            "difference": 0.01310483870967742,
+            "rmse": 0.3915613776919271
+          }
+        },
+        {
+          "file": "IMG_0327.JPG",
+          "sha256": "7f74bf72695886ff33e419d544e10878ca85fc49248fddb122aec25b723ebbd1",
+          "duplicateOf": "assets/handwritten/img-0327.webp",
+          "closest": {
+            "image": "handwritten/img-0327.webp",
+            "difference": 0.007056451612903226,
+            "rmse": 0.3232525135246438
+          }
+        },
+        {
+          "file": "IMG_0328.JPG",
+          "sha256": "f25531ad900634652614d705e901fdc93632fa7815c1c4a631506f450cdfda6f",
+          "duplicateOf": "assets/handwritten/img-0328.webp",
+          "closest": {
+            "image": "handwritten/img-0328.webp",
+            "difference": 0.010080645161290322,
+            "rmse": 0.3736956482219187
+          }
+        },
+        {
+          "file": "IMG_0330.JPG",
+          "sha256": "bd962774908bf77a5c2b6c5e159b0efef56911207dee676b4f61177f528981e2",
+          "duplicateOf": "assets/handwritten/img-0330.webp",
+          "closest": {
+            "image": "handwritten/img-0330.webp",
+            "difference": 0.01310483870967742,
+            "rmse": 0.3535533905932738
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_063.zip",
+      "images": [
+        {
+          "file": "IMG_0331.JPG",
+          "sha256": "edfb410988617b5fdb1146af4ff286b2bb5a2a156b1031264ad5080f33ea87af",
+          "duplicateOf": "assets/handwritten/img-0331.webp",
+          "closest": {
+            "image": "handwritten/img-0331.webp",
+            "difference": 0.016129032258064516,
+            "rmse": 0.4014135180832853
+          }
+        },
+        {
+          "file": "IMG_0332.JPG",
+          "sha256": "246f28e2af73f75e54ffb033af58d77cf774174538740affa4da31f57c14d3e4",
+          "duplicateOf": "assets/handwritten/img-0332.webp",
+          "closest": {
+            "image": "handwritten/img-0332.webp",
+            "difference": 0.011088709677419355,
+            "rmse": 0.369754986443726
+          }
+        },
+        {
+          "file": "IMG_0333.JPG",
+          "sha256": "ffc2de3f128586b4428c8c0d1e09f5d5dc76b5f2db6fee18f09b101307480b4e",
+          "duplicateOf": "assets/handwritten/img-0333.webp",
+          "closest": {
+            "image": "handwritten/img-0333.webp",
+            "difference": 0.015120967741935484,
+            "rmse": 0.385275875185561
+          }
+        },
+        {
+          "file": "IMG_0334.JPG",
+          "sha256": "4e7393de8dd74c9a2a4baefc94557badd57a86d2be99021a95d02b3c59f0852f",
+          "duplicateOf": "assets/handwritten/img-0334.webp",
+          "closest": {
+            "image": "handwritten/img-0334.webp",
+            "difference": 0.015120967741935484,
+            "rmse": 0.3928064090617667
+          }
+        },
+        {
+          "file": "IMG_0335.JPG",
+          "sha256": "7e5112f71b95f08fb5c62adbbf7b4b4251ca5d9be5dfcb33a3665f477487035e",
+          "duplicateOf": "assets/handwritten/img-0335.webp",
+          "closest": {
+            "image": "handwritten/img-0335.webp",
+            "difference": 0.011088709677419355,
+            "rmse": 0.33071891388307384
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_064.zip",
+      "images": [
+        {
+          "file": "IMG_0336.JPG",
+          "sha256": "7ca91142cf906f984c0741807be89bebab27e0935b65fc2c8edc125ff95c4e43",
+          "duplicateOf": "assets/handwritten/img-0336.webp",
+          "closest": {
+            "image": "handwritten/img-0336.webp",
+            "difference": 0.007056451612903226,
+            "rmse": 0.3465792658252943
+          }
+        },
+        {
+          "file": "IMG_0337.JPG",
+          "sha256": "6a316f661b1cf2dd8d6644fad14e969bc5280915aa65591e68eaefa25e6a5cfd",
+          "duplicateOf": "assets/handwritten/img-0337.webp",
+          "closest": {
+            "image": "handwritten/img-0337.webp",
+            "difference": 0.01310483870967742,
+            "rmse": 0.3232525135246438
+          }
+        },
+        {
+          "file": "IMG_0338.JPG",
+          "sha256": "9af5f1ed150fe58c462c38edf8bc3b22af7acfa5be449a98d1e063ea8668b254",
+          "duplicateOf": "assets/handwritten/img-0338.webp",
+          "closest": {
+            "image": "handwritten/img-0338.webp",
+            "difference": 0.014112903225806451,
+            "rmse": 0.3736956482219187
+          }
+        },
+        {
+          "file": "IMG_0339.JPG",
+          "sha256": "70c5f30e70d24865474d772c4786bd0b23d87edb32c9b2945d2e16abe837ef15",
+          "duplicateOf": "assets/handwritten/img-0339.webp",
+          "closest": {
+            "image": "handwritten/img-0339.webp",
+            "difference": 0.009072580645161291,
+            "rmse": 0.31093357409581873
+          }
+        },
+        {
+          "file": "IMG_0340.JPG",
+          "sha256": "f4051d8b4ecaec2aca46ca2a08eacbd5c498179f0b87bffb7403547a71fe57b4",
+          "duplicateOf": "assets/handwritten/img-0340.webp",
+          "closest": {
+            "image": "handwritten/img-0340.webp",
+            "difference": 0.006048387096774193,
+            "rmse": 0.31868871959954903
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_065.zip",
+      "images": [
+        {
+          "file": "IMG_0341.JPG",
+          "sha256": "93ee7936a1a871dabc92d0acb841eaafddec194ddf29cb7c744e877a9202960e",
+          "duplicateOf": "assets/handwritten/img-0341.webp",
+          "closest": {
+            "image": "handwritten/img-0341.webp",
+            "difference": 0.015120967741935484,
+            "rmse": 0.40019526483955303
+          }
+        },
+        {
+          "file": "IMG_0342.JPG",
+          "sha256": "b4b45a1a0566526e5faa4e48f4ca52459e9ad7c2cd4fd8beead79ba50d249e25",
+          "duplicateOf": "assets/handwritten/img-0342.webp",
+          "closest": {
+            "image": "handwritten/img-0342.webp",
+            "difference": 0.007056451612903226,
+            "rmse": 0.33071891388307384
+          }
+        },
+        {
+          "file": "IMG_0344.JPG",
+          "sha256": "8f67853cff067fb5cd88e0a35db360334b3edf851d4d0a79bb1bfd218acfdd47",
+          "duplicateOf": "assets/handwritten/img-0344.webp",
+          "closest": {
+            "image": "handwritten/img-0344.webp",
+            "difference": 0.016129032258064516,
+            "rmse": 0.3630921887069453
+          }
+        },
+        {
+          "file": "IMG_0345.JPG",
+          "sha256": "1a52bed22037ab6416cf22c3c808706b51bce225d29171f9dec8f356a44bced1",
+          "duplicateOf": "assets/handwritten/img-0345.webp",
+          "closest": {
+            "image": "handwritten/img-0345.webp",
+            "difference": 0.018145161290322582,
+            "rmse": 0.3336586953759785
+          }
+        },
+        {
+          "file": "IMG_0346.JPG",
+          "sha256": "f9eda8db808a3b99cbb8bb37cd1ab0134d0e7abf70b6bfc446531ad3d5e32e59",
+          "duplicateOf": "assets/handwritten/img-0346.webp",
+          "closest": {
+            "image": "handwritten/img-0346.webp",
+            "difference": 0.006048387096774193,
+            "rmse": 0.30935921676911454
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_066.zip",
+      "images": [
+        {
+          "file": "IMG_0347.JPG",
+          "sha256": "67a1f64b0db104564c30bf43df5c5b44c40979ccc119c3ab3d712e049bdaf22a",
+          "duplicateOf": "assets/handwritten/img-0347.webp",
+          "closest": {
+            "image": "handwritten/img-0347.webp",
+            "difference": 0.008064516129032258,
+            "rmse": 0.29481191037676885
+          }
+        },
+        {
+          "file": "IMG_0348.JPG",
+          "sha256": "87d67dc56becd026c6a359862b958fd6054dcf8234d70721eb6fef992f96a5b4",
+          "duplicateOf": "assets/handwritten/img-0348.webp",
+          "closest": {
+            "image": "handwritten/img-0348.webp",
+            "difference": 0.012096774193548387,
+            "rmse": 0.31868871959954903
+          }
+        },
+        {
+          "file": "IMG_0349.JPG",
+          "sha256": "dc757af35b32bbdcea3742b41cbcea91cb5cbbd1b25918a31bf3f29653d9dc09",
+          "duplicateOf": "assets/handwritten/note-030.webp",
+          "closest": {
+            "image": "handwritten/note-030.webp",
+            "difference": 0.012096774193548387,
+            "rmse": 0.350780380010057
+          }
+        },
+        {
+          "file": "IMG_0350.JPG",
+          "sha256": "600150a608a9a458a8d3f5e98056133f4d3e3310b6a53500d7a3760ddee916c5",
+          "duplicateOf": "assets/handwritten/img-0350.webp",
+          "closest": {
+            "image": "handwritten/img-0350.webp",
+            "difference": 0.015120967741935484,
+            "rmse": 0.397747564417433
+          }
+        },
+        {
+          "file": "IMG_0351.JPG",
+          "sha256": "e9ef6c7a8c726566a2f7f7736eb007fff23b9046453d01f8554e1983f6620c05",
+          "duplicateOf": "assets/handwritten/img-0351.webp",
+          "closest": {
+            "image": "handwritten/img-0351.webp",
+            "difference": 0.015120967741935484,
+            "rmse": 0.33511891546136274
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_067.zip",
+      "images": [
+        {
+          "file": "IMG_0352.JPG",
+          "sha256": "cdfe92722780b5ee9290b0a0e15b471f24473b0e945a0e2f9c8fe600c7f84c40",
+          "duplicateOf": "assets/handwritten/img-0352.webp",
+          "closest": {
+            "image": "handwritten/img-0352.webp",
+            "difference": 0.015120967741935484,
+            "rmse": 0.34089725358236606
+          }
+        },
+        {
+          "file": "IMG_0353.JPG",
+          "sha256": "720ee306115c2c20703bef50db04207b901528b027dc7a22512f03591a9ea0b6",
+          "duplicateOf": "assets/handwritten/img-0353.webp",
+          "closest": {
+            "image": "handwritten/img-0353.webp",
+            "difference": 0.006048387096774193,
+            "rmse": 0.32775276505317236
+          }
+        },
+        {
+          "file": "IMG_0354.JPG",
+          "sha256": "5d6c7a61a691b5f1895c76a27a61f92efab43d4e44e4c27d48c7e8c9c8992abc",
+          "duplicateOf": "assets/handwritten/img-0354.webp",
+          "closest": {
+            "image": "handwritten/img-0354.webp",
+            "difference": 0.014112903225806451,
+            "rmse": 0.36174490321219455
+          }
+        },
+        {
+          "file": "IMG_0355.JPG",
+          "sha256": "33875aefdb51e6259af50e2533b560d5c773426c8d65cb744c5eee7b0878d474",
+          "duplicateOf": "assets/handwritten/img-0355.webp",
+          "closest": {
+            "image": "handwritten/img-0355.webp",
+            "difference": 0.009072580645161291,
+            "rmse": 0.30935921676911454
+          }
+        },
+        {
+          "file": "IMG_0356.JPG",
+          "sha256": "840300a10d7da8086458cea2d01936429ad63c99937dc49127cb65d8744fa542",
+          "duplicateOf": "assets/handwritten/img-0356.webp",
+          "closest": {
+            "image": "handwritten/img-0356.webp",
+            "difference": 0.012096774193548387,
+            "rmse": 0.33946189035000673
+          }
+        }
+      ]
+    },
+    {
+      "archive": "圖片_068.zip",
+      "images": [
+        {
+          "file": "IMG_0357.JPG",
+          "sha256": "fca2cb07e6d3e9a2dfba427b417ade2db4a54e7ce8b75434d0b75ec3d0f528f4",
+          "duplicateOf": "assets/handwritten/note-034.webp",
+          "closest": {
+            "image": "handwritten/note-034.webp",
+            "difference": 0.008064516129032258,
+            "rmse": 0.33511891546136274
+          }
+        },
+        {
+          "file": "IMG_0358.JPG",
+          "sha256": "b6e491fd1be23ca7edfac4b8d16e1f3f1e3082cd3fa2ec986ab3ebac49623944",
+          "duplicateOf": "assets/handwritten/img-0358.webp",
+          "closest": {
+            "image": "handwritten/img-0358.webp",
+            "difference": 0.009072580645161291,
+            "rmse": 0.3336586953759785
+          }
+        }
+      ]
+    }
+  ],
+  "new": 302,
+  "duplicates": 35,
+  "candidates": []
+}

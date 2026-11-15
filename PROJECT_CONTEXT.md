@@ -306,3 +306,5 @@
 - 新照片存 assets/handwritten/photo-<SHA256前16碼>.webp，長邊上限2600、移除EXIF。handwritten-imports.js獨立保存新增資料、來源批次與穩定ID；保留原 handwritten-data.js及所有既有校訂。新照片僅完成圖檔收錄，正文／紅字／旁註尚未轉錄，明確 status=untranscribed、主題「待轉錄」，不得宣稱文字已辨識或已校對。
 - 頁面合併原有筆記與新增照片，可用「待轉錄」狀態篩選，搜尋包含來源ZIP、原檔名。沿用既有照片放大與按需離線快取，不預載302張大圖。正文補寫後轉為pending，沿用原校訂同步；未變更localStorage結構與Worker。
 - scripts/import-handwritten-archives.py為本機Python/Pillow/numpy匯入工具，預設dry run、--apply才寫入，逐包檢查、保存來源指紋；以原子替換寫入WebP並支持中斷恢復。再執行時保留既有匯入資料。
+
+- 2026-11-15：首頁最新 Podcast 改用人工挑選的 Unsplash 生活閱讀照片（咖啡、書本、花束與點心），data.js 與首頁預設一致。同步只在此照片池輪換，不再從 Picsum 未分類圖庫隨機抽圖；保留真實攝影者與來源連結。

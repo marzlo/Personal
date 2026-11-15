@@ -105,7 +105,7 @@
     panel.querySelector('[data-notes-status]').textContent = text;
   }
   function editing() {
-    return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#newConceptForm,#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleSearchTagForm,#concepts textarea,#concepts input:not([type="hidden"])')].some(form => !form.hidden && form.getClientRects().length);
+    return document.activeElement?.matches('input,textarea,select') || [...document.querySelectorAll('#handwrittenEditor,.note .editor,#newConceptForm,#ideaSettings,#timelineForm,#studyEditor,#studySeriesForm,#studyTermForm,#articleSearchTagForm,#concepts textarea,#concepts input:not([type="hidden"])')].some(form => !form.hidden && form.getClientRects().length);
   }
   async function api(method, body) {
     const response = await fetch(window.SYNC_WORKER_URL.replace(/\/$/, '') + '/api/notes', {

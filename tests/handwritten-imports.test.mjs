@@ -16,7 +16,7 @@ test('archive imports retain source identity, photos and honest transcription st
   assert.match(n.sourceArchive,/\.zip$/);
   assert.ok(n.source.includes(n.sourceArchive));
   assert.ok(fs.statSync(n.image).size>10000);
-  if(!n.body)assert.equal(n.status,'untranscribed');
+  if(!n.body)assert.ok(['untranscribed','needs-photo'].includes(n.status));
  }
  const report=JSON.parse(fs.readFileSync('handwritten-import-report.json','utf8'));
  assert.equal(report.batches.length,68);

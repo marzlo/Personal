@@ -308,3 +308,14 @@
 - scripts/import-handwritten-archives.py為本機Python/Pillow/numpy匯入工具，預設dry run、--apply才寫入，逐包檢查、保存來源指紋；以原子替換寫入WebP並支持中斷恢復。再執行時保留既有匯入資料。
 
 - 2026-11-15：首頁最新 Podcast 改用人工挑選的 Unsplash 生活閱讀照片（咖啡、書本、花束與點心），data.js 與首頁預設一致。同步只在此照片池輪換，不再從 Picsum 未分類圖庫隨機抽圖；保留真實攝影者與來源連結。
+
+## 手寫照片文字辨識草稿（2026-11-15）
+- 使用者要求補做全部302張文字轉錄。Windows繁中OCR測試無文字結果；Paddle原生執行器太慢，最終使用獨立暫存venv內RapidOCR 3.8.0 + ONNX Runtime、PP-OCRv5 mobile detection/server recognition，在本機讀取原ZIP/JPG辨識，不外傳照片。模型放.cache/rapid-models，逐張原始結果含原文、座標、分數及筆色存.cache/handwritten-ocr；所有快取不提交。
+- scripts/transcribe-handwritten.py可按start/stop續跑，已完成者跳過，結果原子寫入。scripts/build-handwritten-transcriptions.py只在302張都有可用辨識、看圖稿或明確無法辨識的記錄時發布；以OpenCC s2t正規化繁體字，低於0.92的行加〔待確認〕，此分數不是實際正確率。不可宣稱機器稿已逐字核對或無漏字。
+- handwritten-transcription-corrections.json保存6張逐張看圖轉錄／修正：GFHJ3964、IMG_0013–0016、IMG_0198。保留正文、旁註、紅字語意與來源頁碼，難字明示；看圖稿仍status=pending，不是已校對。其中295張status=ocr-draft，屬機器辨識草稿。
+- handwritten-imports.js只補寫文字／稿件資訊，不更換id、sourceSha256、原圖或批次身分；原handwritten-data.js與使用者瀏覽器／雲端校訂仍優先。手寫校訂儲存結構與Worker均未變更。
+- 機器稿提供原有筆色的近似顯示與待確認標示；僅辨識到的直書側註、短邊註及頁碼候選分到annotation，紅字問句候選分到question，其餘保留body。分欄與筆色為自動判斷，可能錯誤或漏字，必須對照照片；不是人工完成所有段落重建。
+- ocrLines及ocrOriginalFields僅供原始機器稿顯示。若擁有者更改正文，畫面顯示新正文，不能用舊OCR行覆蓋；文字全部escape、筆色限白名單。表單儲存辨識稿會轉為既有pending狀態，供尚未部署新API的既有同步使用。
+- 頁面新增機器辨識草稿篩選／每篇品質說明。handwritten-transcription-report.json記錄全部302張稿件方法與行數，不將模型分數當成已校對依據。原始照片與待核對文字均保留。
+
+- IMG_0260原照嚴重晃動，僅得到29字的零碎辨識；已看圖確認，相鄰0259／0261是不同頁。不得用零碎模型輸出或相鄰文字猜補。handwritten-transcription-exceptions.json記錄此例外，status=needs-photo、正文保持空白、頁面顯示需補清晰照片；301張有文字草稿，1張需要重拍，不能宣稱302張都已轉錄。

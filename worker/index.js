@@ -90,10 +90,67 @@ async function publicNotesApi(request, env) {
   } catch { return jsonResponse({ error: 'unavailable' }, 503, cors); }
 }
 
+// Each correction and its history occupy separate Durable Object storage keys.
+const HANDWRITTEN_FIELDS = ['title','topic','source','image','body','question','annotation','status'];
+function validHandwritten(data) {
+  return data && typeof data === 'object' && !Array.isArray(data) &&
+    Object.keys(data).every(key => HANDWRITTEN_FIELDS.includes(key)) &&
+    HANDWRITTEN_FIELDS.every(key => typeof data[key] === 'string' && data[key].length <= (['body','question','annotation'].includes(key) ? 16000 : 500)) &&
+    data.title.trim() && data.body.trim() && ['pending','reviewed'].includes(data.status);
+}
+async function handwrittenApi(request, env, id) {
+  const cors = {'Access-Control-Allow-Origin':DASHBOARD_ORIGIN,'Access-Control-Allow-Methods':'GET, PUT, OPTIONS','Access-Control-Allow-Headers':'Authorization, Content-Type','Access-Control-Expose-Headers':'X-Notes-Session',Vary:'Origin'};
+  if (request.headers.get('Origin') && request.headers.get('Origin') !== DASHBOARD_ORIGIN) return jsonResponse({error:'origin'},403);
+  if (request.method === 'OPTIONS') return new Response(null,{status:204,headers:cors});
+  if (!['GET','PUT'].includes(request.method) || (request.method === 'PUT' && !id)) return jsonResponse({error:'method'},405,cors);
+  if (id && !/^[a-z0-9][a-z0-9-]{0,79}$/.test(id)) return jsonResponse({error:'id'},400,cors);
+  const token=(request.headers.get('Authorization')||'').replace(/^Bearer /,'');
+  if (request.method === 'PUT' && !await validNotesSession(token,env.GITHUB_CLIENT_SECRET)) return jsonResponse({error:'unauthorized'},401,cors);
+  if (!env.NOTES_STORE) return jsonResponse({error:'not_configured'},503,cors);
+  try {
+    let body;
+    if(request.method === 'PUT') {
+      if (!request.headers.get('Content-Type')?.startsWith('application/json')) return jsonResponse({error:'content_type'},415,cors);
+      const reader=request.body?.getReader();if(!reader)return jsonResponse({error:'body'},400,cors);
+      let bytes=0;const chunks=[];
+      while(true){const {done,value}=await reader.read();if(done)break;bytes+=value.byteLength;if(bytes>120000){await reader.cancel();return jsonResponse({error:'too_large'},413,cors)}chunks.push(value)}
+      const all=new Uint8Array(bytes);let offset=0;for(const chunk of chunks){all.set(chunk,offset);offset+=chunk.length}
+      try{body=JSON.parse(new TextDecoder().decode(all))}catch{return jsonResponse({error:'invalid_json'},400,cors)}
+      if(!Number.isSafeInteger(body.revision)||body.revision<0||!validHandwritten(body.data))return jsonResponse({error:'invalid_data'},400,cors);
+    }
+    const store=env.NOTES_STORE.get(env.NOTES_STORE.idFromName(ALLOWED_GITHUB_LOGIN+':handwritten'));
+    const result=await store.fetch(new Request('https://notes.internal/'+(id||''),{method:request.method,headers:{'X-Document-Type':'handwritten'},...(body?{body:JSON.stringify(body)}:{})}));
+    const renewal=request.method==='PUT'?{'X-Notes-Session':await createNotesSession(env.GITHUB_CLIENT_SECRET)}:{};
+    return new Response(result.body,{status:result.status,headers:{...cors,'Content-Type':'application/json','Cache-Control':'no-store',...renewal}});
+  }catch{return jsonResponse({error:'unavailable'},503,cors)}
+}
+async function handwrittenStore(request, storage) {
+  const id=new URL(request.url).pathname.slice(1);
+  if(!id){if(request.method!=='GET')return jsonResponse({error:'method'},405);return jsonResponse({version:1,items:await storage.get('handwritten-index')||{}})}
+  if(!/^[a-z0-9][a-z0-9-]{0,79}$/.test(id))return jsonResponse({error:'id'},400);
+  const key='handwritten:'+id;
+  if(request.method==='GET')return jsonResponse(await storage.get(key)||{revision:0,data:null});
+  if(request.method!=='PUT')return jsonResponse({error:'method'},405);
+  const incoming=await request.json();
+  if(!Number.isSafeInteger(incoming.revision)||incoming.revision<0||!validHandwritten(incoming.data))return jsonResponse({error:'invalid_data'},400);
+  return storage.transaction(async txn=>{
+    const current=await txn.get(key)||{revision:0,data:null};
+    if(incoming.revision!==current.revision)return jsonResponse(current,409);
+    const index=await txn.get('handwritten-index')||{};
+    if(!index[id]&&Object.keys(index).length>=1000)return jsonResponse({error:'collection_full'},413);
+    if(current.data)await txn.put(key+':backup:'+current.revision,current);
+    const next={revision:current.revision+1,updatedAt:new Date().toISOString(),data:incoming.data};
+    await txn.put(key,next);index[id]={revision:next.revision,updatedAt:next.updatedAt};await txn.put('handwritten-index',index);
+    if(current.revision>20)await txn.delete(key+':backup:'+(current.revision-20));
+    return jsonResponse(next);
+  });
+}
+
 // Atomic revision checks prevent two devices from silently overwriting each other.
 export class NotesStore {
   constructor(ctx) { this.storage = ctx.storage; }
   async fetch(request) {
+    if(request.headers.get('X-Document-Type')==='handwritten')return handwrittenStore(request,this.storage);
     if (request.method === 'GET') return jsonResponse(await this.storage.get('current') || { revision: 0, data: null });
     if (request.method !== 'PUT') return jsonResponse({ error: 'method' }, 405);
     const incoming = await request.json();
@@ -173,6 +230,7 @@ function dashboardResult(result, stage = "") {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if(url.pathname === "/api/handwritten" || url.pathname.startsWith("/api/handwritten/")) return handwrittenApi(request,env,url.pathname === "/api/handwritten" ? "" : url.pathname.slice("/api/handwritten/".length));
     if (url.pathname === "/api/sync-status") return syncStatus(request, env);
     if (url.pathname === "/api/public-notes") return publicNotesApi(request, env);
     if (url.pathname === "/api/notes") return notesApi(request, env);

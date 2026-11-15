@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>手寫拾記｜拾頁</title><meta name="description" content="拾頁的手寫閱讀筆記，依主題整理字句與思考。"><link rel="icon" href="icons/home/favicon-v2.png"></head><body>
+<main id="shiye-preview">
+<style>
+body{margin:0;background:#f5f5ef}a{color:inherit;text-underline-offset:4px}[hidden]{display:none!important}#shiye-preview{max-width:1100px;margin:auto;min-height:100vh;background:#f5f5ef;color:#293f35;font-family:"Noto Serif TC","Songti TC",serif;padding:28px;border-radius:18px}#shiye-preview *{box-sizing:border-box}#shiye-preview header{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-bottom:1px solid #dce1d6;padding-bottom:24px}#shiye-preview nav{display:flex;gap:18px;flex-wrap:wrap;font-family:sans-serif;font-size:13px}#shiye-preview .brand{font-size:24px;font-weight:600}#shiye-preview .hero{padding:44px 0 30px}#shiye-preview .eyebrow{font-family:sans-serif;font-size:12px;letter-spacing:3px;color:#657761}#shiye-preview h1{font-size:36px;margin:12px 0}#shiye-preview p{line-height:1.9;margin:8px 0;color:#566452}#shiye-preview .tools{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 28px}#shiye-preview input,#shiye-preview select{font:inherit;border:1px solid #cbd4c5;border-radius:9px;padding:12px;background:#fffef9;color:#293f35;max-width:100%}#shiye-preview input{flex:1;min-width:180px}#shiye-preview .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}#shiye-preview article{background:#fffef9;border:1px solid #e0e5d9;border-radius:14px;padding:25px}#shiye-preview .tag{font-family:sans-serif;font-size:12px;color:#62745b}#shiye-preview h2{font-size:21px;line-height:1.6;margin:16px 0 10px}#shiye-preview summary{color:#365c49;padding:12px 0;cursor:pointer}#shiye-preview .excerpt{border-top:1px solid #e0e5d9;margin-top:8px;padding-top:12px}#shiye-preview footer{font-family:sans-serif;font-size:12px;color:#6c7767;margin-top:28px}#shiye-preview .empty{display:none}@media(max-width:560px){#shiye-preview{padding:20px}#shiye-preview .grid{grid-template-columns:1fr}#shiye-preview h1{font-size:30px}}
+</style>
+<header><div class="brand">📖 拾頁</div><nav aria-label="導覽"><a href="./">← 回到拾頁</a><a href="./podcast.html">Podcast 聽讀筆記 ↗</a><a href="./guitar-practice/">吉他練習・指間 ↗</a><strong>手寫拾記</strong></nav></header>
+<section class="hero"><div class="eyebrow">留下字句，也留下思考</div><h1>手寫拾記</h1><p>從紙上的一筆一畫，慢慢拾起閱讀與覺察的片段。</p></section>
+<div class="tools"><input type="search" aria-label="搜尋筆記" placeholder="搜尋標題、內容或關鍵字…"><select aria-label="主題"><option>全部主題</option><option>新地球意識／身心轉化</option></select></div>
+<div class="grid">
+<article data-search="人際關係 習氣 身心轉化 新地球意識"><div class="tag">新地球意識／身心轉化 · 暫定分類</div><h2>習氣轉變與人際關係</h2><p>從舊有認知的鬆動，談身邊關係的改變。</p><details><summary>閱讀摘錄</summary><div class="excerpt"><p>「還原真實的靈魂本質和意圖。」</p><p>此處示範正文閱讀區；完整轉錄與紅字旁註待校對，原始照片將於整理完成後提供對照。</p></div></details></article>
+<article data-search="金元素 金屬 光 身體結晶 身心轉化 新地球意識"><div class="tag">新地球意識／身心轉化 · 暫定分類</div><h2>金元素融入新地球意識</h2><p>關於光、金屬粒子與新的身體結晶的閱讀筆記。</p><details><summary>閱讀摘錄</summary><div class="excerpt"><p>「你過去認為金元素是一種金屬物質狀態……」</p><p>此處示範正文閱讀區；完整轉錄與紅字旁註待校對，原始照片將於整理完成後提供對照。</p></div></details></article>
+</div><p class="empty" aria-live="polite">找不到符合的筆記。</p><footer>版面草稿 · 依目前兩張照片示意，標題與摘要為編輯擬定，尚未完成全文校對。</footer>
+</main>
+<script>
+(()=>{const root=document.getElementById('shiye-preview');const input=root.querySelector('input');const select=root.querySelector('select');function filter(){let count=0;root.querySelectorAll('article').forEach(a=>{const show=(a.textContent+a.dataset.search).includes(input.value.trim());a.hidden=!show;if(show)count++;});root.querySelector('.empty').style.display=count?'none':'block';}input.addEventListener('input',filter);select.addEventListener('change',filter);})();
+</script>
+
+<script defer src="./offline.js" data-personal-offline></script></body></html>

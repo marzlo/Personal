@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';import path from 'node:path';import {createHas
 const root=fileURLToPath(new URL('../',import.meta.url)),files=new Set();
 async function walk(dir){for(const entry of await fs.readdir(path.join(root,dir),{withFileTypes:true})){const name=path.posix.join(dir,entry.name);if(entry.isDirectory())await walk(name);else if(/\.(?:png|webp|jpg|jpeg|pdf|frag|txt)$/i.test(name))files.add(name)}}
 for(const name of await fs.readdir(root))if(/\.(?:js|css)$/.test(name)&&!['service-worker.js','offline-assets.js'].includes(name))files.add(name);
-for(const name of ['index.html','podcast.html','indicator.html','atom-preview.html','offline.html','manifest.webmanifest','scripts/quote-search.mjs','scripts/quote-cards.mjs','scripts/ambience-scenes.mjs'])files.add(name);
+for(const name of ['handwritten.html','index.html','podcast.html','indicator.html','atom-preview.html','offline.html','manifest.webmanifest','scripts/quote-search.mjs','scripts/quote-cards.mjs','scripts/ambience-scenes.mjs'])files.add(name);
 for(const name of await fs.readdir(path.join(root,'guitar-practice')))if(/\.(?:html|js|mjs|css)$/.test(name)&&name!=='navigation.html')files.add('guitar-practice/'+name);
 for(const dir of ['icons','assets','guitar-practice/icons','guitar-practice/assets'])await walk(dir);
 const hash=createHash('sha256'),assets=[...files].sort();let bytes=0;for(const name of assets){const data=await fs.readFile(path.join(root,name));if(name.endsWith('.css')&&/<!doctype|<html/i.test(data.toString()))throw Error('HTML found in stylesheet: '+name);hash.update(name).update(data);bytes+=data.length}hash.update(await fs.readFile(path.join(root,'service-worker.js')));

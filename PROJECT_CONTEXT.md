@@ -262,3 +262,8 @@
 - 山頭 Utopia.pdf已納入吉他歌單與離線白名單：14頁原譜與譜圖、15段練習分段，通用譜頁預覽不再只支援Letting Go。新版離線資源117個、約7.8MB，部署後需從左下提示套用新版。
 
 - 2026-11-06 使用者提供同步發布失敗紀錄：Pillow wheel build failed。pages.yml與sync-notion.yml原先都使用runner預設Python安裝Pillow10.4，存在新版Python無對應wheel而退回原始碼編譯風險；兩者加入setup-python@v5固定3.12，pip加--only-binary=:all:避免隱式原始碼建置。乾淨Python3.12 venv實測下載cp312 manylinux wheel安裝成功，share-previews與兩個share-photo-images測試通過。僅收到錯誤尾段，未宣稱已確認正式runner具體Python版本；推送觸發Pages發布，正式Actions狀態仍因API Forbidden無法由此驗證。
+
+
+## 手寫拾記（2026-11-15）
+- 新增 handwritten.html 公開版面試作，首頁品牌導覽與文章區增加入口。依目前收到兩張原始照片呈現兩篇暫擬標題、摘要與少量摘錄，明確標示全文未校對；不可誤稱已完成十張轉錄。搜尋與主題選單供後續擴充，現僅一個暫定主題。
+- 使用者計畫後續提供336張照片，按篇章接續與多主題整理，可分批PDF。正式轉錄須保留紅色提問、旁註與來源頁碼，疑字待確認。新頁納入離線資源清單，不修改既有儲存結構。

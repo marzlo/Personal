@@ -4,7 +4,7 @@
  const $=id=>document.getElementById(id),owner=()=>!document.body.classList.contains('notes-visitor');
  const escape=text=>String(text??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  function imageUrl(value){try{const u=new URL(value,location.href);return value&&(u.protocol==='https:'||(u.origin===location.origin&&u.protocol==='http:'))?u.href:''}catch{return ''}}
- function noteData(base){const saved=tags.__handwrittenNotes?.[base.id];return {...base,...(saved&&typeof saved==='object'?Object.fromEntries(Object.entries(saved).filter(([k,v])=>['title','topic','source','image','body','question','annotation','status'].includes(k)&&typeof v==='string')):{})}}
+ function noteData(base){const saved=tags.__handwrittenNotes?.[base.id];const result={...base,...(saved&&typeof saved==='object'?Object.fromEntries(Object.entries(saved).filter(([k,v])=>['title','topic','source','image','body','question','annotation','status'].includes(k)&&typeof v==='string')):{})};if(!result.image)result.image=base.image;return result}
  function render(){
   const notes=defaults.map(noteData),query=$('noteSearch').value.trim().toLocaleLowerCase(),topic=$('noteTopic').value,state=$('noteState').value;
   const topics=[...new Set(notes.map(n=>n.topic))];$('noteTopic').replaceChildren(new Option('全部主題',''),...topics.map(t=>new Option(t,t)));$('noteTopic').value=topics.includes(topic)?topic:'';

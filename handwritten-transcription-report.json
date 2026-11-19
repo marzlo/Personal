@@ -1,6 +1,6 @@
 {
-  "total": 302,
-  "visualDrafts": 6,
+  "total": 307,
+  "visualDrafts": 11,
   "machineDrafts": 295,
   "needsPhoto": [
     {
@@ -2110,6 +2110,31 @@
       "method": "local-ocr",
       "lines": 19,
       "linesToCheck": 16
+    },
+    {
+      "id": "photo-f5aa2f89745cdd0f",
+      "file": "S__1114115_0.jpg",
+      "method": "visual"
+    },
+    {
+      "id": "photo-c74fef6ac214f2b5",
+      "file": "S__1114116_0.jpg",
+      "method": "visual"
+    },
+    {
+      "id": "photo-d1a564b5e6216f10",
+      "file": "S__1114117_0.jpg",
+      "method": "visual"
+    },
+    {
+      "id": "photo-e3d97184c7151ecc",
+      "file": "S__1114118_0.jpg",
+      "method": "visual"
+    },
+    {
+      "id": "photo-f58714cebf96b833",
+      "file": "S__1114119_0.jpg",
+      "method": "visual"
     }
   ]
 }

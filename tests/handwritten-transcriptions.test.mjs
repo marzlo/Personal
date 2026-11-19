@@ -6,11 +6,11 @@ import vm from 'node:vm';
 test('all imported photos have real transcription drafts with their original identity intact',()=>{
  const context={window:{}};
  vm.runInNewContext(fs.readFileSync('handwritten-imports.js','utf8'),context);
- const notes=context.window.HANDWRITTEN_IMPORTS.filter(n=>n.sourceArchive!=='S__1114118_0.zip');
+ const notes=context.window.HANDWRITTEN_IMPORTS;
  const report=JSON.parse(fs.readFileSync('handwritten-transcription-report.json','utf8'));
- assert.equal(notes.length,302);
+ assert.equal(notes.length,307);
  assert.equal(report.missing.length,0);
- assert.equal(report.visualDrafts+report.machineDrafts+report.needsPhoto.length,302);
+ assert.equal(report.visualDrafts+report.machineDrafts+report.needsPhoto.length,307);
  for(const note of notes){
   assert.equal(note.id,'photo-'+note.sourceSha256.slice(0,16));
   if(note.status==='needs-photo'){assert.equal(note.number,'IMG_0260');assert.equal(note.body,'');assert.ok(note.transcriptionIssue.includes('晃動'));continue}

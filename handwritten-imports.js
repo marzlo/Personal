@@ -37842,5 +37842,75 @@ window.HANDWRITTEN_IMPORTS = [
       "question": "",
       "annotation": "宇窗生〔待確認〕\n命\n的\n合〔待確認〕\n阿乙莎重訊P.266〔待確認〕"
     }
+  },
+  {
+    "id": "photo-f5aa2f89745cdd0f",
+    "number": "S__1114115_0",
+    "title": "手寫筆記 · S__1114115_0",
+    "topic": "待轉錄",
+    "source": "S__1114118_0.zip／S__1114115_0.jpg",
+    "image": "assets/handwritten/photo-f5aa2f89745cdd0f.jpg",
+    "body": "",
+    "question": "",
+    "annotation": "",
+    "status": "untranscribed",
+    "sourceSha256": "f5aa2f89745cdd0f37bb3c5c97fab84bbf7789352b7010c1933ca5fb9832a390",
+    "sourceArchive": "S__1114118_0.zip"
+  },
+  {
+    "id": "photo-c74fef6ac214f2b5",
+    "number": "S__1114116_0",
+    "title": "手寫筆記 · S__1114116_0",
+    "topic": "待轉錄",
+    "source": "S__1114118_0.zip／S__1114116_0.jpg",
+    "image": "assets/handwritten/photo-c74fef6ac214f2b5.jpg",
+    "body": "",
+    "question": "",
+    "annotation": "",
+    "status": "untranscribed",
+    "sourceSha256": "c74fef6ac214f2b5b0cd251409f3894ed8d2bfbc9c891b056e8e136f5f72ea55",
+    "sourceArchive": "S__1114118_0.zip"
+  },
+  {
+    "id": "photo-d1a564b5e6216f10",
+    "number": "S__1114117_0",
+    "title": "手寫筆記 · S__1114117_0",
+    "topic": "待轉錄",
+    "source": "S__1114118_0.zip／S__1114117_0.jpg",
+    "image": "assets/handwritten/photo-d1a564b5e6216f10.jpg",
+    "body": "",
+    "question": "",
+    "annotation": "",
+    "status": "untranscribed",
+    "sourceSha256": "d1a564b5e6216f105e6b497c49da048c57820dd90b527a4b1618fe0356c8a085",
+    "sourceArchive": "S__1114118_0.zip"
+  },
+  {
+    "id": "photo-e3d97184c7151ecc",
+    "number": "S__1114118_0",
+    "title": "手寫筆記 · S__1114118_0",
+    "topic": "待轉錄",
+    "source": "S__1114118_0.zip／S__1114118_0.jpg",
+    "image": "assets/handwritten/photo-e3d97184c7151ecc.jpg",
+    "body": "",
+    "question": "",
+    "annotation": "",
+    "status": "untranscribed",
+    "sourceSha256": "e3d97184c7151ecc16bab7c049ca951252c4c89432d1a55d09b25d8f69efc130",
+    "sourceArchive": "S__1114118_0.zip"
+  },
+  {
+    "id": "photo-f58714cebf96b833",
+    "number": "S__1114119_0",
+    "title": "手寫筆記 · S__1114119_0",
+    "topic": "待轉錄",
+    "source": "S__1114118_0.zip／S__1114119_0.jpg",
+    "image": "assets/handwritten/photo-f58714cebf96b833.jpg",
+    "body": "",
+    "question": "",
+    "annotation": "",
+    "status": "untranscribed",
+    "sourceSha256": "f58714cebf96b833682bce9316fb16f41f69b9bfb3f998262b672305c6710dcb",
+    "sourceArchive": "S__1114118_0.zip"
   }
 ];

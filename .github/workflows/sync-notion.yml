@@ -36,33 +36,30 @@ jobs:
           key: notion-pages-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: notion-pages-v1-
 
-      - name: Fetch the latest Notion snapshot
-        run: node scripts/sync-notion.mjs
+      - name: Refresh the Notion snapshot and save it to main
         env:
           NOTION_CACHE_PATH: ${{ runner.temp }}/notion-sync-cache/data.json
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-
-      - name: Save refreshed snapshot to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.js quote-bodies.js article-bodies.js
-          if git diff --cached --quiet; then
-            echo "No snapshot changes to commit."
-          else
-            git commit -m "Sync Notion dashboard data"
-            # Notion fetching can take minutes; main may have changed meanwhile.
-            for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase origin/main
-              if git push origin HEAD:main; then
-                break
-              fi
-              if [ "$attempt" -eq 3 ]; then
-                exit 1
-              fi
-            done
-          fi
+          # Regenerate the snapshot from the latest main on each attempt.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git checkout --detach FETCH_HEAD
+            node scripts/sync-notion.mjs
+            git add data.js quote-bodies.js article-bodies.js
+            if git diff --cached --quiet; then
+              echo "No snapshot changes to commit."
+            else
+              git commit -m "Sync Notion dashboard data"
+            fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Snapshot push failed on attempt $attempt of 3."
+          done
+          exit 1
 
       # Pillow 10.4 provides wheels for Python 3.12; avoid runner-default drift.
       - name: Set up Python for article thumbnails

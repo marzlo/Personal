@@ -10,7 +10,7 @@ function fixture(statuses) {
       calls.push({route,args});
       if(route.endsWith('/cancel'))return {};
       return route.startsWith('POST')?{data:{id:'deployment',page_url:'https://example.com'}}:{data:{status:statuses.shift()||'queued'}};
-    }};
+    }}};
 }
 test('deploys the supplied upload ID without listing artifacts, waits for success',async()=>{
   const f=fixture(['queued','building','succeed']);await deploy(f);

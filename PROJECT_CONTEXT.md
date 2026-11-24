@@ -327,3 +327,4 @@
 - 同日補齊上述五張的目視轉錄：正文、筆色旁註、來源與手寫編號分開保留；不確定字詞及斷頁標記待確認，全數改為待校對，原圖與穩定id不變。轉錄修正表及報告同步更新。
 
 - 2026-11-24：Notion同步執行45290408633與45293466160均已成功上傳github-pages artifact，但deploy-pages@v4內部ListArtifacts回傳0，REST查詢卻確認檔案存在；不能斷言只是一次性的延遲。兩條Pages流程改用本機composite action，直接使用upload-pages-artifact的artifact_id，透過與官方相同的Pages部署API及OIDC建立部署，輪詢至成功／明確失敗，10分鐘超時取消；不新增權限或變更資料同步。單元測試涵蓋ID傳遞、不列檔案、失敗與超時；正式執行結果另核對。
+- 實際驗證：修正後首次建立Pages部署成功但後端回傳deployment_failed且未提供原因；同一工作45297216694第2次重試於台灣時間2026-11-24 08:36成功，狀態依序deployment_in_progress、syncing_files、succeed。確認Notion快照與原圖均保留，勿將整起原因斷言為單一延遲；每日同步與一般發布共用直接artifact ID部署修正。

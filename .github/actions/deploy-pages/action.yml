@@ -1,0 +1,22 @@
+name: Deploy uploaded Pages artifact
+description: Deploy the exact artifact ID returned by upload-pages-artifact.
+inputs:
+  artifact-id:
+    description: Uploaded Pages artifact ID
+    required: true
+outputs:
+  page_url:
+    description: Published website URL
+    value: ${{ steps.deploy.outputs.page_url }}
+runs:
+  using: composite
+  steps:
+    - uses: actions/github-script@v7
+      id: deploy
+      env:
+        PAGES_ARTIFACT_ID: ${{ inputs.artifact-id }}
+      with:
+        script: |
+          await require(`${process.env.GITHUB_WORKSPACE}/scripts/deploy-pages.cjs`)({
+            github, core, context, artifactId: process.env.PAGES_ARTIFACT_ID
+          });

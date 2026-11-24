@@ -82,9 +82,12 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload site
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - name: Deploy site
-        uses: actions/deploy-pages@v4
+        uses: ./.github/actions/deploy-pages
+        with:
+          artifact-id: ${{ steps.upload.outputs.artifact_id }}
